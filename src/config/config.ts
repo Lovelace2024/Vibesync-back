@@ -6,7 +6,7 @@ type TConfig = {
 
 type EnvironmentConfig = {
     app: AppConfig;
-    db: DBConfig;
+    // db: DBConfig;
 }
 
 type AppConfig = {
@@ -33,18 +33,15 @@ const CONFIG: TConfig = {
     development: {
         app: {
             PORT: PORT || 4002
-        },
-        db: {
-            URI: MONGODB_URI || "mongodb://127.0.0.1:27017/vibesync"
         }
     },
     production: {
         app: {
             PORT: PORT || 8082
-        },
-        db: {
-            URI: MONGODB_URI || "mongodb://127.0.0.1:27017/vibesync"
         }
+        // db: {
+        //     URI: MONGODB_URI || "mongodb://127.0.0.1:27017/vibesync"
+        // }
     }
 }
 
