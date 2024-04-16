@@ -2,11 +2,12 @@
   "name": "moviehub-fullstack",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
+    "dev": "NODE_ENV=development nodemon src/index.ts",
     "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --detectOpenHandles",
-    "dev" :"nodemon --watch src/**/*.ts --exec npx ts-node src/index.ts"
+    "generate-mongo": "pnpx prisma generate --schema=./prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
