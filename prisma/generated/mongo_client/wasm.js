@@ -115,6 +115,52 @@ Prisma.NullTypes = {
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  password: 'password',
+  name: 'name',
+  gender: 'gender',
+  birthDate: 'birthDate',
+  country: 'country'
+};
+
+exports.Prisma.TracksScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  artistId: 'artistId',
+  url: 'url',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  albumId: 'albumId',
+  userId: 'userId'
+};
+
+exports.Prisma.AlbumsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  artistId: 'artistId',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  userId: 'userId'
+};
+
+exports.Prisma.PlaylistsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  thumbnail: 'thumbnail',
+  trackId: 'trackId',
+  genreId: 'genreId',
+  userId: 'userId'
+};
+
+exports.Prisma.ArtistsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  userId: 'userId'
+};
+
+exports.Prisma.GenreScalarFieldEnum = {
+  id: 'id',
   name: 'name'
 };
 
@@ -130,7 +176,12 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Tracks: 'Tracks',
+  Albums: 'Albums',
+  Playlists: 'Playlists',
+  Artists: 'Artists',
+  Genre: 'Genre'
 };
 
 /**

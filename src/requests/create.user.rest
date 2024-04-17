@@ -1,0 +1,11 @@
+POST http://localhost:4001/api/users
+Content-Type: application/json
+
+{
+            "id":"1",
+            "email": "user@example.com",
+            "password": "123456K*",
+            "name": "manuel",
+            "movies":[],
+            "series":[]
+}
