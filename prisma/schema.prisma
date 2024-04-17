@@ -6,8 +6,8 @@
 
 generator client {
   provider = "prisma-client-js"
-  // previewFeatures = []
-  // output          = "./generated/mongo_client"
+  previewFeatures = []
+  output          = "./generated/mongo_client"
 }
 
 datasource db {
@@ -20,6 +20,7 @@ model User {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
   email           String   @unique
   name            String
+  password        String
   gender          String
   birthDate       DateTime
   country         String
