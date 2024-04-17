@@ -1534,7 +1534,7 @@ export namespace Prisma {
     password: string | null
     name: string | null
     gender: string | null
-    birthDate: Date | null
+    birthDate: string | null
     country: string | null
   }
 
@@ -1544,7 +1544,7 @@ export namespace Prisma {
     password: string | null
     name: string | null
     gender: string | null
-    birthDate: Date | null
+    birthDate: string | null
     country: string | null
   }
 
@@ -1669,7 +1669,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date
+    birthDate: string
     country: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -1738,7 +1738,7 @@ export namespace Prisma {
       password: string
       name: string
       gender: string
-      birthDate: Date
+      birthDate: string
       country: string
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2173,7 +2173,7 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly gender: FieldRef<"User", 'String'>
-    readonly birthDate: FieldRef<"User", 'DateTime'>
+    readonly birthDate: FieldRef<"User", 'String'>
     readonly country: FieldRef<"User", 'String'>
   }
     
@@ -7848,20 +7848,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -7887,7 +7873,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     gender?: StringFilter<"User"> | string
-    birthDate?: DateTimeFilter<"User"> | Date | string
+    birthDate?: StringFilter<"User"> | string
     country?: StringFilter<"User"> | string
     favs?: TracksListRelationFilter
     likedAlbums?: AlbumsListRelationFilter
@@ -7918,7 +7904,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     gender?: StringFilter<"User"> | string
-    birthDate?: DateTimeFilter<"User"> | Date | string
+    birthDate?: StringFilter<"User"> | string
     country?: StringFilter<"User"> | string
     favs?: TracksListRelationFilter
     likedAlbums?: AlbumsListRelationFilter
@@ -7948,7 +7934,7 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     gender?: StringWithAggregatesFilter<"User"> | string
-    birthDate?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    birthDate?: StringWithAggregatesFilter<"User"> | string
     country?: StringWithAggregatesFilter<"User"> | string
   }
 
@@ -8288,7 +8274,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
@@ -8302,7 +8288,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
@@ -8315,7 +8301,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
@@ -8328,7 +8314,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
@@ -8342,7 +8328,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
   }
 
@@ -8351,7 +8337,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
   }
 
@@ -8360,7 +8346,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
   }
 
@@ -8673,17 +8659,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type TracksListRelationFilter = {
     every?: TracksWhereInput
     some?: TracksWhereInput
@@ -8770,20 +8745,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableListFilter<$PrismaModel = never> = {
@@ -8993,10 +8954,6 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type TracksUpdateManyWithoutFollowersNestedInput = {
@@ -9674,17 +9631,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -9711,20 +9657,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type TracksCreateWithoutFollowersInput = {
@@ -10048,7 +9980,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
     likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
@@ -10061,7 +9993,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
     likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
@@ -10184,7 +10116,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
     likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
@@ -10196,7 +10128,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
     likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
@@ -10284,7 +10216,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksCreateNestedManyWithoutFollowersInput
     likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
@@ -10297,7 +10229,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
     likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
@@ -10393,7 +10325,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUpdateManyWithoutFollowersNestedInput
     likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
@@ -10405,7 +10337,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
     likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
@@ -10466,7 +10398,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
@@ -10479,7 +10411,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
@@ -10563,7 +10495,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
@@ -10575,7 +10507,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
@@ -10667,7 +10599,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
@@ -10680,7 +10612,7 @@ export namespace Prisma {
     password: string
     name: string
     gender: string
-    birthDate: Date | string
+    birthDate: string
     country: string
     favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
     likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
@@ -10765,7 +10697,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
@@ -10777,7 +10709,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthDate?: StringFieldUpdateOperationsInput | string
     country?: StringFieldUpdateOperationsInput | string
     favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
     likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput

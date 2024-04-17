@@ -1,11 +1,11 @@
-POST http://localhost:4001/api/users
+POST http://localhost:3333/api/users
 Content-Type: application/json
 
 {
-            "id":"1",
-            "email": "user@example.com",
-            "password": "123456K*",
-            "name": "manuel",
-            "movies":[],
-            "series":[]
+    "email": "user@example.com",
+    "password": "123456K*",
+    "name": "manuel",
+    "gender":"male",
+    "birthDate":"2003-05-29",
+    "country":"Spain"
 }

@@ -21,7 +21,7 @@ model User {
   password        String
   name            String
   gender          String
-  birthDate       DateTime
+  birthDate       String
   country         String
   favs            Tracks[]
   likedAlbums     Albums[]

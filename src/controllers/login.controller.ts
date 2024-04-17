@@ -33,3 +33,5 @@ async function loginUser(req: Request, res: Response) {
         id: user.id,
     })
 }
+
+export { loginUser }

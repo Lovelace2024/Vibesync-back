@@ -4,7 +4,8 @@ import { Request, Response } from 'express'
 
 async function createUser(req: Request, res: Response) {
     const { body } = req
-    const { email, name, password } = body
+    console.log('body', body)
+    const { email, name, password, gender, birthDate, country } = body
     try {
 
         const saltRounds = 10
@@ -13,10 +14,16 @@ async function createUser(req: Request, res: Response) {
             data: {
                 email,
                 name,
-                password: passwordHash
+                password: passwordHash,
+                gender,
+                birthDate,
+                country
             }
         })
+        return res.send(newUser)
     } catch (error) {
         console.error(error)
     }
 }
+
+export { createUser }
