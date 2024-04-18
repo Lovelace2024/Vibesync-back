@@ -14,7 +14,11 @@ export const addGenre = async (req:Request, res:Response) => {
 }
 
 export const getAllGenres = async (req:Request, res:Response) => {
-    try { const allGenres = await prisma.genre.findMany()
+    try { const allGenres = await prisma.genre.findMany({
+        include:{
+            tracks:true
+        }
+    })
         if (!allGenres) {
             res.status(404).send({ message: "Genres not found" });
             }
@@ -43,7 +47,7 @@ export const updateGenre = async (req:Request, res:Response) => {
             }
         });
 
-        return res.status(200).send(updatedGenre);
+       res.status(200).send(updatedGenre);
     } catch (error) {
         console.error('Error editing genre:', error);
         res.status(500).json({ message: 'Internal server error' });

@@ -9,6 +9,7 @@ import loginRoutes from './routes/login.routes.ts'
 import genreRoutes from './routes/genre.routes.ts'
 import tracksRoutes from './routes/tracks.routes.ts'
 import artistsRoutes from './routes/artists.routes.ts'
+import albumsRoutes from './routes/albums.routes.ts'
 
 const app: Express = express()
 
@@ -30,5 +31,6 @@ app.use("/api", tracksRoutes)
 app.use("/api", genreRoutes)
 app.use("/api", artistsRoutes)
 app.use("/api", tracksRoutes)
+app.use("/api", albumsRoutes)
 
 export default app

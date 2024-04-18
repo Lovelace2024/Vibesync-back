@@ -4,7 +4,11 @@ import prisma from "../db/client"
 export const addArtist = async (req:Request, res:Response) =>{
     const { name, thumbnail, genreId } = req.body
 
-    try { const newArtist = await prisma.artists.create({ 
+    try { 
+        const newArtist = await prisma.artists.create({ 
+            include:{
+                tracks:true
+            },
         data:{ name, thumbnail, genreId}})
         res.status(201).send(newArtist)
         
@@ -33,7 +37,11 @@ export const getArtist = async (req:Request, res:Response) =>{
 }
 
 export const getAllArtists = async (req:Request, res:Response) =>{
-    try { const allArtists = await prisma.artists.findMany()
+    try { const allArtists = await prisma.artists.findMany({
+        include:{
+            tracks:true
+        }
+    })
         if (!allArtists) {
             res.status(404).json({message: "No artists have been found"})
         }
