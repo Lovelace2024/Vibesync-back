@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import prisma from "src/db/client.ts"
+import prisma from "../db/client.ts"
 
 export const getAccounts = async (req:Request, res:Response) => {
     try { const accounts = await prisma.user.findMany()

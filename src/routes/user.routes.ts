@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { createAccount, getAccounts } from "src/controllers/user.controller.ts"
+import { createAccount, getAccounts } from "../controllers/user.controller.ts"
 
 
 const userRoutes = Router ()
