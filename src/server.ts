@@ -6,6 +6,8 @@ import errorHandler from './middlewares/error.middleware.ts'
 import cors from 'cors'
 import userRoutes from './routes/user.routes.ts'
 import loginRoutes from './routes/login.routes.ts'
+import genreRoutes from './routes/genre.routes.ts'
+import tracksRoutes from './routes/tracks.routes.ts'
 
 const app: Express = express()
 
@@ -21,7 +23,9 @@ app.use(cors({
     origin: "http://localhost:5173"
 }))
 
-app.use("/api", userRoutes)
+//app.use("/api", userRoutes)
 app.use("/api", loginRoutes)
+app.use("/api", tracksRoutes)
+app.use("/api", genreRoutes)
 
 export default app
