@@ -1,37 +1,37 @@
-import prisma from "../db/client.ts"
-import bcrypt from 'bcrypt'
+import jwt from "jsonwebtoken" // Generates and verifies JSON Web Tokens
+import bcrypt from 'bcrypt' // Encrypts passwords
 import { Request, Response } from 'express'
+import prisma from "../db/client.ts"
 
 async function loginUser(req: Request, res: Response) {
-    const { body } = req
-    const { username: email, password } = body
-    if (!email || !password) {
-        console.error('invalid user or password')
-        return
-    }
+    const { username, password } = req.body
+    
     const user = await prisma.user.findUnique({
         where: {
-            email: email
+            email: username
         }
-    })
-
-    const passwordCorrect =
-        user === null
-            ? false
-            : await bcrypt.compare(password, user.password)
+    });
+    
+    const passwordCorrect = user === null
+        ? false
+        : await bcrypt.compare(password, user.password)
 
     if (!(user && passwordCorrect)) {
-        res.status(401).json({
-            error: 'invalid user or password'
+        return res.status(400).json({ error: 'Invalid username or password' })
+}
 
-        })
-        return
-    }
-    res.send({
-        name: user.name,
-        email: user.email,
-        id: user.id,
-    })
+const userForToken = {
+    username: user.name,
+    id: user.id,
+}
+
+const token = jwt.sign(
+    userForToken,
+    process.env.SECRET!,
+    { expiresIn: 60 * 60 * 24 }
+)
+
+res.status(200).send({ token, username: user.name, name: user.name })
 }
 
 export { loginUser }

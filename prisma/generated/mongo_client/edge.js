@@ -162,7 +162,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\grube\\OneDrive\\Documentos\\apollofyBE\\MovieHub-FullStack\\prisma\\generated\\mongo_client",
+      "value": "C:\\Users\\EQUIPO\\Documents\\GitHub\\MovieHub-FullStack\\prisma\\generated\\mongo_client",
       "fromEnvVar": null
     },
     "config": {
