@@ -1,11 +1,12 @@
-POST http://localhost:3333/api/users
+POST http://localhost:4040/api/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbnVlbCIsImlkIjoiNjYxZjhlZWRhOWE1NTc1ZDc1ZGY1ZGJjIiwiaWF0IjoxNzEzNTIyMTA4LCJleHAiOjE3MTM2MDg1MDh9.PXI2VlWx2bPO2dmH-dlt26ipdRDVHSk4CDp0UwCQKWw
 
 {
-    "email": "user@example.com",
+    "email": "jwt@example.com",
     "password": "123456K*",
-    "name": "manuel",
+    "name": "Jasón",
     "gender":"male",
-    "birthDate":"2003-05-29",
+    "birthDate":"2000-01-01",
     "country":"Spain"
 }
