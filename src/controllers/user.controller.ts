@@ -8,19 +8,6 @@ async function createUser(req: Request, res: Response) {
     console.log('body', body)
     const { email, name, password, gender, birthDate, country } = body
 
-    const authorization = req.get('authorization')
-    let token = null
-    if (authorization && authorization.toLowerCase().startsWith('bearer')) {
-        token = authorization.substring(7)
-    }
-
-    let decodedToken = {}
-    if (process.env.SECRET && token) {
-        decodedToken = jwt.verify(token, process.env.SECRET)
-    } else {
-        return res.status(401).json({ error: 'Token missing or invalid' })
-    }
-
     try {
 
         const saltRounds = 10
