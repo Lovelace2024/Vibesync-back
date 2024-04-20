@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1713525203420" clover="3.2.0">
+  <project timestamp="1713525203420" name="All files">
+    <metrics statements="163" coveredstatements="105" conditionals="3714" coveredconditionals="478" methods="1277" coveredmethods="246" elements="5154" coveredelements="829" complexity="0" loc="163" ncloc="163" packages="7" files="9" classes="9"/>
+    <package name="prisma.generated.mongo_client">
+      <metrics statements="55" coveredstatements="50" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="0"/>
+      <file name="index.js" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\prisma\generated\mongo_client\index.js">
+        <metrics statements="55" coveredstatements="50" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="158" count="1" type="stmt"/>
+        <line num="207" count="1" type="stmt"/>
+        <line num="209" count="1" type="stmt"/>
+        <line num="210" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="211" count="0" type="stmt"/>
+        <line num="216" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="217" count="0" type="stmt"/>
+        <line num="220" count="0" type="stmt"/>
+        <line num="221" count="0" type="stmt"/>
+        <line num="224" count="1" type="stmt"/>
+        <line num="225" count="1" type="stmt"/>
+        <line num="226" count="1" type="stmt"/>
+        <line num="229" count="1" type="stmt"/>
+        <line num="231" count="1" type="stmt"/>
+        <line num="236" count="1" type="stmt"/>
+        <line num="237" count="1" type="stmt"/>
+        <line num="238" count="1" type="stmt"/>
+        <line num="241" count="1" type="stmt"/>
+        <line num="242" count="1" type="stmt"/>
+        <line num="244" count="1" type="stmt"/>
+        <line num="245" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="prisma.generated.mongo_client.runtime">
+      <metrics statements="51" coveredstatements="30" conditionals="3689" coveredconditionals="469" methods="1272" coveredmethods="245"/>
+      <file name="library.js" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\prisma\generated\mongo_client\runtime\library.js">
+        <metrics statements="51" coveredstatements="30" conditionals="3689" coveredconditionals="469" methods="1272" coveredmethods="245"/>
+        <line num="1" count="869" type="cond" truecount="69" falsecount="137"/>
+        <line num="2" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="3" count="31" type="cond" truecount="41" falsecount="85"/>
+        <line num="4" count="16" type="cond" truecount="6" falsecount="20"/>
+        <line num="5" count="7" type="cond" truecount="8" falsecount="180"/>
+        <line num="6" count="3" type="cond" truecount="5" falsecount="34"/>
+        <line num="7" count="6" type="cond" truecount="16" falsecount="64"/>
+        <line num="8" count="1" type="cond" truecount="2" falsecount="12"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="16" count="4" type="cond" truecount="11" falsecount="22"/>
+        <line num="19" count="1" type="cond" truecount="4" falsecount="4"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="6"/>
+        <line num="22" count="36" type="cond" truecount="7" falsecount="59"/>
+        <line num="23" count="292" type="cond" truecount="50" falsecount="1190"/>
+        <line num="24" count="1" type="cond" truecount="0" falsecount="39"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="159" type="cond" truecount="46" falsecount="215"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="0" falsecount="40"/>
+        <line num="31" count="7" type="cond" truecount="14" falsecount="183"/>
+        <line num="33" count="1" type="cond" truecount="3" falsecount="21"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="64" count="1" type="cond" truecount="10" falsecount="21"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="1" type="cond" truecount="0" falsecount="7"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="110" count="1" type="cond" truecount="9" falsecount="91"/>
+        <line num="111" count="1" type="cond" truecount="18" falsecount="171"/>
+        <line num="112" count="2" type="cond" truecount="15" falsecount="35"/>
+        <line num="113" count="1" type="cond" truecount="7" falsecount="38"/>
+        <line num="114" count="1" type="cond" truecount="3" falsecount="53"/>
+        <line num="115" count="6" type="cond" truecount="33" falsecount="179"/>
+        <line num="122" count="9" type="cond" truecount="42" falsecount="116"/>
+        <line num="123" count="1" type="cond" truecount="0" falsecount="14"/>
+        <line num="124" count="0" type="cond" truecount="0" falsecount="6"/>
+        <line num="125" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="126" count="0" type="cond" truecount="0" falsecount="12"/>
+        <line num="127" count="2" type="cond" truecount="45" falsecount="139"/>
+        <line num="128" count="1" type="cond" truecount="2" falsecount="12"/>
+        <line num="147" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="server.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\server.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.controllers">
+      <metrics statements="26" coveredstatements="9" conditionals="14" coveredconditionals="5" methods="3" coveredmethods="1"/>
+      <file name="login.controller.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\controllers\login.controller.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="cond" truecount="3" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="user.controller.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\controllers\user.controller.ts">
+        <metrics statements="18" coveredstatements="1" conditionals="9" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="src.db">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="client.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\db\client.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middlewares">
+      <metrics statements="16" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="error.middleware.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\middlewares\error.middleware.ts">
+        <metrics statements="16" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routes">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="login.routes.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\routes\login.routes.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="user.routes.ts" path="C:\Users\EQUIPO\Documents\GitHub\MovieHub-FullStack\src\routes\user.routes.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
