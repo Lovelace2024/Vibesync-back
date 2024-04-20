@@ -129,8 +129,14 @@ exports.Prisma.TracksScalarFieldEnum = {
   url: 'url',
   thumbnail: 'thumbnail',
   genreId: 'genreId',
-  albumId: 'albumId',
-  userId: 'userId'
+  albumId: 'albumId'
+};
+
+exports.Prisma.UserFavsTracksScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  trackId: 'trackId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.AlbumsScalarFieldEnum = {
@@ -138,25 +144,54 @@ exports.Prisma.AlbumsScalarFieldEnum = {
   name: 'name',
   artistId: 'artistId',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
-  userId: 'userId'
+  genreId: 'genreId'
+};
+
+exports.Prisma.UserLikedAlbumsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  albumId: 'albumId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.PlaylistsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   thumbnail: 'thumbnail',
-  trackId: 'trackId',
-  genreId: 'genreId',
-  userId: 'userId'
+  genreId: 'genreId'
+};
+
+exports.Prisma.PlaylistToTrackScalarFieldEnum = {
+  id: 'id',
+  playlistId: 'playlistId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.UserPlaylistsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  playlistId: 'playlistId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.UserFollowsPlaylistsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  playlistId: 'playlistId'
 };
 
 exports.Prisma.ArtistsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
-  userId: 'userId'
+  genreId: 'genreId'
+};
+
+exports.Prisma.UserFollowsArtistsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  artistId: 'artistId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.GenreScalarFieldEnum = {
@@ -178,9 +213,15 @@ exports.Prisma.QueryMode = {
 exports.Prisma.ModelName = {
   User: 'User',
   Tracks: 'Tracks',
+  UserFavsTracks: 'UserFavsTracks',
   Albums: 'Albums',
+  UserLikedAlbums: 'UserLikedAlbums',
   Playlists: 'Playlists',
+  PlaylistToTrack: 'PlaylistToTrack',
+  UserPlaylists: 'UserPlaylists',
+  UserFollowsPlaylists: 'UserFollowsPlaylists',
   Artists: 'Artists',
+  UserFollowsArtists: 'UserFollowsArtists',
   Genre: 'Genre'
 };
 

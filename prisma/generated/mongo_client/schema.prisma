@@ -16,70 +16,127 @@ datasource db {
 }
 
 model User {
-  id              String      @id @default(auto()) @map("_id") @db.ObjectId
-  email           String      @unique
-  password        String
-  name            String
-  gender          String
-  birthDate       String
-  country         String
-  favs            Tracks[]
-  likedAlbums     Albums[]
-  likedPlaylists  Playlists[]
-  artistsFollowed Artists[]
+  id                String                 @id @default(auto()) @map("_id") @db.ObjectId
+  email             String                 @unique
+  password          String
+  name              String
+  gender            String
+  birthDate         String
+  country           String
+  likedAlbums       UserLikedAlbums[]
+  artistsFollowed   UserFollowsArtists[]
+  followedPlaylists UserFollowsPlaylists[]
+  createdPlaylists  UserPlaylists[]
+  favTracks         UserFavsTracks[]
 }
 
 model Tracks {
-  id        String      @id @default(auto()) @map("_id") @db.ObjectId
-  name      String      @unique
-  artist    Artists     @relation(fields: [artistId], references: [id])
-  artistId  String      @db.ObjectId
-  url       String
-  thumbnail String
-  genre     Genre       @relation(fields: [genreId], references: [id])
-  genreId   String      @db.ObjectId
-  album     Albums      @relation(fields: [albumId], references: [id])
-  albumId   String      @db.ObjectId
-  playlists Playlists[]
-  followers User        @relation(fields: [userId], references: [id])
-  userId    String[]    @db.ObjectId
+  id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+  name                String            @unique
+  artist              Artists           @relation(fields: [artistId], references: [id])
+  artistId            String            @db.ObjectId
+  url                 String
+  thumbnail           String
+  genre               Genre             @relation(fields: [genreId], references: [id])
+  genreId             String            @db.ObjectId
+  album               Albums            @relation(fields: [albumId], references: [id])
+  albumId             String            @db.ObjectId
+  playlistConnections PlaylistToTrack[]
+  favsOfUsers         UserFavsTracks[]
+}
+
+model UserFavsTracks {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  trackId   String   @db.ObjectId
+  track     Tracks   @relation(fields: [trackId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, trackId])
 }
 
 model Albums {
+  id           String            @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  artist       Artists           @relation(fields: [artistId], references: [id])
+  artistId     String            @db.ObjectId
+  thumbnail    String
+  tracks       Tracks[]
+  genre        Genre             @relation(fields: [genreId], references: [id])
+  genreId      String            @db.ObjectId
+  likedByUsers UserLikedAlbums[]
+}
+
+model UserLikedAlbums {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  artist    Artists  @relation(fields: [artistId], references: [id])
-  artistId  String   @db.ObjectId
-  thumbnail String
-  tracks    Tracks[]
-  genre     Genre    @relation(fields: [genreId], references: [id])
-  genreId   String   @db.ObjectId
-  followers User     @relation(fields: [userId], references: [id])
-  userId    String[] @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  albumId   String   @db.ObjectId
+  album     Albums   @relation(fields: [albumId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, albumId])
 }
 
 model Playlists {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String   @unique
-  thumbnail String
-  tracks    Tracks   @relation(fields: [trackId], references: [id])
-  trackId   String[] @db.ObjectId
-  genre     Genre    @relation(fields: [genreId], references: [id])
-  genreId   String   @db.ObjectId
-  followers User     @relation(fields: [userId], references: [id])
-  userId    String[] @db.ObjectId
+  id                String                 @id @default(auto()) @map("_id") @db.ObjectId
+  name              String                 @unique
+  thumbnail         String
+  genre             Genre                  @relation(fields: [genreId], references: [id])
+  genreId           String                 @db.ObjectId
+  creator           UserPlaylists[]
+  followers         UserFollowsPlaylists[]
+  tracksConnections PlaylistToTrack[]
+}
+
+model PlaylistToTrack {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  playlistId String    @db.ObjectId
+  playlist   Playlists @relation(fields: [playlistId], references: [id])
+  trackId    String    @db.ObjectId
+  track      Tracks    @relation(fields: [trackId], references: [id])
+}
+
+model UserPlaylists {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String    @db.ObjectId
+  user       User      @relation(fields: [userId], references: [id])
+  playlist   Playlists @relation(fields: [playlistId], references: [id])
+  playlistId String    @db.ObjectId
+  createdAt  DateTime  @default(now())
+
+  @@unique([userId, playlistId])
+}
+
+model UserFollowsPlaylists {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String    @db.ObjectId
+  user       User      @relation(fields: [userId], references: [id])
+  playlistId String    @db.ObjectId
+  playlist   Playlists @relation(fields: [playlistId], references: [id])
 }
 
 model Artists {
+  id         String               @id @default(auto()) @map("_id") @db.ObjectId
+  name       String               @unique
+  thumbnail  String
+  albums     Albums[]
+  tracks     Tracks[]
+  genre      Genre                @relation(fields: [genreId], references: [id])
+  genreId    String               @db.ObjectId
+  followedBy UserFollowsArtists[]
+}
+
+model UserFollowsArtists {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String   @unique
-  thumbnail String
-  albums    Albums[]
-  tracks    Tracks[]
-  genre     Genre    @relation(fields: [genreId], references: [id])
-  genreId   String   @db.ObjectId
-  followers User     @relation(fields: [userId], references: [id])
-  userId    String[] @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  artistId  String   @db.ObjectId
+  artist    Artists  @relation(fields: [artistId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, artistId])
 }
 
 model Genre {
