@@ -1,12 +1,12 @@
 import { Router } from "express"
-import { addAlbum, deleteAlbum, getAlbum, getAllAlbums, updateAlbum } from "../controllers/albums.controller"
+import { addAlbum, deleteAlbum, getAlbum, getAllAlbums, updateAlbum } from "../controllers/albums.controller.ts"
 
-const albumsRoutes = Router()
+const router: Router = Router()
 
-albumsRoutes.post("/albums", addAlbum)
-albumsRoutes.get("/albums", getAllAlbums)
-albumsRoutes.get("/albums/:albumId", getAlbum)
-albumsRoutes.patch("/albums/:albumId", updateAlbum)
-albumsRoutes.delete("/albums/:albumId", deleteAlbum)
+router.post("/albums", addAlbum)
+router.get("/albums", getAllAlbums)
+router.get("/albums/:albumId", getAlbum)
+router.patch("/albums/:albumId", updateAlbum)
+router.delete("/albums/:albumId", deleteAlbum)
 
-export default albumsRoutes
+export default router

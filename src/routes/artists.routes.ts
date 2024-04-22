@@ -1,12 +1,12 @@
 import { Router } from "express"
-import { addArtist, deleteArtist, getAllArtists, getArtist, updateArtist } from "../controllers/artists.controller"
+import { getArtists, getArtist, createArtist, updateArtist, deleteArtist } from "../controllers/artist.controller.ts"
 
-const artistsRoutes = Router()
+const artistsRoutes: Router = Router()
 
-artistsRoutes.post("/artists", addArtist)
-artistsRoutes.get("/artists", getAllArtists)
-artistsRoutes.get("/artists/:id", getArtist)
-artistsRoutes.patch("/artists/:artistId", updateArtist)
-artistsRoutes.delete("/artists/:id", deleteArtist)
+// artistsRoutes.post("/artists", createArtist)
+// artistsRoutes.get("/artists", getArtists)
+// artistsRoutes.get("/artists/:id", getArtist)
+// artistsRoutes.patch("/artists/:artistId", updateArtist)
+// artistsRoutes.delete("/artists/:id", deleteArtist)
 
 export default artistsRoutes

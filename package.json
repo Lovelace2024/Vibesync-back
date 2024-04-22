@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest login.test.ts --verbose --coverage --detectOpenHandles",
     "generate-mongo": "pnpx prisma generate --schema=./prisma/schema.prisma"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-fileupload": "^1.5.0",
@@ -28,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^43.0.1",
@@ -47,6 +50,7 @@
   "dependencies": {
     "@prisma/adapter-pg": "5.12.1",
     "@prisma/client": "^5.12.1",
+    "body-parser": "^1.20.2",
     "cloudinary": "^2.0.3",
     "esm-loader": "^0.1.0",
     "express": "^4.18.3",
@@ -58,6 +62,7 @@
     "morgan": "^1.10.0",
     "pg": "^8.11.3",
     "pino": "^8.19.0",
+    "pnpm": "^9.0.4",
     "redis": "^4.6.13",
     "response-time": "^2.3.2"
   }
