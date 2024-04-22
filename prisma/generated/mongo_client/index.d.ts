@@ -16325,7 +16325,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -16342,7 +16342,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -16391,7 +16391,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -16610,7 +16610,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
@@ -16623,7 +16623,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     genreId: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
@@ -16660,7 +16660,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     genreId: string
     description?: string | null
   }
@@ -19232,7 +19232,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
     genre: GenreCreateNestedOneWithoutArtistsInput
@@ -19244,7 +19244,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     genreId: string
     description?: string | null
     tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
@@ -19407,7 +19407,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -19423,7 +19423,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -19782,7 +19782,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
@@ -19794,7 +19794,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
@@ -19887,7 +19887,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
     genre: GenreCreateNestedOneWithoutArtistsInput
@@ -19899,7 +19899,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     genreId: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
@@ -20114,7 +20114,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20130,7 +20130,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20358,7 +20358,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20374,7 +20374,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20486,7 +20486,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20502,7 +20502,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20524,7 +20524,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
@@ -20536,7 +20536,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     genreId: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
@@ -20626,7 +20626,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -20642,7 +20642,7 @@ export namespace Prisma {
     id?: string
     email: string
     password: string
-    image: string
+    image?: string
     role?: string
     name?: string | null
     gender?: string | null
@@ -21089,7 +21089,7 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    thumbnail: string
+    thumbnail?: string
     description?: string | null
   }
 

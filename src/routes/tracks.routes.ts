@@ -3,10 +3,10 @@ import { createTracks, deleteTracks, getAllTracks, getTrack, updateTracks } from
 
 const tracksRoutes: Router = Router()
 
-tracksRoutes.post("/tracks", createTracks)
-tracksRoutes.get("/tracks", getAllTracks)
-tracksRoutes.get("/tracks/:trackId", getTrack)
-tracksRoutes.patch("/tracks/:trackId", updateTracks)
-tracksRoutes.delete("/tracks/:trackId", deleteTracks)
+// tracksRoutes.post("/tracks", createTracks)
+// tracksRoutes.get("/tracks", getAllTracks)
+// tracksRoutes.get("/tracks/:trackId", getTrack)
+// tracksRoutes.patch("/tracks/:trackId", updateTracks)
+// tracksRoutes.delete("/tracks/:trackId", deleteTracks)
 
 export default tracksRoutes
