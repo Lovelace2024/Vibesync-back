@@ -87,9 +87,43 @@ export const getAllTracks = async (req: Request, res: Response) => {
         }
         res.status(200).send(allTracks)
     } catch (error) {
-        res.status(500).send(error)
+        res.status(500).json(`Internal server error: ${error}`)
     }
-}
+};
+
+export const getAllTracksByArtist = async (req: Request, res: Response) => {
+    const artistId = req.params.artistId;
+    
+    try {
+        // Verify that the artist exists
+        const artist = await prisma.artists.findUnique({
+            where: { id: artistId}
+        });
+
+        if (!artist) {
+            return res.status(404).json({ message: `Artist with id ${artistId} not found` });
+        }
+
+        const tracks = await prisma.tracks.findMany({
+            where: {
+                artist: {
+                    some: {
+                        id: artistId
+                    }
+                }
+            }
+        });
+
+        if (tracks.length === 0) {
+            res.status(404).json({ message: "No tracks have been found" })
+    }
+
+    res.status(200).json(tracks);
+    } catch (error) {
+        console.error('Error fetching tracks:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 export const getTrack = async (req: Request, res: Response) => {
     const { trackId } = req.params
@@ -107,7 +141,7 @@ export const getTrack = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-}
+};
 
 export const updateTracks = async (req: Request, res: Response) => {
     const { name, artistId, url, thumbnail, genreId, albumId } = req.body
@@ -158,7 +192,7 @@ export const updateTracks = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-}
+};
 
 export const deleteTracks = async (req: Request, res: Response) => {
     const { trackId } = req.params
@@ -200,4 +234,4 @@ export const deleteTracks = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-}
+};
