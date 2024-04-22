@@ -39,7 +39,7 @@ model Tracks {
   url                 String
   thumbnail           String
   genre               Genre             @relation(fields: [genreName], references: [name])
-  genreName             String
+  genreName           String
   album               TracksOnAlbums[]
   playlistConnections PlaylistToTrack[]
   favsOfUsers         UserFavsTracks[]
@@ -93,19 +93,19 @@ model Genre {
 // Intermediate tables
 
 model ArtistsOnTracks {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  artist   Artists @relation(fields: [artistId], references: [id])
-  artistId String  @db.ObjectId
-  track    Tracks  @relation(fields: [trackId], references: [id])
-  trackId  String  @db.ObjectId
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  artist     Artists @relation(fields: [artistName], references: [name])
+  artistName String
+  track      Tracks  @relation(fields: [trackId], references: [id])
+  trackId    String  @db.ObjectId
 
-  @@unique([artistId, trackId])
+  @@unique([artistName, trackId])
 }
 
 model TracksOnAlbums {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   album   Albums @relation(fields: [albumId], references: [id])
-  albumId String  @db.ObjectId
+  albumId String @db.ObjectId
   track   Tracks @relation(fields: [trackId], references: [id])
   trackId String @db.ObjectId
 
