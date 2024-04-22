@@ -2,10 +2,22 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const addAlbum = async (req: Request, res: Response) => {
-    const { name, thumbnail, genreName, artistName, tracks } = req.body
+    const { name, thumbnail, genre, artist, tracks } = req.body
     try {
+        
         const newAlbum = await prisma.albums.create({
-            data: { name, thumbnail, genreName, artistName, tracks }
+            data: {
+                name,
+                thumbnail,
+                genre: { connect: { name: genre } },
+                artist: { connect: { name: artist } },
+                tracks: { create: tracks }
+            },
+            include: {
+                genre: true,
+                artist: true,
+                tracks: true
+            }
         })
         res.status(201).send({
             msg: "Album created successfully",
@@ -30,7 +42,7 @@ export const getAllAlbums = async (req: Request, res: Response) => {
         res.status(200).send(allAlbums)
 
     } catch (error) {
-        res.status(500).json({ message: "Internal server error" })
+        res.status(400).send(error)
     }
 }
 
@@ -56,17 +68,19 @@ export const getAlbum = async (req: Request, res: Response) => {
 
 export const updateAlbum = async (req: Request, res: Response) => {
     const { albumId } = req.params
-    const { name, thumbnail, genreName, artistName } = req.body
+    const { name, thumbnail, genre, artist, tracks } = req.body
 
     try {
         const updatedAlbum = await prisma.albums.update({
             where: {
                 id: albumId
-            }, data: {
+            },
+            data: {
                 name,
                 thumbnail,
-                genreName,
-                artistName
+                genre,
+                artist,
+                tracks
             }
         })
         res.status(201).send(updatedAlbum)

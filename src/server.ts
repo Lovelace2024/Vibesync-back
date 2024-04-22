@@ -33,6 +33,7 @@ app.use("/api", loginRoutes)
 app.use("/api", artistsRoutes)
 app.use("/api", genreRoutes)
 app.use("/api", tracksRoutes)
+app.use("/api", albumsRoutes)
 // app.use("/api", albumsRoutes)
 
 export default app

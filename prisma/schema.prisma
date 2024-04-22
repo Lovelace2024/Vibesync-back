@@ -76,8 +76,8 @@ model Artists {
   thumbnail   String               @default("https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp")
   albums      Albums[]
   tracks      ArtistsOnTracks[]
-  genre       Genre                @relation(fields: [genreId], references: [id])
-  genreId     String               @db.ObjectId
+  genre       Genre                @relation(fields: [genreName], references: [name])
+  genreName   String
   followers   UserFollowsArtists[]
   description String?
 }
