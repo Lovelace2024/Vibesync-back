@@ -4480,25 +4480,25 @@ export namespace Prisma {
   export type AlbumsMinAggregateOutputType = {
     id: string | null
     name: string | null
-    artistId: string | null
+    artistName: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
   }
 
   export type AlbumsMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    artistId: string | null
+    artistName: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
   }
 
   export type AlbumsCountAggregateOutputType = {
     id: number
     name: number
-    artistId: number
+    artistName: number
     thumbnail: number
-    genreId: number
+    genreName: number
     _all: number
   }
 
@@ -4506,25 +4506,25 @@ export namespace Prisma {
   export type AlbumsMinAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
+    artistName?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
   }
 
   export type AlbumsMaxAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
+    artistName?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
   }
 
   export type AlbumsCountAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
+    artistName?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
     _all?: true
   }
 
@@ -4603,9 +4603,9 @@ export namespace Prisma {
   export type AlbumsGroupByOutputType = {
     id: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
-    genreId: string
+    genreName: string
     _count: AlbumsCountAggregateOutputType | null
     _min: AlbumsMinAggregateOutputType | null
     _max: AlbumsMaxAggregateOutputType | null
@@ -4628,9 +4628,9 @@ export namespace Prisma {
   export type AlbumsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    artistId?: boolean
+    artistName?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
     artist?: boolean | ArtistsDefaultArgs<ExtArgs>
     tracks?: boolean | Albums$tracksArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
@@ -4641,9 +4641,9 @@ export namespace Prisma {
   export type AlbumsSelectScalar = {
     id?: boolean
     name?: boolean
-    artistId?: boolean
+    artistName?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
   }
 
   export type AlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4666,9 +4666,9 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      artistId: string
+      artistName: string
       thumbnail: string
-      genreId: string
+      genreName: string
     }, ExtArgs["result"]["albums"]>
     composites: {}
   }
@@ -5099,9 +5099,9 @@ export namespace Prisma {
   interface AlbumsFieldRefs {
     readonly id: FieldRef<"Albums", 'String'>
     readonly name: FieldRef<"Albums", 'String'>
-    readonly artistId: FieldRef<"Albums", 'String'>
+    readonly artistName: FieldRef<"Albums", 'String'>
     readonly thumbnail: FieldRef<"Albums", 'String'>
-    readonly genreId: FieldRef<"Albums", 'String'>
+    readonly genreName: FieldRef<"Albums", 'String'>
   }
     
 
@@ -6544,7 +6544,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
     description: string | null
   }
 
@@ -6554,7 +6554,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
     description: string | null
   }
 
@@ -6564,7 +6564,7 @@ export namespace Prisma {
     email: number
     password: number
     thumbnail: number
-    genreId: number
+    genreName: number
     description: number
     _all: number
   }
@@ -6576,7 +6576,7 @@ export namespace Prisma {
     email?: true
     password?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
     description?: true
   }
 
@@ -6586,7 +6586,7 @@ export namespace Prisma {
     email?: true
     password?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
     description?: true
   }
 
@@ -6596,7 +6596,7 @@ export namespace Prisma {
     email?: true
     password?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
     description?: true
     _all?: true
   }
@@ -6679,7 +6679,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail: string
-    genreId: string
+    genreName: string
     description: string | null
     _count: ArtistsCountAggregateOutputType | null
     _min: ArtistsMinAggregateOutputType | null
@@ -6706,7 +6706,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
     description?: boolean
     albums?: boolean | Artists$albumsArgs<ExtArgs>
     tracks?: boolean | Artists$tracksArgs<ExtArgs>
@@ -6721,7 +6721,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
     description?: boolean
   }
 
@@ -6748,7 +6748,7 @@ export namespace Prisma {
       email: string
       password: string
       thumbnail: string
-      genreId: string
+      genreName: string
       description: string | null
     }, ExtArgs["result"]["artists"]>
     composites: {}
@@ -7183,7 +7183,7 @@ export namespace Prisma {
     readonly email: FieldRef<"Artists", 'String'>
     readonly password: FieldRef<"Artists", 'String'>
     readonly thumbnail: FieldRef<"Artists", 'String'>
-    readonly genreId: FieldRef<"Artists", 'String'>
+    readonly genreName: FieldRef<"Artists", 'String'>
     readonly description: FieldRef<"Artists", 'String'>
   }
     
@@ -15385,9 +15385,9 @@ export namespace Prisma {
   export const AlbumsScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    artistId: 'artistId',
+    artistName: 'artistName',
     thumbnail: 'thumbnail',
-    genreId: 'genreId'
+    genreName: 'genreName'
   };
 
   export type AlbumsScalarFieldEnum = (typeof AlbumsScalarFieldEnum)[keyof typeof AlbumsScalarFieldEnum]
@@ -15410,7 +15410,7 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     thumbnail: 'thumbnail',
-    genreId: 'genreId',
+    genreName: 'genreName',
     description: 'description'
   };
 
@@ -15724,9 +15724,9 @@ export namespace Prisma {
     NOT?: AlbumsWhereInput | AlbumsWhereInput[]
     id?: StringFilter<"Albums"> | string
     name?: StringFilter<"Albums"> | string
-    artistId?: StringFilter<"Albums"> | string
+    artistName?: StringFilter<"Albums"> | string
     thumbnail?: StringFilter<"Albums"> | string
-    genreId?: StringFilter<"Albums"> | string
+    genreName?: StringFilter<"Albums"> | string
     artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
     tracks?: TracksOnAlbumsListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
@@ -15736,9 +15736,9 @@ export namespace Prisma {
   export type AlbumsOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
+    artistName?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     artist?: ArtistsOrderByWithRelationInput
     tracks?: TracksOnAlbumsOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
@@ -15751,9 +15751,9 @@ export namespace Prisma {
     OR?: AlbumsWhereInput[]
     NOT?: AlbumsWhereInput | AlbumsWhereInput[]
     name?: StringFilter<"Albums"> | string
-    artistId?: StringFilter<"Albums"> | string
+    artistName?: StringFilter<"Albums"> | string
     thumbnail?: StringFilter<"Albums"> | string
-    genreId?: StringFilter<"Albums"> | string
+    genreName?: StringFilter<"Albums"> | string
     artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
     tracks?: TracksOnAlbumsListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
@@ -15763,9 +15763,9 @@ export namespace Prisma {
   export type AlbumsOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
+    artistName?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     _count?: AlbumsCountOrderByAggregateInput
     _max?: AlbumsMaxOrderByAggregateInput
     _min?: AlbumsMinOrderByAggregateInput
@@ -15777,9 +15777,9 @@ export namespace Prisma {
     NOT?: AlbumsScalarWhereWithAggregatesInput | AlbumsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Albums"> | string
     name?: StringWithAggregatesFilter<"Albums"> | string
-    artistId?: StringWithAggregatesFilter<"Albums"> | string
+    artistName?: StringWithAggregatesFilter<"Albums"> | string
     thumbnail?: StringWithAggregatesFilter<"Albums"> | string
-    genreId?: StringWithAggregatesFilter<"Albums"> | string
+    genreName?: StringWithAggregatesFilter<"Albums"> | string
   }
 
   export type PlaylistsWhereInput = {
@@ -15852,7 +15852,7 @@ export namespace Prisma {
     email?: StringFilter<"Artists"> | string
     password?: StringFilter<"Artists"> | string
     thumbnail?: StringFilter<"Artists"> | string
-    genreId?: StringFilter<"Artists"> | string
+    genreName?: StringFilter<"Artists"> | string
     description?: StringNullableFilter<"Artists"> | string | null
     albums?: AlbumsListRelationFilter
     tracks?: ArtistsOnTracksListRelationFilter
@@ -15866,7 +15866,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     description?: SortOrder
     albums?: AlbumsOrderByRelationAggregateInput
     tracks?: ArtistsOnTracksOrderByRelationAggregateInput
@@ -15883,7 +15883,7 @@ export namespace Prisma {
     NOT?: ArtistsWhereInput | ArtistsWhereInput[]
     password?: StringFilter<"Artists"> | string
     thumbnail?: StringFilter<"Artists"> | string
-    genreId?: StringFilter<"Artists"> | string
+    genreName?: StringFilter<"Artists"> | string
     description?: StringNullableFilter<"Artists"> | string | null
     albums?: AlbumsListRelationFilter
     tracks?: ArtistsOnTracksListRelationFilter
@@ -15897,7 +15897,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     description?: SortOrder
     _count?: ArtistsCountOrderByAggregateInput
     _max?: ArtistsMaxOrderByAggregateInput
@@ -15913,7 +15913,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Artists"> | string
     password?: StringWithAggregatesFilter<"Artists"> | string
     thumbnail?: StringWithAggregatesFilter<"Artists"> | string
-    genreId?: StringWithAggregatesFilter<"Artists"> | string
+    genreName?: StringWithAggregatesFilter<"Artists"> | string
     description?: StringNullableWithAggregatesFilter<"Artists"> | string | null
   }
 
@@ -16501,9 +16501,9 @@ export namespace Prisma {
   export type AlbumsUncheckedCreateInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
-    genreId: string
+    genreName: string
     tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
     likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
@@ -16519,9 +16519,9 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
     likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
@@ -16529,9 +16529,9 @@ export namespace Prisma {
   export type AlbumsCreateManyInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
-    genreId: string
+    genreName: string
   }
 
   export type AlbumsUpdateManyMutationInput = {
@@ -16541,9 +16541,9 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateManyInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlaylistsCreateInput = {
@@ -16624,7 +16624,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail?: string
-    genreId: string
+    genreName: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
@@ -16648,7 +16648,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
     tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
@@ -16661,7 +16661,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail?: string
-    genreId: string
+    genreName: string
     description?: string | null
   }
 
@@ -16678,7 +16678,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -17223,25 +17223,25 @@ export namespace Prisma {
   export type AlbumsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
+    artistName?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type AlbumsMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
+    artistName?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type AlbumsMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
+    artistName?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -17302,7 +17302,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     description?: SortOrder
   }
 
@@ -17312,7 +17312,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     description?: SortOrder
   }
 
@@ -17322,7 +17322,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     description?: SortOrder
   }
 
@@ -19245,7 +19245,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail?: string
-    genreId: string
+    genreName: string
     description?: string | null
     tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
     followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
@@ -19342,7 +19342,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
     followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
@@ -19564,7 +19564,7 @@ export namespace Prisma {
     id?: string
     name: string
     thumbnail: string
-    genreId: string
+    genreName: string
     tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
     likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
@@ -19659,9 +19659,9 @@ export namespace Prisma {
     NOT?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
     id?: StringFilter<"Albums"> | string
     name?: StringFilter<"Albums"> | string
-    artistId?: StringFilter<"Albums"> | string
+    artistName?: StringFilter<"Albums"> | string
     thumbnail?: StringFilter<"Albums"> | string
-    genreId?: StringFilter<"Albums"> | string
+    genreName?: StringFilter<"Albums"> | string
   }
 
   export type ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput = {
@@ -19731,7 +19731,7 @@ export namespace Prisma {
   export type AlbumsUncheckedCreateWithoutGenreInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
     tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
     likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
@@ -19878,7 +19878,7 @@ export namespace Prisma {
     email?: StringFilter<"Artists"> | string
     password?: StringFilter<"Artists"> | string
     thumbnail?: StringFilter<"Artists"> | string
-    genreId?: StringFilter<"Artists"> | string
+    genreName?: StringFilter<"Artists"> | string
     description?: StringNullableFilter<"Artists"> | string | null
   }
 
@@ -19900,7 +19900,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail?: string
-    genreId: string
+    genreName: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
     followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
@@ -19965,7 +19965,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
     followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
@@ -20014,9 +20014,9 @@ export namespace Prisma {
   export type AlbumsUncheckedCreateWithoutTracksInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
-    genreId: string
+    genreName: string
     likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
 
@@ -20073,9 +20073,9 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateWithoutTracksInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
 
@@ -20537,7 +20537,7 @@ export namespace Prisma {
     email: string
     password: string
     thumbnail?: string
-    genreId: string
+    genreName: string
     description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
     tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
@@ -20616,7 +20616,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
     tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
@@ -20671,9 +20671,9 @@ export namespace Prisma {
   export type AlbumsUncheckedCreateWithoutLikedByUsersInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
-    genreId: string
+    genreName: string
     tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
 
@@ -20744,9 +20744,9 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateWithoutLikedByUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
 
@@ -21007,7 +21007,7 @@ export namespace Prisma {
     id?: string
     name: string
     thumbnail: string
-    genreId: string
+    genreName: string
   }
 
   export type ArtistsOnTracksCreateManyArtistInput = {
@@ -21032,7 +21032,7 @@ export namespace Prisma {
   export type AlbumsUncheckedUpdateWithoutArtistInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
     likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
@@ -21040,7 +21040,7 @@ export namespace Prisma {
   export type AlbumsUncheckedUpdateManyWithoutArtistInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
   }
 
   export type ArtistsOnTracksUpdateWithoutArtistInput = {
@@ -21073,7 +21073,7 @@ export namespace Prisma {
   export type AlbumsCreateManyGenreInput = {
     id?: string
     name: string
-    artistId: string
+    artistName: string
     thumbnail: string
   }
 
@@ -21103,7 +21103,7 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
     likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
@@ -21111,7 +21111,7 @@ export namespace Prisma {
 
   export type AlbumsUncheckedUpdateManyWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
+    artistName?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
   }
 

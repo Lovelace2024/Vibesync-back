@@ -135,9 +135,9 @@ exports.Prisma.TracksScalarFieldEnum = {
 exports.Prisma.AlbumsScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  artistId: 'artistId',
+  artistName: 'artistName',
   thumbnail: 'thumbnail',
-  genreId: 'genreId'
+  genreName: 'genreName'
 };
 
 exports.Prisma.PlaylistsScalarFieldEnum = {
@@ -154,7 +154,7 @@ exports.Prisma.ArtistsScalarFieldEnum = {
   email: 'email',
   password: 'password',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
+  genreName: 'genreName',
   description: 'description'
 };
 

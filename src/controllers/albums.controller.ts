@@ -1,13 +1,17 @@
 import { Request, Response } from "express"
-import prisma from "../db/client"
+import prisma from "../db/client.ts"
 
 export const addAlbum = async (req: Request, res: Response) => {
-    const { name, thumbnail, genreId, artistId } = req.body
+    const { name, thumbnail, genreName, artistName, tracks } = req.body
     try {
         const newAlbum = await prisma.albums.create({
-            data: { name, thumbnail, genreId, artistId }
+            data: { name, thumbnail, genreName, artistName, tracks }
         })
-        res.status(201).send(newAlbum)
+        res.status(201).send({
+            msg: "Album created successfully",
+            data: newAlbum,
+            type: typeof newAlbum
+        })
     } catch (error) {
         res.status(404).send(error)
     }
@@ -52,7 +56,7 @@ export const getAlbum = async (req: Request, res: Response) => {
 
 export const updateAlbum = async (req: Request, res: Response) => {
     const { albumId } = req.params
-    const { name, thumbnail, genreId, artistId } = req.body
+    const { name, thumbnail, genreName, artistName } = req.body
 
     try {
         const updatedAlbum = await prisma.albums.update({
@@ -61,8 +65,8 @@ export const updateAlbum = async (req: Request, res: Response) => {
             }, data: {
                 name,
                 thumbnail,
-                genreId,
-                artistId
+                genreName,
+                artistName
             }
         })
         res.status(201).send(updatedAlbum)
