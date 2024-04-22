@@ -14,7 +14,7 @@ import json from 'body-parser'
 import urlencoded from 'body-parser'
 
 const app: Express = express()
-  
+
 
 app.use(helmet())
 app.use(morgan('dev'))
@@ -33,7 +33,6 @@ app.use("/api", loginRoutes)
 app.use("/api", artistsRoutes)
 app.use("/api", genreRoutes)
 app.use("/api", tracksRoutes)
-app.use("/api", albumsRoutes)
 app.use("/api", albumsRoutes)
 
 export default app
