@@ -116,6 +116,8 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   password: 'password',
+  image: 'image',
+  role: 'role',
   name: 'name',
   gender: 'gender',
   birthDate: 'birthDate',
@@ -125,18 +127,9 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.TracksScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  artistId: 'artistId',
   url: 'url',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
-  albumId: 'albumId'
-};
-
-exports.Prisma.UserFavsTracksScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  trackId: 'trackId',
-  createdAt: 'createdAt'
+  genreId: 'genreId'
 };
 
 exports.Prisma.AlbumsScalarFieldEnum = {
@@ -147,18 +140,46 @@ exports.Prisma.AlbumsScalarFieldEnum = {
   genreId: 'genreId'
 };
 
-exports.Prisma.UserLikedAlbumsScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  albumId: 'albumId',
-  createdAt: 'createdAt'
-};
-
 exports.Prisma.PlaylistsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   thumbnail: 'thumbnail',
-  genreId: 'genreId'
+  publicAccess: 'publicAccess',
+  userId: 'userId'
+};
+
+exports.Prisma.ArtistsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  description: 'description'
+};
+
+exports.Prisma.GenreScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.ArtistsOnTracksScalarFieldEnum = {
+  id: 'id',
+  artistId: 'artistId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.TracksOnAlbumsScalarFieldEnum = {
+  id: 'id',
+  albumId: 'albumId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.UserFavsTracksScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  trackId: 'trackId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.PlaylistToTrackScalarFieldEnum = {
@@ -167,24 +188,10 @@ exports.Prisma.PlaylistToTrackScalarFieldEnum = {
   trackId: 'trackId'
 };
 
-exports.Prisma.UserPlaylistsScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  playlistId: 'playlistId',
-  createdAt: 'createdAt'
-};
-
 exports.Prisma.UserFollowsPlaylistsScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   playlistId: 'playlistId'
-};
-
-exports.Prisma.ArtistsScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  thumbnail: 'thumbnail',
-  genreId: 'genreId'
 };
 
 exports.Prisma.UserFollowsArtistsScalarFieldEnum = {
@@ -194,9 +201,11 @@ exports.Prisma.UserFollowsArtistsScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.GenreScalarFieldEnum = {
+exports.Prisma.UserLikedAlbumsScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  userId: 'userId',
+  albumId: 'albumId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -213,16 +222,17 @@ exports.Prisma.QueryMode = {
 exports.Prisma.ModelName = {
   User: 'User',
   Tracks: 'Tracks',
-  UserFavsTracks: 'UserFavsTracks',
   Albums: 'Albums',
-  UserLikedAlbums: 'UserLikedAlbums',
   Playlists: 'Playlists',
-  PlaylistToTrack: 'PlaylistToTrack',
-  UserPlaylists: 'UserPlaylists',
-  UserFollowsPlaylists: 'UserFollowsPlaylists',
   Artists: 'Artists',
+  Genre: 'Genre',
+  ArtistsOnTracks: 'ArtistsOnTracks',
+  TracksOnAlbums: 'TracksOnAlbums',
+  UserFavsTracks: 'UserFavsTracks',
+  PlaylistToTrack: 'PlaylistToTrack',
+  UserFollowsPlaylists: 'UserFollowsPlaylists',
   UserFollowsArtists: 'UserFollowsArtists',
-  Genre: 'Genre'
+  UserLikedAlbums: 'UserLikedAlbums'
 };
 
 /**

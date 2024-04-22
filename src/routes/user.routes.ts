@@ -1,10 +1,10 @@
 import { authMiddleware } from "src/middlewares/auth-middleware.ts";
-import { createAccount, createUser, getAccounts } from "../controllers/user.controller.ts"
+import { createUser, getUsers } from "../controllers/user.controller.ts"
 import { Router } from "express";
 
 const userRoutes: Router = Router()
 
-userRoutes.get("/account", getAccounts)
-userRoutes.post("/account", authMiddleware, createAccount)
+userRoutes.get("/account", getUsers)
+userRoutes.post("/account", authMiddleware, createUser)
 
 export default userRoutes

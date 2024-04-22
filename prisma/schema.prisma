@@ -71,6 +71,8 @@ model Playlists {
 model Artists {
   id          String               @id @default(auto()) @map("_id") @db.ObjectId
   name        String               @unique
+  email       String               @unique
+  password    String
   thumbnail   String
   albums      Albums[]
   tracks      ArtistsOnTracks[]
