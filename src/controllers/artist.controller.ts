@@ -89,6 +89,7 @@ const updateArtist = async (req: Request, res: Response) => {
             thumbnail: image || artist?.thumbnail
         }
     })
+    res.status(201).json({ message: `${updatedArtist.name} updated successfully` })
 }
 
 const deleteArtist = async (req: Request, res: Response) => {
@@ -99,7 +100,7 @@ const deleteArtist = async (req: Request, res: Response) => {
                 id: artistId
             }
         })
-        res.status(201).json({ message: "Artist deleted successfully" })
+        res.status(201).json({ message: `${deletedArtist.name} deleted successfully` })
 
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })

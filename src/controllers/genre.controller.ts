@@ -35,9 +35,9 @@ export const getAllGenres = async (req:Request, res:Response) => {
     })
         if (!allGenres) {
             res.status(404).send({ message: "Genres not found" });
-            }
-            res.status(200).send(allGenres);
-        
+        }
+        res.status(200).send(allGenres);
+
     } catch (error) {
         res.status(400).send(error)
     }

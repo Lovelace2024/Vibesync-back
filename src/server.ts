@@ -17,7 +17,7 @@ const app: Express = express()
   
 
 app.use(helmet())
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use(errorHandler)
 app.use(responseTime())
 app.use(express.urlencoded({ extended: true }))
@@ -30,9 +30,8 @@ app.use(cors({
 
 app.use("/api", userRoutes)
 app.use("/api", loginRoutes)
-app.use("/api", tracksRoutes)
-app.use("/api", genreRoutes)
 app.use("/api", artistsRoutes)
+app.use("/api", genreRoutes)
 app.use("/api", tracksRoutes)
 // app.use("/api", albumsRoutes)
 
