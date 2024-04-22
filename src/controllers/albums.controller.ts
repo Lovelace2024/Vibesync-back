@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import prisma from "../db/client"
+import prisma from "../db/client.ts"
 
 export const addAlbum = async (req: Request, res: Response) => {
     const { name, thumbnail, genreId, artistId } = req.body
