@@ -5,7 +5,6 @@ export const createTracks = async (req: Request, res: Response) => {
     const { name, artistId, url, thumbnail, genreId, albumId } = req.body;
 
     try {
-        // Create the new track
         const newTrack = await prisma.tracks.create({
             data: {
                 name,
@@ -17,7 +16,6 @@ export const createTracks = async (req: Request, res: Response) => {
             }
         });
         console.log('New Track:', newTrack);
-        // Ensure that the artist exists
         const artist = await prisma.artists.findUnique({
             where: { id: artistId }
         });
@@ -90,7 +88,7 @@ export const getAllTracks = async (req:Request, res:Response) => {
         }
         res.status(200).send(allTracks)
     } catch (error) {
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).send(error)
     }
 }
 

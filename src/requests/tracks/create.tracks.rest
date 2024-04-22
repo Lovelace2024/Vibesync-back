@@ -1,0 +1,11 @@
+POST http://localhost:4001/api/tracks
+Content-Type: application/json
+
+{
+  "name": "Testing",
+  "artistId": "6620a1f68d608e08c155b547",
+  "url": "https://ejemplo.com/cancion_prueba.mp3",
+  "thumbnail": "https://ejemplo.com/thumbnail_prueba.jpg",
+  "genreId": "66209fb554bcf7b68913acb8",
+  "albumId": "6620add510a2678a033fd59e"
+}
