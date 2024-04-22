@@ -14,7 +14,7 @@ import albumsRoutes from './routes/albums.routes.ts'
 const app: Express = express()
 
 app.use(helmet())
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use(errorHandler)
 app.use(responseTime())
 app.use(express.urlencoded({ extended: true }))

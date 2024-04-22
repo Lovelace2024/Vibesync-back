@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { addAlbum, deleteAlbum, getAlbum, getAllAlbums, updateAlbum } from "../controllers/albums.controller"
+import { addAlbum, deleteAlbum, getAlbum, getAllAlbums, updateAlbum } from "../controllers/albums.controller.ts"
 
 const albumsRoutes: Router = Router()
 

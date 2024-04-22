@@ -1,4 +1,4 @@
-import { authMiddleware } from "src/middlewares/auth-middleware.ts";
+import { authMiddleware } from "../middlewares/auth-middleware.ts";
 import { createUser, getUsers } from "../controllers/user.controller.ts"
 import { Router } from "express";
 
