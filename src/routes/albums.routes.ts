@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { addAlbum, deleteAlbum, getAlbum, getAllAlbums, updateAlbum } from "../controllers/albums.controller"
 
-const albumsRoutes = Router()
+const albumsRoutes: Router = Router()
 
 albumsRoutes.post("/albums", addAlbum)
 albumsRoutes.get("/albums", getAllAlbums)

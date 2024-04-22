@@ -3,11 +3,11 @@ import { addGenre, deleteGenre, getAllGenres, updateGenre } from "../controllers
 
 
 
-const genreRoutes = Router()
+const genreRoutes: Router = Router()
 
 genreRoutes.post("/genre", addGenre)
 genreRoutes.get("/genre", getAllGenres)
 genreRoutes.patch("/genre/:genreId", updateGenre)
-genreRoutes.delete("/genre/:genreId", deleteGenre )
+genreRoutes.delete("/genre/:genreId", deleteGenre)
 
 export default genreRoutes
