@@ -1,12 +1,12 @@
 import { Router } from "express"
 import { createTracks, deleteTracks, getAllTracks, getTrack, updateTracks } from "../controllers/tracks.controller.ts"
 
-const tracksRoutes: Router = Router()
+const router: Router = Router()
 
-tracksRoutes.post("/tracks", createTracks)
-tracksRoutes.get("/tracks", getAllTracks)
-tracksRoutes.get("/tracks/:trackId", getTrack)
-tracksRoutes.patch("/tracks/:trackId", updateTracks)
-tracksRoutes.delete("/tracks/:trackId", deleteTracks)
+router.get("/tracks", getAllTracks)
+// router.post("/tracks", createTracks)
+// router.get("/tracks/:trackId", getTrack)
+// router.patch("/tracks/:trackId", updateTracks)
+// router.delete("/tracks/:trackId", deleteTracks)
 
-export default tracksRoutes
+export default router
