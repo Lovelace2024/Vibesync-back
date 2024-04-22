@@ -19,7 +19,7 @@ model User {
   id                String                 @id @default(auto()) @map("_id") @db.ObjectId
   email             String                 @unique
   password          String
-  image             String
+  image             String                 @default("https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp")
   role              String                 @default("user")
   name              String?
   gender            String?
@@ -73,7 +73,7 @@ model Artists {
   name        String               @unique
   email       String               @unique
   password    String
-  thumbnail   String
+  thumbnail   String               @default("https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp")
   albums      Albums[]
   tracks      ArtistsOnTracks[]
   genre       Genre                @relation(fields: [genreId], references: [id])
