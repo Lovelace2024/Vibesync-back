@@ -10,11 +10,9 @@ import genreRoutes from './routes/genre.routes.ts'
 import tracksRoutes from './routes/tracks.routes.ts'
 import artistsRoutes from './routes/artists.routes.ts'
 import albumsRoutes from './routes/albums.routes.ts'
-import json from 'body-parser'
-import urlencoded from 'body-parser'
 
 const app: Express = express()
-  
+
 
 app.use(helmet())
 app.use(morgan('dev'))
