@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const createTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreId, albumId } = req.body;
+    const { name, artistId, url, thumbnail, genreId, albumId } = req.body;  
 
     try {
         const newTrack = await prisma.tracks.create({
@@ -14,6 +14,7 @@ export const createTracks = async (req: Request, res: Response) => {
             }
         });
         console.log('New Track:', newTrack);
+        
         const artist = await prisma.artists.findUnique({
             where: { id: artistId }
         });

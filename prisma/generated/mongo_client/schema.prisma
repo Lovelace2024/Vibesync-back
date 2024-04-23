@@ -43,6 +43,7 @@ model Tracks {
   album               TracksOnAlbums[]
   playlistConnections PlaylistToTrack[]
   favsOfUsers         UserFavsTracks[]
+  createdAt           DateTime          @default(now())
 }
 
 model Albums {
@@ -94,20 +95,20 @@ model Genre {
 
 model ArtistsOnTracks {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  artistId String  @db.ObjectId
   artist   Artists @relation(fields: [artistId], references: [id])
-  trackId  String  @db.ObjectId
+  artistId String  @db.ObjectId
   track    Tracks  @relation(fields: [trackId], references: [id])
+  trackId  String  @db.ObjectId
 
   @@unique([artistId, trackId])
 }
 
 model TracksOnAlbums {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
-  albumId String @db.ObjectId
   album   Albums @relation(fields: [albumId], references: [id])
-  trackId String @db.ObjectId
+  albumId String @db.ObjectId
   track   Tracks @relation(fields: [trackId], references: [id])
+  trackId String @db.ObjectId
 
   @@unique([albumId, trackId])
 }

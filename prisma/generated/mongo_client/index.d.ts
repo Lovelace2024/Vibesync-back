@@ -3403,6 +3403,7 @@ export namespace Prisma {
     url: string | null
     thumbnail: string | null
     genreId: string | null
+    createdAt: Date | null
   }
 
   export type TracksMaxAggregateOutputType = {
@@ -3411,6 +3412,7 @@ export namespace Prisma {
     url: string | null
     thumbnail: string | null
     genreId: string | null
+    createdAt: Date | null
   }
 
   export type TracksCountAggregateOutputType = {
@@ -3419,6 +3421,7 @@ export namespace Prisma {
     url: number
     thumbnail: number
     genreId: number
+    createdAt: number
     _all: number
   }
 
@@ -3429,6 +3432,7 @@ export namespace Prisma {
     url?: true
     thumbnail?: true
     genreId?: true
+    createdAt?: true
   }
 
   export type TracksMaxAggregateInputType = {
@@ -3437,6 +3441,7 @@ export namespace Prisma {
     url?: true
     thumbnail?: true
     genreId?: true
+    createdAt?: true
   }
 
   export type TracksCountAggregateInputType = {
@@ -3445,6 +3450,7 @@ export namespace Prisma {
     url?: true
     thumbnail?: true
     genreId?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -3526,6 +3532,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt: Date
     _count: TracksCountAggregateOutputType | null
     _min: TracksMinAggregateOutputType | null
     _max: TracksMaxAggregateOutputType | null
@@ -3551,6 +3558,7 @@ export namespace Prisma {
     url?: boolean
     thumbnail?: boolean
     genreId?: boolean
+    createdAt?: boolean
     artist?: boolean | Tracks$artistArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
     album?: boolean | Tracks$albumArgs<ExtArgs>
@@ -3565,6 +3573,7 @@ export namespace Prisma {
     url?: boolean
     thumbnail?: boolean
     genreId?: boolean
+    createdAt?: boolean
   }
 
   export type TracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3592,6 +3601,7 @@ export namespace Prisma {
       url: string
       thumbnail: string
       genreId: string
+      createdAt: Date
     }, ExtArgs["result"]["tracks"]>
     composites: {}
   }
@@ -4027,6 +4037,7 @@ export namespace Prisma {
     readonly url: FieldRef<"Tracks", 'String'>
     readonly thumbnail: FieldRef<"Tracks", 'String'>
     readonly genreId: FieldRef<"Tracks", 'String'>
+    readonly createdAt: FieldRef<"Tracks", 'DateTime'>
   }
     
 
@@ -15376,7 +15387,8 @@ export namespace Prisma {
     name: 'name',
     url: 'url',
     thumbnail: 'thumbnail',
-    genreId: 'genreId'
+    genreId: 'genreId',
+    createdAt: 'createdAt'
   };
 
   export type TracksScalarFieldEnum = (typeof TracksScalarFieldEnum)[keyof typeof TracksScalarFieldEnum]
@@ -15527,13 +15539,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -15544,6 +15549,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -15660,6 +15672,7 @@ export namespace Prisma {
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
     genreId?: StringFilter<"Tracks"> | string
+    createdAt?: DateTimeFilter<"Tracks"> | Date | string
     artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
     album?: TracksOnAlbumsListRelationFilter
@@ -15673,6 +15686,7 @@ export namespace Prisma {
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    createdAt?: SortOrder
     artist?: ArtistsOnTracksOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
     album?: TracksOnAlbumsOrderByRelationAggregateInput
@@ -15689,6 +15703,7 @@ export namespace Prisma {
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
     genreId?: StringFilter<"Tracks"> | string
+    createdAt?: DateTimeFilter<"Tracks"> | Date | string
     artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
     album?: TracksOnAlbumsListRelationFilter
@@ -15702,6 +15717,7 @@ export namespace Prisma {
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    createdAt?: SortOrder
     _count?: TracksCountOrderByAggregateInput
     _max?: TracksMaxOrderByAggregateInput
     _min?: TracksMinOrderByAggregateInput
@@ -15716,6 +15732,7 @@ export namespace Prisma {
     url?: StringWithAggregatesFilter<"Tracks"> | string
     thumbnail?: StringWithAggregatesFilter<"Tracks"> | string
     genreId?: StringWithAggregatesFilter<"Tracks"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Tracks"> | Date | string
   }
 
   export type AlbumsWhereInput = {
@@ -16426,6 +16443,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     genre: GenreCreateNestedOneWithoutTracksInput
     album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
@@ -16439,6 +16457,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
@@ -16449,6 +16468,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
     album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
@@ -16461,6 +16481,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
@@ -16473,12 +16494,14 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
   }
 
   export type TracksUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TracksUncheckedUpdateManyInput = {
@@ -16486,6 +16509,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlbumsCreateInput = {
@@ -17156,6 +17180,17 @@ export namespace Prisma {
     isSet?: boolean
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type ArtistsOnTracksListRelationFilter = {
     every?: ArtistsOnTracksWhereInput
     some?: ArtistsOnTracksWhereInput
@@ -17197,6 +17232,7 @@ export namespace Prisma {
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type TracksMaxOrderByAggregateInput = {
@@ -17205,6 +17241,7 @@ export namespace Prisma {
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type TracksMinOrderByAggregateInput = {
@@ -17213,6 +17250,21 @@ export namespace Prisma {
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type ArtistsRelationFilter = {
@@ -17417,17 +17469,6 @@ export namespace Prisma {
     trackId?: SortOrder
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type UserFavsTracksUserIdTrackIdCompoundUniqueInput = {
     userId: string
     trackId: string
@@ -17452,20 +17493,6 @@ export namespace Prisma {
     userId?: SortOrder
     trackId?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type PlaylistsRelationFilter = {
@@ -17850,6 +17877,10 @@ export namespace Prisma {
     connectOrCreate?: UserFavsTracksCreateOrConnectWithoutTrackInput | UserFavsTracksCreateOrConnectWithoutTrackInput[]
     createMany?: UserFavsTracksCreateManyTrackInputEnvelope
     connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type ArtistsOnTracksUpdateManyWithoutTrackNestedInput = {
@@ -18520,10 +18551,6 @@ export namespace Prisma {
     connect?: TracksWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type UserUpdateOneRequiredWithoutFavTracksNestedInput = {
     create?: XOR<UserCreateWithoutFavTracksInput, UserUncheckedCreateWithoutFavTracksInput>
     connectOrCreate?: UserCreateOrConnectWithoutFavTracksInput
@@ -18739,19 +18766,6 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -18775,6 +18789,19 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type UserLikedAlbumsCreateWithoutUserInput = {
@@ -19751,6 +19778,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
@@ -19762,6 +19790,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
@@ -19851,6 +19880,7 @@ export namespace Prisma {
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
     genreId?: StringFilter<"Tracks"> | string
+    createdAt?: DateTimeFilter<"Tracks"> | Date | string
   }
 
   export type ArtistsUpsertWithWhereUniqueWithoutGenreInput = {
@@ -19916,6 +19946,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     genre: GenreCreateNestedOneWithoutTracksInput
     album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
@@ -19928,6 +19959,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -19986,6 +20018,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
     album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
@@ -19997,6 +20030,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
@@ -20030,6 +20064,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     genre: GenreCreateNestedOneWithoutTracksInput
     playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
@@ -20042,6 +20077,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -20094,6 +20130,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
     playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
@@ -20105,6 +20142,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
@@ -20152,6 +20190,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     genre: GenreCreateNestedOneWithoutTracksInput
     album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
@@ -20164,6 +20203,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
@@ -20230,6 +20270,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
     album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
@@ -20241,6 +20282,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
@@ -20274,6 +20316,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     genre: GenreCreateNestedOneWithoutTracksInput
     album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
@@ -20286,6 +20329,7 @@ export namespace Prisma {
     url: string
     thumbnail: string
     genreId: string
+    createdAt?: Date | string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -20338,6 +20382,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
     album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
@@ -20349,6 +20394,7 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
@@ -21082,6 +21128,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
+    createdAt?: Date | string
   }
 
   export type ArtistsCreateManyGenreInput = {
@@ -21119,6 +21166,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
@@ -21129,6 +21177,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
@@ -21139,6 +21188,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ArtistsUpdateWithoutGenreInput = {

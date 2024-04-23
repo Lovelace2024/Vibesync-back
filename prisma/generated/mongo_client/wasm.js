@@ -129,7 +129,8 @@ exports.Prisma.TracksScalarFieldEnum = {
   name: 'name',
   url: 'url',
   thumbnail: 'thumbnail',
-  genreId: 'genreId'
+  genreId: 'genreId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.AlbumsScalarFieldEnum = {

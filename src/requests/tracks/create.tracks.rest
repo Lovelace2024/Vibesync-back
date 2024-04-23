@@ -2,10 +2,10 @@ POST http://localhost:4001/api/tracks
 Content-Type: application/json
 
 {
-  "name": "Napoleón acompañado",
-  "artistId": "66269d466169ed0632cbffb7",
+  "name": "Los tontos",
+  "artistId": "66269bac6169ed0632cbffb1",
   "url": "https://ejemplo.com/cancion_prueba.mp3",
   "thumbnail": "https://ejemplo.com/thumbnail_prueba.jpg",
-  "genreId": "662686f5799bc34729abb02f",
-  "albumId": "6626a7314e8ed9b12e6d6e7d"
+  "genreId": "6620a5475af0026b4cc0c5f9",
+  "albumId": "6626ceaa054b5c3ebf092b25"
 }
