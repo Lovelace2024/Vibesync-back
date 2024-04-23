@@ -6,11 +6,16 @@ import errorHandler from './middlewares/error.middleware.ts'
 import cors from 'cors'
 import userRoutes from './routes/user.routes.ts'
 import loginRoutes from './routes/login.routes.ts'
+import genreRoutes from './routes/genre.routes.ts'
+import tracksRoutes from './routes/tracks.routes.ts'
+import artistsRoutes from './routes/artists.routes.ts'
+import albumsRoutes from './routes/albums.routes.ts'
 
 const app: Express = express()
 
+
 app.use(helmet())
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use(errorHandler)
 app.use(responseTime())
 app.use(express.urlencoded({ extended: true }))
@@ -23,5 +28,9 @@ app.use(cors({
 
 app.use("/api", userRoutes)
 app.use("/api", loginRoutes)
+app.use("/api", artistsRoutes)
+app.use("/api", genreRoutes)
+app.use("/api", tracksRoutes)
+app.use("/api", albumsRoutes)
 
 export default app

@@ -116,6 +116,8 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   password: 'password',
+  image: 'image',
+  role: 'role',
   name: 'name',
   gender: 'gender',
   birthDate: 'birthDate',
@@ -125,12 +127,9 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.TracksScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  artistId: 'artistId',
   url: 'url',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
-  albumId: 'albumId',
-  userId: 'userId'
+  genreId: 'genreId'
 };
 
 exports.Prisma.AlbumsScalarFieldEnum = {
@@ -138,30 +137,75 @@ exports.Prisma.AlbumsScalarFieldEnum = {
   name: 'name',
   artistId: 'artistId',
   thumbnail: 'thumbnail',
-  genreId: 'genreId',
-  userId: 'userId'
+  genreId: 'genreId'
 };
 
 exports.Prisma.PlaylistsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   thumbnail: 'thumbnail',
-  trackId: 'trackId',
-  genreId: 'genreId',
+  publicAccess: 'publicAccess',
   userId: 'userId'
 };
 
 exports.Prisma.ArtistsScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  email: 'email',
+  password: 'password',
   thumbnail: 'thumbnail',
   genreId: 'genreId',
-  userId: 'userId'
+  description: 'description'
 };
 
 exports.Prisma.GenreScalarFieldEnum = {
   id: 'id',
   name: 'name'
+};
+
+exports.Prisma.ArtistsOnTracksScalarFieldEnum = {
+  id: 'id',
+  artistId: 'artistId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.TracksOnAlbumsScalarFieldEnum = {
+  id: 'id',
+  albumId: 'albumId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.UserFavsTracksScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  trackId: 'trackId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PlaylistToTrackScalarFieldEnum = {
+  id: 'id',
+  playlistId: 'playlistId',
+  trackId: 'trackId'
+};
+
+exports.Prisma.UserFollowsPlaylistsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  playlistId: 'playlistId'
+};
+
+exports.Prisma.UserFollowsArtistsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  artistId: 'artistId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.UserLikedAlbumsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  albumId: 'albumId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -181,7 +225,14 @@ exports.Prisma.ModelName = {
   Albums: 'Albums',
   Playlists: 'Playlists',
   Artists: 'Artists',
-  Genre: 'Genre'
+  Genre: 'Genre',
+  ArtistsOnTracks: 'ArtistsOnTracks',
+  TracksOnAlbums: 'TracksOnAlbums',
+  UserFavsTracks: 'UserFavsTracks',
+  PlaylistToTrack: 'PlaylistToTrack',
+  UserFollowsPlaylists: 'UserFollowsPlaylists',
+  UserFollowsArtists: 'UserFollowsArtists',
+  UserLikedAlbums: 'UserLikedAlbums'
 };
 
 /**

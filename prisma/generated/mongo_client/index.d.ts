@@ -43,6 +43,41 @@ export type Artists = $Result.DefaultSelection<Prisma.$ArtistsPayload>
  * 
  */
 export type Genre = $Result.DefaultSelection<Prisma.$GenrePayload>
+/**
+ * Model ArtistsOnTracks
+ * 
+ */
+export type ArtistsOnTracks = $Result.DefaultSelection<Prisma.$ArtistsOnTracksPayload>
+/**
+ * Model TracksOnAlbums
+ * 
+ */
+export type TracksOnAlbums = $Result.DefaultSelection<Prisma.$TracksOnAlbumsPayload>
+/**
+ * Model UserFavsTracks
+ * 
+ */
+export type UserFavsTracks = $Result.DefaultSelection<Prisma.$UserFavsTracksPayload>
+/**
+ * Model PlaylistToTrack
+ * 
+ */
+export type PlaylistToTrack = $Result.DefaultSelection<Prisma.$PlaylistToTrackPayload>
+/**
+ * Model UserFollowsPlaylists
+ * 
+ */
+export type UserFollowsPlaylists = $Result.DefaultSelection<Prisma.$UserFollowsPlaylistsPayload>
+/**
+ * Model UserFollowsArtists
+ * 
+ */
+export type UserFollowsArtists = $Result.DefaultSelection<Prisma.$UserFollowsArtistsPayload>
+/**
+ * Model UserLikedAlbums
+ * 
+ */
+export type UserLikedAlbums = $Result.DefaultSelection<Prisma.$UserLikedAlbumsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -193,6 +228,76 @@ export class PrismaClient<
     * ```
     */
   get genre(): Prisma.GenreDelegate<ExtArgs>;
+
+  /**
+   * `prisma.artistsOnTracks`: Exposes CRUD operations for the **ArtistsOnTracks** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArtistsOnTracks
+    * const artistsOnTracks = await prisma.artistsOnTracks.findMany()
+    * ```
+    */
+  get artistsOnTracks(): Prisma.ArtistsOnTracksDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tracksOnAlbums`: Exposes CRUD operations for the **TracksOnAlbums** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TracksOnAlbums
+    * const tracksOnAlbums = await prisma.tracksOnAlbums.findMany()
+    * ```
+    */
+  get tracksOnAlbums(): Prisma.TracksOnAlbumsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userFavsTracks`: Exposes CRUD operations for the **UserFavsTracks** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserFavsTracks
+    * const userFavsTracks = await prisma.userFavsTracks.findMany()
+    * ```
+    */
+  get userFavsTracks(): Prisma.UserFavsTracksDelegate<ExtArgs>;
+
+  /**
+   * `prisma.playlistToTrack`: Exposes CRUD operations for the **PlaylistToTrack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PlaylistToTracks
+    * const playlistToTracks = await prisma.playlistToTrack.findMany()
+    * ```
+    */
+  get playlistToTrack(): Prisma.PlaylistToTrackDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userFollowsPlaylists`: Exposes CRUD operations for the **UserFollowsPlaylists** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserFollowsPlaylists
+    * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findMany()
+    * ```
+    */
+  get userFollowsPlaylists(): Prisma.UserFollowsPlaylistsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userFollowsArtists`: Exposes CRUD operations for the **UserFollowsArtists** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserFollowsArtists
+    * const userFollowsArtists = await prisma.userFollowsArtists.findMany()
+    * ```
+    */
+  get userFollowsArtists(): Prisma.UserFollowsArtistsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.userLikedAlbums`: Exposes CRUD operations for the **UserLikedAlbums** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UserLikedAlbums
+    * const userLikedAlbums = await prisma.userLikedAlbums.findMany()
+    * ```
+    */
+  get userLikedAlbums(): Prisma.UserLikedAlbumsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -668,7 +773,14 @@ export namespace Prisma {
     Albums: 'Albums',
     Playlists: 'Playlists',
     Artists: 'Artists',
-    Genre: 'Genre'
+    Genre: 'Genre',
+    ArtistsOnTracks: 'ArtistsOnTracks',
+    TracksOnAlbums: 'TracksOnAlbums',
+    UserFavsTracks: 'UserFavsTracks',
+    PlaylistToTrack: 'PlaylistToTrack',
+    UserFollowsPlaylists: 'UserFollowsPlaylists',
+    UserFollowsArtists: 'UserFollowsArtists',
+    UserLikedAlbums: 'UserLikedAlbums'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -685,7 +797,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'tracks' | 'albums' | 'playlists' | 'artists' | 'genre'
+      modelProps: 'user' | 'tracks' | 'albums' | 'playlists' | 'artists' | 'genre' | 'artistsOnTracks' | 'tracksOnAlbums' | 'userFavsTracks' | 'playlistToTrack' | 'userFollowsPlaylists' | 'userFollowsArtists' | 'userLikedAlbums'
       txIsolationLevel: never
     },
     model: {
@@ -1133,6 +1245,524 @@ export namespace Prisma {
           }
         }
       }
+      ArtistsOnTracks: {
+        payload: Prisma.$ArtistsOnTracksPayload<ExtArgs>
+        fields: Prisma.ArtistsOnTracksFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArtistsOnTracksFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArtistsOnTracksFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          findFirst: {
+            args: Prisma.ArtistsOnTracksFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArtistsOnTracksFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          findMany: {
+            args: Prisma.ArtistsOnTracksFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>[]
+          }
+          create: {
+            args: Prisma.ArtistsOnTracksCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          createMany: {
+            args: Prisma.ArtistsOnTracksCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ArtistsOnTracksDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          update: {
+            args: Prisma.ArtistsOnTracksUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArtistsOnTracksDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArtistsOnTracksUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ArtistsOnTracksUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ArtistsOnTracksPayload>
+          }
+          aggregate: {
+            args: Prisma.ArtistsOnTracksAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateArtistsOnTracks>
+          }
+          groupBy: {
+            args: Prisma.ArtistsOnTracksGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ArtistsOnTracksGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.ArtistsOnTracksFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.ArtistsOnTracksAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.ArtistsOnTracksCountArgs<ExtArgs>,
+            result: $Utils.Optional<ArtistsOnTracksCountAggregateOutputType> | number
+          }
+        }
+      }
+      TracksOnAlbums: {
+        payload: Prisma.$TracksOnAlbumsPayload<ExtArgs>
+        fields: Prisma.TracksOnAlbumsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TracksOnAlbumsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TracksOnAlbumsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          findFirst: {
+            args: Prisma.TracksOnAlbumsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TracksOnAlbumsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          findMany: {
+            args: Prisma.TracksOnAlbumsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>[]
+          }
+          create: {
+            args: Prisma.TracksOnAlbumsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          createMany: {
+            args: Prisma.TracksOnAlbumsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.TracksOnAlbumsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          update: {
+            args: Prisma.TracksOnAlbumsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          deleteMany: {
+            args: Prisma.TracksOnAlbumsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TracksOnAlbumsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.TracksOnAlbumsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TracksOnAlbumsPayload>
+          }
+          aggregate: {
+            args: Prisma.TracksOnAlbumsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateTracksOnAlbums>
+          }
+          groupBy: {
+            args: Prisma.TracksOnAlbumsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<TracksOnAlbumsGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.TracksOnAlbumsFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.TracksOnAlbumsAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.TracksOnAlbumsCountArgs<ExtArgs>,
+            result: $Utils.Optional<TracksOnAlbumsCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserFavsTracks: {
+        payload: Prisma.$UserFavsTracksPayload<ExtArgs>
+        fields: Prisma.UserFavsTracksFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFavsTracksFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFavsTracksFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFavsTracksFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFavsTracksFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          findMany: {
+            args: Prisma.UserFavsTracksFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>[]
+          }
+          create: {
+            args: Prisma.UserFavsTracksCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          createMany: {
+            args: Prisma.UserFavsTracksCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.UserFavsTracksDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          update: {
+            args: Prisma.UserFavsTracksUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserFavsTracksDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserFavsTracksUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserFavsTracksUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFavsTracksPayload>
+          }
+          aggregate: {
+            args: Prisma.UserFavsTracksAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserFavsTracks>
+          }
+          groupBy: {
+            args: Prisma.UserFavsTracksGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserFavsTracksGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserFavsTracksFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserFavsTracksAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.UserFavsTracksCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserFavsTracksCountAggregateOutputType> | number
+          }
+        }
+      }
+      PlaylistToTrack: {
+        payload: Prisma.$PlaylistToTrackPayload<ExtArgs>
+        fields: Prisma.PlaylistToTrackFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PlaylistToTrackFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PlaylistToTrackFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          findFirst: {
+            args: Prisma.PlaylistToTrackFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PlaylistToTrackFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          findMany: {
+            args: Prisma.PlaylistToTrackFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>[]
+          }
+          create: {
+            args: Prisma.PlaylistToTrackCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          createMany: {
+            args: Prisma.PlaylistToTrackCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.PlaylistToTrackDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          update: {
+            args: Prisma.PlaylistToTrackUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          deleteMany: {
+            args: Prisma.PlaylistToTrackDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PlaylistToTrackUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.PlaylistToTrackUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$PlaylistToTrackPayload>
+          }
+          aggregate: {
+            args: Prisma.PlaylistToTrackAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregatePlaylistToTrack>
+          }
+          groupBy: {
+            args: Prisma.PlaylistToTrackGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<PlaylistToTrackGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.PlaylistToTrackFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.PlaylistToTrackAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.PlaylistToTrackCountArgs<ExtArgs>,
+            result: $Utils.Optional<PlaylistToTrackCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserFollowsPlaylists: {
+        payload: Prisma.$UserFollowsPlaylistsPayload<ExtArgs>
+        fields: Prisma.UserFollowsPlaylistsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFollowsPlaylistsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFollowsPlaylistsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFollowsPlaylistsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFollowsPlaylistsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          findMany: {
+            args: Prisma.UserFollowsPlaylistsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>[]
+          }
+          create: {
+            args: Prisma.UserFollowsPlaylistsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          createMany: {
+            args: Prisma.UserFollowsPlaylistsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.UserFollowsPlaylistsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          update: {
+            args: Prisma.UserFollowsPlaylistsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserFollowsPlaylistsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserFollowsPlaylistsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserFollowsPlaylistsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsPlaylistsPayload>
+          }
+          aggregate: {
+            args: Prisma.UserFollowsPlaylistsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserFollowsPlaylists>
+          }
+          groupBy: {
+            args: Prisma.UserFollowsPlaylistsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserFollowsPlaylistsGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserFollowsPlaylistsFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserFollowsPlaylistsAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.UserFollowsPlaylistsCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserFollowsPlaylistsCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserFollowsArtists: {
+        payload: Prisma.$UserFollowsArtistsPayload<ExtArgs>
+        fields: Prisma.UserFollowsArtistsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFollowsArtistsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFollowsArtistsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFollowsArtistsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFollowsArtistsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          findMany: {
+            args: Prisma.UserFollowsArtistsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>[]
+          }
+          create: {
+            args: Prisma.UserFollowsArtistsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          createMany: {
+            args: Prisma.UserFollowsArtistsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.UserFollowsArtistsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          update: {
+            args: Prisma.UserFollowsArtistsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserFollowsArtistsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserFollowsArtistsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserFollowsArtistsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserFollowsArtistsPayload>
+          }
+          aggregate: {
+            args: Prisma.UserFollowsArtistsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserFollowsArtists>
+          }
+          groupBy: {
+            args: Prisma.UserFollowsArtistsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserFollowsArtistsGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserFollowsArtistsFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserFollowsArtistsAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.UserFollowsArtistsCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserFollowsArtistsCountAggregateOutputType> | number
+          }
+        }
+      }
+      UserLikedAlbums: {
+        payload: Prisma.$UserLikedAlbumsPayload<ExtArgs>
+        fields: Prisma.UserLikedAlbumsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserLikedAlbumsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserLikedAlbumsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          findFirst: {
+            args: Prisma.UserLikedAlbumsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserLikedAlbumsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          findMany: {
+            args: Prisma.UserLikedAlbumsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>[]
+          }
+          create: {
+            args: Prisma.UserLikedAlbumsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          createMany: {
+            args: Prisma.UserLikedAlbumsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.UserLikedAlbumsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          update: {
+            args: Prisma.UserLikedAlbumsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserLikedAlbumsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserLikedAlbumsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserLikedAlbumsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserLikedAlbumsPayload>
+          }
+          aggregate: {
+            args: Prisma.UserLikedAlbumsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserLikedAlbums>
+          }
+          groupBy: {
+            args: Prisma.UserLikedAlbumsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserLikedAlbumsGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.UserLikedAlbumsFindRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.UserLikedAlbumsAggregateRawArgs<ExtArgs>,
+            result: Prisma.JsonObject
+          }
+          count: {
+            args: Prisma.UserLikedAlbumsCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserLikedAlbumsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1279,17 +1909,19 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    favs: number
     likedAlbums: number
-    likedPlaylists: number
     artistsFollowed: number
+    followedPlaylists: number
+    createdPlaylists: number
+    favTracks: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favs?: boolean | UserCountOutputTypeCountFavsArgs
     likedAlbums?: boolean | UserCountOutputTypeCountLikedAlbumsArgs
-    likedPlaylists?: boolean | UserCountOutputTypeCountLikedPlaylistsArgs
     artistsFollowed?: boolean | UserCountOutputTypeCountArtistsFollowedArgs
+    followedPlaylists?: boolean | UserCountOutputTypeCountFollowedPlaylistsArgs
+    createdPlaylists?: boolean | UserCountOutputTypeCountCreatedPlaylistsArgs
+    favTracks?: boolean | UserCountOutputTypeCountFavTracksArgs
   }
 
   // Custom InputTypes
@@ -1308,24 +1940,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountFavsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TracksWhereInput
-  }
-
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountLikedAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AlbumsWhereInput
-  }
-
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountLikedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaylistsWhereInput
+    where?: UserLikedAlbumsWhereInput
   }
 
 
@@ -1333,7 +1949,31 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountArtistsFollowedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ArtistsWhereInput
+    where?: UserFollowsArtistsWhereInput
+  }
+
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFollowedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFollowsPlaylistsWhereInput
+  }
+
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCreatedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlaylistsWhereInput
+  }
+
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFavTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFavsTracksWhereInput
   }
 
 
@@ -1343,11 +1983,17 @@ export namespace Prisma {
    */
 
   export type TracksCountOutputType = {
-    playlists: number
+    artist: number
+    album: number
+    playlistConnections: number
+    favsOfUsers: number
   }
 
   export type TracksCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    playlists?: boolean | TracksCountOutputTypeCountPlaylistsArgs
+    artist?: boolean | TracksCountOutputTypeCountArtistArgs
+    album?: boolean | TracksCountOutputTypeCountAlbumArgs
+    playlistConnections?: boolean | TracksCountOutputTypeCountPlaylistConnectionsArgs
+    favsOfUsers?: boolean | TracksCountOutputTypeCountFavsOfUsersArgs
   }
 
   // Custom InputTypes
@@ -1366,8 +2012,32 @@ export namespace Prisma {
   /**
    * TracksCountOutputType without action
    */
-  export type TracksCountOutputTypeCountPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaylistsWhereInput
+  export type TracksCountOutputTypeCountArtistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArtistsOnTracksWhereInput
+  }
+
+
+  /**
+   * TracksCountOutputType without action
+   */
+  export type TracksCountOutputTypeCountAlbumArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TracksOnAlbumsWhereInput
+  }
+
+
+  /**
+   * TracksCountOutputType without action
+   */
+  export type TracksCountOutputTypeCountPlaylistConnectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlaylistToTrackWhereInput
+  }
+
+
+  /**
+   * TracksCountOutputType without action
+   */
+  export type TracksCountOutputTypeCountFavsOfUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFavsTracksWhereInput
   }
 
 
@@ -1378,10 +2048,12 @@ export namespace Prisma {
 
   export type AlbumsCountOutputType = {
     tracks: number
+    likedByUsers: number
   }
 
   export type AlbumsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tracks?: boolean | AlbumsCountOutputTypeCountTracksArgs
+    likedByUsers?: boolean | AlbumsCountOutputTypeCountLikedByUsersArgs
   }
 
   // Custom InputTypes
@@ -1401,7 +2073,59 @@ export namespace Prisma {
    * AlbumsCountOutputType without action
    */
   export type AlbumsCountOutputTypeCountTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TracksWhereInput
+    where?: TracksOnAlbumsWhereInput
+  }
+
+
+  /**
+   * AlbumsCountOutputType without action
+   */
+  export type AlbumsCountOutputTypeCountLikedByUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLikedAlbumsWhereInput
+  }
+
+
+
+  /**
+   * Count Type PlaylistsCountOutputType
+   */
+
+  export type PlaylistsCountOutputType = {
+    followers: number
+    tracksConnections: number
+  }
+
+  export type PlaylistsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    followers?: boolean | PlaylistsCountOutputTypeCountFollowersArgs
+    tracksConnections?: boolean | PlaylistsCountOutputTypeCountTracksConnectionsArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * PlaylistsCountOutputType without action
+   */
+  export type PlaylistsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistsCountOutputType
+     */
+    select?: PlaylistsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * PlaylistsCountOutputType without action
+   */
+  export type PlaylistsCountOutputTypeCountFollowersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFollowsPlaylistsWhereInput
+  }
+
+
+  /**
+   * PlaylistsCountOutputType without action
+   */
+  export type PlaylistsCountOutputTypeCountTracksConnectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlaylistToTrackWhereInput
   }
 
 
@@ -1413,11 +2137,13 @@ export namespace Prisma {
   export type ArtistsCountOutputType = {
     albums: number
     tracks: number
+    followers: number
   }
 
   export type ArtistsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albums?: boolean | ArtistsCountOutputTypeCountAlbumsArgs
     tracks?: boolean | ArtistsCountOutputTypeCountTracksArgs
+    followers?: boolean | ArtistsCountOutputTypeCountFollowersArgs
   }
 
   // Custom InputTypes
@@ -1445,7 +2171,15 @@ export namespace Prisma {
    * ArtistsCountOutputType without action
    */
   export type ArtistsCountOutputTypeCountTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TracksWhereInput
+    where?: ArtistsOnTracksWhereInput
+  }
+
+
+  /**
+   * ArtistsCountOutputType without action
+   */
+  export type ArtistsCountOutputTypeCountFollowersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFollowsArtistsWhereInput
   }
 
 
@@ -1458,14 +2192,12 @@ export namespace Prisma {
     albums: number
     tracks: number
     artists: number
-    playlists: number
   }
 
   export type GenreCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albums?: boolean | GenreCountOutputTypeCountAlbumsArgs
     tracks?: boolean | GenreCountOutputTypeCountTracksArgs
     artists?: boolean | GenreCountOutputTypeCountArtistsArgs
-    playlists?: boolean | GenreCountOutputTypeCountPlaylistsArgs
   }
 
   // Custom InputTypes
@@ -1505,14 +2237,6 @@ export namespace Prisma {
   }
 
 
-  /**
-   * GenreCountOutputType without action
-   */
-  export type GenreCountOutputTypeCountPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaylistsWhereInput
-  }
-
-
 
   /**
    * Models
@@ -1532,6 +2256,8 @@ export namespace Prisma {
     id: string | null
     email: string | null
     password: string | null
+    image: string | null
+    role: string | null
     name: string | null
     gender: string | null
     birthDate: string | null
@@ -1542,6 +2268,8 @@ export namespace Prisma {
     id: string | null
     email: string | null
     password: string | null
+    image: string | null
+    role: string | null
     name: string | null
     gender: string | null
     birthDate: string | null
@@ -1552,6 +2280,8 @@ export namespace Prisma {
     id: number
     email: number
     password: number
+    image: number
+    role: number
     name: number
     gender: number
     birthDate: number
@@ -1564,6 +2294,8 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
+    image?: true
+    role?: true
     name?: true
     gender?: true
     birthDate?: true
@@ -1574,6 +2306,8 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
+    image?: true
+    role?: true
     name?: true
     gender?: true
     birthDate?: true
@@ -1584,6 +2318,8 @@ export namespace Prisma {
     id?: true
     email?: true
     password?: true
+    image?: true
+    role?: true
     name?: true
     gender?: true
     birthDate?: true
@@ -1667,10 +2403,12 @@ export namespace Prisma {
     id: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
+    image: string
+    role: string
+    name: string | null
+    gender: string | null
+    birthDate: string | null
+    country: string | null
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1694,14 +2432,17 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
+    image?: boolean
+    role?: boolean
     name?: boolean
     gender?: boolean
     birthDate?: boolean
     country?: boolean
-    favs?: boolean | User$favsArgs<ExtArgs>
     likedAlbums?: boolean | User$likedAlbumsArgs<ExtArgs>
-    likedPlaylists?: boolean | User$likedPlaylistsArgs<ExtArgs>
     artistsFollowed?: boolean | User$artistsFollowedArgs<ExtArgs>
+    followedPlaylists?: boolean | User$followedPlaylistsArgs<ExtArgs>
+    createdPlaylists?: boolean | User$createdPlaylistsArgs<ExtArgs>
+    favTracks?: boolean | User$favTracksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1709,6 +2450,8 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     password?: boolean
+    image?: boolean
+    role?: boolean
     name?: boolean
     gender?: boolean
     birthDate?: boolean
@@ -1716,10 +2459,11 @@ export namespace Prisma {
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    favs?: boolean | User$favsArgs<ExtArgs>
     likedAlbums?: boolean | User$likedAlbumsArgs<ExtArgs>
-    likedPlaylists?: boolean | User$likedPlaylistsArgs<ExtArgs>
     artistsFollowed?: boolean | User$artistsFollowedArgs<ExtArgs>
+    followedPlaylists?: boolean | User$followedPlaylistsArgs<ExtArgs>
+    createdPlaylists?: boolean | User$createdPlaylistsArgs<ExtArgs>
+    favTracks?: boolean | User$favTracksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1727,19 +2471,22 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      favs: Prisma.$TracksPayload<ExtArgs>[]
-      likedAlbums: Prisma.$AlbumsPayload<ExtArgs>[]
-      likedPlaylists: Prisma.$PlaylistsPayload<ExtArgs>[]
-      artistsFollowed: Prisma.$ArtistsPayload<ExtArgs>[]
+      likedAlbums: Prisma.$UserLikedAlbumsPayload<ExtArgs>[]
+      artistsFollowed: Prisma.$UserFollowsArtistsPayload<ExtArgs>[]
+      followedPlaylists: Prisma.$UserFollowsPlaylistsPayload<ExtArgs>[]
+      createdPlaylists: Prisma.$PlaylistsPayload<ExtArgs>[]
+      favTracks: Prisma.$UserFavsTracksPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       password: string
-      name: string
-      gender: string
-      birthDate: string
-      country: string
+      image: string
+      role: string
+      name: string | null
+      gender: string | null
+      birthDate: string | null
+      country: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2132,13 +2879,15 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    favs<T extends User$favsArgs<ExtArgs> = {}>(args?: Subset<T, User$favsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findMany'> | Null>;
+    likedAlbums<T extends User$likedAlbumsArgs<ExtArgs> = {}>(args?: Subset<T, User$likedAlbumsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    likedAlbums<T extends User$likedAlbumsArgs<ExtArgs> = {}>(args?: Subset<T, User$likedAlbumsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    artistsFollowed<T extends User$artistsFollowedArgs<ExtArgs> = {}>(args?: Subset<T, User$artistsFollowedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    likedPlaylists<T extends User$likedPlaylistsArgs<ExtArgs> = {}>(args?: Subset<T, User$likedPlaylistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    followedPlaylists<T extends User$followedPlaylistsArgs<ExtArgs> = {}>(args?: Subset<T, User$followedPlaylistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    artistsFollowed<T extends User$artistsFollowedArgs<ExtArgs> = {}>(args?: Subset<T, User$artistsFollowedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    createdPlaylists<T extends User$createdPlaylistsArgs<ExtArgs> = {}>(args?: Subset<T, User$createdPlaylistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    favTracks<T extends User$favTracksArgs<ExtArgs> = {}>(args?: Subset<T, User$favTracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2171,6 +2920,8 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly image: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly gender: FieldRef<"User", 'String'>
     readonly birthDate: FieldRef<"User", 'String'>
@@ -2516,51 +3267,72 @@ export namespace Prisma {
 
 
   /**
-   * User.favs
-   */
-  export type User$favsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tracks
-     */
-    select?: TracksSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: TracksInclude<ExtArgs> | null
-    where?: TracksWhereInput
-    orderBy?: TracksOrderByWithRelationInput | TracksOrderByWithRelationInput[]
-    cursor?: TracksWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
-  }
-
-
-  /**
    * User.likedAlbums
    */
   export type User$likedAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Albums
+     * Select specific fields to fetch from the UserLikedAlbums
      */
-    select?: AlbumsSelect<ExtArgs> | null
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: AlbumsInclude<ExtArgs> | null
-    where?: AlbumsWhereInput
-    orderBy?: AlbumsOrderByWithRelationInput | AlbumsOrderByWithRelationInput[]
-    cursor?: AlbumsWhereUniqueInput
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    where?: UserLikedAlbumsWhereInput
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    cursor?: UserLikedAlbumsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
+    distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
 
   /**
-   * User.likedPlaylists
+   * User.artistsFollowed
    */
-  export type User$likedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$artistsFollowedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    where?: UserFollowsArtistsWhereInput
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * User.followedPlaylists
+   */
+  export type User$followedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    where?: UserFollowsPlaylistsWhereInput
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * User.createdPlaylists
+   */
+  export type User$createdPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Playlists
      */
@@ -2579,23 +3351,23 @@ export namespace Prisma {
 
 
   /**
-   * User.artistsFollowed
+   * User.favTracks
    */
-  export type User$artistsFollowedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$favTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Artists
+     * Select specific fields to fetch from the UserFavsTracks
      */
-    select?: ArtistsSelect<ExtArgs> | null
+    select?: UserFavsTracksSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: ArtistsInclude<ExtArgs> | null
-    where?: ArtistsWhereInput
-    orderBy?: ArtistsOrderByWithRelationInput | ArtistsOrderByWithRelationInput[]
-    cursor?: ArtistsWhereUniqueInput
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    where?: UserFavsTracksWhereInput
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    cursor?: UserFavsTracksWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ArtistsScalarFieldEnum | ArtistsScalarFieldEnum[]
+    distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
 
@@ -2628,32 +3400,25 @@ export namespace Prisma {
   export type TracksMinAggregateOutputType = {
     id: string | null
     name: string | null
-    artistId: string | null
     url: string | null
     thumbnail: string | null
     genreId: string | null
-    albumId: string | null
   }
 
   export type TracksMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    artistId: string | null
     url: string | null
     thumbnail: string | null
     genreId: string | null
-    albumId: string | null
   }
 
   export type TracksCountAggregateOutputType = {
     id: number
     name: number
-    artistId: number
     url: number
     thumbnail: number
     genreId: number
-    albumId: number
-    userId: number
     _all: number
   }
 
@@ -2661,32 +3426,25 @@ export namespace Prisma {
   export type TracksMinAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
     url?: true
     thumbnail?: true
     genreId?: true
-    albumId?: true
   }
 
   export type TracksMaxAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
     url?: true
     thumbnail?: true
     genreId?: true
-    albumId?: true
   }
 
   export type TracksCountAggregateInputType = {
     id?: true
     name?: true
-    artistId?: true
     url?: true
     thumbnail?: true
     genreId?: true
-    albumId?: true
-    userId?: true
     _all?: true
   }
 
@@ -2765,12 +3523,9 @@ export namespace Prisma {
   export type TracksGroupByOutputType = {
     id: string
     name: string
-    artistId: string
     url: string
     thumbnail: string
     genreId: string
-    albumId: string
-    userId: string[]
     _count: TracksCountAggregateOutputType | null
     _min: TracksMinAggregateOutputType | null
     _max: TracksMaxAggregateOutputType | null
@@ -2793,37 +3548,31 @@ export namespace Prisma {
   export type TracksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    artistId?: boolean
     url?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    albumId?: boolean
-    userId?: boolean
-    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+    artist?: boolean | Tracks$artistArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    album?: boolean | AlbumsDefaultArgs<ExtArgs>
-    playlists?: boolean | Tracks$playlistsArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    album?: boolean | Tracks$albumArgs<ExtArgs>
+    playlistConnections?: boolean | Tracks$playlistConnectionsArgs<ExtArgs>
+    favsOfUsers?: boolean | Tracks$favsOfUsersArgs<ExtArgs>
     _count?: boolean | TracksCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tracks"]>
 
   export type TracksSelectScalar = {
     id?: boolean
     name?: boolean
-    artistId?: boolean
     url?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    albumId?: boolean
-    userId?: boolean
   }
 
   export type TracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+    artist?: boolean | Tracks$artistArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    album?: boolean | AlbumsDefaultArgs<ExtArgs>
-    playlists?: boolean | Tracks$playlistsArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    album?: boolean | Tracks$albumArgs<ExtArgs>
+    playlistConnections?: boolean | Tracks$playlistConnectionsArgs<ExtArgs>
+    favsOfUsers?: boolean | Tracks$favsOfUsersArgs<ExtArgs>
     _count?: boolean | TracksCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2831,21 +3580,18 @@ export namespace Prisma {
   export type $TracksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Tracks"
     objects: {
-      artist: Prisma.$ArtistsPayload<ExtArgs>
+      artist: Prisma.$ArtistsOnTracksPayload<ExtArgs>[]
       genre: Prisma.$GenrePayload<ExtArgs>
-      album: Prisma.$AlbumsPayload<ExtArgs>
-      playlists: Prisma.$PlaylistsPayload<ExtArgs>[]
-      followers: Prisma.$UserPayload<ExtArgs>
+      album: Prisma.$TracksOnAlbumsPayload<ExtArgs>[]
+      playlistConnections: Prisma.$PlaylistToTrackPayload<ExtArgs>[]
+      favsOfUsers: Prisma.$UserFavsTracksPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      artistId: string
       url: string
       thumbnail: string
       genreId: string
-      albumId: string
-      userId: string[]
     }, ExtArgs["result"]["tracks"]>
     composites: {}
   }
@@ -3238,15 +3984,15 @@ export namespace Prisma {
   export interface Prisma__TracksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    artist<T extends ArtistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArtistsDefaultArgs<ExtArgs>>): Prisma__ArtistsClient<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    artist<T extends Tracks$artistArgs<ExtArgs> = {}>(args?: Subset<T, Tracks$artistArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     genre<T extends GenreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GenreDefaultArgs<ExtArgs>>): Prisma__GenreClient<$Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    album<T extends AlbumsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlbumsDefaultArgs<ExtArgs>>): Prisma__AlbumsClient<$Result.GetResult<Prisma.$AlbumsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    album<T extends Tracks$albumArgs<ExtArgs> = {}>(args?: Subset<T, Tracks$albumArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    playlists<T extends Tracks$playlistsArgs<ExtArgs> = {}>(args?: Subset<T, Tracks$playlistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    playlistConnections<T extends Tracks$playlistConnectionsArgs<ExtArgs> = {}>(args?: Subset<T, Tracks$playlistConnectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    followers<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    favsOfUsers<T extends Tracks$favsOfUsersArgs<ExtArgs> = {}>(args?: Subset<T, Tracks$favsOfUsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3278,12 +4024,9 @@ export namespace Prisma {
   interface TracksFieldRefs {
     readonly id: FieldRef<"Tracks", 'String'>
     readonly name: FieldRef<"Tracks", 'String'>
-    readonly artistId: FieldRef<"Tracks", 'String'>
     readonly url: FieldRef<"Tracks", 'String'>
     readonly thumbnail: FieldRef<"Tracks", 'String'>
     readonly genreId: FieldRef<"Tracks", 'String'>
-    readonly albumId: FieldRef<"Tracks", 'String'>
-    readonly userId: FieldRef<"Tracks", 'String[]'>
   }
     
 
@@ -3625,23 +4368,86 @@ export namespace Prisma {
 
 
   /**
-   * Tracks.playlists
+   * Tracks.artist
    */
-  export type Tracks$playlistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Tracks$artistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Playlists
+     * Select specific fields to fetch from the ArtistsOnTracks
      */
-    select?: PlaylistsSelect<ExtArgs> | null
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: PlaylistsInclude<ExtArgs> | null
-    where?: PlaylistsWhereInput
-    orderBy?: PlaylistsOrderByWithRelationInput | PlaylistsOrderByWithRelationInput[]
-    cursor?: PlaylistsWhereUniqueInput
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    where?: ArtistsOnTracksWhereInput
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    cursor?: ArtistsOnTracksWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
+    distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * Tracks.album
+   */
+  export type Tracks$albumArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    where?: TracksOnAlbumsWhereInput
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    cursor?: TracksOnAlbumsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Tracks.playlistConnections
+   */
+  export type Tracks$playlistConnectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    where?: PlaylistToTrackWhereInput
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    cursor?: PlaylistToTrackWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
+  }
+
+
+  /**
+   * Tracks.favsOfUsers
+   */
+  export type Tracks$favsOfUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    where?: UserFavsTracksWhereInput
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    cursor?: UserFavsTracksWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
 
@@ -3693,7 +4499,6 @@ export namespace Prisma {
     artistId: number
     thumbnail: number
     genreId: number
-    userId: number
     _all: number
   }
 
@@ -3720,7 +4525,6 @@ export namespace Prisma {
     artistId?: true
     thumbnail?: true
     genreId?: true
-    userId?: true
     _all?: true
   }
 
@@ -3802,7 +4606,6 @@ export namespace Prisma {
     artistId: string
     thumbnail: string
     genreId: string
-    userId: string[]
     _count: AlbumsCountAggregateOutputType | null
     _min: AlbumsMinAggregateOutputType | null
     _max: AlbumsMaxAggregateOutputType | null
@@ -3828,11 +4631,10 @@ export namespace Prisma {
     artistId?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    userId?: boolean
     artist?: boolean | ArtistsDefaultArgs<ExtArgs>
     tracks?: boolean | Albums$tracksArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    likedByUsers?: boolean | Albums$likedByUsersArgs<ExtArgs>
     _count?: boolean | AlbumsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["albums"]>
 
@@ -3842,14 +4644,13 @@ export namespace Prisma {
     artistId?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    userId?: boolean
   }
 
   export type AlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     artist?: boolean | ArtistsDefaultArgs<ExtArgs>
     tracks?: boolean | Albums$tracksArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    likedByUsers?: boolean | Albums$likedByUsersArgs<ExtArgs>
     _count?: boolean | AlbumsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3858,9 +4659,9 @@ export namespace Prisma {
     name: "Albums"
     objects: {
       artist: Prisma.$ArtistsPayload<ExtArgs>
-      tracks: Prisma.$TracksPayload<ExtArgs>[]
+      tracks: Prisma.$TracksOnAlbumsPayload<ExtArgs>[]
       genre: Prisma.$GenrePayload<ExtArgs>
-      followers: Prisma.$UserPayload<ExtArgs>
+      likedByUsers: Prisma.$UserLikedAlbumsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3868,7 +4669,6 @@ export namespace Prisma {
       artistId: string
       thumbnail: string
       genreId: string
-      userId: string[]
     }, ExtArgs["result"]["albums"]>
     composites: {}
   }
@@ -4263,11 +5063,11 @@ export namespace Prisma {
 
     artist<T extends ArtistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArtistsDefaultArgs<ExtArgs>>): Prisma__ArtistsClient<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    tracks<T extends Albums$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Albums$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findMany'> | Null>;
+    tracks<T extends Albums$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Albums$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     genre<T extends GenreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GenreDefaultArgs<ExtArgs>>): Prisma__GenreClient<$Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    followers<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    likedByUsers<T extends Albums$likedByUsersArgs<ExtArgs> = {}>(args?: Subset<T, Albums$likedByUsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4302,7 +5102,6 @@ export namespace Prisma {
     readonly artistId: FieldRef<"Albums", 'String'>
     readonly thumbnail: FieldRef<"Albums", 'String'>
     readonly genreId: FieldRef<"Albums", 'String'>
-    readonly userId: FieldRef<"Albums", 'String[]'>
   }
     
 
@@ -4648,19 +5447,40 @@ export namespace Prisma {
    */
   export type Albums$tracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Tracks
+     * Select specific fields to fetch from the TracksOnAlbums
      */
-    select?: TracksSelect<ExtArgs> | null
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TracksInclude<ExtArgs> | null
-    where?: TracksWhereInput
-    orderBy?: TracksOrderByWithRelationInput | TracksOrderByWithRelationInput[]
-    cursor?: TracksWhereUniqueInput
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    where?: TracksOnAlbumsWhereInput
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    cursor?: TracksOnAlbumsWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
+    distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Albums.likedByUsers
+   */
+  export type Albums$likedByUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    where?: UserLikedAlbumsWhereInput
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    cursor?: UserLikedAlbumsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
 
@@ -4694,22 +5514,23 @@ export namespace Prisma {
     id: string | null
     name: string | null
     thumbnail: string | null
-    genreId: string | null
+    publicAccess: boolean | null
+    userId: string | null
   }
 
   export type PlaylistsMaxAggregateOutputType = {
     id: string | null
     name: string | null
     thumbnail: string | null
-    genreId: string | null
+    publicAccess: boolean | null
+    userId: string | null
   }
 
   export type PlaylistsCountAggregateOutputType = {
     id: number
     name: number
     thumbnail: number
-    trackId: number
-    genreId: number
+    publicAccess: number
     userId: number
     _all: number
   }
@@ -4719,22 +5540,23 @@ export namespace Prisma {
     id?: true
     name?: true
     thumbnail?: true
-    genreId?: true
+    publicAccess?: true
+    userId?: true
   }
 
   export type PlaylistsMaxAggregateInputType = {
     id?: true
     name?: true
     thumbnail?: true
-    genreId?: true
+    publicAccess?: true
+    userId?: true
   }
 
   export type PlaylistsCountAggregateInputType = {
     id?: true
     name?: true
     thumbnail?: true
-    trackId?: true
-    genreId?: true
+    publicAccess?: true
     userId?: true
     _all?: true
   }
@@ -4815,9 +5637,8 @@ export namespace Prisma {
     id: string
     name: string
     thumbnail: string
-    trackId: string[]
-    genreId: string
-    userId: string[]
+    publicAccess: boolean
+    userId: string
     _count: PlaylistsCountAggregateOutputType | null
     _min: PlaylistsMinAggregateOutputType | null
     _max: PlaylistsMaxAggregateOutputType | null
@@ -4841,44 +5662,43 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     thumbnail?: boolean
-    trackId?: boolean
-    genreId?: boolean
+    publicAccess?: boolean
     userId?: boolean
-    tracks?: boolean | TracksDefaultArgs<ExtArgs>
-    genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    followers?: boolean | Playlists$followersArgs<ExtArgs>
+    tracksConnections?: boolean | Playlists$tracksConnectionsArgs<ExtArgs>
+    _count?: boolean | PlaylistsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playlists"]>
 
   export type PlaylistsSelectScalar = {
     id?: boolean
     name?: boolean
     thumbnail?: boolean
-    trackId?: boolean
-    genreId?: boolean
+    publicAccess?: boolean
     userId?: boolean
   }
 
   export type PlaylistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tracks?: boolean | TracksDefaultArgs<ExtArgs>
-    genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    followers?: boolean | Playlists$followersArgs<ExtArgs>
+    tracksConnections?: boolean | Playlists$tracksConnectionsArgs<ExtArgs>
+    _count?: boolean | PlaylistsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
   export type $PlaylistsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Playlists"
     objects: {
-      tracks: Prisma.$TracksPayload<ExtArgs>
-      genre: Prisma.$GenrePayload<ExtArgs>
-      followers: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+      followers: Prisma.$UserFollowsPlaylistsPayload<ExtArgs>[]
+      tracksConnections: Prisma.$PlaylistToTrackPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       thumbnail: string
-      trackId: string[]
-      genreId: string
-      userId: string[]
+      publicAccess: boolean
+      userId: string
     }, ExtArgs["result"]["playlists"]>
     composites: {}
   }
@@ -5271,11 +6091,11 @@ export namespace Prisma {
   export interface Prisma__PlaylistsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    tracks<T extends TracksDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TracksDefaultArgs<ExtArgs>>): Prisma__TracksClient<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    genre<T extends GenreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GenreDefaultArgs<ExtArgs>>): Prisma__GenreClient<$Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    followers<T extends Playlists$followersArgs<ExtArgs> = {}>(args?: Subset<T, Playlists$followersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    followers<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    tracksConnections<T extends Playlists$tracksConnectionsArgs<ExtArgs> = {}>(args?: Subset<T, Playlists$tracksConnectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5308,9 +6128,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Playlists", 'String'>
     readonly name: FieldRef<"Playlists", 'String'>
     readonly thumbnail: FieldRef<"Playlists", 'String'>
-    readonly trackId: FieldRef<"Playlists", 'String[]'>
-    readonly genreId: FieldRef<"Playlists", 'String'>
-    readonly userId: FieldRef<"Playlists", 'String[]'>
+    readonly publicAccess: FieldRef<"Playlists", 'Boolean'>
+    readonly userId: FieldRef<"Playlists", 'String'>
   }
     
 
@@ -5652,6 +6471,48 @@ export namespace Prisma {
 
 
   /**
+   * Playlists.followers
+   */
+  export type Playlists$followersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    where?: UserFollowsPlaylistsWhereInput
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Playlists.tracksConnections
+   */
+  export type Playlists$tracksConnectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    where?: PlaylistToTrackWhereInput
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    cursor?: PlaylistToTrackWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
+  }
+
+
+  /**
    * Playlists without action
    */
   export type PlaylistsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5680,23 +6541,31 @@ export namespace Prisma {
   export type ArtistsMinAggregateOutputType = {
     id: string | null
     name: string | null
+    email: string | null
+    password: string | null
     thumbnail: string | null
     genreId: string | null
+    description: string | null
   }
 
   export type ArtistsMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    email: string | null
+    password: string | null
     thumbnail: string | null
     genreId: string | null
+    description: string | null
   }
 
   export type ArtistsCountAggregateOutputType = {
     id: number
     name: number
+    email: number
+    password: number
     thumbnail: number
     genreId: number
-    userId: number
+    description: number
     _all: number
   }
 
@@ -5704,23 +6573,31 @@ export namespace Prisma {
   export type ArtistsMinAggregateInputType = {
     id?: true
     name?: true
+    email?: true
+    password?: true
     thumbnail?: true
     genreId?: true
+    description?: true
   }
 
   export type ArtistsMaxAggregateInputType = {
     id?: true
     name?: true
+    email?: true
+    password?: true
     thumbnail?: true
     genreId?: true
+    description?: true
   }
 
   export type ArtistsCountAggregateInputType = {
     id?: true
     name?: true
+    email?: true
+    password?: true
     thumbnail?: true
     genreId?: true
-    userId?: true
+    description?: true
     _all?: true
   }
 
@@ -5799,9 +6676,11 @@ export namespace Prisma {
   export type ArtistsGroupByOutputType = {
     id: string
     name: string
+    email: string
+    password: string
     thumbnail: string
     genreId: string
-    userId: string[]
+    description: string | null
     _count: ArtistsCountAggregateOutputType | null
     _min: ArtistsMinAggregateOutputType | null
     _max: ArtistsMaxAggregateOutputType | null
@@ -5824,29 +6703,33 @@ export namespace Prisma {
   export type ArtistsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    email?: boolean
+    password?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    userId?: boolean
+    description?: boolean
     albums?: boolean | Artists$albumsArgs<ExtArgs>
     tracks?: boolean | Artists$tracksArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    followers?: boolean | Artists$followersArgs<ExtArgs>
     _count?: boolean | ArtistsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["artists"]>
 
   export type ArtistsSelectScalar = {
     id?: boolean
     name?: boolean
+    email?: boolean
+    password?: boolean
     thumbnail?: boolean
     genreId?: boolean
-    userId?: boolean
+    description?: boolean
   }
 
   export type ArtistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albums?: boolean | Artists$albumsArgs<ExtArgs>
     tracks?: boolean | Artists$tracksArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
-    followers?: boolean | UserDefaultArgs<ExtArgs>
+    followers?: boolean | Artists$followersArgs<ExtArgs>
     _count?: boolean | ArtistsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -5855,16 +6738,18 @@ export namespace Prisma {
     name: "Artists"
     objects: {
       albums: Prisma.$AlbumsPayload<ExtArgs>[]
-      tracks: Prisma.$TracksPayload<ExtArgs>[]
+      tracks: Prisma.$ArtistsOnTracksPayload<ExtArgs>[]
       genre: Prisma.$GenrePayload<ExtArgs>
-      followers: Prisma.$UserPayload<ExtArgs>
+      followers: Prisma.$UserFollowsArtistsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      email: string
+      password: string
       thumbnail: string
       genreId: string
-      userId: string[]
+      description: string | null
     }, ExtArgs["result"]["artists"]>
     composites: {}
   }
@@ -6259,11 +7144,11 @@ export namespace Prisma {
 
     albums<T extends Artists$albumsArgs<ExtArgs> = {}>(args?: Subset<T, Artists$albumsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AlbumsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    tracks<T extends Artists$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Artists$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findMany'> | Null>;
+    tracks<T extends Artists$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Artists$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     genre<T extends GenreDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GenreDefaultArgs<ExtArgs>>): Prisma__GenreClient<$Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    followers<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    followers<T extends Artists$followersArgs<ExtArgs> = {}>(args?: Subset<T, Artists$followersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6295,9 +7180,11 @@ export namespace Prisma {
   interface ArtistsFieldRefs {
     readonly id: FieldRef<"Artists", 'String'>
     readonly name: FieldRef<"Artists", 'String'>
+    readonly email: FieldRef<"Artists", 'String'>
+    readonly password: FieldRef<"Artists", 'String'>
     readonly thumbnail: FieldRef<"Artists", 'String'>
     readonly genreId: FieldRef<"Artists", 'String'>
-    readonly userId: FieldRef<"Artists", 'String[]'>
+    readonly description: FieldRef<"Artists", 'String'>
   }
     
 
@@ -6664,19 +7551,40 @@ export namespace Prisma {
    */
   export type Artists$tracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Tracks
+     * Select specific fields to fetch from the ArtistsOnTracks
      */
-    select?: TracksSelect<ExtArgs> | null
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TracksInclude<ExtArgs> | null
-    where?: TracksWhereInput
-    orderBy?: TracksOrderByWithRelationInput | TracksOrderByWithRelationInput[]
-    cursor?: TracksWhereUniqueInput
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    where?: ArtistsOnTracksWhereInput
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    cursor?: ArtistsOnTracksWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
+    distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * Artists.followers
+   */
+  export type Artists$followersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    where?: UserFollowsArtistsWhereInput
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
 
 
@@ -6839,7 +7747,6 @@ export namespace Prisma {
     albums?: boolean | Genre$albumsArgs<ExtArgs>
     tracks?: boolean | Genre$tracksArgs<ExtArgs>
     artists?: boolean | Genre$artistsArgs<ExtArgs>
-    playlists?: boolean | Genre$playlistsArgs<ExtArgs>
     _count?: boolean | GenreCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["genre"]>
 
@@ -6852,7 +7759,6 @@ export namespace Prisma {
     albums?: boolean | Genre$albumsArgs<ExtArgs>
     tracks?: boolean | Genre$tracksArgs<ExtArgs>
     artists?: boolean | Genre$artistsArgs<ExtArgs>
-    playlists?: boolean | Genre$playlistsArgs<ExtArgs>
     _count?: boolean | GenreCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -6863,7 +7769,6 @@ export namespace Prisma {
       albums: Prisma.$AlbumsPayload<ExtArgs>[]
       tracks: Prisma.$TracksPayload<ExtArgs>[]
       artists: Prisma.$ArtistsPayload<ExtArgs>[]
-      playlists: Prisma.$PlaylistsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7265,8 +8170,6 @@ export namespace Prisma {
     tracks<T extends Genre$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Genre$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     artists<T extends Genre$artistsArgs<ExtArgs> = {}>(args?: Subset<T, Genre$artistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    playlists<T extends Genre$playlistsArgs<ExtArgs> = {}>(args?: Subset<T, Genre$playlistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -7702,27 +8605,6 @@ export namespace Prisma {
 
 
   /**
-   * Genre.playlists
-   */
-  export type Genre$playlistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Playlists
-     */
-    select?: PlaylistsSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: PlaylistsInclude<ExtArgs> | null
-    where?: PlaylistsWhereInput
-    orderBy?: PlaylistsOrderByWithRelationInput | PlaylistsOrderByWithRelationInput[]
-    cursor?: PlaylistsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
-  }
-
-
-  /**
    * Genre without action
    */
   export type GenreDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7739,6 +8621,6738 @@ export namespace Prisma {
 
 
   /**
+   * Model ArtistsOnTracks
+   */
+
+  export type AggregateArtistsOnTracks = {
+    _count: ArtistsOnTracksCountAggregateOutputType | null
+    _min: ArtistsOnTracksMinAggregateOutputType | null
+    _max: ArtistsOnTracksMaxAggregateOutputType | null
+  }
+
+  export type ArtistsOnTracksMinAggregateOutputType = {
+    id: string | null
+    artistId: string | null
+    trackId: string | null
+  }
+
+  export type ArtistsOnTracksMaxAggregateOutputType = {
+    id: string | null
+    artistId: string | null
+    trackId: string | null
+  }
+
+  export type ArtistsOnTracksCountAggregateOutputType = {
+    id: number
+    artistId: number
+    trackId: number
+    _all: number
+  }
+
+
+  export type ArtistsOnTracksMinAggregateInputType = {
+    id?: true
+    artistId?: true
+    trackId?: true
+  }
+
+  export type ArtistsOnTracksMaxAggregateInputType = {
+    id?: true
+    artistId?: true
+    trackId?: true
+  }
+
+  export type ArtistsOnTracksCountAggregateInputType = {
+    id?: true
+    artistId?: true
+    trackId?: true
+    _all?: true
+  }
+
+  export type ArtistsOnTracksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArtistsOnTracks to aggregate.
+     */
+    where?: ArtistsOnTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArtistsOnTracks to fetch.
+     */
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArtistsOnTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArtistsOnTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArtistsOnTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ArtistsOnTracks
+    **/
+    _count?: true | ArtistsOnTracksCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArtistsOnTracksMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArtistsOnTracksMaxAggregateInputType
+  }
+
+  export type GetArtistsOnTracksAggregateType<T extends ArtistsOnTracksAggregateArgs> = {
+        [P in keyof T & keyof AggregateArtistsOnTracks]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArtistsOnTracks[P]>
+      : GetScalarType<T[P], AggregateArtistsOnTracks[P]>
+  }
+
+
+
+
+  export type ArtistsOnTracksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArtistsOnTracksWhereInput
+    orderBy?: ArtistsOnTracksOrderByWithAggregationInput | ArtistsOnTracksOrderByWithAggregationInput[]
+    by: ArtistsOnTracksScalarFieldEnum[] | ArtistsOnTracksScalarFieldEnum
+    having?: ArtistsOnTracksScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArtistsOnTracksCountAggregateInputType | true
+    _min?: ArtistsOnTracksMinAggregateInputType
+    _max?: ArtistsOnTracksMaxAggregateInputType
+  }
+
+  export type ArtistsOnTracksGroupByOutputType = {
+    id: string
+    artistId: string
+    trackId: string
+    _count: ArtistsOnTracksCountAggregateOutputType | null
+    _min: ArtistsOnTracksMinAggregateOutputType | null
+    _max: ArtistsOnTracksMaxAggregateOutputType | null
+  }
+
+  type GetArtistsOnTracksGroupByPayload<T extends ArtistsOnTracksGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArtistsOnTracksGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArtistsOnTracksGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArtistsOnTracksGroupByOutputType[P]>
+            : GetScalarType<T[P], ArtistsOnTracksGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArtistsOnTracksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    artistId?: boolean
+    trackId?: boolean
+    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["artistsOnTracks"]>
+
+  export type ArtistsOnTracksSelectScalar = {
+    id?: boolean
+    artistId?: boolean
+    trackId?: boolean
+  }
+
+  export type ArtistsOnTracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }
+
+
+  export type $ArtistsOnTracksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ArtistsOnTracks"
+    objects: {
+      artist: Prisma.$ArtistsPayload<ExtArgs>
+      track: Prisma.$TracksPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      artistId: string
+      trackId: string
+    }, ExtArgs["result"]["artistsOnTracks"]>
+    composites: {}
+  }
+
+
+  type ArtistsOnTracksGetPayload<S extends boolean | null | undefined | ArtistsOnTracksDefaultArgs> = $Result.GetResult<Prisma.$ArtistsOnTracksPayload, S>
+
+  type ArtistsOnTracksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ArtistsOnTracksFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ArtistsOnTracksCountAggregateInputType | true
+    }
+
+  export interface ArtistsOnTracksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ArtistsOnTracks'], meta: { name: 'ArtistsOnTracks' } }
+    /**
+     * Find zero or one ArtistsOnTracks that matches the filter.
+     * @param {ArtistsOnTracksFindUniqueArgs} args - Arguments to find a ArtistsOnTracks
+     * @example
+     * // Get one ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ArtistsOnTracksFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksFindUniqueArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one ArtistsOnTracks that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ArtistsOnTracksFindUniqueOrThrowArgs} args - Arguments to find a ArtistsOnTracks
+     * @example
+     * // Get one ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ArtistsOnTracksFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first ArtistsOnTracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksFindFirstArgs} args - Arguments to find a ArtistsOnTracks
+     * @example
+     * // Get one ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ArtistsOnTracksFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksFindFirstArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first ArtistsOnTracks that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksFindFirstOrThrowArgs} args - Arguments to find a ArtistsOnTracks
+     * @example
+     * // Get one ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ArtistsOnTracksFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more ArtistsOnTracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findMany()
+     * 
+     * // Get first 10 ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const artistsOnTracksWithIdOnly = await prisma.artistsOnTracks.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ArtistsOnTracksFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a ArtistsOnTracks.
+     * @param {ArtistsOnTracksCreateArgs} args - Arguments to create a ArtistsOnTracks.
+     * @example
+     * // Create one ArtistsOnTracks
+     * const ArtistsOnTracks = await prisma.artistsOnTracks.create({
+     *   data: {
+     *     // ... data to create a ArtistsOnTracks
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ArtistsOnTracksCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksCreateArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many ArtistsOnTracks.
+     *     @param {ArtistsOnTracksCreateManyArgs} args - Arguments to create many ArtistsOnTracks.
+     *     @example
+     *     // Create many ArtistsOnTracks
+     *     const artistsOnTracks = await prisma.artistsOnTracks.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ArtistsOnTracksCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a ArtistsOnTracks.
+     * @param {ArtistsOnTracksDeleteArgs} args - Arguments to delete one ArtistsOnTracks.
+     * @example
+     * // Delete one ArtistsOnTracks
+     * const ArtistsOnTracks = await prisma.artistsOnTracks.delete({
+     *   where: {
+     *     // ... filter to delete one ArtistsOnTracks
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ArtistsOnTracksDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksDeleteArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one ArtistsOnTracks.
+     * @param {ArtistsOnTracksUpdateArgs} args - Arguments to update one ArtistsOnTracks.
+     * @example
+     * // Update one ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ArtistsOnTracksUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksUpdateArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more ArtistsOnTracks.
+     * @param {ArtistsOnTracksDeleteManyArgs} args - Arguments to filter ArtistsOnTracks to delete.
+     * @example
+     * // Delete a few ArtistsOnTracks
+     * const { count } = await prisma.artistsOnTracks.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ArtistsOnTracksDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ArtistsOnTracksDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ArtistsOnTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ArtistsOnTracksUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ArtistsOnTracks.
+     * @param {ArtistsOnTracksUpsertArgs} args - Arguments to update or create a ArtistsOnTracks.
+     * @example
+     * // Update or create a ArtistsOnTracks
+     * const artistsOnTracks = await prisma.artistsOnTracks.upsert({
+     *   create: {
+     *     // ... data to create a ArtistsOnTracks
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArtistsOnTracks we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ArtistsOnTracksUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ArtistsOnTracksUpsertArgs<ExtArgs>>
+    ): Prisma__ArtistsOnTracksClient<$Result.GetResult<Prisma.$ArtistsOnTracksPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more ArtistsOnTracks that matches the filter.
+     * @param {ArtistsOnTracksFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const artistsOnTracks = await prisma.artistsOnTracks.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: ArtistsOnTracksFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a ArtistsOnTracks.
+     * @param {ArtistsOnTracksAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const artistsOnTracks = await prisma.artistsOnTracks.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: ArtistsOnTracksAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of ArtistsOnTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksCountArgs} args - Arguments to filter ArtistsOnTracks to count.
+     * @example
+     * // Count the number of ArtistsOnTracks
+     * const count = await prisma.artistsOnTracks.count({
+     *   where: {
+     *     // ... the filter for the ArtistsOnTracks we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArtistsOnTracksCountArgs>(
+      args?: Subset<T, ArtistsOnTracksCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArtistsOnTracksCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ArtistsOnTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArtistsOnTracksAggregateArgs>(args: Subset<T, ArtistsOnTracksAggregateArgs>): Prisma.PrismaPromise<GetArtistsOnTracksAggregateType<T>>
+
+    /**
+     * Group by ArtistsOnTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistsOnTracksGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArtistsOnTracksGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArtistsOnTracksGroupByArgs['orderBy'] }
+        : { orderBy?: ArtistsOnTracksGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArtistsOnTracksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArtistsOnTracksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ArtistsOnTracks model
+   */
+  readonly fields: ArtistsOnTracksFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ArtistsOnTracks.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArtistsOnTracksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    artist<T extends ArtistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArtistsDefaultArgs<ExtArgs>>): Prisma__ArtistsClient<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    track<T extends TracksDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TracksDefaultArgs<ExtArgs>>): Prisma__TracksClient<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the ArtistsOnTracks model
+   */ 
+  interface ArtistsOnTracksFieldRefs {
+    readonly id: FieldRef<"ArtistsOnTracks", 'String'>
+    readonly artistId: FieldRef<"ArtistsOnTracks", 'String'>
+    readonly trackId: FieldRef<"ArtistsOnTracks", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * ArtistsOnTracks findUnique
+   */
+  export type ArtistsOnTracksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which ArtistsOnTracks to fetch.
+     */
+    where: ArtistsOnTracksWhereUniqueInput
+  }
+
+
+  /**
+   * ArtistsOnTracks findUniqueOrThrow
+   */
+  export type ArtistsOnTracksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which ArtistsOnTracks to fetch.
+     */
+    where: ArtistsOnTracksWhereUniqueInput
+  }
+
+
+  /**
+   * ArtistsOnTracks findFirst
+   */
+  export type ArtistsOnTracksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which ArtistsOnTracks to fetch.
+     */
+    where?: ArtistsOnTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArtistsOnTracks to fetch.
+     */
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArtistsOnTracks.
+     */
+    cursor?: ArtistsOnTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArtistsOnTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArtistsOnTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArtistsOnTracks.
+     */
+    distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * ArtistsOnTracks findFirstOrThrow
+   */
+  export type ArtistsOnTracksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which ArtistsOnTracks to fetch.
+     */
+    where?: ArtistsOnTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArtistsOnTracks to fetch.
+     */
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ArtistsOnTracks.
+     */
+    cursor?: ArtistsOnTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArtistsOnTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArtistsOnTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ArtistsOnTracks.
+     */
+    distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * ArtistsOnTracks findMany
+   */
+  export type ArtistsOnTracksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which ArtistsOnTracks to fetch.
+     */
+    where?: ArtistsOnTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ArtistsOnTracks to fetch.
+     */
+    orderBy?: ArtistsOnTracksOrderByWithRelationInput | ArtistsOnTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ArtistsOnTracks.
+     */
+    cursor?: ArtistsOnTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ArtistsOnTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ArtistsOnTracks.
+     */
+    skip?: number
+    distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * ArtistsOnTracks create
+   */
+  export type ArtistsOnTracksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ArtistsOnTracks.
+     */
+    data: XOR<ArtistsOnTracksCreateInput, ArtistsOnTracksUncheckedCreateInput>
+  }
+
+
+  /**
+   * ArtistsOnTracks createMany
+   */
+  export type ArtistsOnTracksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArtistsOnTracks.
+     */
+    data: ArtistsOnTracksCreateManyInput | ArtistsOnTracksCreateManyInput[]
+  }
+
+
+  /**
+   * ArtistsOnTracks update
+   */
+  export type ArtistsOnTracksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ArtistsOnTracks.
+     */
+    data: XOR<ArtistsOnTracksUpdateInput, ArtistsOnTracksUncheckedUpdateInput>
+    /**
+     * Choose, which ArtistsOnTracks to update.
+     */
+    where: ArtistsOnTracksWhereUniqueInput
+  }
+
+
+  /**
+   * ArtistsOnTracks updateMany
+   */
+  export type ArtistsOnTracksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArtistsOnTracks.
+     */
+    data: XOR<ArtistsOnTracksUpdateManyMutationInput, ArtistsOnTracksUncheckedUpdateManyInput>
+    /**
+     * Filter which ArtistsOnTracks to update
+     */
+    where?: ArtistsOnTracksWhereInput
+  }
+
+
+  /**
+   * ArtistsOnTracks upsert
+   */
+  export type ArtistsOnTracksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ArtistsOnTracks to update in case it exists.
+     */
+    where: ArtistsOnTracksWhereUniqueInput
+    /**
+     * In case the ArtistsOnTracks found by the `where` argument doesn't exist, create a new ArtistsOnTracks with this data.
+     */
+    create: XOR<ArtistsOnTracksCreateInput, ArtistsOnTracksUncheckedCreateInput>
+    /**
+     * In case the ArtistsOnTracks was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArtistsOnTracksUpdateInput, ArtistsOnTracksUncheckedUpdateInput>
+  }
+
+
+  /**
+   * ArtistsOnTracks delete
+   */
+  export type ArtistsOnTracksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+    /**
+     * Filter which ArtistsOnTracks to delete.
+     */
+    where: ArtistsOnTracksWhereUniqueInput
+  }
+
+
+  /**
+   * ArtistsOnTracks deleteMany
+   */
+  export type ArtistsOnTracksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArtistsOnTracks to delete
+     */
+    where?: ArtistsOnTracksWhereInput
+  }
+
+
+  /**
+   * ArtistsOnTracks findRaw
+   */
+  export type ArtistsOnTracksFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * ArtistsOnTracks aggregateRaw
+   */
+  export type ArtistsOnTracksAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * ArtistsOnTracks without action
+   */
+  export type ArtistsOnTracksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistsOnTracks
+     */
+    select?: ArtistsOnTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ArtistsOnTracksInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model TracksOnAlbums
+   */
+
+  export type AggregateTracksOnAlbums = {
+    _count: TracksOnAlbumsCountAggregateOutputType | null
+    _min: TracksOnAlbumsMinAggregateOutputType | null
+    _max: TracksOnAlbumsMaxAggregateOutputType | null
+  }
+
+  export type TracksOnAlbumsMinAggregateOutputType = {
+    id: string | null
+    albumId: string | null
+    trackId: string | null
+  }
+
+  export type TracksOnAlbumsMaxAggregateOutputType = {
+    id: string | null
+    albumId: string | null
+    trackId: string | null
+  }
+
+  export type TracksOnAlbumsCountAggregateOutputType = {
+    id: number
+    albumId: number
+    trackId: number
+    _all: number
+  }
+
+
+  export type TracksOnAlbumsMinAggregateInputType = {
+    id?: true
+    albumId?: true
+    trackId?: true
+  }
+
+  export type TracksOnAlbumsMaxAggregateInputType = {
+    id?: true
+    albumId?: true
+    trackId?: true
+  }
+
+  export type TracksOnAlbumsCountAggregateInputType = {
+    id?: true
+    albumId?: true
+    trackId?: true
+    _all?: true
+  }
+
+  export type TracksOnAlbumsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TracksOnAlbums to aggregate.
+     */
+    where?: TracksOnAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TracksOnAlbums to fetch.
+     */
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TracksOnAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TracksOnAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TracksOnAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TracksOnAlbums
+    **/
+    _count?: true | TracksOnAlbumsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TracksOnAlbumsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TracksOnAlbumsMaxAggregateInputType
+  }
+
+  export type GetTracksOnAlbumsAggregateType<T extends TracksOnAlbumsAggregateArgs> = {
+        [P in keyof T & keyof AggregateTracksOnAlbums]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTracksOnAlbums[P]>
+      : GetScalarType<T[P], AggregateTracksOnAlbums[P]>
+  }
+
+
+
+
+  export type TracksOnAlbumsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TracksOnAlbumsWhereInput
+    orderBy?: TracksOnAlbumsOrderByWithAggregationInput | TracksOnAlbumsOrderByWithAggregationInput[]
+    by: TracksOnAlbumsScalarFieldEnum[] | TracksOnAlbumsScalarFieldEnum
+    having?: TracksOnAlbumsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TracksOnAlbumsCountAggregateInputType | true
+    _min?: TracksOnAlbumsMinAggregateInputType
+    _max?: TracksOnAlbumsMaxAggregateInputType
+  }
+
+  export type TracksOnAlbumsGroupByOutputType = {
+    id: string
+    albumId: string
+    trackId: string
+    _count: TracksOnAlbumsCountAggregateOutputType | null
+    _min: TracksOnAlbumsMinAggregateOutputType | null
+    _max: TracksOnAlbumsMaxAggregateOutputType | null
+  }
+
+  type GetTracksOnAlbumsGroupByPayload<T extends TracksOnAlbumsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TracksOnAlbumsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TracksOnAlbumsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TracksOnAlbumsGroupByOutputType[P]>
+            : GetScalarType<T[P], TracksOnAlbumsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TracksOnAlbumsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    albumId?: boolean
+    trackId?: boolean
+    album?: boolean | AlbumsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tracksOnAlbums"]>
+
+  export type TracksOnAlbumsSelectScalar = {
+    id?: boolean
+    albumId?: boolean
+    trackId?: boolean
+  }
+
+  export type TracksOnAlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    album?: boolean | AlbumsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }
+
+
+  export type $TracksOnAlbumsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TracksOnAlbums"
+    objects: {
+      album: Prisma.$AlbumsPayload<ExtArgs>
+      track: Prisma.$TracksPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      albumId: string
+      trackId: string
+    }, ExtArgs["result"]["tracksOnAlbums"]>
+    composites: {}
+  }
+
+
+  type TracksOnAlbumsGetPayload<S extends boolean | null | undefined | TracksOnAlbumsDefaultArgs> = $Result.GetResult<Prisma.$TracksOnAlbumsPayload, S>
+
+  type TracksOnAlbumsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TracksOnAlbumsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TracksOnAlbumsCountAggregateInputType | true
+    }
+
+  export interface TracksOnAlbumsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TracksOnAlbums'], meta: { name: 'TracksOnAlbums' } }
+    /**
+     * Find zero or one TracksOnAlbums that matches the filter.
+     * @param {TracksOnAlbumsFindUniqueArgs} args - Arguments to find a TracksOnAlbums
+     * @example
+     * // Get one TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends TracksOnAlbumsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsFindUniqueArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one TracksOnAlbums that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {TracksOnAlbumsFindUniqueOrThrowArgs} args - Arguments to find a TracksOnAlbums
+     * @example
+     * // Get one TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends TracksOnAlbumsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first TracksOnAlbums that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsFindFirstArgs} args - Arguments to find a TracksOnAlbums
+     * @example
+     * // Get one TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends TracksOnAlbumsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsFindFirstArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first TracksOnAlbums that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsFindFirstOrThrowArgs} args - Arguments to find a TracksOnAlbums
+     * @example
+     * // Get one TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends TracksOnAlbumsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more TracksOnAlbums that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findMany()
+     * 
+     * // Get first 10 TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tracksOnAlbumsWithIdOnly = await prisma.tracksOnAlbums.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends TracksOnAlbumsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a TracksOnAlbums.
+     * @param {TracksOnAlbumsCreateArgs} args - Arguments to create a TracksOnAlbums.
+     * @example
+     * // Create one TracksOnAlbums
+     * const TracksOnAlbums = await prisma.tracksOnAlbums.create({
+     *   data: {
+     *     // ... data to create a TracksOnAlbums
+     *   }
+     * })
+     * 
+    **/
+    create<T extends TracksOnAlbumsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsCreateArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many TracksOnAlbums.
+     *     @param {TracksOnAlbumsCreateManyArgs} args - Arguments to create many TracksOnAlbums.
+     *     @example
+     *     // Create many TracksOnAlbums
+     *     const tracksOnAlbums = await prisma.tracksOnAlbums.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends TracksOnAlbumsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TracksOnAlbums.
+     * @param {TracksOnAlbumsDeleteArgs} args - Arguments to delete one TracksOnAlbums.
+     * @example
+     * // Delete one TracksOnAlbums
+     * const TracksOnAlbums = await prisma.tracksOnAlbums.delete({
+     *   where: {
+     *     // ... filter to delete one TracksOnAlbums
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends TracksOnAlbumsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsDeleteArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one TracksOnAlbums.
+     * @param {TracksOnAlbumsUpdateArgs} args - Arguments to update one TracksOnAlbums.
+     * @example
+     * // Update one TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends TracksOnAlbumsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsUpdateArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more TracksOnAlbums.
+     * @param {TracksOnAlbumsDeleteManyArgs} args - Arguments to filter TracksOnAlbums to delete.
+     * @example
+     * // Delete a few TracksOnAlbums
+     * const { count } = await prisma.tracksOnAlbums.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends TracksOnAlbumsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TracksOnAlbumsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TracksOnAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends TracksOnAlbumsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TracksOnAlbums.
+     * @param {TracksOnAlbumsUpsertArgs} args - Arguments to update or create a TracksOnAlbums.
+     * @example
+     * // Update or create a TracksOnAlbums
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.upsert({
+     *   create: {
+     *     // ... data to create a TracksOnAlbums
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TracksOnAlbums we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends TracksOnAlbumsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, TracksOnAlbumsUpsertArgs<ExtArgs>>
+    ): Prisma__TracksOnAlbumsClient<$Result.GetResult<Prisma.$TracksOnAlbumsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more TracksOnAlbums that matches the filter.
+     * @param {TracksOnAlbumsFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: TracksOnAlbumsFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a TracksOnAlbums.
+     * @param {TracksOnAlbumsAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const tracksOnAlbums = await prisma.tracksOnAlbums.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: TracksOnAlbumsAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of TracksOnAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsCountArgs} args - Arguments to filter TracksOnAlbums to count.
+     * @example
+     * // Count the number of TracksOnAlbums
+     * const count = await prisma.tracksOnAlbums.count({
+     *   where: {
+     *     // ... the filter for the TracksOnAlbums we want to count
+     *   }
+     * })
+    **/
+    count<T extends TracksOnAlbumsCountArgs>(
+      args?: Subset<T, TracksOnAlbumsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TracksOnAlbumsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TracksOnAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TracksOnAlbumsAggregateArgs>(args: Subset<T, TracksOnAlbumsAggregateArgs>): Prisma.PrismaPromise<GetTracksOnAlbumsAggregateType<T>>
+
+    /**
+     * Group by TracksOnAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TracksOnAlbumsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TracksOnAlbumsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TracksOnAlbumsGroupByArgs['orderBy'] }
+        : { orderBy?: TracksOnAlbumsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TracksOnAlbumsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTracksOnAlbumsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TracksOnAlbums model
+   */
+  readonly fields: TracksOnAlbumsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TracksOnAlbums.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TracksOnAlbumsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    album<T extends AlbumsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlbumsDefaultArgs<ExtArgs>>): Prisma__AlbumsClient<$Result.GetResult<Prisma.$AlbumsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    track<T extends TracksDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TracksDefaultArgs<ExtArgs>>): Prisma__TracksClient<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the TracksOnAlbums model
+   */ 
+  interface TracksOnAlbumsFieldRefs {
+    readonly id: FieldRef<"TracksOnAlbums", 'String'>
+    readonly albumId: FieldRef<"TracksOnAlbums", 'String'>
+    readonly trackId: FieldRef<"TracksOnAlbums", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * TracksOnAlbums findUnique
+   */
+  export type TracksOnAlbumsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which TracksOnAlbums to fetch.
+     */
+    where: TracksOnAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * TracksOnAlbums findUniqueOrThrow
+   */
+  export type TracksOnAlbumsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which TracksOnAlbums to fetch.
+     */
+    where: TracksOnAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * TracksOnAlbums findFirst
+   */
+  export type TracksOnAlbumsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which TracksOnAlbums to fetch.
+     */
+    where?: TracksOnAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TracksOnAlbums to fetch.
+     */
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TracksOnAlbums.
+     */
+    cursor?: TracksOnAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TracksOnAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TracksOnAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TracksOnAlbums.
+     */
+    distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TracksOnAlbums findFirstOrThrow
+   */
+  export type TracksOnAlbumsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which TracksOnAlbums to fetch.
+     */
+    where?: TracksOnAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TracksOnAlbums to fetch.
+     */
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TracksOnAlbums.
+     */
+    cursor?: TracksOnAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TracksOnAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TracksOnAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TracksOnAlbums.
+     */
+    distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TracksOnAlbums findMany
+   */
+  export type TracksOnAlbumsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which TracksOnAlbums to fetch.
+     */
+    where?: TracksOnAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TracksOnAlbums to fetch.
+     */
+    orderBy?: TracksOnAlbumsOrderByWithRelationInput | TracksOnAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TracksOnAlbums.
+     */
+    cursor?: TracksOnAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TracksOnAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TracksOnAlbums.
+     */
+    skip?: number
+    distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TracksOnAlbums create
+   */
+  export type TracksOnAlbumsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TracksOnAlbums.
+     */
+    data: XOR<TracksOnAlbumsCreateInput, TracksOnAlbumsUncheckedCreateInput>
+  }
+
+
+  /**
+   * TracksOnAlbums createMany
+   */
+  export type TracksOnAlbumsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TracksOnAlbums.
+     */
+    data: TracksOnAlbumsCreateManyInput | TracksOnAlbumsCreateManyInput[]
+  }
+
+
+  /**
+   * TracksOnAlbums update
+   */
+  export type TracksOnAlbumsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TracksOnAlbums.
+     */
+    data: XOR<TracksOnAlbumsUpdateInput, TracksOnAlbumsUncheckedUpdateInput>
+    /**
+     * Choose, which TracksOnAlbums to update.
+     */
+    where: TracksOnAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * TracksOnAlbums updateMany
+   */
+  export type TracksOnAlbumsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TracksOnAlbums.
+     */
+    data: XOR<TracksOnAlbumsUpdateManyMutationInput, TracksOnAlbumsUncheckedUpdateManyInput>
+    /**
+     * Filter which TracksOnAlbums to update
+     */
+    where?: TracksOnAlbumsWhereInput
+  }
+
+
+  /**
+   * TracksOnAlbums upsert
+   */
+  export type TracksOnAlbumsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TracksOnAlbums to update in case it exists.
+     */
+    where: TracksOnAlbumsWhereUniqueInput
+    /**
+     * In case the TracksOnAlbums found by the `where` argument doesn't exist, create a new TracksOnAlbums with this data.
+     */
+    create: XOR<TracksOnAlbumsCreateInput, TracksOnAlbumsUncheckedCreateInput>
+    /**
+     * In case the TracksOnAlbums was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TracksOnAlbumsUpdateInput, TracksOnAlbumsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * TracksOnAlbums delete
+   */
+  export type TracksOnAlbumsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter which TracksOnAlbums to delete.
+     */
+    where: TracksOnAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * TracksOnAlbums deleteMany
+   */
+  export type TracksOnAlbumsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TracksOnAlbums to delete
+     */
+    where?: TracksOnAlbumsWhereInput
+  }
+
+
+  /**
+   * TracksOnAlbums findRaw
+   */
+  export type TracksOnAlbumsFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * TracksOnAlbums aggregateRaw
+   */
+  export type TracksOnAlbumsAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * TracksOnAlbums without action
+   */
+  export type TracksOnAlbumsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TracksOnAlbums
+     */
+    select?: TracksOnAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TracksOnAlbumsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model UserFavsTracks
+   */
+
+  export type AggregateUserFavsTracks = {
+    _count: UserFavsTracksCountAggregateOutputType | null
+    _min: UserFavsTracksMinAggregateOutputType | null
+    _max: UserFavsTracksMaxAggregateOutputType | null
+  }
+
+  export type UserFavsTracksMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    trackId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserFavsTracksMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    trackId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserFavsTracksCountAggregateOutputType = {
+    id: number
+    userId: number
+    trackId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type UserFavsTracksMinAggregateInputType = {
+    id?: true
+    userId?: true
+    trackId?: true
+    createdAt?: true
+  }
+
+  export type UserFavsTracksMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    trackId?: true
+    createdAt?: true
+  }
+
+  export type UserFavsTracksCountAggregateInputType = {
+    id?: true
+    userId?: true
+    trackId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type UserFavsTracksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFavsTracks to aggregate.
+     */
+    where?: UserFavsTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFavsTracks to fetch.
+     */
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserFavsTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFavsTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFavsTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserFavsTracks
+    **/
+    _count?: true | UserFavsTracksCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserFavsTracksMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserFavsTracksMaxAggregateInputType
+  }
+
+  export type GetUserFavsTracksAggregateType<T extends UserFavsTracksAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserFavsTracks]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserFavsTracks[P]>
+      : GetScalarType<T[P], AggregateUserFavsTracks[P]>
+  }
+
+
+
+
+  export type UserFavsTracksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFavsTracksWhereInput
+    orderBy?: UserFavsTracksOrderByWithAggregationInput | UserFavsTracksOrderByWithAggregationInput[]
+    by: UserFavsTracksScalarFieldEnum[] | UserFavsTracksScalarFieldEnum
+    having?: UserFavsTracksScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserFavsTracksCountAggregateInputType | true
+    _min?: UserFavsTracksMinAggregateInputType
+    _max?: UserFavsTracksMaxAggregateInputType
+  }
+
+  export type UserFavsTracksGroupByOutputType = {
+    id: string
+    userId: string
+    trackId: string
+    createdAt: Date
+    _count: UserFavsTracksCountAggregateOutputType | null
+    _min: UserFavsTracksMinAggregateOutputType | null
+    _max: UserFavsTracksMaxAggregateOutputType | null
+  }
+
+  type GetUserFavsTracksGroupByPayload<T extends UserFavsTracksGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserFavsTracksGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserFavsTracksGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserFavsTracksGroupByOutputType[P]>
+            : GetScalarType<T[P], UserFavsTracksGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserFavsTracksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    trackId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userFavsTracks"]>
+
+  export type UserFavsTracksSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    trackId?: boolean
+    createdAt?: boolean
+  }
+
+  export type UserFavsTracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }
+
+
+  export type $UserFavsTracksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserFavsTracks"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      track: Prisma.$TracksPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      trackId: string
+      createdAt: Date
+    }, ExtArgs["result"]["userFavsTracks"]>
+    composites: {}
+  }
+
+
+  type UserFavsTracksGetPayload<S extends boolean | null | undefined | UserFavsTracksDefaultArgs> = $Result.GetResult<Prisma.$UserFavsTracksPayload, S>
+
+  type UserFavsTracksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserFavsTracksFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserFavsTracksCountAggregateInputType | true
+    }
+
+  export interface UserFavsTracksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserFavsTracks'], meta: { name: 'UserFavsTracks' } }
+    /**
+     * Find zero or one UserFavsTracks that matches the filter.
+     * @param {UserFavsTracksFindUniqueArgs} args - Arguments to find a UserFavsTracks
+     * @example
+     * // Get one UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends UserFavsTracksFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksFindUniqueArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one UserFavsTracks that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {UserFavsTracksFindUniqueOrThrowArgs} args - Arguments to find a UserFavsTracks
+     * @example
+     * // Get one UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends UserFavsTracksFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first UserFavsTracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksFindFirstArgs} args - Arguments to find a UserFavsTracks
+     * @example
+     * // Get one UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends UserFavsTracksFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksFindFirstArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserFavsTracks that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksFindFirstOrThrowArgs} args - Arguments to find a UserFavsTracks
+     * @example
+     * // Get one UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends UserFavsTracksFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFavsTracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findMany()
+     * 
+     * // Get first 10 UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userFavsTracksWithIdOnly = await prisma.userFavsTracks.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends UserFavsTracksFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a UserFavsTracks.
+     * @param {UserFavsTracksCreateArgs} args - Arguments to create a UserFavsTracks.
+     * @example
+     * // Create one UserFavsTracks
+     * const UserFavsTracks = await prisma.userFavsTracks.create({
+     *   data: {
+     *     // ... data to create a UserFavsTracks
+     *   }
+     * })
+     * 
+    **/
+    create<T extends UserFavsTracksCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksCreateArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many UserFavsTracks.
+     *     @param {UserFavsTracksCreateManyArgs} args - Arguments to create many UserFavsTracks.
+     *     @example
+     *     // Create many UserFavsTracks
+     *     const userFavsTracks = await prisma.userFavsTracks.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends UserFavsTracksCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserFavsTracks.
+     * @param {UserFavsTracksDeleteArgs} args - Arguments to delete one UserFavsTracks.
+     * @example
+     * // Delete one UserFavsTracks
+     * const UserFavsTracks = await prisma.userFavsTracks.delete({
+     *   where: {
+     *     // ... filter to delete one UserFavsTracks
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends UserFavsTracksDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksDeleteArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one UserFavsTracks.
+     * @param {UserFavsTracksUpdateArgs} args - Arguments to update one UserFavsTracks.
+     * @example
+     * // Update one UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends UserFavsTracksUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksUpdateArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserFavsTracks.
+     * @param {UserFavsTracksDeleteManyArgs} args - Arguments to filter UserFavsTracks to delete.
+     * @example
+     * // Delete a few UserFavsTracks
+     * const { count } = await prisma.userFavsTracks.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends UserFavsTracksDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFavsTracksDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserFavsTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends UserFavsTracksUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserFavsTracks.
+     * @param {UserFavsTracksUpsertArgs} args - Arguments to update or create a UserFavsTracks.
+     * @example
+     * // Update or create a UserFavsTracks
+     * const userFavsTracks = await prisma.userFavsTracks.upsert({
+     *   create: {
+     *     // ... data to create a UserFavsTracks
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserFavsTracks we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends UserFavsTracksUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFavsTracksUpsertArgs<ExtArgs>>
+    ): Prisma__UserFavsTracksClient<$Result.GetResult<Prisma.$UserFavsTracksPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFavsTracks that matches the filter.
+     * @param {UserFavsTracksFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userFavsTracks = await prisma.userFavsTracks.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: UserFavsTracksFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserFavsTracks.
+     * @param {UserFavsTracksAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userFavsTracks = await prisma.userFavsTracks.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: UserFavsTracksAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of UserFavsTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksCountArgs} args - Arguments to filter UserFavsTracks to count.
+     * @example
+     * // Count the number of UserFavsTracks
+     * const count = await prisma.userFavsTracks.count({
+     *   where: {
+     *     // ... the filter for the UserFavsTracks we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserFavsTracksCountArgs>(
+      args?: Subset<T, UserFavsTracksCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserFavsTracksCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserFavsTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserFavsTracksAggregateArgs>(args: Subset<T, UserFavsTracksAggregateArgs>): Prisma.PrismaPromise<GetUserFavsTracksAggregateType<T>>
+
+    /**
+     * Group by UserFavsTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFavsTracksGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserFavsTracksGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserFavsTracksGroupByArgs['orderBy'] }
+        : { orderBy?: UserFavsTracksGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserFavsTracksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserFavsTracksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserFavsTracks model
+   */
+  readonly fields: UserFavsTracksFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserFavsTracks.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserFavsTracksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    track<T extends TracksDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TracksDefaultArgs<ExtArgs>>): Prisma__TracksClient<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the UserFavsTracks model
+   */ 
+  interface UserFavsTracksFieldRefs {
+    readonly id: FieldRef<"UserFavsTracks", 'String'>
+    readonly userId: FieldRef<"UserFavsTracks", 'String'>
+    readonly trackId: FieldRef<"UserFavsTracks", 'String'>
+    readonly createdAt: FieldRef<"UserFavsTracks", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * UserFavsTracks findUnique
+   */
+  export type UserFavsTracksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFavsTracks to fetch.
+     */
+    where: UserFavsTracksWhereUniqueInput
+  }
+
+
+  /**
+   * UserFavsTracks findUniqueOrThrow
+   */
+  export type UserFavsTracksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFavsTracks to fetch.
+     */
+    where: UserFavsTracksWhereUniqueInput
+  }
+
+
+  /**
+   * UserFavsTracks findFirst
+   */
+  export type UserFavsTracksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFavsTracks to fetch.
+     */
+    where?: UserFavsTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFavsTracks to fetch.
+     */
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFavsTracks.
+     */
+    cursor?: UserFavsTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFavsTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFavsTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFavsTracks.
+     */
+    distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFavsTracks findFirstOrThrow
+   */
+  export type UserFavsTracksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFavsTracks to fetch.
+     */
+    where?: UserFavsTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFavsTracks to fetch.
+     */
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFavsTracks.
+     */
+    cursor?: UserFavsTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFavsTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFavsTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFavsTracks.
+     */
+    distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFavsTracks findMany
+   */
+  export type UserFavsTracksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFavsTracks to fetch.
+     */
+    where?: UserFavsTracksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFavsTracks to fetch.
+     */
+    orderBy?: UserFavsTracksOrderByWithRelationInput | UserFavsTracksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserFavsTracks.
+     */
+    cursor?: UserFavsTracksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFavsTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFavsTracks.
+     */
+    skip?: number
+    distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFavsTracks create
+   */
+  export type UserFavsTracksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserFavsTracks.
+     */
+    data: XOR<UserFavsTracksCreateInput, UserFavsTracksUncheckedCreateInput>
+  }
+
+
+  /**
+   * UserFavsTracks createMany
+   */
+  export type UserFavsTracksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserFavsTracks.
+     */
+    data: UserFavsTracksCreateManyInput | UserFavsTracksCreateManyInput[]
+  }
+
+
+  /**
+   * UserFavsTracks update
+   */
+  export type UserFavsTracksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserFavsTracks.
+     */
+    data: XOR<UserFavsTracksUpdateInput, UserFavsTracksUncheckedUpdateInput>
+    /**
+     * Choose, which UserFavsTracks to update.
+     */
+    where: UserFavsTracksWhereUniqueInput
+  }
+
+
+  /**
+   * UserFavsTracks updateMany
+   */
+  export type UserFavsTracksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserFavsTracks.
+     */
+    data: XOR<UserFavsTracksUpdateManyMutationInput, UserFavsTracksUncheckedUpdateManyInput>
+    /**
+     * Filter which UserFavsTracks to update
+     */
+    where?: UserFavsTracksWhereInput
+  }
+
+
+  /**
+   * UserFavsTracks upsert
+   */
+  export type UserFavsTracksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserFavsTracks to update in case it exists.
+     */
+    where: UserFavsTracksWhereUniqueInput
+    /**
+     * In case the UserFavsTracks found by the `where` argument doesn't exist, create a new UserFavsTracks with this data.
+     */
+    create: XOR<UserFavsTracksCreateInput, UserFavsTracksUncheckedCreateInput>
+    /**
+     * In case the UserFavsTracks was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserFavsTracksUpdateInput, UserFavsTracksUncheckedUpdateInput>
+  }
+
+
+  /**
+   * UserFavsTracks delete
+   */
+  export type UserFavsTracksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+    /**
+     * Filter which UserFavsTracks to delete.
+     */
+    where: UserFavsTracksWhereUniqueInput
+  }
+
+
+  /**
+   * UserFavsTracks deleteMany
+   */
+  export type UserFavsTracksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFavsTracks to delete
+     */
+    where?: UserFavsTracksWhereInput
+  }
+
+
+  /**
+   * UserFavsTracks findRaw
+   */
+  export type UserFavsTracksFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFavsTracks aggregateRaw
+   */
+  export type UserFavsTracksAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFavsTracks without action
+   */
+  export type UserFavsTracksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFavsTracks
+     */
+    select?: UserFavsTracksSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFavsTracksInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model PlaylistToTrack
+   */
+
+  export type AggregatePlaylistToTrack = {
+    _count: PlaylistToTrackCountAggregateOutputType | null
+    _min: PlaylistToTrackMinAggregateOutputType | null
+    _max: PlaylistToTrackMaxAggregateOutputType | null
+  }
+
+  export type PlaylistToTrackMinAggregateOutputType = {
+    id: string | null
+    playlistId: string | null
+    trackId: string | null
+  }
+
+  export type PlaylistToTrackMaxAggregateOutputType = {
+    id: string | null
+    playlistId: string | null
+    trackId: string | null
+  }
+
+  export type PlaylistToTrackCountAggregateOutputType = {
+    id: number
+    playlistId: number
+    trackId: number
+    _all: number
+  }
+
+
+  export type PlaylistToTrackMinAggregateInputType = {
+    id?: true
+    playlistId?: true
+    trackId?: true
+  }
+
+  export type PlaylistToTrackMaxAggregateInputType = {
+    id?: true
+    playlistId?: true
+    trackId?: true
+  }
+
+  export type PlaylistToTrackCountAggregateInputType = {
+    id?: true
+    playlistId?: true
+    trackId?: true
+    _all?: true
+  }
+
+  export type PlaylistToTrackAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PlaylistToTrack to aggregate.
+     */
+    where?: PlaylistToTrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PlaylistToTracks to fetch.
+     */
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PlaylistToTrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PlaylistToTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PlaylistToTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PlaylistToTracks
+    **/
+    _count?: true | PlaylistToTrackCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PlaylistToTrackMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PlaylistToTrackMaxAggregateInputType
+  }
+
+  export type GetPlaylistToTrackAggregateType<T extends PlaylistToTrackAggregateArgs> = {
+        [P in keyof T & keyof AggregatePlaylistToTrack]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePlaylistToTrack[P]>
+      : GetScalarType<T[P], AggregatePlaylistToTrack[P]>
+  }
+
+
+
+
+  export type PlaylistToTrackGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlaylistToTrackWhereInput
+    orderBy?: PlaylistToTrackOrderByWithAggregationInput | PlaylistToTrackOrderByWithAggregationInput[]
+    by: PlaylistToTrackScalarFieldEnum[] | PlaylistToTrackScalarFieldEnum
+    having?: PlaylistToTrackScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PlaylistToTrackCountAggregateInputType | true
+    _min?: PlaylistToTrackMinAggregateInputType
+    _max?: PlaylistToTrackMaxAggregateInputType
+  }
+
+  export type PlaylistToTrackGroupByOutputType = {
+    id: string
+    playlistId: string
+    trackId: string
+    _count: PlaylistToTrackCountAggregateOutputType | null
+    _min: PlaylistToTrackMinAggregateOutputType | null
+    _max: PlaylistToTrackMaxAggregateOutputType | null
+  }
+
+  type GetPlaylistToTrackGroupByPayload<T extends PlaylistToTrackGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PlaylistToTrackGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PlaylistToTrackGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PlaylistToTrackGroupByOutputType[P]>
+            : GetScalarType<T[P], PlaylistToTrackGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PlaylistToTrackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    playlistId?: boolean
+    trackId?: boolean
+    playlist?: boolean | PlaylistsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["playlistToTrack"]>
+
+  export type PlaylistToTrackSelectScalar = {
+    id?: boolean
+    playlistId?: boolean
+    trackId?: boolean
+  }
+
+  export type PlaylistToTrackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    playlist?: boolean | PlaylistsDefaultArgs<ExtArgs>
+    track?: boolean | TracksDefaultArgs<ExtArgs>
+  }
+
+
+  export type $PlaylistToTrackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PlaylistToTrack"
+    objects: {
+      playlist: Prisma.$PlaylistsPayload<ExtArgs>
+      track: Prisma.$TracksPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      playlistId: string
+      trackId: string
+    }, ExtArgs["result"]["playlistToTrack"]>
+    composites: {}
+  }
+
+
+  type PlaylistToTrackGetPayload<S extends boolean | null | undefined | PlaylistToTrackDefaultArgs> = $Result.GetResult<Prisma.$PlaylistToTrackPayload, S>
+
+  type PlaylistToTrackCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PlaylistToTrackFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PlaylistToTrackCountAggregateInputType | true
+    }
+
+  export interface PlaylistToTrackDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PlaylistToTrack'], meta: { name: 'PlaylistToTrack' } }
+    /**
+     * Find zero or one PlaylistToTrack that matches the filter.
+     * @param {PlaylistToTrackFindUniqueArgs} args - Arguments to find a PlaylistToTrack
+     * @example
+     * // Get one PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends PlaylistToTrackFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackFindUniqueArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one PlaylistToTrack that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {PlaylistToTrackFindUniqueOrThrowArgs} args - Arguments to find a PlaylistToTrack
+     * @example
+     * // Get one PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends PlaylistToTrackFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first PlaylistToTrack that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackFindFirstArgs} args - Arguments to find a PlaylistToTrack
+     * @example
+     * // Get one PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends PlaylistToTrackFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackFindFirstArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first PlaylistToTrack that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackFindFirstOrThrowArgs} args - Arguments to find a PlaylistToTrack
+     * @example
+     * // Get one PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends PlaylistToTrackFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more PlaylistToTracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PlaylistToTracks
+     * const playlistToTracks = await prisma.playlistToTrack.findMany()
+     * 
+     * // Get first 10 PlaylistToTracks
+     * const playlistToTracks = await prisma.playlistToTrack.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const playlistToTrackWithIdOnly = await prisma.playlistToTrack.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends PlaylistToTrackFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a PlaylistToTrack.
+     * @param {PlaylistToTrackCreateArgs} args - Arguments to create a PlaylistToTrack.
+     * @example
+     * // Create one PlaylistToTrack
+     * const PlaylistToTrack = await prisma.playlistToTrack.create({
+     *   data: {
+     *     // ... data to create a PlaylistToTrack
+     *   }
+     * })
+     * 
+    **/
+    create<T extends PlaylistToTrackCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackCreateArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many PlaylistToTracks.
+     *     @param {PlaylistToTrackCreateManyArgs} args - Arguments to create many PlaylistToTracks.
+     *     @example
+     *     // Create many PlaylistToTracks
+     *     const playlistToTrack = await prisma.playlistToTrack.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends PlaylistToTrackCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a PlaylistToTrack.
+     * @param {PlaylistToTrackDeleteArgs} args - Arguments to delete one PlaylistToTrack.
+     * @example
+     * // Delete one PlaylistToTrack
+     * const PlaylistToTrack = await prisma.playlistToTrack.delete({
+     *   where: {
+     *     // ... filter to delete one PlaylistToTrack
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends PlaylistToTrackDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackDeleteArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one PlaylistToTrack.
+     * @param {PlaylistToTrackUpdateArgs} args - Arguments to update one PlaylistToTrack.
+     * @example
+     * // Update one PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends PlaylistToTrackUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackUpdateArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more PlaylistToTracks.
+     * @param {PlaylistToTrackDeleteManyArgs} args - Arguments to filter PlaylistToTracks to delete.
+     * @example
+     * // Delete a few PlaylistToTracks
+     * const { count } = await prisma.playlistToTrack.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends PlaylistToTrackDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, PlaylistToTrackDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PlaylistToTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PlaylistToTracks
+     * const playlistToTrack = await prisma.playlistToTrack.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends PlaylistToTrackUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PlaylistToTrack.
+     * @param {PlaylistToTrackUpsertArgs} args - Arguments to update or create a PlaylistToTrack.
+     * @example
+     * // Update or create a PlaylistToTrack
+     * const playlistToTrack = await prisma.playlistToTrack.upsert({
+     *   create: {
+     *     // ... data to create a PlaylistToTrack
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PlaylistToTrack we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends PlaylistToTrackUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, PlaylistToTrackUpsertArgs<ExtArgs>>
+    ): Prisma__PlaylistToTrackClient<$Result.GetResult<Prisma.$PlaylistToTrackPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more PlaylistToTracks that matches the filter.
+     * @param {PlaylistToTrackFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const playlistToTrack = await prisma.playlistToTrack.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: PlaylistToTrackFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a PlaylistToTrack.
+     * @param {PlaylistToTrackAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const playlistToTrack = await prisma.playlistToTrack.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: PlaylistToTrackAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of PlaylistToTracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackCountArgs} args - Arguments to filter PlaylistToTracks to count.
+     * @example
+     * // Count the number of PlaylistToTracks
+     * const count = await prisma.playlistToTrack.count({
+     *   where: {
+     *     // ... the filter for the PlaylistToTracks we want to count
+     *   }
+     * })
+    **/
+    count<T extends PlaylistToTrackCountArgs>(
+      args?: Subset<T, PlaylistToTrackCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PlaylistToTrackCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PlaylistToTrack.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PlaylistToTrackAggregateArgs>(args: Subset<T, PlaylistToTrackAggregateArgs>): Prisma.PrismaPromise<GetPlaylistToTrackAggregateType<T>>
+
+    /**
+     * Group by PlaylistToTrack.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PlaylistToTrackGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PlaylistToTrackGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PlaylistToTrackGroupByArgs['orderBy'] }
+        : { orderBy?: PlaylistToTrackGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PlaylistToTrackGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlaylistToTrackGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PlaylistToTrack model
+   */
+  readonly fields: PlaylistToTrackFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PlaylistToTrack.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PlaylistToTrackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    playlist<T extends PlaylistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlaylistsDefaultArgs<ExtArgs>>): Prisma__PlaylistsClient<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    track<T extends TracksDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TracksDefaultArgs<ExtArgs>>): Prisma__TracksClient<$Result.GetResult<Prisma.$TracksPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the PlaylistToTrack model
+   */ 
+  interface PlaylistToTrackFieldRefs {
+    readonly id: FieldRef<"PlaylistToTrack", 'String'>
+    readonly playlistId: FieldRef<"PlaylistToTrack", 'String'>
+    readonly trackId: FieldRef<"PlaylistToTrack", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * PlaylistToTrack findUnique
+   */
+  export type PlaylistToTrackFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter, which PlaylistToTrack to fetch.
+     */
+    where: PlaylistToTrackWhereUniqueInput
+  }
+
+
+  /**
+   * PlaylistToTrack findUniqueOrThrow
+   */
+  export type PlaylistToTrackFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter, which PlaylistToTrack to fetch.
+     */
+    where: PlaylistToTrackWhereUniqueInput
+  }
+
+
+  /**
+   * PlaylistToTrack findFirst
+   */
+  export type PlaylistToTrackFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter, which PlaylistToTrack to fetch.
+     */
+    where?: PlaylistToTrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PlaylistToTracks to fetch.
+     */
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PlaylistToTracks.
+     */
+    cursor?: PlaylistToTrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PlaylistToTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PlaylistToTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PlaylistToTracks.
+     */
+    distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
+  }
+
+
+  /**
+   * PlaylistToTrack findFirstOrThrow
+   */
+  export type PlaylistToTrackFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter, which PlaylistToTrack to fetch.
+     */
+    where?: PlaylistToTrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PlaylistToTracks to fetch.
+     */
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PlaylistToTracks.
+     */
+    cursor?: PlaylistToTrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PlaylistToTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PlaylistToTracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PlaylistToTracks.
+     */
+    distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
+  }
+
+
+  /**
+   * PlaylistToTrack findMany
+   */
+  export type PlaylistToTrackFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter, which PlaylistToTracks to fetch.
+     */
+    where?: PlaylistToTrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PlaylistToTracks to fetch.
+     */
+    orderBy?: PlaylistToTrackOrderByWithRelationInput | PlaylistToTrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PlaylistToTracks.
+     */
+    cursor?: PlaylistToTrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PlaylistToTracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PlaylistToTracks.
+     */
+    skip?: number
+    distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
+  }
+
+
+  /**
+   * PlaylistToTrack create
+   */
+  export type PlaylistToTrackCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PlaylistToTrack.
+     */
+    data: XOR<PlaylistToTrackCreateInput, PlaylistToTrackUncheckedCreateInput>
+  }
+
+
+  /**
+   * PlaylistToTrack createMany
+   */
+  export type PlaylistToTrackCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PlaylistToTracks.
+     */
+    data: PlaylistToTrackCreateManyInput | PlaylistToTrackCreateManyInput[]
+  }
+
+
+  /**
+   * PlaylistToTrack update
+   */
+  export type PlaylistToTrackUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PlaylistToTrack.
+     */
+    data: XOR<PlaylistToTrackUpdateInput, PlaylistToTrackUncheckedUpdateInput>
+    /**
+     * Choose, which PlaylistToTrack to update.
+     */
+    where: PlaylistToTrackWhereUniqueInput
+  }
+
+
+  /**
+   * PlaylistToTrack updateMany
+   */
+  export type PlaylistToTrackUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PlaylistToTracks.
+     */
+    data: XOR<PlaylistToTrackUpdateManyMutationInput, PlaylistToTrackUncheckedUpdateManyInput>
+    /**
+     * Filter which PlaylistToTracks to update
+     */
+    where?: PlaylistToTrackWhereInput
+  }
+
+
+  /**
+   * PlaylistToTrack upsert
+   */
+  export type PlaylistToTrackUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PlaylistToTrack to update in case it exists.
+     */
+    where: PlaylistToTrackWhereUniqueInput
+    /**
+     * In case the PlaylistToTrack found by the `where` argument doesn't exist, create a new PlaylistToTrack with this data.
+     */
+    create: XOR<PlaylistToTrackCreateInput, PlaylistToTrackUncheckedCreateInput>
+    /**
+     * In case the PlaylistToTrack was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PlaylistToTrackUpdateInput, PlaylistToTrackUncheckedUpdateInput>
+  }
+
+
+  /**
+   * PlaylistToTrack delete
+   */
+  export type PlaylistToTrackDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+    /**
+     * Filter which PlaylistToTrack to delete.
+     */
+    where: PlaylistToTrackWhereUniqueInput
+  }
+
+
+  /**
+   * PlaylistToTrack deleteMany
+   */
+  export type PlaylistToTrackDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PlaylistToTracks to delete
+     */
+    where?: PlaylistToTrackWhereInput
+  }
+
+
+  /**
+   * PlaylistToTrack findRaw
+   */
+  export type PlaylistToTrackFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * PlaylistToTrack aggregateRaw
+   */
+  export type PlaylistToTrackAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * PlaylistToTrack without action
+   */
+  export type PlaylistToTrackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaylistToTrack
+     */
+    select?: PlaylistToTrackSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: PlaylistToTrackInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model UserFollowsPlaylists
+   */
+
+  export type AggregateUserFollowsPlaylists = {
+    _count: UserFollowsPlaylistsCountAggregateOutputType | null
+    _min: UserFollowsPlaylistsMinAggregateOutputType | null
+    _max: UserFollowsPlaylistsMaxAggregateOutputType | null
+  }
+
+  export type UserFollowsPlaylistsMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    playlistId: string | null
+  }
+
+  export type UserFollowsPlaylistsMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    playlistId: string | null
+  }
+
+  export type UserFollowsPlaylistsCountAggregateOutputType = {
+    id: number
+    userId: number
+    playlistId: number
+    _all: number
+  }
+
+
+  export type UserFollowsPlaylistsMinAggregateInputType = {
+    id?: true
+    userId?: true
+    playlistId?: true
+  }
+
+  export type UserFollowsPlaylistsMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    playlistId?: true
+  }
+
+  export type UserFollowsPlaylistsCountAggregateInputType = {
+    id?: true
+    userId?: true
+    playlistId?: true
+    _all?: true
+  }
+
+  export type UserFollowsPlaylistsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFollowsPlaylists to aggregate.
+     */
+    where?: UserFollowsPlaylistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsPlaylists to fetch.
+     */
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsPlaylists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsPlaylists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserFollowsPlaylists
+    **/
+    _count?: true | UserFollowsPlaylistsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserFollowsPlaylistsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserFollowsPlaylistsMaxAggregateInputType
+  }
+
+  export type GetUserFollowsPlaylistsAggregateType<T extends UserFollowsPlaylistsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserFollowsPlaylists]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserFollowsPlaylists[P]>
+      : GetScalarType<T[P], AggregateUserFollowsPlaylists[P]>
+  }
+
+
+
+
+  export type UserFollowsPlaylistsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFollowsPlaylistsWhereInput
+    orderBy?: UserFollowsPlaylistsOrderByWithAggregationInput | UserFollowsPlaylistsOrderByWithAggregationInput[]
+    by: UserFollowsPlaylistsScalarFieldEnum[] | UserFollowsPlaylistsScalarFieldEnum
+    having?: UserFollowsPlaylistsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserFollowsPlaylistsCountAggregateInputType | true
+    _min?: UserFollowsPlaylistsMinAggregateInputType
+    _max?: UserFollowsPlaylistsMaxAggregateInputType
+  }
+
+  export type UserFollowsPlaylistsGroupByOutputType = {
+    id: string
+    userId: string
+    playlistId: string
+    _count: UserFollowsPlaylistsCountAggregateOutputType | null
+    _min: UserFollowsPlaylistsMinAggregateOutputType | null
+    _max: UserFollowsPlaylistsMaxAggregateOutputType | null
+  }
+
+  type GetUserFollowsPlaylistsGroupByPayload<T extends UserFollowsPlaylistsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserFollowsPlaylistsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserFollowsPlaylistsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserFollowsPlaylistsGroupByOutputType[P]>
+            : GetScalarType<T[P], UserFollowsPlaylistsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserFollowsPlaylistsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    playlistId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    playlist?: boolean | PlaylistsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userFollowsPlaylists"]>
+
+  export type UserFollowsPlaylistsSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    playlistId?: boolean
+  }
+
+  export type UserFollowsPlaylistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    playlist?: boolean | PlaylistsDefaultArgs<ExtArgs>
+  }
+
+
+  export type $UserFollowsPlaylistsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserFollowsPlaylists"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      playlist: Prisma.$PlaylistsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      playlistId: string
+    }, ExtArgs["result"]["userFollowsPlaylists"]>
+    composites: {}
+  }
+
+
+  type UserFollowsPlaylistsGetPayload<S extends boolean | null | undefined | UserFollowsPlaylistsDefaultArgs> = $Result.GetResult<Prisma.$UserFollowsPlaylistsPayload, S>
+
+  type UserFollowsPlaylistsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserFollowsPlaylistsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserFollowsPlaylistsCountAggregateInputType | true
+    }
+
+  export interface UserFollowsPlaylistsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserFollowsPlaylists'], meta: { name: 'UserFollowsPlaylists' } }
+    /**
+     * Find zero or one UserFollowsPlaylists that matches the filter.
+     * @param {UserFollowsPlaylistsFindUniqueArgs} args - Arguments to find a UserFollowsPlaylists
+     * @example
+     * // Get one UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends UserFollowsPlaylistsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsFindUniqueArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one UserFollowsPlaylists that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {UserFollowsPlaylistsFindUniqueOrThrowArgs} args - Arguments to find a UserFollowsPlaylists
+     * @example
+     * // Get one UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends UserFollowsPlaylistsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first UserFollowsPlaylists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsFindFirstArgs} args - Arguments to find a UserFollowsPlaylists
+     * @example
+     * // Get one UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends UserFollowsPlaylistsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsFindFirstArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserFollowsPlaylists that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsFindFirstOrThrowArgs} args - Arguments to find a UserFollowsPlaylists
+     * @example
+     * // Get one UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends UserFollowsPlaylistsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFollowsPlaylists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findMany()
+     * 
+     * // Get first 10 UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userFollowsPlaylistsWithIdOnly = await prisma.userFollowsPlaylists.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends UserFollowsPlaylistsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsCreateArgs} args - Arguments to create a UserFollowsPlaylists.
+     * @example
+     * // Create one UserFollowsPlaylists
+     * const UserFollowsPlaylists = await prisma.userFollowsPlaylists.create({
+     *   data: {
+     *     // ... data to create a UserFollowsPlaylists
+     *   }
+     * })
+     * 
+    **/
+    create<T extends UserFollowsPlaylistsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsCreateArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many UserFollowsPlaylists.
+     *     @param {UserFollowsPlaylistsCreateManyArgs} args - Arguments to create many UserFollowsPlaylists.
+     *     @example
+     *     // Create many UserFollowsPlaylists
+     *     const userFollowsPlaylists = await prisma.userFollowsPlaylists.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends UserFollowsPlaylistsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsDeleteArgs} args - Arguments to delete one UserFollowsPlaylists.
+     * @example
+     * // Delete one UserFollowsPlaylists
+     * const UserFollowsPlaylists = await prisma.userFollowsPlaylists.delete({
+     *   where: {
+     *     // ... filter to delete one UserFollowsPlaylists
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends UserFollowsPlaylistsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsDeleteArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsUpdateArgs} args - Arguments to update one UserFollowsPlaylists.
+     * @example
+     * // Update one UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends UserFollowsPlaylistsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsUpdateArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsDeleteManyArgs} args - Arguments to filter UserFollowsPlaylists to delete.
+     * @example
+     * // Delete a few UserFollowsPlaylists
+     * const { count } = await prisma.userFollowsPlaylists.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends UserFollowsPlaylistsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsPlaylistsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserFollowsPlaylists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends UserFollowsPlaylistsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsUpsertArgs} args - Arguments to update or create a UserFollowsPlaylists.
+     * @example
+     * // Update or create a UserFollowsPlaylists
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.upsert({
+     *   create: {
+     *     // ... data to create a UserFollowsPlaylists
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserFollowsPlaylists we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends UserFollowsPlaylistsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsPlaylistsUpsertArgs<ExtArgs>>
+    ): Prisma__UserFollowsPlaylistsClient<$Result.GetResult<Prisma.$UserFollowsPlaylistsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFollowsPlaylists that matches the filter.
+     * @param {UserFollowsPlaylistsFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: UserFollowsPlaylistsFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserFollowsPlaylists.
+     * @param {UserFollowsPlaylistsAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userFollowsPlaylists = await prisma.userFollowsPlaylists.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: UserFollowsPlaylistsAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of UserFollowsPlaylists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsCountArgs} args - Arguments to filter UserFollowsPlaylists to count.
+     * @example
+     * // Count the number of UserFollowsPlaylists
+     * const count = await prisma.userFollowsPlaylists.count({
+     *   where: {
+     *     // ... the filter for the UserFollowsPlaylists we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserFollowsPlaylistsCountArgs>(
+      args?: Subset<T, UserFollowsPlaylistsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserFollowsPlaylistsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserFollowsPlaylists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserFollowsPlaylistsAggregateArgs>(args: Subset<T, UserFollowsPlaylistsAggregateArgs>): Prisma.PrismaPromise<GetUserFollowsPlaylistsAggregateType<T>>
+
+    /**
+     * Group by UserFollowsPlaylists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsPlaylistsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserFollowsPlaylistsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserFollowsPlaylistsGroupByArgs['orderBy'] }
+        : { orderBy?: UserFollowsPlaylistsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserFollowsPlaylistsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserFollowsPlaylistsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserFollowsPlaylists model
+   */
+  readonly fields: UserFollowsPlaylistsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserFollowsPlaylists.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserFollowsPlaylistsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    playlist<T extends PlaylistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlaylistsDefaultArgs<ExtArgs>>): Prisma__PlaylistsClient<$Result.GetResult<Prisma.$PlaylistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the UserFollowsPlaylists model
+   */ 
+  interface UserFollowsPlaylistsFieldRefs {
+    readonly id: FieldRef<"UserFollowsPlaylists", 'String'>
+    readonly userId: FieldRef<"UserFollowsPlaylists", 'String'>
+    readonly playlistId: FieldRef<"UserFollowsPlaylists", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * UserFollowsPlaylists findUnique
+   */
+  export type UserFollowsPlaylistsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsPlaylists to fetch.
+     */
+    where: UserFollowsPlaylistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists findUniqueOrThrow
+   */
+  export type UserFollowsPlaylistsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsPlaylists to fetch.
+     */
+    where: UserFollowsPlaylistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists findFirst
+   */
+  export type UserFollowsPlaylistsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsPlaylists to fetch.
+     */
+    where?: UserFollowsPlaylistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsPlaylists to fetch.
+     */
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFollowsPlaylists.
+     */
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsPlaylists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsPlaylists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFollowsPlaylists.
+     */
+    distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsPlaylists findFirstOrThrow
+   */
+  export type UserFollowsPlaylistsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsPlaylists to fetch.
+     */
+    where?: UserFollowsPlaylistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsPlaylists to fetch.
+     */
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFollowsPlaylists.
+     */
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsPlaylists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsPlaylists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFollowsPlaylists.
+     */
+    distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsPlaylists findMany
+   */
+  export type UserFollowsPlaylistsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsPlaylists to fetch.
+     */
+    where?: UserFollowsPlaylistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsPlaylists to fetch.
+     */
+    orderBy?: UserFollowsPlaylistsOrderByWithRelationInput | UserFollowsPlaylistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserFollowsPlaylists.
+     */
+    cursor?: UserFollowsPlaylistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsPlaylists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsPlaylists.
+     */
+    skip?: number
+    distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsPlaylists create
+   */
+  export type UserFollowsPlaylistsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserFollowsPlaylists.
+     */
+    data: XOR<UserFollowsPlaylistsCreateInput, UserFollowsPlaylistsUncheckedCreateInput>
+  }
+
+
+  /**
+   * UserFollowsPlaylists createMany
+   */
+  export type UserFollowsPlaylistsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserFollowsPlaylists.
+     */
+    data: UserFollowsPlaylistsCreateManyInput | UserFollowsPlaylistsCreateManyInput[]
+  }
+
+
+  /**
+   * UserFollowsPlaylists update
+   */
+  export type UserFollowsPlaylistsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserFollowsPlaylists.
+     */
+    data: XOR<UserFollowsPlaylistsUpdateInput, UserFollowsPlaylistsUncheckedUpdateInput>
+    /**
+     * Choose, which UserFollowsPlaylists to update.
+     */
+    where: UserFollowsPlaylistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists updateMany
+   */
+  export type UserFollowsPlaylistsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserFollowsPlaylists.
+     */
+    data: XOR<UserFollowsPlaylistsUpdateManyMutationInput, UserFollowsPlaylistsUncheckedUpdateManyInput>
+    /**
+     * Filter which UserFollowsPlaylists to update
+     */
+    where?: UserFollowsPlaylistsWhereInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists upsert
+   */
+  export type UserFollowsPlaylistsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserFollowsPlaylists to update in case it exists.
+     */
+    where: UserFollowsPlaylistsWhereUniqueInput
+    /**
+     * In case the UserFollowsPlaylists found by the `where` argument doesn't exist, create a new UserFollowsPlaylists with this data.
+     */
+    create: XOR<UserFollowsPlaylistsCreateInput, UserFollowsPlaylistsUncheckedCreateInput>
+    /**
+     * In case the UserFollowsPlaylists was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserFollowsPlaylistsUpdateInput, UserFollowsPlaylistsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * UserFollowsPlaylists delete
+   */
+  export type UserFollowsPlaylistsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+    /**
+     * Filter which UserFollowsPlaylists to delete.
+     */
+    where: UserFollowsPlaylistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists deleteMany
+   */
+  export type UserFollowsPlaylistsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFollowsPlaylists to delete
+     */
+    where?: UserFollowsPlaylistsWhereInput
+  }
+
+
+  /**
+   * UserFollowsPlaylists findRaw
+   */
+  export type UserFollowsPlaylistsFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFollowsPlaylists aggregateRaw
+   */
+  export type UserFollowsPlaylistsAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFollowsPlaylists without action
+   */
+  export type UserFollowsPlaylistsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsPlaylists
+     */
+    select?: UserFollowsPlaylistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsPlaylistsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model UserFollowsArtists
+   */
+
+  export type AggregateUserFollowsArtists = {
+    _count: UserFollowsArtistsCountAggregateOutputType | null
+    _min: UserFollowsArtistsMinAggregateOutputType | null
+    _max: UserFollowsArtistsMaxAggregateOutputType | null
+  }
+
+  export type UserFollowsArtistsMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    artistId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserFollowsArtistsMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    artistId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserFollowsArtistsCountAggregateOutputType = {
+    id: number
+    userId: number
+    artistId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type UserFollowsArtistsMinAggregateInputType = {
+    id?: true
+    userId?: true
+    artistId?: true
+    createdAt?: true
+  }
+
+  export type UserFollowsArtistsMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    artistId?: true
+    createdAt?: true
+  }
+
+  export type UserFollowsArtistsCountAggregateInputType = {
+    id?: true
+    userId?: true
+    artistId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type UserFollowsArtistsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFollowsArtists to aggregate.
+     */
+    where?: UserFollowsArtistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsArtists to fetch.
+     */
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsArtists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsArtists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserFollowsArtists
+    **/
+    _count?: true | UserFollowsArtistsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserFollowsArtistsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserFollowsArtistsMaxAggregateInputType
+  }
+
+  export type GetUserFollowsArtistsAggregateType<T extends UserFollowsArtistsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserFollowsArtists]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserFollowsArtists[P]>
+      : GetScalarType<T[P], AggregateUserFollowsArtists[P]>
+  }
+
+
+
+
+  export type UserFollowsArtistsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserFollowsArtistsWhereInput
+    orderBy?: UserFollowsArtistsOrderByWithAggregationInput | UserFollowsArtistsOrderByWithAggregationInput[]
+    by: UserFollowsArtistsScalarFieldEnum[] | UserFollowsArtistsScalarFieldEnum
+    having?: UserFollowsArtistsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserFollowsArtistsCountAggregateInputType | true
+    _min?: UserFollowsArtistsMinAggregateInputType
+    _max?: UserFollowsArtistsMaxAggregateInputType
+  }
+
+  export type UserFollowsArtistsGroupByOutputType = {
+    id: string
+    userId: string
+    artistId: string
+    createdAt: Date
+    _count: UserFollowsArtistsCountAggregateOutputType | null
+    _min: UserFollowsArtistsMinAggregateOutputType | null
+    _max: UserFollowsArtistsMaxAggregateOutputType | null
+  }
+
+  type GetUserFollowsArtistsGroupByPayload<T extends UserFollowsArtistsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserFollowsArtistsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserFollowsArtistsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserFollowsArtistsGroupByOutputType[P]>
+            : GetScalarType<T[P], UserFollowsArtistsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserFollowsArtistsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    artistId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userFollowsArtists"]>
+
+  export type UserFollowsArtistsSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    artistId?: boolean
+    createdAt?: boolean
+  }
+
+  export type UserFollowsArtistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    artist?: boolean | ArtistsDefaultArgs<ExtArgs>
+  }
+
+
+  export type $UserFollowsArtistsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserFollowsArtists"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      artist: Prisma.$ArtistsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      artistId: string
+      createdAt: Date
+    }, ExtArgs["result"]["userFollowsArtists"]>
+    composites: {}
+  }
+
+
+  type UserFollowsArtistsGetPayload<S extends boolean | null | undefined | UserFollowsArtistsDefaultArgs> = $Result.GetResult<Prisma.$UserFollowsArtistsPayload, S>
+
+  type UserFollowsArtistsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserFollowsArtistsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserFollowsArtistsCountAggregateInputType | true
+    }
+
+  export interface UserFollowsArtistsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserFollowsArtists'], meta: { name: 'UserFollowsArtists' } }
+    /**
+     * Find zero or one UserFollowsArtists that matches the filter.
+     * @param {UserFollowsArtistsFindUniqueArgs} args - Arguments to find a UserFollowsArtists
+     * @example
+     * // Get one UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends UserFollowsArtistsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsFindUniqueArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one UserFollowsArtists that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {UserFollowsArtistsFindUniqueOrThrowArgs} args - Arguments to find a UserFollowsArtists
+     * @example
+     * // Get one UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends UserFollowsArtistsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first UserFollowsArtists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsFindFirstArgs} args - Arguments to find a UserFollowsArtists
+     * @example
+     * // Get one UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends UserFollowsArtistsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsFindFirstArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserFollowsArtists that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsFindFirstOrThrowArgs} args - Arguments to find a UserFollowsArtists
+     * @example
+     * // Get one UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends UserFollowsArtistsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFollowsArtists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findMany()
+     * 
+     * // Get first 10 UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userFollowsArtistsWithIdOnly = await prisma.userFollowsArtists.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends UserFollowsArtistsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a UserFollowsArtists.
+     * @param {UserFollowsArtistsCreateArgs} args - Arguments to create a UserFollowsArtists.
+     * @example
+     * // Create one UserFollowsArtists
+     * const UserFollowsArtists = await prisma.userFollowsArtists.create({
+     *   data: {
+     *     // ... data to create a UserFollowsArtists
+     *   }
+     * })
+     * 
+    **/
+    create<T extends UserFollowsArtistsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsCreateArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many UserFollowsArtists.
+     *     @param {UserFollowsArtistsCreateManyArgs} args - Arguments to create many UserFollowsArtists.
+     *     @example
+     *     // Create many UserFollowsArtists
+     *     const userFollowsArtists = await prisma.userFollowsArtists.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends UserFollowsArtistsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserFollowsArtists.
+     * @param {UserFollowsArtistsDeleteArgs} args - Arguments to delete one UserFollowsArtists.
+     * @example
+     * // Delete one UserFollowsArtists
+     * const UserFollowsArtists = await prisma.userFollowsArtists.delete({
+     *   where: {
+     *     // ... filter to delete one UserFollowsArtists
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends UserFollowsArtistsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsDeleteArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one UserFollowsArtists.
+     * @param {UserFollowsArtistsUpdateArgs} args - Arguments to update one UserFollowsArtists.
+     * @example
+     * // Update one UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends UserFollowsArtistsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsUpdateArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserFollowsArtists.
+     * @param {UserFollowsArtistsDeleteManyArgs} args - Arguments to filter UserFollowsArtists to delete.
+     * @example
+     * // Delete a few UserFollowsArtists
+     * const { count } = await prisma.userFollowsArtists.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends UserFollowsArtistsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserFollowsArtistsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserFollowsArtists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends UserFollowsArtistsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserFollowsArtists.
+     * @param {UserFollowsArtistsUpsertArgs} args - Arguments to update or create a UserFollowsArtists.
+     * @example
+     * // Update or create a UserFollowsArtists
+     * const userFollowsArtists = await prisma.userFollowsArtists.upsert({
+     *   create: {
+     *     // ... data to create a UserFollowsArtists
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserFollowsArtists we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends UserFollowsArtistsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, UserFollowsArtistsUpsertArgs<ExtArgs>>
+    ): Prisma__UserFollowsArtistsClient<$Result.GetResult<Prisma.$UserFollowsArtistsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserFollowsArtists that matches the filter.
+     * @param {UserFollowsArtistsFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userFollowsArtists = await prisma.userFollowsArtists.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: UserFollowsArtistsFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserFollowsArtists.
+     * @param {UserFollowsArtistsAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userFollowsArtists = await prisma.userFollowsArtists.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: UserFollowsArtistsAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of UserFollowsArtists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsCountArgs} args - Arguments to filter UserFollowsArtists to count.
+     * @example
+     * // Count the number of UserFollowsArtists
+     * const count = await prisma.userFollowsArtists.count({
+     *   where: {
+     *     // ... the filter for the UserFollowsArtists we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserFollowsArtistsCountArgs>(
+      args?: Subset<T, UserFollowsArtistsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserFollowsArtistsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserFollowsArtists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserFollowsArtistsAggregateArgs>(args: Subset<T, UserFollowsArtistsAggregateArgs>): Prisma.PrismaPromise<GetUserFollowsArtistsAggregateType<T>>
+
+    /**
+     * Group by UserFollowsArtists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFollowsArtistsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserFollowsArtistsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserFollowsArtistsGroupByArgs['orderBy'] }
+        : { orderBy?: UserFollowsArtistsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserFollowsArtistsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserFollowsArtistsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserFollowsArtists model
+   */
+  readonly fields: UserFollowsArtistsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserFollowsArtists.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserFollowsArtistsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    artist<T extends ArtistsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArtistsDefaultArgs<ExtArgs>>): Prisma__ArtistsClient<$Result.GetResult<Prisma.$ArtistsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the UserFollowsArtists model
+   */ 
+  interface UserFollowsArtistsFieldRefs {
+    readonly id: FieldRef<"UserFollowsArtists", 'String'>
+    readonly userId: FieldRef<"UserFollowsArtists", 'String'>
+    readonly artistId: FieldRef<"UserFollowsArtists", 'String'>
+    readonly createdAt: FieldRef<"UserFollowsArtists", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * UserFollowsArtists findUnique
+   */
+  export type UserFollowsArtistsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsArtists to fetch.
+     */
+    where: UserFollowsArtistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsArtists findUniqueOrThrow
+   */
+  export type UserFollowsArtistsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsArtists to fetch.
+     */
+    where: UserFollowsArtistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsArtists findFirst
+   */
+  export type UserFollowsArtistsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsArtists to fetch.
+     */
+    where?: UserFollowsArtistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsArtists to fetch.
+     */
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFollowsArtists.
+     */
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsArtists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsArtists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFollowsArtists.
+     */
+    distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsArtists findFirstOrThrow
+   */
+  export type UserFollowsArtistsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsArtists to fetch.
+     */
+    where?: UserFollowsArtistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsArtists to fetch.
+     */
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserFollowsArtists.
+     */
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsArtists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsArtists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserFollowsArtists.
+     */
+    distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsArtists findMany
+   */
+  export type UserFollowsArtistsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserFollowsArtists to fetch.
+     */
+    where?: UserFollowsArtistsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserFollowsArtists to fetch.
+     */
+    orderBy?: UserFollowsArtistsOrderByWithRelationInput | UserFollowsArtistsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserFollowsArtists.
+     */
+    cursor?: UserFollowsArtistsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserFollowsArtists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserFollowsArtists.
+     */
+    skip?: number
+    distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserFollowsArtists create
+   */
+  export type UserFollowsArtistsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserFollowsArtists.
+     */
+    data: XOR<UserFollowsArtistsCreateInput, UserFollowsArtistsUncheckedCreateInput>
+  }
+
+
+  /**
+   * UserFollowsArtists createMany
+   */
+  export type UserFollowsArtistsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserFollowsArtists.
+     */
+    data: UserFollowsArtistsCreateManyInput | UserFollowsArtistsCreateManyInput[]
+  }
+
+
+  /**
+   * UserFollowsArtists update
+   */
+  export type UserFollowsArtistsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserFollowsArtists.
+     */
+    data: XOR<UserFollowsArtistsUpdateInput, UserFollowsArtistsUncheckedUpdateInput>
+    /**
+     * Choose, which UserFollowsArtists to update.
+     */
+    where: UserFollowsArtistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsArtists updateMany
+   */
+  export type UserFollowsArtistsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserFollowsArtists.
+     */
+    data: XOR<UserFollowsArtistsUpdateManyMutationInput, UserFollowsArtistsUncheckedUpdateManyInput>
+    /**
+     * Filter which UserFollowsArtists to update
+     */
+    where?: UserFollowsArtistsWhereInput
+  }
+
+
+  /**
+   * UserFollowsArtists upsert
+   */
+  export type UserFollowsArtistsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserFollowsArtists to update in case it exists.
+     */
+    where: UserFollowsArtistsWhereUniqueInput
+    /**
+     * In case the UserFollowsArtists found by the `where` argument doesn't exist, create a new UserFollowsArtists with this data.
+     */
+    create: XOR<UserFollowsArtistsCreateInput, UserFollowsArtistsUncheckedCreateInput>
+    /**
+     * In case the UserFollowsArtists was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserFollowsArtistsUpdateInput, UserFollowsArtistsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * UserFollowsArtists delete
+   */
+  export type UserFollowsArtistsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+    /**
+     * Filter which UserFollowsArtists to delete.
+     */
+    where: UserFollowsArtistsWhereUniqueInput
+  }
+
+
+  /**
+   * UserFollowsArtists deleteMany
+   */
+  export type UserFollowsArtistsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserFollowsArtists to delete
+     */
+    where?: UserFollowsArtistsWhereInput
+  }
+
+
+  /**
+   * UserFollowsArtists findRaw
+   */
+  export type UserFollowsArtistsFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFollowsArtists aggregateRaw
+   */
+  export type UserFollowsArtistsAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserFollowsArtists without action
+   */
+  export type UserFollowsArtistsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserFollowsArtists
+     */
+    select?: UserFollowsArtistsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserFollowsArtistsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model UserLikedAlbums
+   */
+
+  export type AggregateUserLikedAlbums = {
+    _count: UserLikedAlbumsCountAggregateOutputType | null
+    _min: UserLikedAlbumsMinAggregateOutputType | null
+    _max: UserLikedAlbumsMaxAggregateOutputType | null
+  }
+
+  export type UserLikedAlbumsMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    albumId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserLikedAlbumsMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    albumId: string | null
+    createdAt: Date | null
+  }
+
+  export type UserLikedAlbumsCountAggregateOutputType = {
+    id: number
+    userId: number
+    albumId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type UserLikedAlbumsMinAggregateInputType = {
+    id?: true
+    userId?: true
+    albumId?: true
+    createdAt?: true
+  }
+
+  export type UserLikedAlbumsMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    albumId?: true
+    createdAt?: true
+  }
+
+  export type UserLikedAlbumsCountAggregateInputType = {
+    id?: true
+    userId?: true
+    albumId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type UserLikedAlbumsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLikedAlbums to aggregate.
+     */
+    where?: UserLikedAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLikedAlbums to fetch.
+     */
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserLikedAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLikedAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLikedAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UserLikedAlbums
+    **/
+    _count?: true | UserLikedAlbumsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserLikedAlbumsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserLikedAlbumsMaxAggregateInputType
+  }
+
+  export type GetUserLikedAlbumsAggregateType<T extends UserLikedAlbumsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserLikedAlbums]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUserLikedAlbums[P]>
+      : GetScalarType<T[P], AggregateUserLikedAlbums[P]>
+  }
+
+
+
+
+  export type UserLikedAlbumsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserLikedAlbumsWhereInput
+    orderBy?: UserLikedAlbumsOrderByWithAggregationInput | UserLikedAlbumsOrderByWithAggregationInput[]
+    by: UserLikedAlbumsScalarFieldEnum[] | UserLikedAlbumsScalarFieldEnum
+    having?: UserLikedAlbumsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserLikedAlbumsCountAggregateInputType | true
+    _min?: UserLikedAlbumsMinAggregateInputType
+    _max?: UserLikedAlbumsMaxAggregateInputType
+  }
+
+  export type UserLikedAlbumsGroupByOutputType = {
+    id: string
+    userId: string
+    albumId: string
+    createdAt: Date
+    _count: UserLikedAlbumsCountAggregateOutputType | null
+    _min: UserLikedAlbumsMinAggregateOutputType | null
+    _max: UserLikedAlbumsMaxAggregateOutputType | null
+  }
+
+  type GetUserLikedAlbumsGroupByPayload<T extends UserLikedAlbumsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserLikedAlbumsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserLikedAlbumsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserLikedAlbumsGroupByOutputType[P]>
+            : GetScalarType<T[P], UserLikedAlbumsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserLikedAlbumsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    albumId?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    album?: boolean | AlbumsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userLikedAlbums"]>
+
+  export type UserLikedAlbumsSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    albumId?: boolean
+    createdAt?: boolean
+  }
+
+  export type UserLikedAlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    album?: boolean | AlbumsDefaultArgs<ExtArgs>
+  }
+
+
+  export type $UserLikedAlbumsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserLikedAlbums"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      album: Prisma.$AlbumsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      albumId: string
+      createdAt: Date
+    }, ExtArgs["result"]["userLikedAlbums"]>
+    composites: {}
+  }
+
+
+  type UserLikedAlbumsGetPayload<S extends boolean | null | undefined | UserLikedAlbumsDefaultArgs> = $Result.GetResult<Prisma.$UserLikedAlbumsPayload, S>
+
+  type UserLikedAlbumsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserLikedAlbumsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserLikedAlbumsCountAggregateInputType | true
+    }
+
+  export interface UserLikedAlbumsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserLikedAlbums'], meta: { name: 'UserLikedAlbums' } }
+    /**
+     * Find zero or one UserLikedAlbums that matches the filter.
+     * @param {UserLikedAlbumsFindUniqueArgs} args - Arguments to find a UserLikedAlbums
+     * @example
+     * // Get one UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends UserLikedAlbumsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsFindUniqueArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one UserLikedAlbums that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {UserLikedAlbumsFindUniqueOrThrowArgs} args - Arguments to find a UserLikedAlbums
+     * @example
+     * // Get one UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends UserLikedAlbumsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first UserLikedAlbums that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsFindFirstArgs} args - Arguments to find a UserLikedAlbums
+     * @example
+     * // Get one UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends UserLikedAlbumsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsFindFirstArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first UserLikedAlbums that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsFindFirstOrThrowArgs} args - Arguments to find a UserLikedAlbums
+     * @example
+     * // Get one UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends UserLikedAlbumsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserLikedAlbums that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findMany()
+     * 
+     * // Get first 10 UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userLikedAlbumsWithIdOnly = await prisma.userLikedAlbums.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends UserLikedAlbumsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a UserLikedAlbums.
+     * @param {UserLikedAlbumsCreateArgs} args - Arguments to create a UserLikedAlbums.
+     * @example
+     * // Create one UserLikedAlbums
+     * const UserLikedAlbums = await prisma.userLikedAlbums.create({
+     *   data: {
+     *     // ... data to create a UserLikedAlbums
+     *   }
+     * })
+     * 
+    **/
+    create<T extends UserLikedAlbumsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsCreateArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many UserLikedAlbums.
+     *     @param {UserLikedAlbumsCreateManyArgs} args - Arguments to create many UserLikedAlbums.
+     *     @example
+     *     // Create many UserLikedAlbums
+     *     const userLikedAlbums = await prisma.userLikedAlbums.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends UserLikedAlbumsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a UserLikedAlbums.
+     * @param {UserLikedAlbumsDeleteArgs} args - Arguments to delete one UserLikedAlbums.
+     * @example
+     * // Delete one UserLikedAlbums
+     * const UserLikedAlbums = await prisma.userLikedAlbums.delete({
+     *   where: {
+     *     // ... filter to delete one UserLikedAlbums
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends UserLikedAlbumsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsDeleteArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one UserLikedAlbums.
+     * @param {UserLikedAlbumsUpdateArgs} args - Arguments to update one UserLikedAlbums.
+     * @example
+     * // Update one UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends UserLikedAlbumsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsUpdateArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more UserLikedAlbums.
+     * @param {UserLikedAlbumsDeleteManyArgs} args - Arguments to filter UserLikedAlbums to delete.
+     * @example
+     * // Delete a few UserLikedAlbums
+     * const { count } = await prisma.userLikedAlbums.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends UserLikedAlbumsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserLikedAlbumsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UserLikedAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends UserLikedAlbumsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one UserLikedAlbums.
+     * @param {UserLikedAlbumsUpsertArgs} args - Arguments to update or create a UserLikedAlbums.
+     * @example
+     * // Update or create a UserLikedAlbums
+     * const userLikedAlbums = await prisma.userLikedAlbums.upsert({
+     *   create: {
+     *     // ... data to create a UserLikedAlbums
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UserLikedAlbums we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends UserLikedAlbumsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, UserLikedAlbumsUpsertArgs<ExtArgs>>
+    ): Prisma__UserLikedAlbumsClient<$Result.GetResult<Prisma.$UserLikedAlbumsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Find zero or more UserLikedAlbums that matches the filter.
+     * @param {UserLikedAlbumsFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const userLikedAlbums = await prisma.userLikedAlbums.findRaw({
+     *   filter: { age: { $gt: 25 } } 
+     * })
+    **/
+    findRaw(
+      args?: UserLikedAlbumsFindRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a UserLikedAlbums.
+     * @param {UserLikedAlbumsAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const userLikedAlbums = await prisma.userLikedAlbums.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+    **/
+    aggregateRaw(
+      args?: UserLikedAlbumsAggregateRawArgs
+    ): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Count the number of UserLikedAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsCountArgs} args - Arguments to filter UserLikedAlbums to count.
+     * @example
+     * // Count the number of UserLikedAlbums
+     * const count = await prisma.userLikedAlbums.count({
+     *   where: {
+     *     // ... the filter for the UserLikedAlbums we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserLikedAlbumsCountArgs>(
+      args?: Subset<T, UserLikedAlbumsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserLikedAlbumsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UserLikedAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserLikedAlbumsAggregateArgs>(args: Subset<T, UserLikedAlbumsAggregateArgs>): Prisma.PrismaPromise<GetUserLikedAlbumsAggregateType<T>>
+
+    /**
+     * Group by UserLikedAlbums.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserLikedAlbumsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserLikedAlbumsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserLikedAlbumsGroupByArgs['orderBy'] }
+        : { orderBy?: UserLikedAlbumsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserLikedAlbumsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserLikedAlbumsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UserLikedAlbums model
+   */
+  readonly fields: UserLikedAlbumsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UserLikedAlbums.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserLikedAlbumsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    album<T extends AlbumsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlbumsDefaultArgs<ExtArgs>>): Prisma__AlbumsClient<$Result.GetResult<Prisma.$AlbumsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the UserLikedAlbums model
+   */ 
+  interface UserLikedAlbumsFieldRefs {
+    readonly id: FieldRef<"UserLikedAlbums", 'String'>
+    readonly userId: FieldRef<"UserLikedAlbums", 'String'>
+    readonly albumId: FieldRef<"UserLikedAlbums", 'String'>
+    readonly createdAt: FieldRef<"UserLikedAlbums", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * UserLikedAlbums findUnique
+   */
+  export type UserLikedAlbumsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLikedAlbums to fetch.
+     */
+    where: UserLikedAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * UserLikedAlbums findUniqueOrThrow
+   */
+  export type UserLikedAlbumsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLikedAlbums to fetch.
+     */
+    where: UserLikedAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * UserLikedAlbums findFirst
+   */
+  export type UserLikedAlbumsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLikedAlbums to fetch.
+     */
+    where?: UserLikedAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLikedAlbums to fetch.
+     */
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLikedAlbums.
+     */
+    cursor?: UserLikedAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLikedAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLikedAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLikedAlbums.
+     */
+    distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserLikedAlbums findFirstOrThrow
+   */
+  export type UserLikedAlbumsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLikedAlbums to fetch.
+     */
+    where?: UserLikedAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLikedAlbums to fetch.
+     */
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UserLikedAlbums.
+     */
+    cursor?: UserLikedAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLikedAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLikedAlbums.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UserLikedAlbums.
+     */
+    distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserLikedAlbums findMany
+   */
+  export type UserLikedAlbumsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter, which UserLikedAlbums to fetch.
+     */
+    where?: UserLikedAlbumsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UserLikedAlbums to fetch.
+     */
+    orderBy?: UserLikedAlbumsOrderByWithRelationInput | UserLikedAlbumsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UserLikedAlbums.
+     */
+    cursor?: UserLikedAlbumsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UserLikedAlbums from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UserLikedAlbums.
+     */
+    skip?: number
+    distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
+  }
+
+
+  /**
+   * UserLikedAlbums create
+   */
+  export type UserLikedAlbumsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UserLikedAlbums.
+     */
+    data: XOR<UserLikedAlbumsCreateInput, UserLikedAlbumsUncheckedCreateInput>
+  }
+
+
+  /**
+   * UserLikedAlbums createMany
+   */
+  export type UserLikedAlbumsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UserLikedAlbums.
+     */
+    data: UserLikedAlbumsCreateManyInput | UserLikedAlbumsCreateManyInput[]
+  }
+
+
+  /**
+   * UserLikedAlbums update
+   */
+  export type UserLikedAlbumsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UserLikedAlbums.
+     */
+    data: XOR<UserLikedAlbumsUpdateInput, UserLikedAlbumsUncheckedUpdateInput>
+    /**
+     * Choose, which UserLikedAlbums to update.
+     */
+    where: UserLikedAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * UserLikedAlbums updateMany
+   */
+  export type UserLikedAlbumsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UserLikedAlbums.
+     */
+    data: XOR<UserLikedAlbumsUpdateManyMutationInput, UserLikedAlbumsUncheckedUpdateManyInput>
+    /**
+     * Filter which UserLikedAlbums to update
+     */
+    where?: UserLikedAlbumsWhereInput
+  }
+
+
+  /**
+   * UserLikedAlbums upsert
+   */
+  export type UserLikedAlbumsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UserLikedAlbums to update in case it exists.
+     */
+    where: UserLikedAlbumsWhereUniqueInput
+    /**
+     * In case the UserLikedAlbums found by the `where` argument doesn't exist, create a new UserLikedAlbums with this data.
+     */
+    create: XOR<UserLikedAlbumsCreateInput, UserLikedAlbumsUncheckedCreateInput>
+    /**
+     * In case the UserLikedAlbums was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserLikedAlbumsUpdateInput, UserLikedAlbumsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * UserLikedAlbums delete
+   */
+  export type UserLikedAlbumsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+    /**
+     * Filter which UserLikedAlbums to delete.
+     */
+    where: UserLikedAlbumsWhereUniqueInput
+  }
+
+
+  /**
+   * UserLikedAlbums deleteMany
+   */
+  export type UserLikedAlbumsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UserLikedAlbums to delete
+     */
+    where?: UserLikedAlbumsWhereInput
+  }
+
+
+  /**
+   * UserLikedAlbums findRaw
+   */
+  export type UserLikedAlbumsFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserLikedAlbums aggregateRaw
+   */
+  export type UserLikedAlbumsAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+
+  /**
+   * UserLikedAlbums without action
+   */
+  export type UserLikedAlbumsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserLikedAlbums
+     */
+    select?: UserLikedAlbumsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserLikedAlbumsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -7746,6 +15360,8 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     password: 'password',
+    image: 'image',
+    role: 'role',
     name: 'name',
     gender: 'gender',
     birthDate: 'birthDate',
@@ -7758,12 +15374,9 @@ export namespace Prisma {
   export const TracksScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    artistId: 'artistId',
     url: 'url',
     thumbnail: 'thumbnail',
-    genreId: 'genreId',
-    albumId: 'albumId',
-    userId: 'userId'
+    genreId: 'genreId'
   };
 
   export type TracksScalarFieldEnum = (typeof TracksScalarFieldEnum)[keyof typeof TracksScalarFieldEnum]
@@ -7774,8 +15387,7 @@ export namespace Prisma {
     name: 'name',
     artistId: 'artistId',
     thumbnail: 'thumbnail',
-    genreId: 'genreId',
-    userId: 'userId'
+    genreId: 'genreId'
   };
 
   export type AlbumsScalarFieldEnum = (typeof AlbumsScalarFieldEnum)[keyof typeof AlbumsScalarFieldEnum]
@@ -7785,8 +15397,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     thumbnail: 'thumbnail',
-    trackId: 'trackId',
-    genreId: 'genreId',
+    publicAccess: 'publicAccess',
     userId: 'userId'
   };
 
@@ -7796,9 +15407,11 @@ export namespace Prisma {
   export const ArtistsScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    email: 'email',
+    password: 'password',
     thumbnail: 'thumbnail',
     genreId: 'genreId',
-    userId: 'userId'
+    description: 'description'
   };
 
   export type ArtistsScalarFieldEnum = (typeof ArtistsScalarFieldEnum)[keyof typeof ArtistsScalarFieldEnum]
@@ -7810,6 +15423,72 @@ export namespace Prisma {
   };
 
   export type GenreScalarFieldEnum = (typeof GenreScalarFieldEnum)[keyof typeof GenreScalarFieldEnum]
+
+
+  export const ArtistsOnTracksScalarFieldEnum: {
+    id: 'id',
+    artistId: 'artistId',
+    trackId: 'trackId'
+  };
+
+  export type ArtistsOnTracksScalarFieldEnum = (typeof ArtistsOnTracksScalarFieldEnum)[keyof typeof ArtistsOnTracksScalarFieldEnum]
+
+
+  export const TracksOnAlbumsScalarFieldEnum: {
+    id: 'id',
+    albumId: 'albumId',
+    trackId: 'trackId'
+  };
+
+  export type TracksOnAlbumsScalarFieldEnum = (typeof TracksOnAlbumsScalarFieldEnum)[keyof typeof TracksOnAlbumsScalarFieldEnum]
+
+
+  export const UserFavsTracksScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    trackId: 'trackId',
+    createdAt: 'createdAt'
+  };
+
+  export type UserFavsTracksScalarFieldEnum = (typeof UserFavsTracksScalarFieldEnum)[keyof typeof UserFavsTracksScalarFieldEnum]
+
+
+  export const PlaylistToTrackScalarFieldEnum: {
+    id: 'id',
+    playlistId: 'playlistId',
+    trackId: 'trackId'
+  };
+
+  export type PlaylistToTrackScalarFieldEnum = (typeof PlaylistToTrackScalarFieldEnum)[keyof typeof PlaylistToTrackScalarFieldEnum]
+
+
+  export const UserFollowsPlaylistsScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    playlistId: 'playlistId'
+  };
+
+  export type UserFollowsPlaylistsScalarFieldEnum = (typeof UserFollowsPlaylistsScalarFieldEnum)[keyof typeof UserFollowsPlaylistsScalarFieldEnum]
+
+
+  export const UserFollowsArtistsScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    artistId: 'artistId',
+    createdAt: 'createdAt'
+  };
+
+  export type UserFollowsArtistsScalarFieldEnum = (typeof UserFollowsArtistsScalarFieldEnum)[keyof typeof UserFollowsArtistsScalarFieldEnum]
+
+
+  export const UserLikedAlbumsScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    albumId: 'albumId',
+    createdAt: 'createdAt'
+  };
+
+  export type UserLikedAlbumsScalarFieldEnum = (typeof UserLikedAlbumsScalarFieldEnum)[keyof typeof UserLikedAlbumsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7848,6 +15527,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -7871,28 +15571,34 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    gender?: StringFilter<"User"> | string
-    birthDate?: StringFilter<"User"> | string
-    country?: StringFilter<"User"> | string
-    favs?: TracksListRelationFilter
-    likedAlbums?: AlbumsListRelationFilter
-    likedPlaylists?: PlaylistsListRelationFilter
-    artistsFollowed?: ArtistsListRelationFilter
+    image?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
+    gender?: StringNullableFilter<"User"> | string | null
+    birthDate?: StringNullableFilter<"User"> | string | null
+    country?: StringNullableFilter<"User"> | string | null
+    likedAlbums?: UserLikedAlbumsListRelationFilter
+    artistsFollowed?: UserFollowsArtistsListRelationFilter
+    followedPlaylists?: UserFollowsPlaylistsListRelationFilter
+    createdPlaylists?: PlaylistsListRelationFilter
+    favTracks?: UserFavsTracksListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
     name?: SortOrder
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
-    favs?: TracksOrderByRelationAggregateInput
-    likedAlbums?: AlbumsOrderByRelationAggregateInput
-    likedPlaylists?: PlaylistsOrderByRelationAggregateInput
-    artistsFollowed?: ArtistsOrderByRelationAggregateInput
+    likedAlbums?: UserLikedAlbumsOrderByRelationAggregateInput
+    artistsFollowed?: UserFollowsArtistsOrderByRelationAggregateInput
+    followedPlaylists?: UserFollowsPlaylistsOrderByRelationAggregateInput
+    createdPlaylists?: PlaylistsOrderByRelationAggregateInput
+    favTracks?: UserFavsTracksOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7902,20 +15608,25 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    gender?: StringFilter<"User"> | string
-    birthDate?: StringFilter<"User"> | string
-    country?: StringFilter<"User"> | string
-    favs?: TracksListRelationFilter
-    likedAlbums?: AlbumsListRelationFilter
-    likedPlaylists?: PlaylistsListRelationFilter
-    artistsFollowed?: ArtistsListRelationFilter
+    image?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
+    gender?: StringNullableFilter<"User"> | string | null
+    birthDate?: StringNullableFilter<"User"> | string | null
+    country?: StringNullableFilter<"User"> | string | null
+    likedAlbums?: UserLikedAlbumsListRelationFilter
+    artistsFollowed?: UserFollowsArtistsListRelationFilter
+    followedPlaylists?: UserFollowsPlaylistsListRelationFilter
+    createdPlaylists?: PlaylistsListRelationFilter
+    favTracks?: UserFavsTracksListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
     name?: SortOrder
     gender?: SortOrder
     birthDate?: SortOrder
@@ -7932,10 +15643,12 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
-    name?: StringWithAggregatesFilter<"User"> | string
-    gender?: StringWithAggregatesFilter<"User"> | string
-    birthDate?: StringWithAggregatesFilter<"User"> | string
-    country?: StringWithAggregatesFilter<"User"> | string
+    image?: StringWithAggregatesFilter<"User"> | string
+    role?: StringWithAggregatesFilter<"User"> | string
+    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    gender?: StringNullableWithAggregatesFilter<"User"> | string | null
+    birthDate?: StringNullableWithAggregatesFilter<"User"> | string | null
+    country?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type TracksWhereInput = {
@@ -7944,33 +15657,27 @@ export namespace Prisma {
     NOT?: TracksWhereInput | TracksWhereInput[]
     id?: StringFilter<"Tracks"> | string
     name?: StringFilter<"Tracks"> | string
-    artistId?: StringFilter<"Tracks"> | string
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
     genreId?: StringFilter<"Tracks"> | string
-    albumId?: StringFilter<"Tracks"> | string
-    userId?: StringNullableListFilter<"Tracks">
-    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+    artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
-    playlists?: PlaylistsListRelationFilter
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    album?: TracksOnAlbumsListRelationFilter
+    playlistConnections?: PlaylistToTrackListRelationFilter
+    favsOfUsers?: UserFavsTracksListRelationFilter
   }
 
   export type TracksOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    albumId?: SortOrder
-    userId?: SortOrder
-    artist?: ArtistsOrderByWithRelationInput
+    artist?: ArtistsOnTracksOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
-    album?: AlbumsOrderByWithRelationInput
-    playlists?: PlaylistsOrderByRelationAggregateInput
-    followers?: UserOrderByWithRelationInput
+    album?: TracksOnAlbumsOrderByRelationAggregateInput
+    playlistConnections?: PlaylistToTrackOrderByRelationAggregateInput
+    favsOfUsers?: UserFavsTracksOrderByRelationAggregateInput
   }
 
   export type TracksWhereUniqueInput = Prisma.AtLeast<{
@@ -7979,28 +15686,22 @@ export namespace Prisma {
     AND?: TracksWhereInput | TracksWhereInput[]
     OR?: TracksWhereInput[]
     NOT?: TracksWhereInput | TracksWhereInput[]
-    artistId?: StringFilter<"Tracks"> | string
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
     genreId?: StringFilter<"Tracks"> | string
-    albumId?: StringFilter<"Tracks"> | string
-    userId?: StringNullableListFilter<"Tracks">
-    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+    artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
-    playlists?: PlaylistsListRelationFilter
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    album?: TracksOnAlbumsListRelationFilter
+    playlistConnections?: PlaylistToTrackListRelationFilter
+    favsOfUsers?: UserFavsTracksListRelationFilter
   }, "id" | "name">
 
   export type TracksOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    albumId?: SortOrder
-    userId?: SortOrder
     _count?: TracksCountOrderByAggregateInput
     _max?: TracksMaxOrderByAggregateInput
     _min?: TracksMinOrderByAggregateInput
@@ -8012,12 +15713,9 @@ export namespace Prisma {
     NOT?: TracksScalarWhereWithAggregatesInput | TracksScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Tracks"> | string
     name?: StringWithAggregatesFilter<"Tracks"> | string
-    artistId?: StringWithAggregatesFilter<"Tracks"> | string
     url?: StringWithAggregatesFilter<"Tracks"> | string
     thumbnail?: StringWithAggregatesFilter<"Tracks"> | string
     genreId?: StringWithAggregatesFilter<"Tracks"> | string
-    albumId?: StringWithAggregatesFilter<"Tracks"> | string
-    userId?: StringNullableListFilter<"Tracks">
   }
 
   export type AlbumsWhereInput = {
@@ -8029,11 +15727,10 @@ export namespace Prisma {
     artistId?: StringFilter<"Albums"> | string
     thumbnail?: StringFilter<"Albums"> | string
     genreId?: StringFilter<"Albums"> | string
-    userId?: StringNullableListFilter<"Albums">
     artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
-    tracks?: TracksListRelationFilter
+    tracks?: TracksOnAlbumsListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    likedByUsers?: UserLikedAlbumsListRelationFilter
   }
 
   export type AlbumsOrderByWithRelationInput = {
@@ -8042,11 +15739,10 @@ export namespace Prisma {
     artistId?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
     artist?: ArtistsOrderByWithRelationInput
-    tracks?: TracksOrderByRelationAggregateInput
+    tracks?: TracksOnAlbumsOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
-    followers?: UserOrderByWithRelationInput
+    likedByUsers?: UserLikedAlbumsOrderByRelationAggregateInput
   }
 
   export type AlbumsWhereUniqueInput = Prisma.AtLeast<{
@@ -8058,11 +15754,10 @@ export namespace Prisma {
     artistId?: StringFilter<"Albums"> | string
     thumbnail?: StringFilter<"Albums"> | string
     genreId?: StringFilter<"Albums"> | string
-    userId?: StringNullableListFilter<"Albums">
     artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
-    tracks?: TracksListRelationFilter
+    tracks?: TracksOnAlbumsListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    likedByUsers?: UserLikedAlbumsListRelationFilter
   }, "id">
 
   export type AlbumsOrderByWithAggregationInput = {
@@ -8071,7 +15766,6 @@ export namespace Prisma {
     artistId?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
     _count?: AlbumsCountOrderByAggregateInput
     _max?: AlbumsMaxOrderByAggregateInput
     _min?: AlbumsMinOrderByAggregateInput
@@ -8086,7 +15780,6 @@ export namespace Prisma {
     artistId?: StringWithAggregatesFilter<"Albums"> | string
     thumbnail?: StringWithAggregatesFilter<"Albums"> | string
     genreId?: StringWithAggregatesFilter<"Albums"> | string
-    userId?: StringNullableListFilter<"Albums">
   }
 
   export type PlaylistsWhereInput = {
@@ -8096,24 +15789,22 @@ export namespace Prisma {
     id?: StringFilter<"Playlists"> | string
     name?: StringFilter<"Playlists"> | string
     thumbnail?: StringFilter<"Playlists"> | string
-    trackId?: StringNullableListFilter<"Playlists">
-    genreId?: StringFilter<"Playlists"> | string
-    userId?: StringNullableListFilter<"Playlists">
-    tracks?: XOR<TracksRelationFilter, TracksWhereInput>
-    genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    publicAccess?: BoolFilter<"Playlists"> | boolean
+    userId?: StringFilter<"Playlists"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    followers?: UserFollowsPlaylistsListRelationFilter
+    tracksConnections?: PlaylistToTrackListRelationFilter
   }
 
   export type PlaylistsOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     thumbnail?: SortOrder
-    trackId?: SortOrder
-    genreId?: SortOrder
+    publicAccess?: SortOrder
     userId?: SortOrder
-    tracks?: TracksOrderByWithRelationInput
-    genre?: GenreOrderByWithRelationInput
-    followers?: UserOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    followers?: UserFollowsPlaylistsOrderByRelationAggregateInput
+    tracksConnections?: PlaylistToTrackOrderByRelationAggregateInput
   }
 
   export type PlaylistsWhereUniqueInput = Prisma.AtLeast<{
@@ -8123,20 +15814,18 @@ export namespace Prisma {
     OR?: PlaylistsWhereInput[]
     NOT?: PlaylistsWhereInput | PlaylistsWhereInput[]
     thumbnail?: StringFilter<"Playlists"> | string
-    trackId?: StringNullableListFilter<"Playlists">
-    genreId?: StringFilter<"Playlists"> | string
-    userId?: StringNullableListFilter<"Playlists">
-    tracks?: XOR<TracksRelationFilter, TracksWhereInput>
-    genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    publicAccess?: BoolFilter<"Playlists"> | boolean
+    userId?: StringFilter<"Playlists"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    followers?: UserFollowsPlaylistsListRelationFilter
+    tracksConnections?: PlaylistToTrackListRelationFilter
   }, "id" | "name">
 
   export type PlaylistsOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     thumbnail?: SortOrder
-    trackId?: SortOrder
-    genreId?: SortOrder
+    publicAccess?: SortOrder
     userId?: SortOrder
     _count?: PlaylistsCountOrderByAggregateInput
     _max?: PlaylistsMaxOrderByAggregateInput
@@ -8150,9 +15839,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Playlists"> | string
     name?: StringWithAggregatesFilter<"Playlists"> | string
     thumbnail?: StringWithAggregatesFilter<"Playlists"> | string
-    trackId?: StringNullableListFilter<"Playlists">
-    genreId?: StringWithAggregatesFilter<"Playlists"> | string
-    userId?: StringNullableListFilter<"Playlists">
+    publicAccess?: BoolWithAggregatesFilter<"Playlists"> | boolean
+    userId?: StringWithAggregatesFilter<"Playlists"> | string
   }
 
   export type ArtistsWhereInput = {
@@ -8161,48 +15849,56 @@ export namespace Prisma {
     NOT?: ArtistsWhereInput | ArtistsWhereInput[]
     id?: StringFilter<"Artists"> | string
     name?: StringFilter<"Artists"> | string
+    email?: StringFilter<"Artists"> | string
+    password?: StringFilter<"Artists"> | string
     thumbnail?: StringFilter<"Artists"> | string
     genreId?: StringFilter<"Artists"> | string
-    userId?: StringNullableListFilter<"Artists">
+    description?: StringNullableFilter<"Artists"> | string | null
     albums?: AlbumsListRelationFilter
-    tracks?: TracksListRelationFilter
+    tracks?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
+    followers?: UserFollowsArtistsListRelationFilter
   }
 
   export type ArtistsOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
+    description?: SortOrder
     albums?: AlbumsOrderByRelationAggregateInput
-    tracks?: TracksOrderByRelationAggregateInput
+    tracks?: ArtistsOnTracksOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
-    followers?: UserOrderByWithRelationInput
+    followers?: UserFollowsArtistsOrderByRelationAggregateInput
   }
 
   export type ArtistsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     name?: string
+    email?: string
     AND?: ArtistsWhereInput | ArtistsWhereInput[]
     OR?: ArtistsWhereInput[]
     NOT?: ArtistsWhereInput | ArtistsWhereInput[]
+    password?: StringFilter<"Artists"> | string
     thumbnail?: StringFilter<"Artists"> | string
     genreId?: StringFilter<"Artists"> | string
-    userId?: StringNullableListFilter<"Artists">
+    description?: StringNullableFilter<"Artists"> | string | null
     albums?: AlbumsListRelationFilter
-    tracks?: TracksListRelationFilter
+    tracks?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
-    followers?: XOR<UserRelationFilter, UserWhereInput>
-  }, "id" | "name">
+    followers?: UserFollowsArtistsListRelationFilter
+  }, "id" | "name" | "email">
 
   export type ArtistsOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
+    description?: SortOrder
     _count?: ArtistsCountOrderByAggregateInput
     _max?: ArtistsMaxOrderByAggregateInput
     _min?: ArtistsMinOrderByAggregateInput
@@ -8214,9 +15910,11 @@ export namespace Prisma {
     NOT?: ArtistsScalarWhereWithAggregatesInput | ArtistsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Artists"> | string
     name?: StringWithAggregatesFilter<"Artists"> | string
+    email?: StringWithAggregatesFilter<"Artists"> | string
+    password?: StringWithAggregatesFilter<"Artists"> | string
     thumbnail?: StringWithAggregatesFilter<"Artists"> | string
     genreId?: StringWithAggregatesFilter<"Artists"> | string
-    userId?: StringNullableListFilter<"Artists">
+    description?: StringNullableWithAggregatesFilter<"Artists"> | string | null
   }
 
   export type GenreWhereInput = {
@@ -8228,7 +15926,6 @@ export namespace Prisma {
     albums?: AlbumsListRelationFilter
     tracks?: TracksListRelationFilter
     artists?: ArtistsListRelationFilter
-    playlists?: PlaylistsListRelationFilter
   }
 
   export type GenreOrderByWithRelationInput = {
@@ -8237,7 +15934,6 @@ export namespace Prisma {
     albums?: AlbumsOrderByRelationAggregateInput
     tracks?: TracksOrderByRelationAggregateInput
     artists?: ArtistsOrderByRelationAggregateInput
-    playlists?: PlaylistsOrderByRelationAggregateInput
   }
 
   export type GenreWhereUniqueInput = Prisma.AtLeast<{
@@ -8249,7 +15945,6 @@ export namespace Prisma {
     albums?: AlbumsListRelationFilter
     tracks?: TracksListRelationFilter
     artists?: ArtistsListRelationFilter
-    playlists?: PlaylistsListRelationFilter
   }, "id" | "name">
 
   export type GenreOrderByWithAggregationInput = {
@@ -8268,86 +15963,462 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Genre"> | string
   }
 
+  export type ArtistsOnTracksWhereInput = {
+    AND?: ArtistsOnTracksWhereInput | ArtistsOnTracksWhereInput[]
+    OR?: ArtistsOnTracksWhereInput[]
+    NOT?: ArtistsOnTracksWhereInput | ArtistsOnTracksWhereInput[]
+    id?: StringFilter<"ArtistsOnTracks"> | string
+    artistId?: StringFilter<"ArtistsOnTracks"> | string
+    trackId?: StringFilter<"ArtistsOnTracks"> | string
+    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }
+
+  export type ArtistsOnTracksOrderByWithRelationInput = {
+    id?: SortOrder
+    artistId?: SortOrder
+    trackId?: SortOrder
+    artist?: ArtistsOrderByWithRelationInput
+    track?: TracksOrderByWithRelationInput
+  }
+
+  export type ArtistsOnTracksWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    artistId_trackId?: ArtistsOnTracksArtistIdTrackIdCompoundUniqueInput
+    AND?: ArtistsOnTracksWhereInput | ArtistsOnTracksWhereInput[]
+    OR?: ArtistsOnTracksWhereInput[]
+    NOT?: ArtistsOnTracksWhereInput | ArtistsOnTracksWhereInput[]
+    artistId?: StringFilter<"ArtistsOnTracks"> | string
+    trackId?: StringFilter<"ArtistsOnTracks"> | string
+    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }, "id" | "artistId_trackId">
+
+  export type ArtistsOnTracksOrderByWithAggregationInput = {
+    id?: SortOrder
+    artistId?: SortOrder
+    trackId?: SortOrder
+    _count?: ArtistsOnTracksCountOrderByAggregateInput
+    _max?: ArtistsOnTracksMaxOrderByAggregateInput
+    _min?: ArtistsOnTracksMinOrderByAggregateInput
+  }
+
+  export type ArtistsOnTracksScalarWhereWithAggregatesInput = {
+    AND?: ArtistsOnTracksScalarWhereWithAggregatesInput | ArtistsOnTracksScalarWhereWithAggregatesInput[]
+    OR?: ArtistsOnTracksScalarWhereWithAggregatesInput[]
+    NOT?: ArtistsOnTracksScalarWhereWithAggregatesInput | ArtistsOnTracksScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ArtistsOnTracks"> | string
+    artistId?: StringWithAggregatesFilter<"ArtistsOnTracks"> | string
+    trackId?: StringWithAggregatesFilter<"ArtistsOnTracks"> | string
+  }
+
+  export type TracksOnAlbumsWhereInput = {
+    AND?: TracksOnAlbumsWhereInput | TracksOnAlbumsWhereInput[]
+    OR?: TracksOnAlbumsWhereInput[]
+    NOT?: TracksOnAlbumsWhereInput | TracksOnAlbumsWhereInput[]
+    id?: StringFilter<"TracksOnAlbums"> | string
+    albumId?: StringFilter<"TracksOnAlbums"> | string
+    trackId?: StringFilter<"TracksOnAlbums"> | string
+    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }
+
+  export type TracksOnAlbumsOrderByWithRelationInput = {
+    id?: SortOrder
+    albumId?: SortOrder
+    trackId?: SortOrder
+    album?: AlbumsOrderByWithRelationInput
+    track?: TracksOrderByWithRelationInput
+  }
+
+  export type TracksOnAlbumsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    albumId_trackId?: TracksOnAlbumsAlbumIdTrackIdCompoundUniqueInput
+    AND?: TracksOnAlbumsWhereInput | TracksOnAlbumsWhereInput[]
+    OR?: TracksOnAlbumsWhereInput[]
+    NOT?: TracksOnAlbumsWhereInput | TracksOnAlbumsWhereInput[]
+    albumId?: StringFilter<"TracksOnAlbums"> | string
+    trackId?: StringFilter<"TracksOnAlbums"> | string
+    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }, "id" | "albumId_trackId">
+
+  export type TracksOnAlbumsOrderByWithAggregationInput = {
+    id?: SortOrder
+    albumId?: SortOrder
+    trackId?: SortOrder
+    _count?: TracksOnAlbumsCountOrderByAggregateInput
+    _max?: TracksOnAlbumsMaxOrderByAggregateInput
+    _min?: TracksOnAlbumsMinOrderByAggregateInput
+  }
+
+  export type TracksOnAlbumsScalarWhereWithAggregatesInput = {
+    AND?: TracksOnAlbumsScalarWhereWithAggregatesInput | TracksOnAlbumsScalarWhereWithAggregatesInput[]
+    OR?: TracksOnAlbumsScalarWhereWithAggregatesInput[]
+    NOT?: TracksOnAlbumsScalarWhereWithAggregatesInput | TracksOnAlbumsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TracksOnAlbums"> | string
+    albumId?: StringWithAggregatesFilter<"TracksOnAlbums"> | string
+    trackId?: StringWithAggregatesFilter<"TracksOnAlbums"> | string
+  }
+
+  export type UserFavsTracksWhereInput = {
+    AND?: UserFavsTracksWhereInput | UserFavsTracksWhereInput[]
+    OR?: UserFavsTracksWhereInput[]
+    NOT?: UserFavsTracksWhereInput | UserFavsTracksWhereInput[]
+    id?: StringFilter<"UserFavsTracks"> | string
+    userId?: StringFilter<"UserFavsTracks"> | string
+    trackId?: StringFilter<"UserFavsTracks"> | string
+    createdAt?: DateTimeFilter<"UserFavsTracks"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }
+
+  export type UserFavsTracksOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    trackId?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    track?: TracksOrderByWithRelationInput
+  }
+
+  export type UserFavsTracksWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_trackId?: UserFavsTracksUserIdTrackIdCompoundUniqueInput
+    AND?: UserFavsTracksWhereInput | UserFavsTracksWhereInput[]
+    OR?: UserFavsTracksWhereInput[]
+    NOT?: UserFavsTracksWhereInput | UserFavsTracksWhereInput[]
+    userId?: StringFilter<"UserFavsTracks"> | string
+    trackId?: StringFilter<"UserFavsTracks"> | string
+    createdAt?: DateTimeFilter<"UserFavsTracks"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }, "id" | "userId_trackId">
+
+  export type UserFavsTracksOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    trackId?: SortOrder
+    createdAt?: SortOrder
+    _count?: UserFavsTracksCountOrderByAggregateInput
+    _max?: UserFavsTracksMaxOrderByAggregateInput
+    _min?: UserFavsTracksMinOrderByAggregateInput
+  }
+
+  export type UserFavsTracksScalarWhereWithAggregatesInput = {
+    AND?: UserFavsTracksScalarWhereWithAggregatesInput | UserFavsTracksScalarWhereWithAggregatesInput[]
+    OR?: UserFavsTracksScalarWhereWithAggregatesInput[]
+    NOT?: UserFavsTracksScalarWhereWithAggregatesInput | UserFavsTracksScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserFavsTracks"> | string
+    userId?: StringWithAggregatesFilter<"UserFavsTracks"> | string
+    trackId?: StringWithAggregatesFilter<"UserFavsTracks"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"UserFavsTracks"> | Date | string
+  }
+
+  export type PlaylistToTrackWhereInput = {
+    AND?: PlaylistToTrackWhereInput | PlaylistToTrackWhereInput[]
+    OR?: PlaylistToTrackWhereInput[]
+    NOT?: PlaylistToTrackWhereInput | PlaylistToTrackWhereInput[]
+    id?: StringFilter<"PlaylistToTrack"> | string
+    playlistId?: StringFilter<"PlaylistToTrack"> | string
+    trackId?: StringFilter<"PlaylistToTrack"> | string
+    playlist?: XOR<PlaylistsRelationFilter, PlaylistsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }
+
+  export type PlaylistToTrackOrderByWithRelationInput = {
+    id?: SortOrder
+    playlistId?: SortOrder
+    trackId?: SortOrder
+    playlist?: PlaylistsOrderByWithRelationInput
+    track?: TracksOrderByWithRelationInput
+  }
+
+  export type PlaylistToTrackWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    playlistId_trackId?: PlaylistToTrackPlaylistIdTrackIdCompoundUniqueInput
+    AND?: PlaylistToTrackWhereInput | PlaylistToTrackWhereInput[]
+    OR?: PlaylistToTrackWhereInput[]
+    NOT?: PlaylistToTrackWhereInput | PlaylistToTrackWhereInput[]
+    playlistId?: StringFilter<"PlaylistToTrack"> | string
+    trackId?: StringFilter<"PlaylistToTrack"> | string
+    playlist?: XOR<PlaylistsRelationFilter, PlaylistsWhereInput>
+    track?: XOR<TracksRelationFilter, TracksWhereInput>
+  }, "id" | "playlistId_trackId">
+
+  export type PlaylistToTrackOrderByWithAggregationInput = {
+    id?: SortOrder
+    playlistId?: SortOrder
+    trackId?: SortOrder
+    _count?: PlaylistToTrackCountOrderByAggregateInput
+    _max?: PlaylistToTrackMaxOrderByAggregateInput
+    _min?: PlaylistToTrackMinOrderByAggregateInput
+  }
+
+  export type PlaylistToTrackScalarWhereWithAggregatesInput = {
+    AND?: PlaylistToTrackScalarWhereWithAggregatesInput | PlaylistToTrackScalarWhereWithAggregatesInput[]
+    OR?: PlaylistToTrackScalarWhereWithAggregatesInput[]
+    NOT?: PlaylistToTrackScalarWhereWithAggregatesInput | PlaylistToTrackScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PlaylistToTrack"> | string
+    playlistId?: StringWithAggregatesFilter<"PlaylistToTrack"> | string
+    trackId?: StringWithAggregatesFilter<"PlaylistToTrack"> | string
+  }
+
+  export type UserFollowsPlaylistsWhereInput = {
+    AND?: UserFollowsPlaylistsWhereInput | UserFollowsPlaylistsWhereInput[]
+    OR?: UserFollowsPlaylistsWhereInput[]
+    NOT?: UserFollowsPlaylistsWhereInput | UserFollowsPlaylistsWhereInput[]
+    id?: StringFilter<"UserFollowsPlaylists"> | string
+    userId?: StringFilter<"UserFollowsPlaylists"> | string
+    playlistId?: StringFilter<"UserFollowsPlaylists"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    playlist?: XOR<PlaylistsRelationFilter, PlaylistsWhereInput>
+  }
+
+  export type UserFollowsPlaylistsOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    playlistId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    playlist?: PlaylistsOrderByWithRelationInput
+  }
+
+  export type UserFollowsPlaylistsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_playlistId?: UserFollowsPlaylistsUserIdPlaylistIdCompoundUniqueInput
+    AND?: UserFollowsPlaylistsWhereInput | UserFollowsPlaylistsWhereInput[]
+    OR?: UserFollowsPlaylistsWhereInput[]
+    NOT?: UserFollowsPlaylistsWhereInput | UserFollowsPlaylistsWhereInput[]
+    userId?: StringFilter<"UserFollowsPlaylists"> | string
+    playlistId?: StringFilter<"UserFollowsPlaylists"> | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    playlist?: XOR<PlaylistsRelationFilter, PlaylistsWhereInput>
+  }, "id" | "userId_playlistId">
+
+  export type UserFollowsPlaylistsOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    playlistId?: SortOrder
+    _count?: UserFollowsPlaylistsCountOrderByAggregateInput
+    _max?: UserFollowsPlaylistsMaxOrderByAggregateInput
+    _min?: UserFollowsPlaylistsMinOrderByAggregateInput
+  }
+
+  export type UserFollowsPlaylistsScalarWhereWithAggregatesInput = {
+    AND?: UserFollowsPlaylistsScalarWhereWithAggregatesInput | UserFollowsPlaylistsScalarWhereWithAggregatesInput[]
+    OR?: UserFollowsPlaylistsScalarWhereWithAggregatesInput[]
+    NOT?: UserFollowsPlaylistsScalarWhereWithAggregatesInput | UserFollowsPlaylistsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserFollowsPlaylists"> | string
+    userId?: StringWithAggregatesFilter<"UserFollowsPlaylists"> | string
+    playlistId?: StringWithAggregatesFilter<"UserFollowsPlaylists"> | string
+  }
+
+  export type UserFollowsArtistsWhereInput = {
+    AND?: UserFollowsArtistsWhereInput | UserFollowsArtistsWhereInput[]
+    OR?: UserFollowsArtistsWhereInput[]
+    NOT?: UserFollowsArtistsWhereInput | UserFollowsArtistsWhereInput[]
+    id?: StringFilter<"UserFollowsArtists"> | string
+    userId?: StringFilter<"UserFollowsArtists"> | string
+    artistId?: StringFilter<"UserFollowsArtists"> | string
+    createdAt?: DateTimeFilter<"UserFollowsArtists"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+  }
+
+  export type UserFollowsArtistsOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    artistId?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    artist?: ArtistsOrderByWithRelationInput
+  }
+
+  export type UserFollowsArtistsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_artistId?: UserFollowsArtistsUserIdArtistIdCompoundUniqueInput
+    AND?: UserFollowsArtistsWhereInput | UserFollowsArtistsWhereInput[]
+    OR?: UserFollowsArtistsWhereInput[]
+    NOT?: UserFollowsArtistsWhereInput | UserFollowsArtistsWhereInput[]
+    userId?: StringFilter<"UserFollowsArtists"> | string
+    artistId?: StringFilter<"UserFollowsArtists"> | string
+    createdAt?: DateTimeFilter<"UserFollowsArtists"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    artist?: XOR<ArtistsRelationFilter, ArtistsWhereInput>
+  }, "id" | "userId_artistId">
+
+  export type UserFollowsArtistsOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    artistId?: SortOrder
+    createdAt?: SortOrder
+    _count?: UserFollowsArtistsCountOrderByAggregateInput
+    _max?: UserFollowsArtistsMaxOrderByAggregateInput
+    _min?: UserFollowsArtistsMinOrderByAggregateInput
+  }
+
+  export type UserFollowsArtistsScalarWhereWithAggregatesInput = {
+    AND?: UserFollowsArtistsScalarWhereWithAggregatesInput | UserFollowsArtistsScalarWhereWithAggregatesInput[]
+    OR?: UserFollowsArtistsScalarWhereWithAggregatesInput[]
+    NOT?: UserFollowsArtistsScalarWhereWithAggregatesInput | UserFollowsArtistsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserFollowsArtists"> | string
+    userId?: StringWithAggregatesFilter<"UserFollowsArtists"> | string
+    artistId?: StringWithAggregatesFilter<"UserFollowsArtists"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"UserFollowsArtists"> | Date | string
+  }
+
+  export type UserLikedAlbumsWhereInput = {
+    AND?: UserLikedAlbumsWhereInput | UserLikedAlbumsWhereInput[]
+    OR?: UserLikedAlbumsWhereInput[]
+    NOT?: UserLikedAlbumsWhereInput | UserLikedAlbumsWhereInput[]
+    id?: StringFilter<"UserLikedAlbums"> | string
+    userId?: StringFilter<"UserLikedAlbums"> | string
+    albumId?: StringFilter<"UserLikedAlbums"> | string
+    createdAt?: DateTimeFilter<"UserLikedAlbums"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
+  }
+
+  export type UserLikedAlbumsOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    albumId?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    album?: AlbumsOrderByWithRelationInput
+  }
+
+  export type UserLikedAlbumsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_albumId?: UserLikedAlbumsUserIdAlbumIdCompoundUniqueInput
+    AND?: UserLikedAlbumsWhereInput | UserLikedAlbumsWhereInput[]
+    OR?: UserLikedAlbumsWhereInput[]
+    NOT?: UserLikedAlbumsWhereInput | UserLikedAlbumsWhereInput[]
+    userId?: StringFilter<"UserLikedAlbums"> | string
+    albumId?: StringFilter<"UserLikedAlbums"> | string
+    createdAt?: DateTimeFilter<"UserLikedAlbums"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    album?: XOR<AlbumsRelationFilter, AlbumsWhereInput>
+  }, "id" | "userId_albumId">
+
+  export type UserLikedAlbumsOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    albumId?: SortOrder
+    createdAt?: SortOrder
+    _count?: UserLikedAlbumsCountOrderByAggregateInput
+    _max?: UserLikedAlbumsMaxOrderByAggregateInput
+    _min?: UserLikedAlbumsMinOrderByAggregateInput
+  }
+
+  export type UserLikedAlbumsScalarWhereWithAggregatesInput = {
+    AND?: UserLikedAlbumsScalarWhereWithAggregatesInput | UserLikedAlbumsScalarWhereWithAggregatesInput[]
+    OR?: UserLikedAlbumsScalarWhereWithAggregatesInput[]
+    NOT?: UserLikedAlbumsScalarWhereWithAggregatesInput | UserLikedAlbumsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UserLikedAlbums"> | string
+    userId?: StringWithAggregatesFilter<"UserLikedAlbums"> | string
+    albumId?: StringWithAggregatesFilter<"UserLikedAlbums"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"UserLikedAlbums"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsCreateNestedManyWithoutFollowersInput
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsUncheckedCreateNestedManyWithoutFollowersInput
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUpdateManyWithoutFollowersNestedInput
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUncheckedUpdateManyWithoutFollowersNestedInput
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TracksCreateInput = {
@@ -8355,56 +16426,53 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutTracksInput
+    artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
     genre: GenreCreateNestedOneWithoutTracksInput
-    album: AlbumsCreateNestedOneWithoutTracksInput
-    playlists?: PlaylistsCreateNestedManyWithoutTracksInput
-    followers: UserCreateNestedOneWithoutFavsInput
+    album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksCreateNestedManyWithoutTrackInput
   }
 
   export type TracksUncheckedCreateInput = {
     id?: string
     name: string
-    artistId: string
     url: string
     thumbnail: string
     genreId: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutTracksInput
+    artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
+    album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
   }
 
   export type TracksUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
+    artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
-    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
-    playlists?: PlaylistsUpdateManyWithoutTracksNestedInput
-    followers?: UserUpdateOneRequiredWithoutFavsNestedInput
+    album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUpdateManyWithoutTrackNestedInput
   }
 
   export type TracksUncheckedUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedUpdateManyWithoutTracksNestedInput
+    artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
+    album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
   }
 
   export type TracksCreateManyInput = {
     id?: string
     name: string
-    artistId: string
     url: string
     thumbnail: string
     genreId: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
   }
 
   export type TracksUpdateManyMutationInput = {
@@ -8415,12 +16483,9 @@ export namespace Prisma {
 
   export type TracksUncheckedUpdateManyInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
   }
 
   export type AlbumsCreateInput = {
@@ -8428,9 +16493,9 @@ export namespace Prisma {
     name: string
     thumbnail: string
     artist: ArtistsCreateNestedOneWithoutAlbumsInput
-    tracks?: TracksCreateNestedManyWithoutAlbumInput
+    tracks?: TracksOnAlbumsCreateNestedManyWithoutAlbumInput
     genre: GenreCreateNestedOneWithoutAlbumsInput
-    followers: UserCreateNestedOneWithoutLikedAlbumsInput
+    likedByUsers?: UserLikedAlbumsCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsUncheckedCreateInput = {
@@ -8439,17 +16504,17 @@ export namespace Prisma {
     artistId: string
     thumbnail: string
     genreId: string
-    userId?: AlbumsCreateuserIdInput | string[]
-    tracks?: TracksUncheckedCreateNestedManyWithoutAlbumInput
+    tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
+    likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
-    tracks?: TracksUpdateManyWithoutAlbumNestedInput
+    tracks?: TracksOnAlbumsUpdateManyWithoutAlbumNestedInput
     genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
+    likedByUsers?: UserLikedAlbumsUpdateManyWithoutAlbumNestedInput
   }
 
   export type AlbumsUncheckedUpdateInput = {
@@ -8457,8 +16522,8 @@ export namespace Prisma {
     artistId?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
-    tracks?: TracksUncheckedUpdateManyWithoutAlbumNestedInput
+    tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+    likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
 
   export type AlbumsCreateManyInput = {
@@ -8467,7 +16532,6 @@ export namespace Prisma {
     artistId: string
     thumbnail: string
     genreId: string
-    userId?: AlbumsCreateuserIdInput | string[]
   }
 
   export type AlbumsUpdateManyMutationInput = {
@@ -8480,121 +16544,142 @@ export namespace Prisma {
     artistId?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
   }
 
   export type PlaylistsCreateInput = {
     id?: string
     name: string
     thumbnail: string
-    tracks: TracksCreateNestedOneWithoutPlaylistsInput
-    genre: GenreCreateNestedOneWithoutPlaylistsInput
-    followers: UserCreateNestedOneWithoutLikedPlaylistsInput
+    publicAccess?: boolean
+    user: UserCreateNestedOneWithoutCreatedPlaylistsInput
+    followers?: UserFollowsPlaylistsCreateNestedManyWithoutPlaylistInput
+    tracksConnections?: PlaylistToTrackCreateNestedManyWithoutPlaylistInput
   }
 
   export type PlaylistsUncheckedCreateInput = {
     id?: string
     name: string
     thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    genreId: string
-    userId?: PlaylistsCreateuserIdInput | string[]
+    publicAccess?: boolean
+    userId: string
+    followers?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutPlaylistInput
+    tracksConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutPlaylistInput
   }
 
   export type PlaylistsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUpdateOneRequiredWithoutPlaylistsNestedInput
-    genre?: GenreUpdateOneRequiredWithoutPlaylistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedPlaylistsNestedInput
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    user?: UserUpdateOneRequiredWithoutCreatedPlaylistsNestedInput
+    followers?: UserFollowsPlaylistsUpdateManyWithoutPlaylistNestedInput
+    tracksConnections?: PlaylistToTrackUpdateManyWithoutPlaylistNestedInput
   }
 
   export type PlaylistsUncheckedUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: PlaylistsUpdateuserIdInput | string[]
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    followers?: UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistNestedInput
+    tracksConnections?: PlaylistToTrackUncheckedUpdateManyWithoutPlaylistNestedInput
   }
 
   export type PlaylistsCreateManyInput = {
     id?: string
     name: string
     thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    genreId: string
-    userId?: PlaylistsCreateuserIdInput | string[]
+    publicAccess?: boolean
+    userId: string
   }
 
   export type PlaylistsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PlaylistsUncheckedUpdateManyInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: PlaylistsUpdateuserIdInput | string[]
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type ArtistsCreateInput = {
     id?: string
     name: string
-    thumbnail: string
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
-    tracks?: TracksCreateNestedManyWithoutArtistInput
+    tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
     genre: GenreCreateNestedOneWithoutArtistsInput
-    followers: UserCreateNestedOneWithoutArtistsFollowedInput
+    followers?: UserFollowsArtistsCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsUncheckedCreateInput = {
     id?: string
     name: string
-    thumbnail: string
+    email: string
+    password: string
+    thumbnail?: string
     genreId: string
-    userId?: ArtistsCreateuserIdInput | string[]
+    description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
-    tracks?: TracksUncheckedCreateNestedManyWithoutArtistInput
+    tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
+    followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUpdateManyWithoutArtistNestedInput
+    tracks?: ArtistsOnTracksUpdateManyWithoutArtistNestedInput
     genre?: GenreUpdateOneRequiredWithoutArtistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+    followers?: UserFollowsArtistsUpdateManyWithoutArtistNestedInput
   }
 
   export type ArtistsUncheckedUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUncheckedUpdateManyWithoutArtistNestedInput
+    tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
+    followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
   }
 
   export type ArtistsCreateManyInput = {
     id?: string
     name: string
-    thumbnail: string
+    email: string
+    password: string
+    thumbnail?: string
     genreId: string
-    userId?: ArtistsCreateuserIdInput | string[]
+    description?: string | null
   }
 
   export type ArtistsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ArtistsUncheckedUpdateManyInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GenreCreateInput = {
@@ -8603,7 +16688,6 @@ export namespace Prisma {
     albums?: AlbumsCreateNestedManyWithoutGenreInput
     tracks?: TracksCreateNestedManyWithoutGenreInput
     artists?: ArtistsCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsCreateNestedManyWithoutGenreInput
   }
 
   export type GenreUncheckedCreateInput = {
@@ -8612,7 +16696,6 @@ export namespace Prisma {
     albums?: AlbumsUncheckedCreateNestedManyWithoutGenreInput
     tracks?: TracksUncheckedCreateNestedManyWithoutGenreInput
     artists?: ArtistsUncheckedCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutGenreInput
   }
 
   export type GenreUpdateInput = {
@@ -8620,7 +16703,6 @@ export namespace Prisma {
     albums?: AlbumsUpdateManyWithoutGenreNestedInput
     tracks?: TracksUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUpdateManyWithoutGenreNestedInput
   }
 
   export type GenreUncheckedUpdateInput = {
@@ -8628,7 +16710,6 @@ export namespace Prisma {
     albums?: AlbumsUncheckedUpdateManyWithoutGenreNestedInput
     tracks?: TracksUncheckedUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUncheckedUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUncheckedUpdateManyWithoutGenreNestedInput
   }
 
   export type GenreCreateManyInput = {
@@ -8642,6 +16723,283 @@ export namespace Prisma {
 
   export type GenreUncheckedUpdateManyInput = {
     name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistsOnTracksCreateInput = {
+    id?: string
+    artist: ArtistsCreateNestedOneWithoutTracksInput
+    track: TracksCreateNestedOneWithoutArtistInput
+  }
+
+  export type ArtistsOnTracksUncheckedCreateInput = {
+    id?: string
+    artistId: string
+    trackId: string
+  }
+
+  export type ArtistsOnTracksUpdateInput = {
+    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
+    track?: TracksUpdateOneRequiredWithoutArtistNestedInput
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistsOnTracksCreateManyInput = {
+    id?: string
+    artistId: string
+    trackId: string
+  }
+
+  export type ArtistsOnTracksUpdateManyMutationInput = {
+
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateManyInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TracksOnAlbumsCreateInput = {
+    id?: string
+    album: AlbumsCreateNestedOneWithoutTracksInput
+    track: TracksCreateNestedOneWithoutAlbumInput
+  }
+
+  export type TracksOnAlbumsUncheckedCreateInput = {
+    id?: string
+    albumId: string
+    trackId: string
+  }
+
+  export type TracksOnAlbumsUpdateInput = {
+    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
+    track?: TracksUpdateOneRequiredWithoutAlbumNestedInput
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateInput = {
+    albumId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TracksOnAlbumsCreateManyInput = {
+    id?: string
+    albumId: string
+    trackId: string
+  }
+
+  export type TracksOnAlbumsUpdateManyMutationInput = {
+
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateManyInput = {
+    albumId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFavsTracksCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFavTracksInput
+    track: TracksCreateNestedOneWithoutFavsOfUsersInput
+  }
+
+  export type UserFavsTracksUncheckedCreateInput = {
+    id?: string
+    userId: string
+    trackId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFavsTracksUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFavTracksNestedInput
+    track?: TracksUpdateOneRequiredWithoutFavsOfUsersNestedInput
+  }
+
+  export type UserFavsTracksUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFavsTracksCreateManyInput = {
+    id?: string
+    userId: string
+    trackId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFavsTracksUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFavsTracksUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PlaylistToTrackCreateInput = {
+    id?: string
+    playlist: PlaylistsCreateNestedOneWithoutTracksConnectionsInput
+    track: TracksCreateNestedOneWithoutPlaylistConnectionsInput
+  }
+
+  export type PlaylistToTrackUncheckedCreateInput = {
+    id?: string
+    playlistId: string
+    trackId: string
+  }
+
+  export type PlaylistToTrackUpdateInput = {
+    playlist?: PlaylistsUpdateOneRequiredWithoutTracksConnectionsNestedInput
+    track?: TracksUpdateOneRequiredWithoutPlaylistConnectionsNestedInput
+  }
+
+  export type PlaylistToTrackUncheckedUpdateInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistToTrackCreateManyInput = {
+    id?: string
+    playlistId: string
+    trackId: string
+  }
+
+  export type PlaylistToTrackUpdateManyMutationInput = {
+
+  }
+
+  export type PlaylistToTrackUncheckedUpdateManyInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsPlaylistsCreateInput = {
+    id?: string
+    user: UserCreateNestedOneWithoutFollowedPlaylistsInput
+    playlist: PlaylistsCreateNestedOneWithoutFollowersInput
+  }
+
+  export type UserFollowsPlaylistsUncheckedCreateInput = {
+    id?: string
+    userId: string
+    playlistId: string
+  }
+
+  export type UserFollowsPlaylistsUpdateInput = {
+    user?: UserUpdateOneRequiredWithoutFollowedPlaylistsNestedInput
+    playlist?: PlaylistsUpdateOneRequiredWithoutFollowersNestedInput
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsPlaylistsCreateManyInput = {
+    id?: string
+    userId: string
+    playlistId: string
+  }
+
+  export type UserFollowsPlaylistsUpdateManyMutationInput = {
+
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsArtistsCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutArtistsFollowedInput
+    artist: ArtistsCreateNestedOneWithoutFollowersInput
+  }
+
+  export type UserFollowsArtistsUncheckedCreateInput = {
+    id?: string
+    userId: string
+    artistId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFollowsArtistsUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+    artist?: ArtistsUpdateOneRequiredWithoutFollowersNestedInput
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    artistId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsArtistsCreateManyInput = {
+    id?: string
+    userId: string
+    artistId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFollowsArtistsUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    artistId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserLikedAlbumsCreateInput = {
+    id?: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutLikedAlbumsInput
+    album: AlbumsCreateNestedOneWithoutLikedByUsersInput
+  }
+
+  export type UserLikedAlbumsUncheckedCreateInput = {
+    id?: string
+    userId: string
+    albumId: string
+    createdAt?: Date | string
+  }
+
+  export type UserLikedAlbumsUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
+    album?: AlbumsUpdateOneRequiredWithoutLikedByUsersNestedInput
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    albumId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserLikedAlbumsCreateManyInput = {
+    id?: string
+    userId: string
+    albumId: string
+    createdAt?: Date | string
+  }
+
+  export type UserLikedAlbumsUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    albumId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -8659,16 +17017,38 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type TracksListRelationFilter = {
-    every?: TracksWhereInput
-    some?: TracksWhereInput
-    none?: TracksWhereInput
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
   }
 
-  export type AlbumsListRelationFilter = {
-    every?: AlbumsWhereInput
-    some?: AlbumsWhereInput
-    none?: AlbumsWhereInput
+  export type UserLikedAlbumsListRelationFilter = {
+    every?: UserLikedAlbumsWhereInput
+    some?: UserLikedAlbumsWhereInput
+    none?: UserLikedAlbumsWhereInput
+  }
+
+  export type UserFollowsArtistsListRelationFilter = {
+    every?: UserFollowsArtistsWhereInput
+    some?: UserFollowsArtistsWhereInput
+    none?: UserFollowsArtistsWhereInput
+  }
+
+  export type UserFollowsPlaylistsListRelationFilter = {
+    every?: UserFollowsPlaylistsWhereInput
+    some?: UserFollowsPlaylistsWhereInput
+    none?: UserFollowsPlaylistsWhereInput
   }
 
   export type PlaylistsListRelationFilter = {
@@ -8677,17 +17057,21 @@ export namespace Prisma {
     none?: PlaylistsWhereInput
   }
 
-  export type ArtistsListRelationFilter = {
-    every?: ArtistsWhereInput
-    some?: ArtistsWhereInput
-    none?: ArtistsWhereInput
+  export type UserFavsTracksListRelationFilter = {
+    every?: UserFavsTracksWhereInput
+    some?: UserFavsTracksWhereInput
+    none?: UserFavsTracksWhereInput
   }
 
-  export type TracksOrderByRelationAggregateInput = {
+  export type UserLikedAlbumsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type AlbumsOrderByRelationAggregateInput = {
+  export type UserFollowsArtistsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserFollowsPlaylistsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8695,7 +17079,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ArtistsOrderByRelationAggregateInput = {
+  export type UserFavsTracksOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8703,6 +17087,8 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
     name?: SortOrder
     gender?: SortOrder
     birthDate?: SortOrder
@@ -8713,6 +17099,8 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
     name?: SortOrder
     gender?: SortOrder
     birthDate?: SortOrder
@@ -8723,6 +17111,8 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
     name?: SortOrder
     gender?: SortOrder
     birthDate?: SortOrder
@@ -8747,17 +17137,29 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableListFilter<$PrismaModel = never> = {
-    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    has?: string | StringFieldRefInput<$PrismaModel> | null
-    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
-    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
-  export type ArtistsRelationFilter = {
-    is?: ArtistsWhereInput
-    isNot?: ArtistsWhereInput
+  export type ArtistsOnTracksListRelationFilter = {
+    every?: ArtistsOnTracksWhereInput
+    some?: ArtistsOnTracksWhereInput
+    none?: ArtistsOnTracksWhereInput
   }
 
   export type GenreRelationFilter = {
@@ -8765,45 +17167,57 @@ export namespace Prisma {
     isNot?: GenreWhereInput
   }
 
-  export type AlbumsRelationFilter = {
-    is?: AlbumsWhereInput
-    isNot?: AlbumsWhereInput
+  export type TracksOnAlbumsListRelationFilter = {
+    every?: TracksOnAlbumsWhereInput
+    some?: TracksOnAlbumsWhereInput
+    none?: TracksOnAlbumsWhereInput
   }
 
-  export type UserRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type PlaylistToTrackListRelationFilter = {
+    every?: PlaylistToTrackWhereInput
+    some?: PlaylistToTrackWhereInput
+    none?: PlaylistToTrackWhereInput
+  }
+
+  export type ArtistsOnTracksOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TracksOnAlbumsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PlaylistToTrackOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type TracksCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    albumId?: SortOrder
-    userId?: SortOrder
   }
 
   export type TracksMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    albumId?: SortOrder
   }
 
   export type TracksMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    artistId?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    albumId?: SortOrder
+  }
+
+  export type ArtistsRelationFilter = {
+    is?: ArtistsWhereInput
+    isNot?: ArtistsWhereInput
   }
 
   export type AlbumsCountOrderByAggregateInput = {
@@ -8812,7 +17226,6 @@ export namespace Prisma {
     artistId?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
   }
 
   export type AlbumsMaxOrderByAggregateInput = {
@@ -8831,17 +17244,21 @@ export namespace Prisma {
     genreId?: SortOrder
   }
 
-  export type TracksRelationFilter = {
-    is?: TracksWhereInput
-    isNot?: TracksWhereInput
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type PlaylistsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     thumbnail?: SortOrder
-    trackId?: SortOrder
-    genreId?: SortOrder
+    publicAccess?: SortOrder
     userId?: SortOrder
   }
 
@@ -8849,36 +17266,84 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    publicAccess?: SortOrder
+    userId?: SortOrder
   }
 
   export type PlaylistsMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    publicAccess?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type AlbumsListRelationFilter = {
+    every?: AlbumsWhereInput
+    some?: AlbumsWhereInput
+    none?: AlbumsWhereInput
+  }
+
+  export type AlbumsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type ArtistsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
-    userId?: SortOrder
+    description?: SortOrder
   }
 
   export type ArtistsMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    description?: SortOrder
   }
 
   export type ArtistsMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    email?: SortOrder
+    password?: SortOrder
     thumbnail?: SortOrder
     genreId?: SortOrder
+    description?: SortOrder
+  }
+
+  export type TracksListRelationFilter = {
+    every?: TracksWhereInput
+    some?: TracksWhereInput
+    none?: TracksWhereInput
+  }
+
+  export type ArtistsListRelationFilter = {
+    every?: ArtistsWhereInput
+    some?: ArtistsWhereInput
+    none?: ArtistsWhereInput
+  }
+
+  export type TracksOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ArtistsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type GenreCountOrderByAggregateInput = {
@@ -8896,182 +17361,440 @@ export namespace Prisma {
     name?: SortOrder
   }
 
-  export type TracksCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput> | TracksCreateWithoutFollowersInput[] | TracksUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutFollowersInput | TracksCreateOrConnectWithoutFollowersInput[]
-    createMany?: TracksCreateManyFollowersInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type TracksRelationFilter = {
+    is?: TracksWhereInput
+    isNot?: TracksWhereInput
   }
 
-  export type AlbumsCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput> | AlbumsCreateWithoutFollowersInput[] | AlbumsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: AlbumsCreateOrConnectWithoutFollowersInput | AlbumsCreateOrConnectWithoutFollowersInput[]
-    createMany?: AlbumsCreateManyFollowersInputEnvelope
-    connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
+  export type ArtistsOnTracksArtistIdTrackIdCompoundUniqueInput = {
+    artistId: string
+    trackId: string
   }
 
-  export type PlaylistsCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput> | PlaylistsCreateWithoutFollowersInput[] | PlaylistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput | PlaylistsCreateOrConnectWithoutFollowersInput[]
-    createMany?: PlaylistsCreateManyFollowersInputEnvelope
+  export type ArtistsOnTracksCountOrderByAggregateInput = {
+    id?: SortOrder
+    artistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type ArtistsOnTracksMaxOrderByAggregateInput = {
+    id?: SortOrder
+    artistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type ArtistsOnTracksMinOrderByAggregateInput = {
+    id?: SortOrder
+    artistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type AlbumsRelationFilter = {
+    is?: AlbumsWhereInput
+    isNot?: AlbumsWhereInput
+  }
+
+  export type TracksOnAlbumsAlbumIdTrackIdCompoundUniqueInput = {
+    albumId: string
+    trackId: string
+  }
+
+  export type TracksOnAlbumsCountOrderByAggregateInput = {
+    id?: SortOrder
+    albumId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type TracksOnAlbumsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    albumId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type TracksOnAlbumsMinOrderByAggregateInput = {
+    id?: SortOrder
+    albumId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type UserFavsTracksUserIdTrackIdCompoundUniqueInput = {
+    userId: string
+    trackId: string
+  }
+
+  export type UserFavsTracksCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    trackId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserFavsTracksMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    trackId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserFavsTracksMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    trackId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type PlaylistsRelationFilter = {
+    is?: PlaylistsWhereInput
+    isNot?: PlaylistsWhereInput
+  }
+
+  export type PlaylistToTrackPlaylistIdTrackIdCompoundUniqueInput = {
+    playlistId: string
+    trackId: string
+  }
+
+  export type PlaylistToTrackCountOrderByAggregateInput = {
+    id?: SortOrder
+    playlistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type PlaylistToTrackMaxOrderByAggregateInput = {
+    id?: SortOrder
+    playlistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type PlaylistToTrackMinOrderByAggregateInput = {
+    id?: SortOrder
+    playlistId?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type UserFollowsPlaylistsUserIdPlaylistIdCompoundUniqueInput = {
+    userId: string
+    playlistId: string
+  }
+
+  export type UserFollowsPlaylistsCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    playlistId?: SortOrder
+  }
+
+  export type UserFollowsPlaylistsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    playlistId?: SortOrder
+  }
+
+  export type UserFollowsPlaylistsMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    playlistId?: SortOrder
+  }
+
+  export type UserFollowsArtistsUserIdArtistIdCompoundUniqueInput = {
+    userId: string
+    artistId: string
+  }
+
+  export type UserFollowsArtistsCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    artistId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserFollowsArtistsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    artistId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserFollowsArtistsMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    artistId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserLikedAlbumsUserIdAlbumIdCompoundUniqueInput = {
+    userId: string
+    albumId: string
+  }
+
+  export type UserLikedAlbumsCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    albumId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserLikedAlbumsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    albumId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserLikedAlbumsMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    albumId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type UserLikedAlbumsCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput> | UserLikedAlbumsCreateWithoutUserInput[] | UserLikedAlbumsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutUserInput | UserLikedAlbumsCreateOrConnectWithoutUserInput[]
+    createMany?: UserLikedAlbumsCreateManyUserInputEnvelope
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+  }
+
+  export type UserFollowsArtistsCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput> | UserFollowsArtistsCreateWithoutUserInput[] | UserFollowsArtistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutUserInput | UserFollowsArtistsCreateOrConnectWithoutUserInput[]
+    createMany?: UserFollowsArtistsCreateManyUserInputEnvelope
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+  }
+
+  export type UserFollowsPlaylistsCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput> | UserFollowsPlaylistsCreateWithoutUserInput[] | UserFollowsPlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutUserInput | UserFollowsPlaylistsCreateOrConnectWithoutUserInput[]
+    createMany?: UserFollowsPlaylistsCreateManyUserInputEnvelope
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+  }
+
+  export type PlaylistsCreateNestedManyWithoutUserInput = {
+    create?: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput> | PlaylistsCreateWithoutUserInput[] | PlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutUserInput | PlaylistsCreateOrConnectWithoutUserInput[]
+    createMany?: PlaylistsCreateManyUserInputEnvelope
     connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
   }
 
-  export type ArtistsCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput> | ArtistsCreateWithoutFollowersInput[] | ArtistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput | ArtistsCreateOrConnectWithoutFollowersInput[]
-    createMany?: ArtistsCreateManyFollowersInputEnvelope
-    connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
+  export type UserFavsTracksCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput> | UserFavsTracksCreateWithoutUserInput[] | UserFavsTracksUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutUserInput | UserFavsTracksCreateOrConnectWithoutUserInput[]
+    createMany?: UserFavsTracksCreateManyUserInputEnvelope
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
   }
 
-  export type TracksUncheckedCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput> | TracksCreateWithoutFollowersInput[] | TracksUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutFollowersInput | TracksCreateOrConnectWithoutFollowersInput[]
-    createMany?: TracksCreateManyFollowersInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput> | UserLikedAlbumsCreateWithoutUserInput[] | UserLikedAlbumsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutUserInput | UserLikedAlbumsCreateOrConnectWithoutUserInput[]
+    createMany?: UserLikedAlbumsCreateManyUserInputEnvelope
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
   }
 
-  export type AlbumsUncheckedCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput> | AlbumsCreateWithoutFollowersInput[] | AlbumsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: AlbumsCreateOrConnectWithoutFollowersInput | AlbumsCreateOrConnectWithoutFollowersInput[]
-    createMany?: AlbumsCreateManyFollowersInputEnvelope
-    connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
+  export type UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput> | UserFollowsArtistsCreateWithoutUserInput[] | UserFollowsArtistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutUserInput | UserFollowsArtistsCreateOrConnectWithoutUserInput[]
+    createMany?: UserFollowsArtistsCreateManyUserInputEnvelope
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
   }
 
-  export type PlaylistsUncheckedCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput> | PlaylistsCreateWithoutFollowersInput[] | PlaylistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput | PlaylistsCreateOrConnectWithoutFollowersInput[]
-    createMany?: PlaylistsCreateManyFollowersInputEnvelope
+  export type UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput> | UserFollowsPlaylistsCreateWithoutUserInput[] | UserFollowsPlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutUserInput | UserFollowsPlaylistsCreateOrConnectWithoutUserInput[]
+    createMany?: UserFollowsPlaylistsCreateManyUserInputEnvelope
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+  }
+
+  export type PlaylistsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput> | PlaylistsCreateWithoutUserInput[] | PlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutUserInput | PlaylistsCreateOrConnectWithoutUserInput[]
+    createMany?: PlaylistsCreateManyUserInputEnvelope
     connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
   }
 
-  export type ArtistsUncheckedCreateNestedManyWithoutFollowersInput = {
-    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput> | ArtistsCreateWithoutFollowersInput[] | ArtistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput | ArtistsCreateOrConnectWithoutFollowersInput[]
-    createMany?: ArtistsCreateManyFollowersInputEnvelope
-    connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
+  export type UserFavsTracksUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput> | UserFavsTracksCreateWithoutUserInput[] | UserFavsTracksUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutUserInput | UserFavsTracksCreateOrConnectWithoutUserInput[]
+    createMany?: UserFavsTracksCreateManyUserInputEnvelope
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type TracksUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput> | TracksCreateWithoutFollowersInput[] | TracksUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutFollowersInput | TracksCreateOrConnectWithoutFollowersInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutFollowersInput | TracksUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: TracksCreateManyFollowersInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutFollowersInput | TracksUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutFollowersInput | TracksUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+    unset?: boolean
   }
 
-  export type AlbumsUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput> | AlbumsCreateWithoutFollowersInput[] | AlbumsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: AlbumsCreateOrConnectWithoutFollowersInput | AlbumsCreateOrConnectWithoutFollowersInput[]
-    upsert?: AlbumsUpsertWithWhereUniqueWithoutFollowersInput | AlbumsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: AlbumsCreateManyFollowersInputEnvelope
-    set?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    disconnect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    delete?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    update?: AlbumsUpdateWithWhereUniqueWithoutFollowersInput | AlbumsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: AlbumsUpdateManyWithWhereWithoutFollowersInput | AlbumsUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
+  export type UserLikedAlbumsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput> | UserLikedAlbumsCreateWithoutUserInput[] | UserLikedAlbumsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutUserInput | UserLikedAlbumsCreateOrConnectWithoutUserInput[]
+    upsert?: UserLikedAlbumsUpsertWithWhereUniqueWithoutUserInput | UserLikedAlbumsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLikedAlbumsCreateManyUserInputEnvelope
+    set?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    disconnect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    delete?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    update?: UserLikedAlbumsUpdateWithWhereUniqueWithoutUserInput | UserLikedAlbumsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLikedAlbumsUpdateManyWithWhereWithoutUserInput | UserLikedAlbumsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
   }
 
-  export type PlaylistsUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput> | PlaylistsCreateWithoutFollowersInput[] | PlaylistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput | PlaylistsCreateOrConnectWithoutFollowersInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutFollowersInput | PlaylistsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: PlaylistsCreateManyFollowersInputEnvelope
+  export type UserFollowsArtistsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput> | UserFollowsArtistsCreateWithoutUserInput[] | UserFollowsArtistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutUserInput | UserFollowsArtistsCreateOrConnectWithoutUserInput[]
+    upsert?: UserFollowsArtistsUpsertWithWhereUniqueWithoutUserInput | UserFollowsArtistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFollowsArtistsCreateManyUserInputEnvelope
+    set?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    disconnect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    delete?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    update?: UserFollowsArtistsUpdateWithWhereUniqueWithoutUserInput | UserFollowsArtistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFollowsArtistsUpdateManyWithWhereWithoutUserInput | UserFollowsArtistsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
+  }
+
+  export type UserFollowsPlaylistsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput> | UserFollowsPlaylistsCreateWithoutUserInput[] | UserFollowsPlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutUserInput | UserFollowsPlaylistsCreateOrConnectWithoutUserInput[]
+    upsert?: UserFollowsPlaylistsUpsertWithWhereUniqueWithoutUserInput | UserFollowsPlaylistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFollowsPlaylistsCreateManyUserInputEnvelope
+    set?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    disconnect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    delete?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    update?: UserFollowsPlaylistsUpdateWithWhereUniqueWithoutUserInput | UserFollowsPlaylistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFollowsPlaylistsUpdateManyWithWhereWithoutUserInput | UserFollowsPlaylistsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
+  }
+
+  export type PlaylistsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput> | PlaylistsCreateWithoutUserInput[] | PlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutUserInput | PlaylistsCreateOrConnectWithoutUserInput[]
+    upsert?: PlaylistsUpsertWithWhereUniqueWithoutUserInput | PlaylistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PlaylistsCreateManyUserInputEnvelope
     set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutFollowersInput | PlaylistsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutFollowersInput | PlaylistsUpdateManyWithWhereWithoutFollowersInput[]
+    update?: PlaylistsUpdateWithWhereUniqueWithoutUserInput | PlaylistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PlaylistsUpdateManyWithWhereWithoutUserInput | PlaylistsUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
   }
 
-  export type ArtistsUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput> | ArtistsCreateWithoutFollowersInput[] | ArtistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput | ArtistsCreateOrConnectWithoutFollowersInput[]
-    upsert?: ArtistsUpsertWithWhereUniqueWithoutFollowersInput | ArtistsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: ArtistsCreateManyFollowersInputEnvelope
-    set?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    disconnect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    delete?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    update?: ArtistsUpdateWithWhereUniqueWithoutFollowersInput | ArtistsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: ArtistsUpdateManyWithWhereWithoutFollowersInput | ArtistsUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
+  export type UserFavsTracksUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput> | UserFavsTracksCreateWithoutUserInput[] | UserFavsTracksUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutUserInput | UserFavsTracksCreateOrConnectWithoutUserInput[]
+    upsert?: UserFavsTracksUpsertWithWhereUniqueWithoutUserInput | UserFavsTracksUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFavsTracksCreateManyUserInputEnvelope
+    set?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    disconnect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    delete?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    update?: UserFavsTracksUpdateWithWhereUniqueWithoutUserInput | UserFavsTracksUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFavsTracksUpdateManyWithWhereWithoutUserInput | UserFavsTracksUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
   }
 
-  export type TracksUncheckedUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput> | TracksCreateWithoutFollowersInput[] | TracksUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutFollowersInput | TracksCreateOrConnectWithoutFollowersInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutFollowersInput | TracksUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: TracksCreateManyFollowersInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutFollowersInput | TracksUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutFollowersInput | TracksUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput> | UserLikedAlbumsCreateWithoutUserInput[] | UserLikedAlbumsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutUserInput | UserLikedAlbumsCreateOrConnectWithoutUserInput[]
+    upsert?: UserLikedAlbumsUpsertWithWhereUniqueWithoutUserInput | UserLikedAlbumsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserLikedAlbumsCreateManyUserInputEnvelope
+    set?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    disconnect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    delete?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    update?: UserLikedAlbumsUpdateWithWhereUniqueWithoutUserInput | UserLikedAlbumsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserLikedAlbumsUpdateManyWithWhereWithoutUserInput | UserLikedAlbumsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
   }
 
-  export type AlbumsUncheckedUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput> | AlbumsCreateWithoutFollowersInput[] | AlbumsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: AlbumsCreateOrConnectWithoutFollowersInput | AlbumsCreateOrConnectWithoutFollowersInput[]
-    upsert?: AlbumsUpsertWithWhereUniqueWithoutFollowersInput | AlbumsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: AlbumsCreateManyFollowersInputEnvelope
-    set?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    disconnect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    delete?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
-    update?: AlbumsUpdateWithWhereUniqueWithoutFollowersInput | AlbumsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: AlbumsUpdateManyWithWhereWithoutFollowersInput | AlbumsUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
+  export type UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput> | UserFollowsArtistsCreateWithoutUserInput[] | UserFollowsArtistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutUserInput | UserFollowsArtistsCreateOrConnectWithoutUserInput[]
+    upsert?: UserFollowsArtistsUpsertWithWhereUniqueWithoutUserInput | UserFollowsArtistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFollowsArtistsCreateManyUserInputEnvelope
+    set?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    disconnect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    delete?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    update?: UserFollowsArtistsUpdateWithWhereUniqueWithoutUserInput | UserFollowsArtistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFollowsArtistsUpdateManyWithWhereWithoutUserInput | UserFollowsArtistsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
   }
 
-  export type PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput> | PlaylistsCreateWithoutFollowersInput[] | PlaylistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput | PlaylistsCreateOrConnectWithoutFollowersInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutFollowersInput | PlaylistsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: PlaylistsCreateManyFollowersInputEnvelope
+  export type UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput> | UserFollowsPlaylistsCreateWithoutUserInput[] | UserFollowsPlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutUserInput | UserFollowsPlaylistsCreateOrConnectWithoutUserInput[]
+    upsert?: UserFollowsPlaylistsUpsertWithWhereUniqueWithoutUserInput | UserFollowsPlaylistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFollowsPlaylistsCreateManyUserInputEnvelope
+    set?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    disconnect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    delete?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    update?: UserFollowsPlaylistsUpdateWithWhereUniqueWithoutUserInput | UserFollowsPlaylistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFollowsPlaylistsUpdateManyWithWhereWithoutUserInput | UserFollowsPlaylistsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
+  }
+
+  export type PlaylistsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput> | PlaylistsCreateWithoutUserInput[] | PlaylistsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutUserInput | PlaylistsCreateOrConnectWithoutUserInput[]
+    upsert?: PlaylistsUpsertWithWhereUniqueWithoutUserInput | PlaylistsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PlaylistsCreateManyUserInputEnvelope
     set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
     connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutFollowersInput | PlaylistsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutFollowersInput | PlaylistsUpdateManyWithWhereWithoutFollowersInput[]
+    update?: PlaylistsUpdateWithWhereUniqueWithoutUserInput | PlaylistsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PlaylistsUpdateManyWithWhereWithoutUserInput | PlaylistsUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
   }
 
-  export type ArtistsUncheckedUpdateManyWithoutFollowersNestedInput = {
-    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput> | ArtistsCreateWithoutFollowersInput[] | ArtistsUncheckedCreateWithoutFollowersInput[]
-    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput | ArtistsCreateOrConnectWithoutFollowersInput[]
-    upsert?: ArtistsUpsertWithWhereUniqueWithoutFollowersInput | ArtistsUpsertWithWhereUniqueWithoutFollowersInput[]
-    createMany?: ArtistsCreateManyFollowersInputEnvelope
-    set?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    disconnect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    delete?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-    update?: ArtistsUpdateWithWhereUniqueWithoutFollowersInput | ArtistsUpdateWithWhereUniqueWithoutFollowersInput[]
-    updateMany?: ArtistsUpdateManyWithWhereWithoutFollowersInput | ArtistsUpdateManyWithWhereWithoutFollowersInput[]
-    deleteMany?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
+  export type UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput> | UserFavsTracksCreateWithoutUserInput[] | UserFavsTracksUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutUserInput | UserFavsTracksCreateOrConnectWithoutUserInput[]
+    upsert?: UserFavsTracksUpsertWithWhereUniqueWithoutUserInput | UserFavsTracksUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserFavsTracksCreateManyUserInputEnvelope
+    set?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    disconnect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    delete?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    update?: UserFavsTracksUpdateWithWhereUniqueWithoutUserInput | UserFavsTracksUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserFavsTracksUpdateManyWithWhereWithoutUserInput | UserFavsTracksUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
   }
 
-  export type ArtistsCreateNestedOneWithoutTracksInput = {
-    create?: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
-    connectOrCreate?: ArtistsCreateOrConnectWithoutTracksInput
-    connect?: ArtistsWhereUniqueInput
+  export type ArtistsOnTracksCreateNestedManyWithoutTrackInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput> | ArtistsOnTracksCreateWithoutTrackInput[] | ArtistsOnTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutTrackInput | ArtistsOnTracksCreateOrConnectWithoutTrackInput[]
+    createMany?: ArtistsOnTracksCreateManyTrackInputEnvelope
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
   }
 
   export type GenreCreateNestedOneWithoutTracksInput = {
@@ -9080,42 +17803,67 @@ export namespace Prisma {
     connect?: GenreWhereUniqueInput
   }
 
-  export type AlbumsCreateNestedOneWithoutTracksInput = {
-    create?: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
-    connectOrCreate?: AlbumsCreateOrConnectWithoutTracksInput
-    connect?: AlbumsWhereUniqueInput
+  export type TracksOnAlbumsCreateNestedManyWithoutTrackInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput> | TracksOnAlbumsCreateWithoutTrackInput[] | TracksOnAlbumsUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutTrackInput | TracksOnAlbumsCreateOrConnectWithoutTrackInput[]
+    createMany?: TracksOnAlbumsCreateManyTrackInputEnvelope
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
   }
 
-  export type PlaylistsCreateNestedManyWithoutTracksInput = {
-    create?: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput> | PlaylistsCreateWithoutTracksInput[] | PlaylistsUncheckedCreateWithoutTracksInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksInput | PlaylistsCreateOrConnectWithoutTracksInput[]
-    createMany?: PlaylistsCreateManyTracksInputEnvelope
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
+  export type PlaylistToTrackCreateNestedManyWithoutTrackInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput> | PlaylistToTrackCreateWithoutTrackInput[] | PlaylistToTrackUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutTrackInput | PlaylistToTrackCreateOrConnectWithoutTrackInput[]
+    createMany?: PlaylistToTrackCreateManyTrackInputEnvelope
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutFavsInput = {
-    create?: XOR<UserCreateWithoutFavsInput, UserUncheckedCreateWithoutFavsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavsInput
-    connect?: UserWhereUniqueInput
+  export type UserFavsTracksCreateNestedManyWithoutTrackInput = {
+    create?: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput> | UserFavsTracksCreateWithoutTrackInput[] | UserFavsTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutTrackInput | UserFavsTracksCreateOrConnectWithoutTrackInput[]
+    createMany?: UserFavsTracksCreateManyTrackInputEnvelope
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
   }
 
-  export type TracksCreateuserIdInput = {
-    set: string[]
+  export type ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput> | ArtistsOnTracksCreateWithoutTrackInput[] | ArtistsOnTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutTrackInput | ArtistsOnTracksCreateOrConnectWithoutTrackInput[]
+    createMany?: ArtistsOnTracksCreateManyTrackInputEnvelope
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
   }
 
-  export type PlaylistsUncheckedCreateNestedManyWithoutTracksInput = {
-    create?: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput> | PlaylistsCreateWithoutTracksInput[] | PlaylistsUncheckedCreateWithoutTracksInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksInput | PlaylistsCreateOrConnectWithoutTracksInput[]
-    createMany?: PlaylistsCreateManyTracksInputEnvelope
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
+  export type TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput> | TracksOnAlbumsCreateWithoutTrackInput[] | TracksOnAlbumsUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutTrackInput | TracksOnAlbumsCreateOrConnectWithoutTrackInput[]
+    createMany?: TracksOnAlbumsCreateManyTrackInputEnvelope
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
   }
 
-  export type ArtistsUpdateOneRequiredWithoutTracksNestedInput = {
-    create?: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
-    connectOrCreate?: ArtistsCreateOrConnectWithoutTracksInput
-    upsert?: ArtistsUpsertWithoutTracksInput
-    connect?: ArtistsWhereUniqueInput
-    update?: XOR<XOR<ArtistsUpdateToOneWithWhereWithoutTracksInput, ArtistsUpdateWithoutTracksInput>, ArtistsUncheckedUpdateWithoutTracksInput>
+  export type PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput> | PlaylistToTrackCreateWithoutTrackInput[] | PlaylistToTrackUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutTrackInput | PlaylistToTrackCreateOrConnectWithoutTrackInput[]
+    createMany?: PlaylistToTrackCreateManyTrackInputEnvelope
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+  }
+
+  export type UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput = {
+    create?: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput> | UserFavsTracksCreateWithoutTrackInput[] | UserFavsTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutTrackInput | UserFavsTracksCreateOrConnectWithoutTrackInput[]
+    createMany?: UserFavsTracksCreateManyTrackInputEnvelope
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+  }
+
+  export type ArtistsOnTracksUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput> | ArtistsOnTracksCreateWithoutTrackInput[] | ArtistsOnTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutTrackInput | ArtistsOnTracksCreateOrConnectWithoutTrackInput[]
+    upsert?: ArtistsOnTracksUpsertWithWhereUniqueWithoutTrackInput | ArtistsOnTracksUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: ArtistsOnTracksCreateManyTrackInputEnvelope
+    set?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    disconnect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    delete?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    update?: ArtistsOnTracksUpdateWithWhereUniqueWithoutTrackInput | ArtistsOnTracksUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: ArtistsOnTracksUpdateManyWithWhereWithoutTrackInput | ArtistsOnTracksUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
   }
 
   export type GenreUpdateOneRequiredWithoutTracksNestedInput = {
@@ -9126,53 +17874,102 @@ export namespace Prisma {
     update?: XOR<XOR<GenreUpdateToOneWithWhereWithoutTracksInput, GenreUpdateWithoutTracksInput>, GenreUncheckedUpdateWithoutTracksInput>
   }
 
-  export type AlbumsUpdateOneRequiredWithoutTracksNestedInput = {
-    create?: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
-    connectOrCreate?: AlbumsCreateOrConnectWithoutTracksInput
-    upsert?: AlbumsUpsertWithoutTracksInput
-    connect?: AlbumsWhereUniqueInput
-    update?: XOR<XOR<AlbumsUpdateToOneWithWhereWithoutTracksInput, AlbumsUpdateWithoutTracksInput>, AlbumsUncheckedUpdateWithoutTracksInput>
+  export type TracksOnAlbumsUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput> | TracksOnAlbumsCreateWithoutTrackInput[] | TracksOnAlbumsUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutTrackInput | TracksOnAlbumsCreateOrConnectWithoutTrackInput[]
+    upsert?: TracksOnAlbumsUpsertWithWhereUniqueWithoutTrackInput | TracksOnAlbumsUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: TracksOnAlbumsCreateManyTrackInputEnvelope
+    set?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    disconnect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    delete?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    update?: TracksOnAlbumsUpdateWithWhereUniqueWithoutTrackInput | TracksOnAlbumsUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: TracksOnAlbumsUpdateManyWithWhereWithoutTrackInput | TracksOnAlbumsUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
   }
 
-  export type PlaylistsUpdateManyWithoutTracksNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput> | PlaylistsCreateWithoutTracksInput[] | PlaylistsUncheckedCreateWithoutTracksInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksInput | PlaylistsCreateOrConnectWithoutTracksInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutTracksInput | PlaylistsUpsertWithWhereUniqueWithoutTracksInput[]
-    createMany?: PlaylistsCreateManyTracksInputEnvelope
-    set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutTracksInput | PlaylistsUpdateWithWhereUniqueWithoutTracksInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutTracksInput | PlaylistsUpdateManyWithWhereWithoutTracksInput[]
-    deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
+  export type PlaylistToTrackUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput> | PlaylistToTrackCreateWithoutTrackInput[] | PlaylistToTrackUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutTrackInput | PlaylistToTrackCreateOrConnectWithoutTrackInput[]
+    upsert?: PlaylistToTrackUpsertWithWhereUniqueWithoutTrackInput | PlaylistToTrackUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: PlaylistToTrackCreateManyTrackInputEnvelope
+    set?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    disconnect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    delete?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    update?: PlaylistToTrackUpdateWithWhereUniqueWithoutTrackInput | PlaylistToTrackUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: PlaylistToTrackUpdateManyWithWhereWithoutTrackInput | PlaylistToTrackUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
   }
 
-  export type UserUpdateOneRequiredWithoutFavsNestedInput = {
-    create?: XOR<UserCreateWithoutFavsInput, UserUncheckedCreateWithoutFavsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavsInput
-    upsert?: UserUpsertWithoutFavsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavsInput, UserUpdateWithoutFavsInput>, UserUncheckedUpdateWithoutFavsInput>
+  export type UserFavsTracksUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput> | UserFavsTracksCreateWithoutTrackInput[] | UserFavsTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutTrackInput | UserFavsTracksCreateOrConnectWithoutTrackInput[]
+    upsert?: UserFavsTracksUpsertWithWhereUniqueWithoutTrackInput | UserFavsTracksUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: UserFavsTracksCreateManyTrackInputEnvelope
+    set?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    disconnect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    delete?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    update?: UserFavsTracksUpdateWithWhereUniqueWithoutTrackInput | UserFavsTracksUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: UserFavsTracksUpdateManyWithWhereWithoutTrackInput | UserFavsTracksUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
   }
 
-  export type TracksUpdateuserIdInput = {
-    set?: string[]
-    push?: string | string[]
+  export type ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput> | ArtistsOnTracksCreateWithoutTrackInput[] | ArtistsOnTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutTrackInput | ArtistsOnTracksCreateOrConnectWithoutTrackInput[]
+    upsert?: ArtistsOnTracksUpsertWithWhereUniqueWithoutTrackInput | ArtistsOnTracksUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: ArtistsOnTracksCreateManyTrackInputEnvelope
+    set?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    disconnect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    delete?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    update?: ArtistsOnTracksUpdateWithWhereUniqueWithoutTrackInput | ArtistsOnTracksUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: ArtistsOnTracksUpdateManyWithWhereWithoutTrackInput | ArtistsOnTracksUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
   }
 
-  export type PlaylistsUncheckedUpdateManyWithoutTracksNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput> | PlaylistsCreateWithoutTracksInput[] | PlaylistsUncheckedCreateWithoutTracksInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksInput | PlaylistsCreateOrConnectWithoutTracksInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutTracksInput | PlaylistsUpsertWithWhereUniqueWithoutTracksInput[]
-    createMany?: PlaylistsCreateManyTracksInputEnvelope
-    set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutTracksInput | PlaylistsUpdateWithWhereUniqueWithoutTracksInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutTracksInput | PlaylistsUpdateManyWithWhereWithoutTracksInput[]
-    deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
+  export type TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput> | TracksOnAlbumsCreateWithoutTrackInput[] | TracksOnAlbumsUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutTrackInput | TracksOnAlbumsCreateOrConnectWithoutTrackInput[]
+    upsert?: TracksOnAlbumsUpsertWithWhereUniqueWithoutTrackInput | TracksOnAlbumsUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: TracksOnAlbumsCreateManyTrackInputEnvelope
+    set?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    disconnect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    delete?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    update?: TracksOnAlbumsUpdateWithWhereUniqueWithoutTrackInput | TracksOnAlbumsUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: TracksOnAlbumsUpdateManyWithWhereWithoutTrackInput | TracksOnAlbumsUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
+  }
+
+  export type PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput> | PlaylistToTrackCreateWithoutTrackInput[] | PlaylistToTrackUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutTrackInput | PlaylistToTrackCreateOrConnectWithoutTrackInput[]
+    upsert?: PlaylistToTrackUpsertWithWhereUniqueWithoutTrackInput | PlaylistToTrackUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: PlaylistToTrackCreateManyTrackInputEnvelope
+    set?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    disconnect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    delete?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    update?: PlaylistToTrackUpdateWithWhereUniqueWithoutTrackInput | PlaylistToTrackUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: PlaylistToTrackUpdateManyWithWhereWithoutTrackInput | PlaylistToTrackUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
+  }
+
+  export type UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput> | UserFavsTracksCreateWithoutTrackInput[] | UserFavsTracksUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: UserFavsTracksCreateOrConnectWithoutTrackInput | UserFavsTracksCreateOrConnectWithoutTrackInput[]
+    upsert?: UserFavsTracksUpsertWithWhereUniqueWithoutTrackInput | UserFavsTracksUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: UserFavsTracksCreateManyTrackInputEnvelope
+    set?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    disconnect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    delete?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    connect?: UserFavsTracksWhereUniqueInput | UserFavsTracksWhereUniqueInput[]
+    update?: UserFavsTracksUpdateWithWhereUniqueWithoutTrackInput | UserFavsTracksUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: UserFavsTracksUpdateManyWithWhereWithoutTrackInput | UserFavsTracksUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
   }
 
   export type ArtistsCreateNestedOneWithoutAlbumsInput = {
@@ -9181,11 +17978,11 @@ export namespace Prisma {
     connect?: ArtistsWhereUniqueInput
   }
 
-  export type TracksCreateNestedManyWithoutAlbumInput = {
-    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput> | TracksCreateWithoutAlbumInput[] | TracksUncheckedCreateWithoutAlbumInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput | TracksCreateOrConnectWithoutAlbumInput[]
-    createMany?: TracksCreateManyAlbumInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type TracksOnAlbumsCreateNestedManyWithoutAlbumInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput> | TracksOnAlbumsCreateWithoutAlbumInput[] | TracksOnAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutAlbumInput | TracksOnAlbumsCreateOrConnectWithoutAlbumInput[]
+    createMany?: TracksOnAlbumsCreateManyAlbumInputEnvelope
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
   }
 
   export type GenreCreateNestedOneWithoutAlbumsInput = {
@@ -9194,21 +17991,25 @@ export namespace Prisma {
     connect?: GenreWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutLikedAlbumsInput = {
-    create?: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikedAlbumsInput
-    connect?: UserWhereUniqueInput
+  export type UserLikedAlbumsCreateNestedManyWithoutAlbumInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput> | UserLikedAlbumsCreateWithoutAlbumInput[] | UserLikedAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutAlbumInput | UserLikedAlbumsCreateOrConnectWithoutAlbumInput[]
+    createMany?: UserLikedAlbumsCreateManyAlbumInputEnvelope
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
   }
 
-  export type AlbumsCreateuserIdInput = {
-    set: string[]
+  export type TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput> | TracksOnAlbumsCreateWithoutAlbumInput[] | TracksOnAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutAlbumInput | TracksOnAlbumsCreateOrConnectWithoutAlbumInput[]
+    createMany?: TracksOnAlbumsCreateManyAlbumInputEnvelope
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
   }
 
-  export type TracksUncheckedCreateNestedManyWithoutAlbumInput = {
-    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput> | TracksCreateWithoutAlbumInput[] | TracksUncheckedCreateWithoutAlbumInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput | TracksCreateOrConnectWithoutAlbumInput[]
-    createMany?: TracksCreateManyAlbumInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput> | UserLikedAlbumsCreateWithoutAlbumInput[] | UserLikedAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutAlbumInput | UserLikedAlbumsCreateOrConnectWithoutAlbumInput[]
+    createMany?: UserLikedAlbumsCreateManyAlbumInputEnvelope
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
   }
 
   export type ArtistsUpdateOneRequiredWithoutAlbumsNestedInput = {
@@ -9219,18 +18020,18 @@ export namespace Prisma {
     update?: XOR<XOR<ArtistsUpdateToOneWithWhereWithoutAlbumsInput, ArtistsUpdateWithoutAlbumsInput>, ArtistsUncheckedUpdateWithoutAlbumsInput>
   }
 
-  export type TracksUpdateManyWithoutAlbumNestedInput = {
-    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput> | TracksCreateWithoutAlbumInput[] | TracksUncheckedCreateWithoutAlbumInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput | TracksCreateOrConnectWithoutAlbumInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutAlbumInput | TracksUpsertWithWhereUniqueWithoutAlbumInput[]
-    createMany?: TracksCreateManyAlbumInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutAlbumInput | TracksUpdateWithWhereUniqueWithoutAlbumInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutAlbumInput | TracksUpdateManyWithWhereWithoutAlbumInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type TracksOnAlbumsUpdateManyWithoutAlbumNestedInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput> | TracksOnAlbumsCreateWithoutAlbumInput[] | TracksOnAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutAlbumInput | TracksOnAlbumsCreateOrConnectWithoutAlbumInput[]
+    upsert?: TracksOnAlbumsUpsertWithWhereUniqueWithoutAlbumInput | TracksOnAlbumsUpsertWithWhereUniqueWithoutAlbumInput[]
+    createMany?: TracksOnAlbumsCreateManyAlbumInputEnvelope
+    set?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    disconnect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    delete?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    update?: TracksOnAlbumsUpdateWithWhereUniqueWithoutAlbumInput | TracksOnAlbumsUpdateWithWhereUniqueWithoutAlbumInput[]
+    updateMany?: TracksOnAlbumsUpdateManyWithWhereWithoutAlbumInput | TracksOnAlbumsUpdateManyWithWhereWithoutAlbumInput[]
+    deleteMany?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
   }
 
   export type GenreUpdateOneRequiredWithoutAlbumsNestedInput = {
@@ -9241,91 +18042,148 @@ export namespace Prisma {
     update?: XOR<XOR<GenreUpdateToOneWithWhereWithoutAlbumsInput, GenreUpdateWithoutAlbumsInput>, GenreUncheckedUpdateWithoutAlbumsInput>
   }
 
-  export type UserUpdateOneRequiredWithoutLikedAlbumsNestedInput = {
-    create?: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikedAlbumsInput
-    upsert?: UserUpsertWithoutLikedAlbumsInput
+  export type UserLikedAlbumsUpdateManyWithoutAlbumNestedInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput> | UserLikedAlbumsCreateWithoutAlbumInput[] | UserLikedAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutAlbumInput | UserLikedAlbumsCreateOrConnectWithoutAlbumInput[]
+    upsert?: UserLikedAlbumsUpsertWithWhereUniqueWithoutAlbumInput | UserLikedAlbumsUpsertWithWhereUniqueWithoutAlbumInput[]
+    createMany?: UserLikedAlbumsCreateManyAlbumInputEnvelope
+    set?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    disconnect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    delete?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    update?: UserLikedAlbumsUpdateWithWhereUniqueWithoutAlbumInput | UserLikedAlbumsUpdateWithWhereUniqueWithoutAlbumInput[]
+    updateMany?: UserLikedAlbumsUpdateManyWithWhereWithoutAlbumInput | UserLikedAlbumsUpdateManyWithWhereWithoutAlbumInput[]
+    deleteMany?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput = {
+    create?: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput> | TracksOnAlbumsCreateWithoutAlbumInput[] | TracksOnAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: TracksOnAlbumsCreateOrConnectWithoutAlbumInput | TracksOnAlbumsCreateOrConnectWithoutAlbumInput[]
+    upsert?: TracksOnAlbumsUpsertWithWhereUniqueWithoutAlbumInput | TracksOnAlbumsUpsertWithWhereUniqueWithoutAlbumInput[]
+    createMany?: TracksOnAlbumsCreateManyAlbumInputEnvelope
+    set?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    disconnect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    delete?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    connect?: TracksOnAlbumsWhereUniqueInput | TracksOnAlbumsWhereUniqueInput[]
+    update?: TracksOnAlbumsUpdateWithWhereUniqueWithoutAlbumInput | TracksOnAlbumsUpdateWithWhereUniqueWithoutAlbumInput[]
+    updateMany?: TracksOnAlbumsUpdateManyWithWhereWithoutAlbumInput | TracksOnAlbumsUpdateManyWithWhereWithoutAlbumInput[]
+    deleteMany?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput = {
+    create?: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput> | UserLikedAlbumsCreateWithoutAlbumInput[] | UserLikedAlbumsUncheckedCreateWithoutAlbumInput[]
+    connectOrCreate?: UserLikedAlbumsCreateOrConnectWithoutAlbumInput | UserLikedAlbumsCreateOrConnectWithoutAlbumInput[]
+    upsert?: UserLikedAlbumsUpsertWithWhereUniqueWithoutAlbumInput | UserLikedAlbumsUpsertWithWhereUniqueWithoutAlbumInput[]
+    createMany?: UserLikedAlbumsCreateManyAlbumInputEnvelope
+    set?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    disconnect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    delete?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    connect?: UserLikedAlbumsWhereUniqueInput | UserLikedAlbumsWhereUniqueInput[]
+    update?: UserLikedAlbumsUpdateWithWhereUniqueWithoutAlbumInput | UserLikedAlbumsUpdateWithWhereUniqueWithoutAlbumInput[]
+    updateMany?: UserLikedAlbumsUpdateManyWithWhereWithoutAlbumInput | UserLikedAlbumsUpdateManyWithWhereWithoutAlbumInput[]
+    deleteMany?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutCreatedPlaylistsInput = {
+    create?: XOR<UserCreateWithoutCreatedPlaylistsInput, UserUncheckedCreateWithoutCreatedPlaylistsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCreatedPlaylistsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikedAlbumsInput, UserUpdateWithoutLikedAlbumsInput>, UserUncheckedUpdateWithoutLikedAlbumsInput>
   }
 
-  export type AlbumsUpdateuserIdInput = {
-    set?: string[]
-    push?: string | string[]
+  export type UserFollowsPlaylistsCreateNestedManyWithoutPlaylistInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput> | UserFollowsPlaylistsCreateWithoutPlaylistInput[] | UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput | UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput[]
+    createMany?: UserFollowsPlaylistsCreateManyPlaylistInputEnvelope
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
   }
 
-  export type TracksUncheckedUpdateManyWithoutAlbumNestedInput = {
-    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput> | TracksCreateWithoutAlbumInput[] | TracksUncheckedCreateWithoutAlbumInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput | TracksCreateOrConnectWithoutAlbumInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutAlbumInput | TracksUpsertWithWhereUniqueWithoutAlbumInput[]
-    createMany?: TracksCreateManyAlbumInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutAlbumInput | TracksUpdateWithWhereUniqueWithoutAlbumInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutAlbumInput | TracksUpdateManyWithWhereWithoutAlbumInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type PlaylistToTrackCreateNestedManyWithoutPlaylistInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput> | PlaylistToTrackCreateWithoutPlaylistInput[] | PlaylistToTrackUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutPlaylistInput | PlaylistToTrackCreateOrConnectWithoutPlaylistInput[]
+    createMany?: PlaylistToTrackCreateManyPlaylistInputEnvelope
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
   }
 
-  export type TracksCreateNestedOneWithoutPlaylistsInput = {
-    create?: XOR<TracksCreateWithoutPlaylistsInput, TracksUncheckedCreateWithoutPlaylistsInput>
-    connectOrCreate?: TracksCreateOrConnectWithoutPlaylistsInput
-    connect?: TracksWhereUniqueInput
+  export type UserFollowsPlaylistsUncheckedCreateNestedManyWithoutPlaylistInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput> | UserFollowsPlaylistsCreateWithoutPlaylistInput[] | UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput | UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput[]
+    createMany?: UserFollowsPlaylistsCreateManyPlaylistInputEnvelope
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
   }
 
-  export type GenreCreateNestedOneWithoutPlaylistsInput = {
-    create?: XOR<GenreCreateWithoutPlaylistsInput, GenreUncheckedCreateWithoutPlaylistsInput>
-    connectOrCreate?: GenreCreateOrConnectWithoutPlaylistsInput
-    connect?: GenreWhereUniqueInput
+  export type PlaylistToTrackUncheckedCreateNestedManyWithoutPlaylistInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput> | PlaylistToTrackCreateWithoutPlaylistInput[] | PlaylistToTrackUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutPlaylistInput | PlaylistToTrackCreateOrConnectWithoutPlaylistInput[]
+    createMany?: PlaylistToTrackCreateManyPlaylistInputEnvelope
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutLikedPlaylistsInput = {
-    create?: XOR<UserCreateWithoutLikedPlaylistsInput, UserUncheckedCreateWithoutLikedPlaylistsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikedPlaylistsInput
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type UserUpdateOneRequiredWithoutCreatedPlaylistsNestedInput = {
+    create?: XOR<UserCreateWithoutCreatedPlaylistsInput, UserUncheckedCreateWithoutCreatedPlaylistsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCreatedPlaylistsInput
+    upsert?: UserUpsertWithoutCreatedPlaylistsInput
     connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCreatedPlaylistsInput, UserUpdateWithoutCreatedPlaylistsInput>, UserUncheckedUpdateWithoutCreatedPlaylistsInput>
   }
 
-  export type PlaylistsCreatetrackIdInput = {
-    set: string[]
+  export type UserFollowsPlaylistsUpdateManyWithoutPlaylistNestedInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput> | UserFollowsPlaylistsCreateWithoutPlaylistInput[] | UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput | UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput[]
+    upsert?: UserFollowsPlaylistsUpsertWithWhereUniqueWithoutPlaylistInput | UserFollowsPlaylistsUpsertWithWhereUniqueWithoutPlaylistInput[]
+    createMany?: UserFollowsPlaylistsCreateManyPlaylistInputEnvelope
+    set?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    disconnect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    delete?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    update?: UserFollowsPlaylistsUpdateWithWhereUniqueWithoutPlaylistInput | UserFollowsPlaylistsUpdateWithWhereUniqueWithoutPlaylistInput[]
+    updateMany?: UserFollowsPlaylistsUpdateManyWithWhereWithoutPlaylistInput | UserFollowsPlaylistsUpdateManyWithWhereWithoutPlaylistInput[]
+    deleteMany?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
   }
 
-  export type PlaylistsCreateuserIdInput = {
-    set: string[]
+  export type PlaylistToTrackUpdateManyWithoutPlaylistNestedInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput> | PlaylistToTrackCreateWithoutPlaylistInput[] | PlaylistToTrackUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutPlaylistInput | PlaylistToTrackCreateOrConnectWithoutPlaylistInput[]
+    upsert?: PlaylistToTrackUpsertWithWhereUniqueWithoutPlaylistInput | PlaylistToTrackUpsertWithWhereUniqueWithoutPlaylistInput[]
+    createMany?: PlaylistToTrackCreateManyPlaylistInputEnvelope
+    set?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    disconnect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    delete?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    update?: PlaylistToTrackUpdateWithWhereUniqueWithoutPlaylistInput | PlaylistToTrackUpdateWithWhereUniqueWithoutPlaylistInput[]
+    updateMany?: PlaylistToTrackUpdateManyWithWhereWithoutPlaylistInput | PlaylistToTrackUpdateManyWithWhereWithoutPlaylistInput[]
+    deleteMany?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
   }
 
-  export type TracksUpdateOneRequiredWithoutPlaylistsNestedInput = {
-    create?: XOR<TracksCreateWithoutPlaylistsInput, TracksUncheckedCreateWithoutPlaylistsInput>
-    connectOrCreate?: TracksCreateOrConnectWithoutPlaylistsInput
-    upsert?: TracksUpsertWithoutPlaylistsInput
-    connect?: TracksWhereUniqueInput
-    update?: XOR<XOR<TracksUpdateToOneWithWhereWithoutPlaylistsInput, TracksUpdateWithoutPlaylistsInput>, TracksUncheckedUpdateWithoutPlaylistsInput>
+  export type UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistNestedInput = {
+    create?: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput> | UserFollowsPlaylistsCreateWithoutPlaylistInput[] | UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput | UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput[]
+    upsert?: UserFollowsPlaylistsUpsertWithWhereUniqueWithoutPlaylistInput | UserFollowsPlaylistsUpsertWithWhereUniqueWithoutPlaylistInput[]
+    createMany?: UserFollowsPlaylistsCreateManyPlaylistInputEnvelope
+    set?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    disconnect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    delete?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    connect?: UserFollowsPlaylistsWhereUniqueInput | UserFollowsPlaylistsWhereUniqueInput[]
+    update?: UserFollowsPlaylistsUpdateWithWhereUniqueWithoutPlaylistInput | UserFollowsPlaylistsUpdateWithWhereUniqueWithoutPlaylistInput[]
+    updateMany?: UserFollowsPlaylistsUpdateManyWithWhereWithoutPlaylistInput | UserFollowsPlaylistsUpdateManyWithWhereWithoutPlaylistInput[]
+    deleteMany?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
   }
 
-  export type GenreUpdateOneRequiredWithoutPlaylistsNestedInput = {
-    create?: XOR<GenreCreateWithoutPlaylistsInput, GenreUncheckedCreateWithoutPlaylistsInput>
-    connectOrCreate?: GenreCreateOrConnectWithoutPlaylistsInput
-    upsert?: GenreUpsertWithoutPlaylistsInput
-    connect?: GenreWhereUniqueInput
-    update?: XOR<XOR<GenreUpdateToOneWithWhereWithoutPlaylistsInput, GenreUpdateWithoutPlaylistsInput>, GenreUncheckedUpdateWithoutPlaylistsInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutLikedPlaylistsNestedInput = {
-    create?: XOR<UserCreateWithoutLikedPlaylistsInput, UserUncheckedCreateWithoutLikedPlaylistsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikedPlaylistsInput
-    upsert?: UserUpsertWithoutLikedPlaylistsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikedPlaylistsInput, UserUpdateWithoutLikedPlaylistsInput>, UserUncheckedUpdateWithoutLikedPlaylistsInput>
-  }
-
-  export type PlaylistsUpdatetrackIdInput = {
-    set?: string[]
-    push?: string | string[]
-  }
-
-  export type PlaylistsUpdateuserIdInput = {
-    set?: string[]
-    push?: string | string[]
+  export type PlaylistToTrackUncheckedUpdateManyWithoutPlaylistNestedInput = {
+    create?: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput> | PlaylistToTrackCreateWithoutPlaylistInput[] | PlaylistToTrackUncheckedCreateWithoutPlaylistInput[]
+    connectOrCreate?: PlaylistToTrackCreateOrConnectWithoutPlaylistInput | PlaylistToTrackCreateOrConnectWithoutPlaylistInput[]
+    upsert?: PlaylistToTrackUpsertWithWhereUniqueWithoutPlaylistInput | PlaylistToTrackUpsertWithWhereUniqueWithoutPlaylistInput[]
+    createMany?: PlaylistToTrackCreateManyPlaylistInputEnvelope
+    set?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    disconnect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    delete?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    connect?: PlaylistToTrackWhereUniqueInput | PlaylistToTrackWhereUniqueInput[]
+    update?: PlaylistToTrackUpdateWithWhereUniqueWithoutPlaylistInput | PlaylistToTrackUpdateWithWhereUniqueWithoutPlaylistInput[]
+    updateMany?: PlaylistToTrackUpdateManyWithWhereWithoutPlaylistInput | PlaylistToTrackUpdateManyWithWhereWithoutPlaylistInput[]
+    deleteMany?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
   }
 
   export type AlbumsCreateNestedManyWithoutArtistInput = {
@@ -9335,11 +18193,11 @@ export namespace Prisma {
     connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
   }
 
-  export type TracksCreateNestedManyWithoutArtistInput = {
-    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput> | TracksCreateWithoutArtistInput[] | TracksUncheckedCreateWithoutArtistInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput | TracksCreateOrConnectWithoutArtistInput[]
-    createMany?: TracksCreateManyArtistInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type ArtistsOnTracksCreateNestedManyWithoutArtistInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput> | ArtistsOnTracksCreateWithoutArtistInput[] | ArtistsOnTracksUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutArtistInput | ArtistsOnTracksCreateOrConnectWithoutArtistInput[]
+    createMany?: ArtistsOnTracksCreateManyArtistInputEnvelope
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
   }
 
   export type GenreCreateNestedOneWithoutArtistsInput = {
@@ -9348,14 +18206,11 @@ export namespace Prisma {
     connect?: GenreWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutArtistsFollowedInput = {
-    create?: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutArtistsFollowedInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type ArtistsCreateuserIdInput = {
-    set: string[]
+  export type UserFollowsArtistsCreateNestedManyWithoutArtistInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput> | UserFollowsArtistsCreateWithoutArtistInput[] | UserFollowsArtistsUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutArtistInput | UserFollowsArtistsCreateOrConnectWithoutArtistInput[]
+    createMany?: UserFollowsArtistsCreateManyArtistInputEnvelope
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
   }
 
   export type AlbumsUncheckedCreateNestedManyWithoutArtistInput = {
@@ -9365,11 +18220,18 @@ export namespace Prisma {
     connect?: AlbumsWhereUniqueInput | AlbumsWhereUniqueInput[]
   }
 
-  export type TracksUncheckedCreateNestedManyWithoutArtistInput = {
-    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput> | TracksCreateWithoutArtistInput[] | TracksUncheckedCreateWithoutArtistInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput | TracksCreateOrConnectWithoutArtistInput[]
-    createMany?: TracksCreateManyArtistInputEnvelope
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
+  export type ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput> | ArtistsOnTracksCreateWithoutArtistInput[] | ArtistsOnTracksUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutArtistInput | ArtistsOnTracksCreateOrConnectWithoutArtistInput[]
+    createMany?: ArtistsOnTracksCreateManyArtistInputEnvelope
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+  }
+
+  export type UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput> | UserFollowsArtistsCreateWithoutArtistInput[] | UserFollowsArtistsUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutArtistInput | UserFollowsArtistsCreateOrConnectWithoutArtistInput[]
+    createMany?: UserFollowsArtistsCreateManyArtistInputEnvelope
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
   }
 
   export type AlbumsUpdateManyWithoutArtistNestedInput = {
@@ -9386,18 +18248,18 @@ export namespace Prisma {
     deleteMany?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
   }
 
-  export type TracksUpdateManyWithoutArtistNestedInput = {
-    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput> | TracksCreateWithoutArtistInput[] | TracksUncheckedCreateWithoutArtistInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput | TracksCreateOrConnectWithoutArtistInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutArtistInput | TracksUpsertWithWhereUniqueWithoutArtistInput[]
-    createMany?: TracksCreateManyArtistInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutArtistInput | TracksUpdateWithWhereUniqueWithoutArtistInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutArtistInput | TracksUpdateManyWithWhereWithoutArtistInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type ArtistsOnTracksUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput> | ArtistsOnTracksCreateWithoutArtistInput[] | ArtistsOnTracksUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutArtistInput | ArtistsOnTracksCreateOrConnectWithoutArtistInput[]
+    upsert?: ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput | ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput[]
+    createMany?: ArtistsOnTracksCreateManyArtistInputEnvelope
+    set?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    disconnect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    delete?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    update?: ArtistsOnTracksUpdateWithWhereUniqueWithoutArtistInput | ArtistsOnTracksUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: ArtistsOnTracksUpdateManyWithWhereWithoutArtistInput | ArtistsOnTracksUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
   }
 
   export type GenreUpdateOneRequiredWithoutArtistsNestedInput = {
@@ -9408,17 +18270,18 @@ export namespace Prisma {
     update?: XOR<XOR<GenreUpdateToOneWithWhereWithoutArtistsInput, GenreUpdateWithoutArtistsInput>, GenreUncheckedUpdateWithoutArtistsInput>
   }
 
-  export type UserUpdateOneRequiredWithoutArtistsFollowedNestedInput = {
-    create?: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
-    connectOrCreate?: UserCreateOrConnectWithoutArtistsFollowedInput
-    upsert?: UserUpsertWithoutArtistsFollowedInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutArtistsFollowedInput, UserUpdateWithoutArtistsFollowedInput>, UserUncheckedUpdateWithoutArtistsFollowedInput>
-  }
-
-  export type ArtistsUpdateuserIdInput = {
-    set?: string[]
-    push?: string | string[]
+  export type UserFollowsArtistsUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput> | UserFollowsArtistsCreateWithoutArtistInput[] | UserFollowsArtistsUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutArtistInput | UserFollowsArtistsCreateOrConnectWithoutArtistInput[]
+    upsert?: UserFollowsArtistsUpsertWithWhereUniqueWithoutArtistInput | UserFollowsArtistsUpsertWithWhereUniqueWithoutArtistInput[]
+    createMany?: UserFollowsArtistsCreateManyArtistInputEnvelope
+    set?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    disconnect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    delete?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    update?: UserFollowsArtistsUpdateWithWhereUniqueWithoutArtistInput | UserFollowsArtistsUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: UserFollowsArtistsUpdateManyWithWhereWithoutArtistInput | UserFollowsArtistsUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
   }
 
   export type AlbumsUncheckedUpdateManyWithoutArtistNestedInput = {
@@ -9435,18 +18298,32 @@ export namespace Prisma {
     deleteMany?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
   }
 
-  export type TracksUncheckedUpdateManyWithoutArtistNestedInput = {
-    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput> | TracksCreateWithoutArtistInput[] | TracksUncheckedCreateWithoutArtistInput[]
-    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput | TracksCreateOrConnectWithoutArtistInput[]
-    upsert?: TracksUpsertWithWhereUniqueWithoutArtistInput | TracksUpsertWithWhereUniqueWithoutArtistInput[]
-    createMany?: TracksCreateManyArtistInputEnvelope
-    set?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    disconnect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    delete?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    connect?: TracksWhereUniqueInput | TracksWhereUniqueInput[]
-    update?: TracksUpdateWithWhereUniqueWithoutArtistInput | TracksUpdateWithWhereUniqueWithoutArtistInput[]
-    updateMany?: TracksUpdateManyWithWhereWithoutArtistInput | TracksUpdateManyWithWhereWithoutArtistInput[]
-    deleteMany?: TracksScalarWhereInput | TracksScalarWhereInput[]
+  export type ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput> | ArtistsOnTracksCreateWithoutArtistInput[] | ArtistsOnTracksUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: ArtistsOnTracksCreateOrConnectWithoutArtistInput | ArtistsOnTracksCreateOrConnectWithoutArtistInput[]
+    upsert?: ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput | ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput[]
+    createMany?: ArtistsOnTracksCreateManyArtistInputEnvelope
+    set?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    disconnect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    delete?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    connect?: ArtistsOnTracksWhereUniqueInput | ArtistsOnTracksWhereUniqueInput[]
+    update?: ArtistsOnTracksUpdateWithWhereUniqueWithoutArtistInput | ArtistsOnTracksUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: ArtistsOnTracksUpdateManyWithWhereWithoutArtistInput | ArtistsOnTracksUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput> | UserFollowsArtistsCreateWithoutArtistInput[] | UserFollowsArtistsUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: UserFollowsArtistsCreateOrConnectWithoutArtistInput | UserFollowsArtistsCreateOrConnectWithoutArtistInput[]
+    upsert?: UserFollowsArtistsUpsertWithWhereUniqueWithoutArtistInput | UserFollowsArtistsUpsertWithWhereUniqueWithoutArtistInput[]
+    createMany?: UserFollowsArtistsCreateManyArtistInputEnvelope
+    set?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    disconnect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    delete?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    connect?: UserFollowsArtistsWhereUniqueInput | UserFollowsArtistsWhereUniqueInput[]
+    update?: UserFollowsArtistsUpdateWithWhereUniqueWithoutArtistInput | UserFollowsArtistsUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: UserFollowsArtistsUpdateManyWithWhereWithoutArtistInput | UserFollowsArtistsUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
   }
 
   export type AlbumsCreateNestedManyWithoutGenreInput = {
@@ -9470,13 +18347,6 @@ export namespace Prisma {
     connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
   }
 
-  export type PlaylistsCreateNestedManyWithoutGenreInput = {
-    create?: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput> | PlaylistsCreateWithoutGenreInput[] | PlaylistsUncheckedCreateWithoutGenreInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutGenreInput | PlaylistsCreateOrConnectWithoutGenreInput[]
-    createMany?: PlaylistsCreateManyGenreInputEnvelope
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-  }
-
   export type AlbumsUncheckedCreateNestedManyWithoutGenreInput = {
     create?: XOR<AlbumsCreateWithoutGenreInput, AlbumsUncheckedCreateWithoutGenreInput> | AlbumsCreateWithoutGenreInput[] | AlbumsUncheckedCreateWithoutGenreInput[]
     connectOrCreate?: AlbumsCreateOrConnectWithoutGenreInput | AlbumsCreateOrConnectWithoutGenreInput[]
@@ -9496,13 +18366,6 @@ export namespace Prisma {
     connectOrCreate?: ArtistsCreateOrConnectWithoutGenreInput | ArtistsCreateOrConnectWithoutGenreInput[]
     createMany?: ArtistsCreateManyGenreInputEnvelope
     connect?: ArtistsWhereUniqueInput | ArtistsWhereUniqueInput[]
-  }
-
-  export type PlaylistsUncheckedCreateNestedManyWithoutGenreInput = {
-    create?: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput> | PlaylistsCreateWithoutGenreInput[] | PlaylistsUncheckedCreateWithoutGenreInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutGenreInput | PlaylistsCreateOrConnectWithoutGenreInput[]
-    createMany?: PlaylistsCreateManyGenreInputEnvelope
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
   }
 
   export type AlbumsUpdateManyWithoutGenreNestedInput = {
@@ -9547,20 +18410,6 @@ export namespace Prisma {
     deleteMany?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
   }
 
-  export type PlaylistsUpdateManyWithoutGenreNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput> | PlaylistsCreateWithoutGenreInput[] | PlaylistsUncheckedCreateWithoutGenreInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutGenreInput | PlaylistsCreateOrConnectWithoutGenreInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutGenreInput | PlaylistsUpsertWithWhereUniqueWithoutGenreInput[]
-    createMany?: PlaylistsCreateManyGenreInputEnvelope
-    set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutGenreInput | PlaylistsUpdateWithWhereUniqueWithoutGenreInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutGenreInput | PlaylistsUpdateManyWithWhereWithoutGenreInput[]
-    deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
-  }
-
   export type AlbumsUncheckedUpdateManyWithoutGenreNestedInput = {
     create?: XOR<AlbumsCreateWithoutGenreInput, AlbumsUncheckedCreateWithoutGenreInput> | AlbumsCreateWithoutGenreInput[] | AlbumsUncheckedCreateWithoutGenreInput[]
     connectOrCreate?: AlbumsCreateOrConnectWithoutGenreInput | AlbumsCreateOrConnectWithoutGenreInput[]
@@ -9603,18 +18452,204 @@ export namespace Prisma {
     deleteMany?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
   }
 
-  export type PlaylistsUncheckedUpdateManyWithoutGenreNestedInput = {
-    create?: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput> | PlaylistsCreateWithoutGenreInput[] | PlaylistsUncheckedCreateWithoutGenreInput[]
-    connectOrCreate?: PlaylistsCreateOrConnectWithoutGenreInput | PlaylistsCreateOrConnectWithoutGenreInput[]
-    upsert?: PlaylistsUpsertWithWhereUniqueWithoutGenreInput | PlaylistsUpsertWithWhereUniqueWithoutGenreInput[]
-    createMany?: PlaylistsCreateManyGenreInputEnvelope
-    set?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    disconnect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    delete?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    connect?: PlaylistsWhereUniqueInput | PlaylistsWhereUniqueInput[]
-    update?: PlaylistsUpdateWithWhereUniqueWithoutGenreInput | PlaylistsUpdateWithWhereUniqueWithoutGenreInput[]
-    updateMany?: PlaylistsUpdateManyWithWhereWithoutGenreInput | PlaylistsUpdateManyWithWhereWithoutGenreInput[]
-    deleteMany?: PlaylistsScalarWhereInput | PlaylistsScalarWhereInput[]
+  export type ArtistsCreateNestedOneWithoutTracksInput = {
+    create?: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
+    connectOrCreate?: ArtistsCreateOrConnectWithoutTracksInput
+    connect?: ArtistsWhereUniqueInput
+  }
+
+  export type TracksCreateNestedOneWithoutArtistInput = {
+    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput
+    connect?: TracksWhereUniqueInput
+  }
+
+  export type ArtistsUpdateOneRequiredWithoutTracksNestedInput = {
+    create?: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
+    connectOrCreate?: ArtistsCreateOrConnectWithoutTracksInput
+    upsert?: ArtistsUpsertWithoutTracksInput
+    connect?: ArtistsWhereUniqueInput
+    update?: XOR<XOR<ArtistsUpdateToOneWithWhereWithoutTracksInput, ArtistsUpdateWithoutTracksInput>, ArtistsUncheckedUpdateWithoutTracksInput>
+  }
+
+  export type TracksUpdateOneRequiredWithoutArtistNestedInput = {
+    create?: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutArtistInput
+    upsert?: TracksUpsertWithoutArtistInput
+    connect?: TracksWhereUniqueInput
+    update?: XOR<XOR<TracksUpdateToOneWithWhereWithoutArtistInput, TracksUpdateWithoutArtistInput>, TracksUncheckedUpdateWithoutArtistInput>
+  }
+
+  export type AlbumsCreateNestedOneWithoutTracksInput = {
+    create?: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
+    connectOrCreate?: AlbumsCreateOrConnectWithoutTracksInput
+    connect?: AlbumsWhereUniqueInput
+  }
+
+  export type TracksCreateNestedOneWithoutAlbumInput = {
+    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput
+    connect?: TracksWhereUniqueInput
+  }
+
+  export type AlbumsUpdateOneRequiredWithoutTracksNestedInput = {
+    create?: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
+    connectOrCreate?: AlbumsCreateOrConnectWithoutTracksInput
+    upsert?: AlbumsUpsertWithoutTracksInput
+    connect?: AlbumsWhereUniqueInput
+    update?: XOR<XOR<AlbumsUpdateToOneWithWhereWithoutTracksInput, AlbumsUpdateWithoutTracksInput>, AlbumsUncheckedUpdateWithoutTracksInput>
+  }
+
+  export type TracksUpdateOneRequiredWithoutAlbumNestedInput = {
+    create?: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutAlbumInput
+    upsert?: TracksUpsertWithoutAlbumInput
+    connect?: TracksWhereUniqueInput
+    update?: XOR<XOR<TracksUpdateToOneWithWhereWithoutAlbumInput, TracksUpdateWithoutAlbumInput>, TracksUncheckedUpdateWithoutAlbumInput>
+  }
+
+  export type UserCreateNestedOneWithoutFavTracksInput = {
+    create?: XOR<UserCreateWithoutFavTracksInput, UserUncheckedCreateWithoutFavTracksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFavTracksInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TracksCreateNestedOneWithoutFavsOfUsersInput = {
+    create?: XOR<TracksCreateWithoutFavsOfUsersInput, TracksUncheckedCreateWithoutFavsOfUsersInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutFavsOfUsersInput
+    connect?: TracksWhereUniqueInput
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type UserUpdateOneRequiredWithoutFavTracksNestedInput = {
+    create?: XOR<UserCreateWithoutFavTracksInput, UserUncheckedCreateWithoutFavTracksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFavTracksInput
+    upsert?: UserUpsertWithoutFavTracksInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavTracksInput, UserUpdateWithoutFavTracksInput>, UserUncheckedUpdateWithoutFavTracksInput>
+  }
+
+  export type TracksUpdateOneRequiredWithoutFavsOfUsersNestedInput = {
+    create?: XOR<TracksCreateWithoutFavsOfUsersInput, TracksUncheckedCreateWithoutFavsOfUsersInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutFavsOfUsersInput
+    upsert?: TracksUpsertWithoutFavsOfUsersInput
+    connect?: TracksWhereUniqueInput
+    update?: XOR<XOR<TracksUpdateToOneWithWhereWithoutFavsOfUsersInput, TracksUpdateWithoutFavsOfUsersInput>, TracksUncheckedUpdateWithoutFavsOfUsersInput>
+  }
+
+  export type PlaylistsCreateNestedOneWithoutTracksConnectionsInput = {
+    create?: XOR<PlaylistsCreateWithoutTracksConnectionsInput, PlaylistsUncheckedCreateWithoutTracksConnectionsInput>
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksConnectionsInput
+    connect?: PlaylistsWhereUniqueInput
+  }
+
+  export type TracksCreateNestedOneWithoutPlaylistConnectionsInput = {
+    create?: XOR<TracksCreateWithoutPlaylistConnectionsInput, TracksUncheckedCreateWithoutPlaylistConnectionsInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutPlaylistConnectionsInput
+    connect?: TracksWhereUniqueInput
+  }
+
+  export type PlaylistsUpdateOneRequiredWithoutTracksConnectionsNestedInput = {
+    create?: XOR<PlaylistsCreateWithoutTracksConnectionsInput, PlaylistsUncheckedCreateWithoutTracksConnectionsInput>
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutTracksConnectionsInput
+    upsert?: PlaylistsUpsertWithoutTracksConnectionsInput
+    connect?: PlaylistsWhereUniqueInput
+    update?: XOR<XOR<PlaylistsUpdateToOneWithWhereWithoutTracksConnectionsInput, PlaylistsUpdateWithoutTracksConnectionsInput>, PlaylistsUncheckedUpdateWithoutTracksConnectionsInput>
+  }
+
+  export type TracksUpdateOneRequiredWithoutPlaylistConnectionsNestedInput = {
+    create?: XOR<TracksCreateWithoutPlaylistConnectionsInput, TracksUncheckedCreateWithoutPlaylistConnectionsInput>
+    connectOrCreate?: TracksCreateOrConnectWithoutPlaylistConnectionsInput
+    upsert?: TracksUpsertWithoutPlaylistConnectionsInput
+    connect?: TracksWhereUniqueInput
+    update?: XOR<XOR<TracksUpdateToOneWithWhereWithoutPlaylistConnectionsInput, TracksUpdateWithoutPlaylistConnectionsInput>, TracksUncheckedUpdateWithoutPlaylistConnectionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutFollowedPlaylistsInput = {
+    create?: XOR<UserCreateWithoutFollowedPlaylistsInput, UserUncheckedCreateWithoutFollowedPlaylistsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFollowedPlaylistsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type PlaylistsCreateNestedOneWithoutFollowersInput = {
+    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput
+    connect?: PlaylistsWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutFollowedPlaylistsNestedInput = {
+    create?: XOR<UserCreateWithoutFollowedPlaylistsInput, UserUncheckedCreateWithoutFollowedPlaylistsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFollowedPlaylistsInput
+    upsert?: UserUpsertWithoutFollowedPlaylistsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFollowedPlaylistsInput, UserUpdateWithoutFollowedPlaylistsInput>, UserUncheckedUpdateWithoutFollowedPlaylistsInput>
+  }
+
+  export type PlaylistsUpdateOneRequiredWithoutFollowersNestedInput = {
+    create?: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+    connectOrCreate?: PlaylistsCreateOrConnectWithoutFollowersInput
+    upsert?: PlaylistsUpsertWithoutFollowersInput
+    connect?: PlaylistsWhereUniqueInput
+    update?: XOR<XOR<PlaylistsUpdateToOneWithWhereWithoutFollowersInput, PlaylistsUpdateWithoutFollowersInput>, PlaylistsUncheckedUpdateWithoutFollowersInput>
+  }
+
+  export type UserCreateNestedOneWithoutArtistsFollowedInput = {
+    create?: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
+    connectOrCreate?: UserCreateOrConnectWithoutArtistsFollowedInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ArtistsCreateNestedOneWithoutFollowersInput = {
+    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput
+    connect?: ArtistsWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutArtistsFollowedNestedInput = {
+    create?: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
+    connectOrCreate?: UserCreateOrConnectWithoutArtistsFollowedInput
+    upsert?: UserUpsertWithoutArtistsFollowedInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutArtistsFollowedInput, UserUpdateWithoutArtistsFollowedInput>, UserUncheckedUpdateWithoutArtistsFollowedInput>
+  }
+
+  export type ArtistsUpdateOneRequiredWithoutFollowersNestedInput = {
+    create?: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+    connectOrCreate?: ArtistsCreateOrConnectWithoutFollowersInput
+    upsert?: ArtistsUpsertWithoutFollowersInput
+    connect?: ArtistsWhereUniqueInput
+    update?: XOR<XOR<ArtistsUpdateToOneWithWhereWithoutFollowersInput, ArtistsUpdateWithoutFollowersInput>, ArtistsUncheckedUpdateWithoutFollowersInput>
+  }
+
+  export type UserCreateNestedOneWithoutLikedAlbumsInput = {
+    create?: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLikedAlbumsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type AlbumsCreateNestedOneWithoutLikedByUsersInput = {
+    create?: XOR<AlbumsCreateWithoutLikedByUsersInput, AlbumsUncheckedCreateWithoutLikedByUsersInput>
+    connectOrCreate?: AlbumsCreateOrConnectWithoutLikedByUsersInput
+    connect?: AlbumsWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLikedAlbumsNestedInput = {
+    create?: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLikedAlbumsInput
+    upsert?: UserUpsertWithoutLikedAlbumsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikedAlbumsInput, UserUpdateWithoutLikedAlbumsInput>, UserUncheckedUpdateWithoutLikedAlbumsInput>
+  }
+
+  export type AlbumsUpdateOneRequiredWithoutLikedByUsersNestedInput = {
+    create?: XOR<AlbumsCreateWithoutLikedByUsersInput, AlbumsUncheckedCreateWithoutLikedByUsersInput>
+    connectOrCreate?: AlbumsCreateOrConnectWithoutLikedByUsersInput
+    upsert?: AlbumsUpsertWithoutLikedByUsersInput
+    connect?: AlbumsWhereUniqueInput
+    update?: XOR<XOR<AlbumsUpdateToOneWithWhereWithoutLikedByUsersInput, AlbumsUpdateWithoutLikedByUsersInput>, AlbumsUncheckedUpdateWithoutLikedByUsersInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -9629,6 +18664,21 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -9659,188 +18709,274 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type TracksCreateWithoutFollowersInput = {
-    id?: string
-    name: string
-    url: string
-    thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutTracksInput
-    genre: GenreCreateNestedOneWithoutTracksInput
-    album: AlbumsCreateNestedOneWithoutTracksInput
-    playlists?: PlaylistsCreateNestedManyWithoutTracksInput
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
-  export type TracksUncheckedCreateWithoutFollowersInput = {
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type UserLikedAlbumsCreateWithoutUserInput = {
     id?: string
-    name: string
-    artistId: string
-    url: string
-    thumbnail: string
-    genreId: string
+    createdAt?: Date | string
+    album: AlbumsCreateNestedOneWithoutLikedByUsersInput
+  }
+
+  export type UserLikedAlbumsUncheckedCreateWithoutUserInput = {
+    id?: string
     albumId: string
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutTracksInput
+    createdAt?: Date | string
   }
 
-  export type TracksCreateOrConnectWithoutFollowersInput = {
-    where: TracksWhereUniqueInput
-    create: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput>
+  export type UserLikedAlbumsCreateOrConnectWithoutUserInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    create: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput>
   }
 
-  export type TracksCreateManyFollowersInputEnvelope = {
-    data: TracksCreateManyFollowersInput | TracksCreateManyFollowersInput[]
+  export type UserLikedAlbumsCreateManyUserInputEnvelope = {
+    data: UserLikedAlbumsCreateManyUserInput | UserLikedAlbumsCreateManyUserInput[]
   }
 
-  export type AlbumsCreateWithoutFollowersInput = {
+  export type UserFollowsArtistsCreateWithoutUserInput = {
     id?: string
-    name: string
-    thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutAlbumsInput
-    tracks?: TracksCreateNestedManyWithoutAlbumInput
-    genre: GenreCreateNestedOneWithoutAlbumsInput
+    createdAt?: Date | string
+    artist: ArtistsCreateNestedOneWithoutFollowersInput
   }
 
-  export type AlbumsUncheckedCreateWithoutFollowersInput = {
+  export type UserFollowsArtistsUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
     artistId: string
-    thumbnail: string
-    genreId: string
-    tracks?: TracksUncheckedCreateNestedManyWithoutAlbumInput
+    createdAt?: Date | string
   }
 
-  export type AlbumsCreateOrConnectWithoutFollowersInput = {
-    where: AlbumsWhereUniqueInput
-    create: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput>
+  export type UserFollowsArtistsCreateOrConnectWithoutUserInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    create: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput>
   }
 
-  export type AlbumsCreateManyFollowersInputEnvelope = {
-    data: AlbumsCreateManyFollowersInput | AlbumsCreateManyFollowersInput[]
+  export type UserFollowsArtistsCreateManyUserInputEnvelope = {
+    data: UserFollowsArtistsCreateManyUserInput | UserFollowsArtistsCreateManyUserInput[]
   }
 
-  export type PlaylistsCreateWithoutFollowersInput = {
+  export type UserFollowsPlaylistsCreateWithoutUserInput = {
+    id?: string
+    playlist: PlaylistsCreateNestedOneWithoutFollowersInput
+  }
+
+  export type UserFollowsPlaylistsUncheckedCreateWithoutUserInput = {
+    id?: string
+    playlistId: string
+  }
+
+  export type UserFollowsPlaylistsCreateOrConnectWithoutUserInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    create: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserFollowsPlaylistsCreateManyUserInputEnvelope = {
+    data: UserFollowsPlaylistsCreateManyUserInput | UserFollowsPlaylistsCreateManyUserInput[]
+  }
+
+  export type PlaylistsCreateWithoutUserInput = {
     id?: string
     name: string
     thumbnail: string
-    tracks: TracksCreateNestedOneWithoutPlaylistsInput
-    genre: GenreCreateNestedOneWithoutPlaylistsInput
+    publicAccess?: boolean
+    followers?: UserFollowsPlaylistsCreateNestedManyWithoutPlaylistInput
+    tracksConnections?: PlaylistToTrackCreateNestedManyWithoutPlaylistInput
   }
 
-  export type PlaylistsUncheckedCreateWithoutFollowersInput = {
+  export type PlaylistsUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
     thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    genreId: string
+    publicAccess?: boolean
+    followers?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutPlaylistInput
+    tracksConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutPlaylistInput
   }
 
-  export type PlaylistsCreateOrConnectWithoutFollowersInput = {
+  export type PlaylistsCreateOrConnectWithoutUserInput = {
     where: PlaylistsWhereUniqueInput
-    create: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+    create: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput>
   }
 
-  export type PlaylistsCreateManyFollowersInputEnvelope = {
-    data: PlaylistsCreateManyFollowersInput | PlaylistsCreateManyFollowersInput[]
+  export type PlaylistsCreateManyUserInputEnvelope = {
+    data: PlaylistsCreateManyUserInput | PlaylistsCreateManyUserInput[]
   }
 
-  export type ArtistsCreateWithoutFollowersInput = {
+  export type UserFavsTracksCreateWithoutUserInput = {
     id?: string
-    name: string
-    thumbnail: string
-    albums?: AlbumsCreateNestedManyWithoutArtistInput
-    tracks?: TracksCreateNestedManyWithoutArtistInput
-    genre: GenreCreateNestedOneWithoutArtistsInput
+    createdAt?: Date | string
+    track: TracksCreateNestedOneWithoutFavsOfUsersInput
   }
 
-  export type ArtistsUncheckedCreateWithoutFollowersInput = {
+  export type UserFavsTracksUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
-    thumbnail: string
-    genreId: string
-    albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
-    tracks?: TracksUncheckedCreateNestedManyWithoutArtistInput
+    trackId: string
+    createdAt?: Date | string
   }
 
-  export type ArtistsCreateOrConnectWithoutFollowersInput = {
-    where: ArtistsWhereUniqueInput
-    create: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+  export type UserFavsTracksCreateOrConnectWithoutUserInput = {
+    where: UserFavsTracksWhereUniqueInput
+    create: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput>
   }
 
-  export type ArtistsCreateManyFollowersInputEnvelope = {
-    data: ArtistsCreateManyFollowersInput | ArtistsCreateManyFollowersInput[]
+  export type UserFavsTracksCreateManyUserInputEnvelope = {
+    data: UserFavsTracksCreateManyUserInput | UserFavsTracksCreateManyUserInput[]
   }
 
-  export type TracksUpsertWithWhereUniqueWithoutFollowersInput = {
-    where: TracksWhereUniqueInput
-    update: XOR<TracksUpdateWithoutFollowersInput, TracksUncheckedUpdateWithoutFollowersInput>
-    create: XOR<TracksCreateWithoutFollowersInput, TracksUncheckedCreateWithoutFollowersInput>
+  export type UserLikedAlbumsUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    update: XOR<UserLikedAlbumsUpdateWithoutUserInput, UserLikedAlbumsUncheckedUpdateWithoutUserInput>
+    create: XOR<UserLikedAlbumsCreateWithoutUserInput, UserLikedAlbumsUncheckedCreateWithoutUserInput>
   }
 
-  export type TracksUpdateWithWhereUniqueWithoutFollowersInput = {
-    where: TracksWhereUniqueInput
-    data: XOR<TracksUpdateWithoutFollowersInput, TracksUncheckedUpdateWithoutFollowersInput>
+  export type UserLikedAlbumsUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    data: XOR<UserLikedAlbumsUpdateWithoutUserInput, UserLikedAlbumsUncheckedUpdateWithoutUserInput>
   }
 
-  export type TracksUpdateManyWithWhereWithoutFollowersInput = {
-    where: TracksScalarWhereInput
-    data: XOR<TracksUpdateManyMutationInput, TracksUncheckedUpdateManyWithoutFollowersInput>
+  export type UserLikedAlbumsUpdateManyWithWhereWithoutUserInput = {
+    where: UserLikedAlbumsScalarWhereInput
+    data: XOR<UserLikedAlbumsUpdateManyMutationInput, UserLikedAlbumsUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type TracksScalarWhereInput = {
-    AND?: TracksScalarWhereInput | TracksScalarWhereInput[]
-    OR?: TracksScalarWhereInput[]
-    NOT?: TracksScalarWhereInput | TracksScalarWhereInput[]
-    id?: StringFilter<"Tracks"> | string
-    name?: StringFilter<"Tracks"> | string
-    artistId?: StringFilter<"Tracks"> | string
-    url?: StringFilter<"Tracks"> | string
-    thumbnail?: StringFilter<"Tracks"> | string
-    genreId?: StringFilter<"Tracks"> | string
-    albumId?: StringFilter<"Tracks"> | string
-    userId?: StringNullableListFilter<"Tracks">
+  export type UserLikedAlbumsScalarWhereInput = {
+    AND?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
+    OR?: UserLikedAlbumsScalarWhereInput[]
+    NOT?: UserLikedAlbumsScalarWhereInput | UserLikedAlbumsScalarWhereInput[]
+    id?: StringFilter<"UserLikedAlbums"> | string
+    userId?: StringFilter<"UserLikedAlbums"> | string
+    albumId?: StringFilter<"UserLikedAlbums"> | string
+    createdAt?: DateTimeFilter<"UserLikedAlbums"> | Date | string
   }
 
-  export type AlbumsUpsertWithWhereUniqueWithoutFollowersInput = {
-    where: AlbumsWhereUniqueInput
-    update: XOR<AlbumsUpdateWithoutFollowersInput, AlbumsUncheckedUpdateWithoutFollowersInput>
-    create: XOR<AlbumsCreateWithoutFollowersInput, AlbumsUncheckedCreateWithoutFollowersInput>
+  export type UserFollowsArtistsUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    update: XOR<UserFollowsArtistsUpdateWithoutUserInput, UserFollowsArtistsUncheckedUpdateWithoutUserInput>
+    create: XOR<UserFollowsArtistsCreateWithoutUserInput, UserFollowsArtistsUncheckedCreateWithoutUserInput>
   }
 
-  export type AlbumsUpdateWithWhereUniqueWithoutFollowersInput = {
-    where: AlbumsWhereUniqueInput
-    data: XOR<AlbumsUpdateWithoutFollowersInput, AlbumsUncheckedUpdateWithoutFollowersInput>
+  export type UserFollowsArtistsUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    data: XOR<UserFollowsArtistsUpdateWithoutUserInput, UserFollowsArtistsUncheckedUpdateWithoutUserInput>
   }
 
-  export type AlbumsUpdateManyWithWhereWithoutFollowersInput = {
-    where: AlbumsScalarWhereInput
-    data: XOR<AlbumsUpdateManyMutationInput, AlbumsUncheckedUpdateManyWithoutFollowersInput>
+  export type UserFollowsArtistsUpdateManyWithWhereWithoutUserInput = {
+    where: UserFollowsArtistsScalarWhereInput
+    data: XOR<UserFollowsArtistsUpdateManyMutationInput, UserFollowsArtistsUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type AlbumsScalarWhereInput = {
-    AND?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
-    OR?: AlbumsScalarWhereInput[]
-    NOT?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
-    id?: StringFilter<"Albums"> | string
-    name?: StringFilter<"Albums"> | string
-    artistId?: StringFilter<"Albums"> | string
-    thumbnail?: StringFilter<"Albums"> | string
-    genreId?: StringFilter<"Albums"> | string
-    userId?: StringNullableListFilter<"Albums">
+  export type UserFollowsArtistsScalarWhereInput = {
+    AND?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
+    OR?: UserFollowsArtistsScalarWhereInput[]
+    NOT?: UserFollowsArtistsScalarWhereInput | UserFollowsArtistsScalarWhereInput[]
+    id?: StringFilter<"UserFollowsArtists"> | string
+    userId?: StringFilter<"UserFollowsArtists"> | string
+    artistId?: StringFilter<"UserFollowsArtists"> | string
+    createdAt?: DateTimeFilter<"UserFollowsArtists"> | Date | string
   }
 
-  export type PlaylistsUpsertWithWhereUniqueWithoutFollowersInput = {
+  export type UserFollowsPlaylistsUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    update: XOR<UserFollowsPlaylistsUpdateWithoutUserInput, UserFollowsPlaylistsUncheckedUpdateWithoutUserInput>
+    create: XOR<UserFollowsPlaylistsCreateWithoutUserInput, UserFollowsPlaylistsUncheckedCreateWithoutUserInput>
+  }
+
+  export type UserFollowsPlaylistsUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    data: XOR<UserFollowsPlaylistsUpdateWithoutUserInput, UserFollowsPlaylistsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserFollowsPlaylistsUpdateManyWithWhereWithoutUserInput = {
+    where: UserFollowsPlaylistsScalarWhereInput
+    data: XOR<UserFollowsPlaylistsUpdateManyMutationInput, UserFollowsPlaylistsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserFollowsPlaylistsScalarWhereInput = {
+    AND?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
+    OR?: UserFollowsPlaylistsScalarWhereInput[]
+    NOT?: UserFollowsPlaylistsScalarWhereInput | UserFollowsPlaylistsScalarWhereInput[]
+    id?: StringFilter<"UserFollowsPlaylists"> | string
+    userId?: StringFilter<"UserFollowsPlaylists"> | string
+    playlistId?: StringFilter<"UserFollowsPlaylists"> | string
+  }
+
+  export type PlaylistsUpsertWithWhereUniqueWithoutUserInput = {
     where: PlaylistsWhereUniqueInput
-    update: XOR<PlaylistsUpdateWithoutFollowersInput, PlaylistsUncheckedUpdateWithoutFollowersInput>
-    create: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+    update: XOR<PlaylistsUpdateWithoutUserInput, PlaylistsUncheckedUpdateWithoutUserInput>
+    create: XOR<PlaylistsCreateWithoutUserInput, PlaylistsUncheckedCreateWithoutUserInput>
   }
 
-  export type PlaylistsUpdateWithWhereUniqueWithoutFollowersInput = {
+  export type PlaylistsUpdateWithWhereUniqueWithoutUserInput = {
     where: PlaylistsWhereUniqueInput
-    data: XOR<PlaylistsUpdateWithoutFollowersInput, PlaylistsUncheckedUpdateWithoutFollowersInput>
+    data: XOR<PlaylistsUpdateWithoutUserInput, PlaylistsUncheckedUpdateWithoutUserInput>
   }
 
-  export type PlaylistsUpdateManyWithWhereWithoutFollowersInput = {
+  export type PlaylistsUpdateManyWithWhereWithoutUserInput = {
     where: PlaylistsScalarWhereInput
-    data: XOR<PlaylistsUpdateManyMutationInput, PlaylistsUncheckedUpdateManyWithoutFollowersInput>
+    data: XOR<PlaylistsUpdateManyMutationInput, PlaylistsUncheckedUpdateManyWithoutUserInput>
   }
 
   export type PlaylistsScalarWhereInput = {
@@ -9850,59 +18986,53 @@ export namespace Prisma {
     id?: StringFilter<"Playlists"> | string
     name?: StringFilter<"Playlists"> | string
     thumbnail?: StringFilter<"Playlists"> | string
-    trackId?: StringNullableListFilter<"Playlists">
-    genreId?: StringFilter<"Playlists"> | string
-    userId?: StringNullableListFilter<"Playlists">
+    publicAccess?: BoolFilter<"Playlists"> | boolean
+    userId?: StringFilter<"Playlists"> | string
   }
 
-  export type ArtistsUpsertWithWhereUniqueWithoutFollowersInput = {
-    where: ArtistsWhereUniqueInput
-    update: XOR<ArtistsUpdateWithoutFollowersInput, ArtistsUncheckedUpdateWithoutFollowersInput>
-    create: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+  export type UserFavsTracksUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserFavsTracksWhereUniqueInput
+    update: XOR<UserFavsTracksUpdateWithoutUserInput, UserFavsTracksUncheckedUpdateWithoutUserInput>
+    create: XOR<UserFavsTracksCreateWithoutUserInput, UserFavsTracksUncheckedCreateWithoutUserInput>
   }
 
-  export type ArtistsUpdateWithWhereUniqueWithoutFollowersInput = {
-    where: ArtistsWhereUniqueInput
-    data: XOR<ArtistsUpdateWithoutFollowersInput, ArtistsUncheckedUpdateWithoutFollowersInput>
+  export type UserFavsTracksUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserFavsTracksWhereUniqueInput
+    data: XOR<UserFavsTracksUpdateWithoutUserInput, UserFavsTracksUncheckedUpdateWithoutUserInput>
   }
 
-  export type ArtistsUpdateManyWithWhereWithoutFollowersInput = {
-    where: ArtistsScalarWhereInput
-    data: XOR<ArtistsUpdateManyMutationInput, ArtistsUncheckedUpdateManyWithoutFollowersInput>
+  export type UserFavsTracksUpdateManyWithWhereWithoutUserInput = {
+    where: UserFavsTracksScalarWhereInput
+    data: XOR<UserFavsTracksUpdateManyMutationInput, UserFavsTracksUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ArtistsScalarWhereInput = {
-    AND?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
-    OR?: ArtistsScalarWhereInput[]
-    NOT?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
-    id?: StringFilter<"Artists"> | string
-    name?: StringFilter<"Artists"> | string
-    thumbnail?: StringFilter<"Artists"> | string
-    genreId?: StringFilter<"Artists"> | string
-    userId?: StringNullableListFilter<"Artists">
+  export type UserFavsTracksScalarWhereInput = {
+    AND?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
+    OR?: UserFavsTracksScalarWhereInput[]
+    NOT?: UserFavsTracksScalarWhereInput | UserFavsTracksScalarWhereInput[]
+    id?: StringFilter<"UserFavsTracks"> | string
+    userId?: StringFilter<"UserFavsTracks"> | string
+    trackId?: StringFilter<"UserFavsTracks"> | string
+    createdAt?: DateTimeFilter<"UserFavsTracks"> | Date | string
   }
 
-  export type ArtistsCreateWithoutTracksInput = {
+  export type ArtistsOnTracksCreateWithoutTrackInput = {
     id?: string
-    name: string
-    thumbnail: string
-    albums?: AlbumsCreateNestedManyWithoutArtistInput
-    genre: GenreCreateNestedOneWithoutArtistsInput
-    followers: UserCreateNestedOneWithoutArtistsFollowedInput
+    artist: ArtistsCreateNestedOneWithoutTracksInput
   }
 
-  export type ArtistsUncheckedCreateWithoutTracksInput = {
+  export type ArtistsOnTracksUncheckedCreateWithoutTrackInput = {
     id?: string
-    name: string
-    thumbnail: string
-    genreId: string
-    userId?: ArtistsCreateuserIdInput | string[]
-    albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
+    artistId: string
   }
 
-  export type ArtistsCreateOrConnectWithoutTracksInput = {
-    where: ArtistsWhereUniqueInput
-    create: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
+  export type ArtistsOnTracksCreateOrConnectWithoutTrackInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    create: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput>
+  }
+
+  export type ArtistsOnTracksCreateManyTrackInputEnvelope = {
+    data: ArtistsOnTracksCreateManyTrackInput | ArtistsOnTracksCreateManyTrackInput[]
   }
 
   export type GenreCreateWithoutTracksInput = {
@@ -9910,7 +19040,6 @@ export namespace Prisma {
     name: string
     albums?: AlbumsCreateNestedManyWithoutGenreInput
     artists?: ArtistsCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsCreateNestedManyWithoutGenreInput
   }
 
   export type GenreUncheckedCreateWithoutTracksInput = {
@@ -9918,7 +19047,6 @@ export namespace Prisma {
     name: string
     albums?: AlbumsUncheckedCreateNestedManyWithoutGenreInput
     artists?: ArtistsUncheckedCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutGenreInput
   }
 
   export type GenreCreateOrConnectWithoutTracksInput = {
@@ -9926,110 +19054,88 @@ export namespace Prisma {
     create: XOR<GenreCreateWithoutTracksInput, GenreUncheckedCreateWithoutTracksInput>
   }
 
-  export type AlbumsCreateWithoutTracksInput = {
+  export type TracksOnAlbumsCreateWithoutTrackInput = {
     id?: string
-    name: string
-    thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutAlbumsInput
-    genre: GenreCreateNestedOneWithoutAlbumsInput
-    followers: UserCreateNestedOneWithoutLikedAlbumsInput
+    album: AlbumsCreateNestedOneWithoutTracksInput
   }
 
-  export type AlbumsUncheckedCreateWithoutTracksInput = {
+  export type TracksOnAlbumsUncheckedCreateWithoutTrackInput = {
     id?: string
-    name: string
-    artistId: string
-    thumbnail: string
-    genreId: string
-    userId?: AlbumsCreateuserIdInput | string[]
+    albumId: string
   }
 
-  export type AlbumsCreateOrConnectWithoutTracksInput = {
-    where: AlbumsWhereUniqueInput
-    create: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
+  export type TracksOnAlbumsCreateOrConnectWithoutTrackInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    create: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput>
   }
 
-  export type PlaylistsCreateWithoutTracksInput = {
+  export type TracksOnAlbumsCreateManyTrackInputEnvelope = {
+    data: TracksOnAlbumsCreateManyTrackInput | TracksOnAlbumsCreateManyTrackInput[]
+  }
+
+  export type PlaylistToTrackCreateWithoutTrackInput = {
     id?: string
-    name: string
-    thumbnail: string
-    genre: GenreCreateNestedOneWithoutPlaylistsInput
-    followers: UserCreateNestedOneWithoutLikedPlaylistsInput
+    playlist: PlaylistsCreateNestedOneWithoutTracksConnectionsInput
   }
 
-  export type PlaylistsUncheckedCreateWithoutTracksInput = {
+  export type PlaylistToTrackUncheckedCreateWithoutTrackInput = {
     id?: string
-    name: string
-    thumbnail: string
-    genreId: string
-    userId?: PlaylistsCreateuserIdInput | string[]
+    playlistId: string
   }
 
-  export type PlaylistsCreateOrConnectWithoutTracksInput = {
-    where: PlaylistsWhereUniqueInput
-    create: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput>
+  export type PlaylistToTrackCreateOrConnectWithoutTrackInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    create: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput>
   }
 
-  export type PlaylistsCreateManyTracksInputEnvelope = {
-    data: PlaylistsCreateManyTracksInput | PlaylistsCreateManyTracksInput[]
+  export type PlaylistToTrackCreateManyTrackInputEnvelope = {
+    data: PlaylistToTrackCreateManyTrackInput | PlaylistToTrackCreateManyTrackInput[]
   }
 
-  export type UserCreateWithoutFavsInput = {
+  export type UserFavsTracksCreateWithoutTrackInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsCreateNestedManyWithoutFollowersInput
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFavTracksInput
   }
 
-  export type UserUncheckedCreateWithoutFavsInput = {
+  export type UserFavsTracksUncheckedCreateWithoutTrackInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsUncheckedCreateNestedManyWithoutFollowersInput
+    userId: string
+    createdAt?: Date | string
   }
 
-  export type UserCreateOrConnectWithoutFavsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFavsInput, UserUncheckedCreateWithoutFavsInput>
+  export type UserFavsTracksCreateOrConnectWithoutTrackInput = {
+    where: UserFavsTracksWhereUniqueInput
+    create: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput>
   }
 
-  export type ArtistsUpsertWithoutTracksInput = {
-    update: XOR<ArtistsUpdateWithoutTracksInput, ArtistsUncheckedUpdateWithoutTracksInput>
-    create: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
-    where?: ArtistsWhereInput
+  export type UserFavsTracksCreateManyTrackInputEnvelope = {
+    data: UserFavsTracksCreateManyTrackInput | UserFavsTracksCreateManyTrackInput[]
   }
 
-  export type ArtistsUpdateToOneWithWhereWithoutTracksInput = {
-    where?: ArtistsWhereInput
-    data: XOR<ArtistsUpdateWithoutTracksInput, ArtistsUncheckedUpdateWithoutTracksInput>
+  export type ArtistsOnTracksUpsertWithWhereUniqueWithoutTrackInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    update: XOR<ArtistsOnTracksUpdateWithoutTrackInput, ArtistsOnTracksUncheckedUpdateWithoutTrackInput>
+    create: XOR<ArtistsOnTracksCreateWithoutTrackInput, ArtistsOnTracksUncheckedCreateWithoutTrackInput>
   }
 
-  export type ArtistsUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    albums?: AlbumsUpdateManyWithoutArtistNestedInput
-    genre?: GenreUpdateOneRequiredWithoutArtistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+  export type ArtistsOnTracksUpdateWithWhereUniqueWithoutTrackInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    data: XOR<ArtistsOnTracksUpdateWithoutTrackInput, ArtistsOnTracksUncheckedUpdateWithoutTrackInput>
   }
 
-  export type ArtistsUncheckedUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
-    albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
+  export type ArtistsOnTracksUpdateManyWithWhereWithoutTrackInput = {
+    where: ArtistsOnTracksScalarWhereInput
+    data: XOR<ArtistsOnTracksUpdateManyMutationInput, ArtistsOnTracksUncheckedUpdateManyWithoutTrackInput>
+  }
+
+  export type ArtistsOnTracksScalarWhereInput = {
+    AND?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
+    OR?: ArtistsOnTracksScalarWhereInput[]
+    NOT?: ArtistsOnTracksScalarWhereInput | ArtistsOnTracksScalarWhereInput[]
+    id?: StringFilter<"ArtistsOnTracks"> | string
+    artistId?: StringFilter<"ArtistsOnTracks"> | string
+    trackId?: StringFilter<"ArtistsOnTracks"> | string
   }
 
   export type GenreUpsertWithoutTracksInput = {
@@ -10047,110 +19153,102 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     albums?: AlbumsUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUpdateManyWithoutGenreNestedInput
   }
 
   export type GenreUncheckedUpdateWithoutTracksInput = {
     name?: StringFieldUpdateOperationsInput | string
     albums?: AlbumsUncheckedUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUncheckedUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUncheckedUpdateManyWithoutGenreNestedInput
   }
 
-  export type AlbumsUpsertWithoutTracksInput = {
-    update: XOR<AlbumsUpdateWithoutTracksInput, AlbumsUncheckedUpdateWithoutTracksInput>
-    create: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
-    where?: AlbumsWhereInput
+  export type TracksOnAlbumsUpsertWithWhereUniqueWithoutTrackInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    update: XOR<TracksOnAlbumsUpdateWithoutTrackInput, TracksOnAlbumsUncheckedUpdateWithoutTrackInput>
+    create: XOR<TracksOnAlbumsCreateWithoutTrackInput, TracksOnAlbumsUncheckedCreateWithoutTrackInput>
   }
 
-  export type AlbumsUpdateToOneWithWhereWithoutTracksInput = {
-    where?: AlbumsWhereInput
-    data: XOR<AlbumsUpdateWithoutTracksInput, AlbumsUncheckedUpdateWithoutTracksInput>
+  export type TracksOnAlbumsUpdateWithWhereUniqueWithoutTrackInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    data: XOR<TracksOnAlbumsUpdateWithoutTrackInput, TracksOnAlbumsUncheckedUpdateWithoutTrackInput>
   }
 
-  export type AlbumsUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
-    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
+  export type TracksOnAlbumsUpdateManyWithWhereWithoutTrackInput = {
+    where: TracksOnAlbumsScalarWhereInput
+    data: XOR<TracksOnAlbumsUpdateManyMutationInput, TracksOnAlbumsUncheckedUpdateManyWithoutTrackInput>
   }
 
-  export type AlbumsUncheckedUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
+  export type TracksOnAlbumsScalarWhereInput = {
+    AND?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
+    OR?: TracksOnAlbumsScalarWhereInput[]
+    NOT?: TracksOnAlbumsScalarWhereInput | TracksOnAlbumsScalarWhereInput[]
+    id?: StringFilter<"TracksOnAlbums"> | string
+    albumId?: StringFilter<"TracksOnAlbums"> | string
+    trackId?: StringFilter<"TracksOnAlbums"> | string
   }
 
-  export type PlaylistsUpsertWithWhereUniqueWithoutTracksInput = {
-    where: PlaylistsWhereUniqueInput
-    update: XOR<PlaylistsUpdateWithoutTracksInput, PlaylistsUncheckedUpdateWithoutTracksInput>
-    create: XOR<PlaylistsCreateWithoutTracksInput, PlaylistsUncheckedCreateWithoutTracksInput>
+  export type PlaylistToTrackUpsertWithWhereUniqueWithoutTrackInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    update: XOR<PlaylistToTrackUpdateWithoutTrackInput, PlaylistToTrackUncheckedUpdateWithoutTrackInput>
+    create: XOR<PlaylistToTrackCreateWithoutTrackInput, PlaylistToTrackUncheckedCreateWithoutTrackInput>
   }
 
-  export type PlaylistsUpdateWithWhereUniqueWithoutTracksInput = {
-    where: PlaylistsWhereUniqueInput
-    data: XOR<PlaylistsUpdateWithoutTracksInput, PlaylistsUncheckedUpdateWithoutTracksInput>
+  export type PlaylistToTrackUpdateWithWhereUniqueWithoutTrackInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    data: XOR<PlaylistToTrackUpdateWithoutTrackInput, PlaylistToTrackUncheckedUpdateWithoutTrackInput>
   }
 
-  export type PlaylistsUpdateManyWithWhereWithoutTracksInput = {
-    where: PlaylistsScalarWhereInput
-    data: XOR<PlaylistsUpdateManyMutationInput, PlaylistsUncheckedUpdateManyWithoutTracksInput>
+  export type PlaylistToTrackUpdateManyWithWhereWithoutTrackInput = {
+    where: PlaylistToTrackScalarWhereInput
+    data: XOR<PlaylistToTrackUpdateManyMutationInput, PlaylistToTrackUncheckedUpdateManyWithoutTrackInput>
   }
 
-  export type UserUpsertWithoutFavsInput = {
-    update: XOR<UserUpdateWithoutFavsInput, UserUncheckedUpdateWithoutFavsInput>
-    create: XOR<UserCreateWithoutFavsInput, UserUncheckedCreateWithoutFavsInput>
-    where?: UserWhereInput
+  export type PlaylistToTrackScalarWhereInput = {
+    AND?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
+    OR?: PlaylistToTrackScalarWhereInput[]
+    NOT?: PlaylistToTrackScalarWhereInput | PlaylistToTrackScalarWhereInput[]
+    id?: StringFilter<"PlaylistToTrack"> | string
+    playlistId?: StringFilter<"PlaylistToTrack"> | string
+    trackId?: StringFilter<"PlaylistToTrack"> | string
   }
 
-  export type UserUpdateToOneWithWhereWithoutFavsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFavsInput, UserUncheckedUpdateWithoutFavsInput>
+  export type UserFavsTracksUpsertWithWhereUniqueWithoutTrackInput = {
+    where: UserFavsTracksWhereUniqueInput
+    update: XOR<UserFavsTracksUpdateWithoutTrackInput, UserFavsTracksUncheckedUpdateWithoutTrackInput>
+    create: XOR<UserFavsTracksCreateWithoutTrackInput, UserFavsTracksUncheckedCreateWithoutTrackInput>
   }
 
-  export type UserUpdateWithoutFavsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUpdateManyWithoutFollowersNestedInput
+  export type UserFavsTracksUpdateWithWhereUniqueWithoutTrackInput = {
+    where: UserFavsTracksWhereUniqueInput
+    data: XOR<UserFavsTracksUpdateWithoutTrackInput, UserFavsTracksUncheckedUpdateWithoutTrackInput>
   }
 
-  export type UserUncheckedUpdateWithoutFavsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUncheckedUpdateManyWithoutFollowersNestedInput
+  export type UserFavsTracksUpdateManyWithWhereWithoutTrackInput = {
+    where: UserFavsTracksScalarWhereInput
+    data: XOR<UserFavsTracksUpdateManyMutationInput, UserFavsTracksUncheckedUpdateManyWithoutTrackInput>
   }
 
   export type ArtistsCreateWithoutAlbumsInput = {
     id?: string
     name: string
-    thumbnail: string
-    tracks?: TracksCreateNestedManyWithoutArtistInput
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
+    tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
     genre: GenreCreateNestedOneWithoutArtistsInput
-    followers: UserCreateNestedOneWithoutArtistsFollowedInput
+    followers?: UserFollowsArtistsCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsUncheckedCreateWithoutAlbumsInput = {
     id?: string
     name: string
-    thumbnail: string
+    email: string
+    password: string
+    thumbnail?: string
     genreId: string
-    userId?: ArtistsCreateuserIdInput | string[]
-    tracks?: TracksUncheckedCreateNestedManyWithoutArtistInput
+    description?: string | null
+    tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
+    followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsCreateOrConnectWithoutAlbumsInput = {
@@ -10158,35 +19256,23 @@ export namespace Prisma {
     create: XOR<ArtistsCreateWithoutAlbumsInput, ArtistsUncheckedCreateWithoutAlbumsInput>
   }
 
-  export type TracksCreateWithoutAlbumInput = {
+  export type TracksOnAlbumsCreateWithoutAlbumInput = {
     id?: string
-    name: string
-    url: string
-    thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutTracksInput
-    genre: GenreCreateNestedOneWithoutTracksInput
-    playlists?: PlaylistsCreateNestedManyWithoutTracksInput
-    followers: UserCreateNestedOneWithoutFavsInput
+    track: TracksCreateNestedOneWithoutAlbumInput
   }
 
-  export type TracksUncheckedCreateWithoutAlbumInput = {
+  export type TracksOnAlbumsUncheckedCreateWithoutAlbumInput = {
     id?: string
-    name: string
-    artistId: string
-    url: string
-    thumbnail: string
-    genreId: string
-    userId?: TracksCreateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutTracksInput
+    trackId: string
   }
 
-  export type TracksCreateOrConnectWithoutAlbumInput = {
-    where: TracksWhereUniqueInput
-    create: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+  export type TracksOnAlbumsCreateOrConnectWithoutAlbumInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    create: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput>
   }
 
-  export type TracksCreateManyAlbumInputEnvelope = {
-    data: TracksCreateManyAlbumInput | TracksCreateManyAlbumInput[]
+  export type TracksOnAlbumsCreateManyAlbumInputEnvelope = {
+    data: TracksOnAlbumsCreateManyAlbumInput | TracksOnAlbumsCreateManyAlbumInput[]
   }
 
   export type GenreCreateWithoutAlbumsInput = {
@@ -10194,7 +19280,6 @@ export namespace Prisma {
     name: string
     tracks?: TracksCreateNestedManyWithoutGenreInput
     artists?: ArtistsCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsCreateNestedManyWithoutGenreInput
   }
 
   export type GenreUncheckedCreateWithoutAlbumsInput = {
@@ -10202,7 +19287,6 @@ export namespace Prisma {
     name: string
     tracks?: TracksUncheckedCreateNestedManyWithoutGenreInput
     artists?: ArtistsUncheckedCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutGenreInput
   }
 
   export type GenreCreateOrConnectWithoutAlbumsInput = {
@@ -10210,35 +19294,25 @@ export namespace Prisma {
     create: XOR<GenreCreateWithoutAlbumsInput, GenreUncheckedCreateWithoutAlbumsInput>
   }
 
-  export type UserCreateWithoutLikedAlbumsInput = {
+  export type UserLikedAlbumsCreateWithoutAlbumInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsCreateNestedManyWithoutFollowersInput
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutLikedAlbumsInput
   }
 
-  export type UserUncheckedCreateWithoutLikedAlbumsInput = {
+  export type UserLikedAlbumsUncheckedCreateWithoutAlbumInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsUncheckedCreateNestedManyWithoutFollowersInput
+    userId: string
+    createdAt?: Date | string
   }
 
-  export type UserCreateOrConnectWithoutLikedAlbumsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
+  export type UserLikedAlbumsCreateOrConnectWithoutAlbumInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    create: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput>
+  }
+
+  export type UserLikedAlbumsCreateManyAlbumInputEnvelope = {
+    data: UserLikedAlbumsCreateManyAlbumInput | UserLikedAlbumsCreateManyAlbumInput[]
   }
 
   export type ArtistsUpsertWithoutAlbumsInput = {
@@ -10254,34 +19328,40 @@ export namespace Prisma {
 
   export type ArtistsUpdateWithoutAlbumsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUpdateManyWithoutArtistNestedInput
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    tracks?: ArtistsOnTracksUpdateManyWithoutArtistNestedInput
     genre?: GenreUpdateOneRequiredWithoutArtistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+    followers?: UserFollowsArtistsUpdateManyWithoutArtistNestedInput
   }
 
   export type ArtistsUncheckedUpdateWithoutAlbumsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
-    tracks?: TracksUncheckedUpdateManyWithoutArtistNestedInput
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
+    followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
   }
 
-  export type TracksUpsertWithWhereUniqueWithoutAlbumInput = {
-    where: TracksWhereUniqueInput
-    update: XOR<TracksUpdateWithoutAlbumInput, TracksUncheckedUpdateWithoutAlbumInput>
-    create: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+  export type TracksOnAlbumsUpsertWithWhereUniqueWithoutAlbumInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    update: XOR<TracksOnAlbumsUpdateWithoutAlbumInput, TracksOnAlbumsUncheckedUpdateWithoutAlbumInput>
+    create: XOR<TracksOnAlbumsCreateWithoutAlbumInput, TracksOnAlbumsUncheckedCreateWithoutAlbumInput>
   }
 
-  export type TracksUpdateWithWhereUniqueWithoutAlbumInput = {
-    where: TracksWhereUniqueInput
-    data: XOR<TracksUpdateWithoutAlbumInput, TracksUncheckedUpdateWithoutAlbumInput>
+  export type TracksOnAlbumsUpdateWithWhereUniqueWithoutAlbumInput = {
+    where: TracksOnAlbumsWhereUniqueInput
+    data: XOR<TracksOnAlbumsUpdateWithoutAlbumInput, TracksOnAlbumsUncheckedUpdateWithoutAlbumInput>
   }
 
-  export type TracksUpdateManyWithWhereWithoutAlbumInput = {
-    where: TracksScalarWhereInput
-    data: XOR<TracksUpdateManyMutationInput, TracksUncheckedUpdateManyWithoutAlbumInput>
+  export type TracksOnAlbumsUpdateManyWithWhereWithoutAlbumInput = {
+    where: TracksOnAlbumsScalarWhereInput
+    data: XOR<TracksOnAlbumsUpdateManyMutationInput, TracksOnAlbumsUncheckedUpdateManyWithoutAlbumInput>
   }
 
   export type GenreUpsertWithoutAlbumsInput = {
@@ -10299,228 +19379,185 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     tracks?: TracksUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUpdateManyWithoutGenreNestedInput
   }
 
   export type GenreUncheckedUpdateWithoutAlbumsInput = {
     name?: StringFieldUpdateOperationsInput | string
     tracks?: TracksUncheckedUpdateManyWithoutGenreNestedInput
     artists?: ArtistsUncheckedUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUncheckedUpdateManyWithoutGenreNestedInput
   }
 
-  export type UserUpsertWithoutLikedAlbumsInput = {
-    update: XOR<UserUpdateWithoutLikedAlbumsInput, UserUncheckedUpdateWithoutLikedAlbumsInput>
-    create: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
-    where?: UserWhereInput
+  export type UserLikedAlbumsUpsertWithWhereUniqueWithoutAlbumInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    update: XOR<UserLikedAlbumsUpdateWithoutAlbumInput, UserLikedAlbumsUncheckedUpdateWithoutAlbumInput>
+    create: XOR<UserLikedAlbumsCreateWithoutAlbumInput, UserLikedAlbumsUncheckedCreateWithoutAlbumInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutLikedAlbumsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLikedAlbumsInput, UserUncheckedUpdateWithoutLikedAlbumsInput>
+  export type UserLikedAlbumsUpdateWithWhereUniqueWithoutAlbumInput = {
+    where: UserLikedAlbumsWhereUniqueInput
+    data: XOR<UserLikedAlbumsUpdateWithoutAlbumInput, UserLikedAlbumsUncheckedUpdateWithoutAlbumInput>
   }
 
-  export type UserUpdateWithoutLikedAlbumsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUpdateManyWithoutFollowersNestedInput
+  export type UserLikedAlbumsUpdateManyWithWhereWithoutAlbumInput = {
+    where: UserLikedAlbumsScalarWhereInput
+    data: XOR<UserLikedAlbumsUpdateManyMutationInput, UserLikedAlbumsUncheckedUpdateManyWithoutAlbumInput>
   }
 
-  export type UserUncheckedUpdateWithoutLikedAlbumsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUncheckedUpdateManyWithoutFollowersNestedInput
-  }
-
-  export type TracksCreateWithoutPlaylistsInput = {
-    id?: string
-    name: string
-    url: string
-    thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutTracksInput
-    genre: GenreCreateNestedOneWithoutTracksInput
-    album: AlbumsCreateNestedOneWithoutTracksInput
-    followers: UserCreateNestedOneWithoutFavsInput
-  }
-
-  export type TracksUncheckedCreateWithoutPlaylistsInput = {
-    id?: string
-    name: string
-    artistId: string
-    url: string
-    thumbnail: string
-    genreId: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
-  }
-
-  export type TracksCreateOrConnectWithoutPlaylistsInput = {
-    where: TracksWhereUniqueInput
-    create: XOR<TracksCreateWithoutPlaylistsInput, TracksUncheckedCreateWithoutPlaylistsInput>
-  }
-
-  export type GenreCreateWithoutPlaylistsInput = {
-    id?: string
-    name: string
-    albums?: AlbumsCreateNestedManyWithoutGenreInput
-    tracks?: TracksCreateNestedManyWithoutGenreInput
-    artists?: ArtistsCreateNestedManyWithoutGenreInput
-  }
-
-  export type GenreUncheckedCreateWithoutPlaylistsInput = {
-    id?: string
-    name: string
-    albums?: AlbumsUncheckedCreateNestedManyWithoutGenreInput
-    tracks?: TracksUncheckedCreateNestedManyWithoutGenreInput
-    artists?: ArtistsUncheckedCreateNestedManyWithoutGenreInput
-  }
-
-  export type GenreCreateOrConnectWithoutPlaylistsInput = {
-    where: GenreWhereUniqueInput
-    create: XOR<GenreCreateWithoutPlaylistsInput, GenreUncheckedCreateWithoutPlaylistsInput>
-  }
-
-  export type UserCreateWithoutLikedPlaylistsInput = {
+  export type UserCreateWithoutCreatedPlaylistsInput = {
     id?: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsCreateNestedManyWithoutFollowersInput
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutLikedPlaylistsInput = {
+  export type UserUncheckedCreateWithoutCreatedPlaylistsInput = {
     id?: string
     email: string
     password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
-    artistsFollowed?: ArtistsUncheckedCreateNestedManyWithoutFollowersInput
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutLikedPlaylistsInput = {
+  export type UserCreateOrConnectWithoutCreatedPlaylistsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikedPlaylistsInput, UserUncheckedCreateWithoutLikedPlaylistsInput>
+    create: XOR<UserCreateWithoutCreatedPlaylistsInput, UserUncheckedCreateWithoutCreatedPlaylistsInput>
   }
 
-  export type TracksUpsertWithoutPlaylistsInput = {
-    update: XOR<TracksUpdateWithoutPlaylistsInput, TracksUncheckedUpdateWithoutPlaylistsInput>
-    create: XOR<TracksCreateWithoutPlaylistsInput, TracksUncheckedCreateWithoutPlaylistsInput>
-    where?: TracksWhereInput
+  export type UserFollowsPlaylistsCreateWithoutPlaylistInput = {
+    id?: string
+    user: UserCreateNestedOneWithoutFollowedPlaylistsInput
   }
 
-  export type TracksUpdateToOneWithWhereWithoutPlaylistsInput = {
-    where?: TracksWhereInput
-    data: XOR<TracksUpdateWithoutPlaylistsInput, TracksUncheckedUpdateWithoutPlaylistsInput>
+  export type UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput = {
+    id?: string
+    userId: string
   }
 
-  export type TracksUpdateWithoutPlaylistsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
-    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
-    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
-    followers?: UserUpdateOneRequiredWithoutFavsNestedInput
+  export type UserFollowsPlaylistsCreateOrConnectWithoutPlaylistInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    create: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput>
   }
 
-  export type TracksUncheckedUpdateWithoutPlaylistsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
+  export type UserFollowsPlaylistsCreateManyPlaylistInputEnvelope = {
+    data: UserFollowsPlaylistsCreateManyPlaylistInput | UserFollowsPlaylistsCreateManyPlaylistInput[]
   }
 
-  export type GenreUpsertWithoutPlaylistsInput = {
-    update: XOR<GenreUpdateWithoutPlaylistsInput, GenreUncheckedUpdateWithoutPlaylistsInput>
-    create: XOR<GenreCreateWithoutPlaylistsInput, GenreUncheckedCreateWithoutPlaylistsInput>
-    where?: GenreWhereInput
+  export type PlaylistToTrackCreateWithoutPlaylistInput = {
+    id?: string
+    track: TracksCreateNestedOneWithoutPlaylistConnectionsInput
   }
 
-  export type GenreUpdateToOneWithWhereWithoutPlaylistsInput = {
-    where?: GenreWhereInput
-    data: XOR<GenreUpdateWithoutPlaylistsInput, GenreUncheckedUpdateWithoutPlaylistsInput>
+  export type PlaylistToTrackUncheckedCreateWithoutPlaylistInput = {
+    id?: string
+    trackId: string
   }
 
-  export type GenreUpdateWithoutPlaylistsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    albums?: AlbumsUpdateManyWithoutGenreNestedInput
-    tracks?: TracksUpdateManyWithoutGenreNestedInput
-    artists?: ArtistsUpdateManyWithoutGenreNestedInput
+  export type PlaylistToTrackCreateOrConnectWithoutPlaylistInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    create: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput>
   }
 
-  export type GenreUncheckedUpdateWithoutPlaylistsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    albums?: AlbumsUncheckedUpdateManyWithoutGenreNestedInput
-    tracks?: TracksUncheckedUpdateManyWithoutGenreNestedInput
-    artists?: ArtistsUncheckedUpdateManyWithoutGenreNestedInput
+  export type PlaylistToTrackCreateManyPlaylistInputEnvelope = {
+    data: PlaylistToTrackCreateManyPlaylistInput | PlaylistToTrackCreateManyPlaylistInput[]
   }
 
-  export type UserUpsertWithoutLikedPlaylistsInput = {
-    update: XOR<UserUpdateWithoutLikedPlaylistsInput, UserUncheckedUpdateWithoutLikedPlaylistsInput>
-    create: XOR<UserCreateWithoutLikedPlaylistsInput, UserUncheckedCreateWithoutLikedPlaylistsInput>
+  export type UserUpsertWithoutCreatedPlaylistsInput = {
+    update: XOR<UserUpdateWithoutCreatedPlaylistsInput, UserUncheckedUpdateWithoutCreatedPlaylistsInput>
+    create: XOR<UserCreateWithoutCreatedPlaylistsInput, UserUncheckedCreateWithoutCreatedPlaylistsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutLikedPlaylistsInput = {
+  export type UserUpdateToOneWithWhereWithoutCreatedPlaylistsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLikedPlaylistsInput, UserUncheckedUpdateWithoutLikedPlaylistsInput>
+    data: XOR<UserUpdateWithoutCreatedPlaylistsInput, UserUncheckedUpdateWithoutCreatedPlaylistsInput>
   }
 
-  export type UserUpdateWithoutLikedPlaylistsInput = {
+  export type UserUpdateWithoutCreatedPlaylistsInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUpdateManyWithoutFollowersNestedInput
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutLikedPlaylistsInput = {
+  export type UserUncheckedUpdateWithoutCreatedPlaylistsInput = {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
-    artistsFollowed?: ArtistsUncheckedUpdateManyWithoutFollowersNestedInput
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserFollowsPlaylistsUpsertWithWhereUniqueWithoutPlaylistInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    update: XOR<UserFollowsPlaylistsUpdateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedUpdateWithoutPlaylistInput>
+    create: XOR<UserFollowsPlaylistsCreateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedCreateWithoutPlaylistInput>
+  }
+
+  export type UserFollowsPlaylistsUpdateWithWhereUniqueWithoutPlaylistInput = {
+    where: UserFollowsPlaylistsWhereUniqueInput
+    data: XOR<UserFollowsPlaylistsUpdateWithoutPlaylistInput, UserFollowsPlaylistsUncheckedUpdateWithoutPlaylistInput>
+  }
+
+  export type UserFollowsPlaylistsUpdateManyWithWhereWithoutPlaylistInput = {
+    where: UserFollowsPlaylistsScalarWhereInput
+    data: XOR<UserFollowsPlaylistsUpdateManyMutationInput, UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistInput>
+  }
+
+  export type PlaylistToTrackUpsertWithWhereUniqueWithoutPlaylistInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    update: XOR<PlaylistToTrackUpdateWithoutPlaylistInput, PlaylistToTrackUncheckedUpdateWithoutPlaylistInput>
+    create: XOR<PlaylistToTrackCreateWithoutPlaylistInput, PlaylistToTrackUncheckedCreateWithoutPlaylistInput>
+  }
+
+  export type PlaylistToTrackUpdateWithWhereUniqueWithoutPlaylistInput = {
+    where: PlaylistToTrackWhereUniqueInput
+    data: XOR<PlaylistToTrackUpdateWithoutPlaylistInput, PlaylistToTrackUncheckedUpdateWithoutPlaylistInput>
+  }
+
+  export type PlaylistToTrackUpdateManyWithWhereWithoutPlaylistInput = {
+    where: PlaylistToTrackScalarWhereInput
+    data: XOR<PlaylistToTrackUpdateManyMutationInput, PlaylistToTrackUncheckedUpdateManyWithoutPlaylistInput>
   }
 
   export type AlbumsCreateWithoutArtistInput = {
     id?: string
     name: string
     thumbnail: string
-    tracks?: TracksCreateNestedManyWithoutAlbumInput
+    tracks?: TracksOnAlbumsCreateNestedManyWithoutAlbumInput
     genre: GenreCreateNestedOneWithoutAlbumsInput
-    followers: UserCreateNestedOneWithoutLikedAlbumsInput
+    likedByUsers?: UserLikedAlbumsCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsUncheckedCreateWithoutArtistInput = {
@@ -10528,8 +19565,8 @@ export namespace Prisma {
     name: string
     thumbnail: string
     genreId: string
-    userId?: AlbumsCreateuserIdInput | string[]
-    tracks?: TracksUncheckedCreateNestedManyWithoutAlbumInput
+    tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
+    likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsCreateOrConnectWithoutArtistInput = {
@@ -10541,35 +19578,23 @@ export namespace Prisma {
     data: AlbumsCreateManyArtistInput | AlbumsCreateManyArtistInput[]
   }
 
-  export type TracksCreateWithoutArtistInput = {
+  export type ArtistsOnTracksCreateWithoutArtistInput = {
     id?: string
-    name: string
-    url: string
-    thumbnail: string
-    genre: GenreCreateNestedOneWithoutTracksInput
-    album: AlbumsCreateNestedOneWithoutTracksInput
-    playlists?: PlaylistsCreateNestedManyWithoutTracksInput
-    followers: UserCreateNestedOneWithoutFavsInput
+    track: TracksCreateNestedOneWithoutArtistInput
   }
 
-  export type TracksUncheckedCreateWithoutArtistInput = {
+  export type ArtistsOnTracksUncheckedCreateWithoutArtistInput = {
     id?: string
-    name: string
-    url: string
-    thumbnail: string
-    genreId: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutTracksInput
+    trackId: string
   }
 
-  export type TracksCreateOrConnectWithoutArtistInput = {
-    where: TracksWhereUniqueInput
-    create: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
+  export type ArtistsOnTracksCreateOrConnectWithoutArtistInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    create: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput>
   }
 
-  export type TracksCreateManyArtistInputEnvelope = {
-    data: TracksCreateManyArtistInput | TracksCreateManyArtistInput[]
+  export type ArtistsOnTracksCreateManyArtistInputEnvelope = {
+    data: ArtistsOnTracksCreateManyArtistInput | ArtistsOnTracksCreateManyArtistInput[]
   }
 
   export type GenreCreateWithoutArtistsInput = {
@@ -10577,7 +19602,6 @@ export namespace Prisma {
     name: string
     albums?: AlbumsCreateNestedManyWithoutGenreInput
     tracks?: TracksCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsCreateNestedManyWithoutGenreInput
   }
 
   export type GenreUncheckedCreateWithoutArtistsInput = {
@@ -10585,7 +19609,6 @@ export namespace Prisma {
     name: string
     albums?: AlbumsUncheckedCreateNestedManyWithoutGenreInput
     tracks?: TracksUncheckedCreateNestedManyWithoutGenreInput
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutGenreInput
   }
 
   export type GenreCreateOrConnectWithoutArtistsInput = {
@@ -10593,35 +19616,25 @@ export namespace Prisma {
     create: XOR<GenreCreateWithoutArtistsInput, GenreUncheckedCreateWithoutArtistsInput>
   }
 
-  export type UserCreateWithoutArtistsFollowedInput = {
+  export type UserFollowsArtistsCreateWithoutArtistInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsCreateNestedManyWithoutFollowersInput
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutArtistsFollowedInput
   }
 
-  export type UserUncheckedCreateWithoutArtistsFollowedInput = {
+  export type UserFollowsArtistsUncheckedCreateWithoutArtistInput = {
     id?: string
-    email: string
-    password: string
-    name: string
-    gender: string
-    birthDate: string
-    country: string
-    favs?: TracksUncheckedCreateNestedManyWithoutFollowersInput
-    likedAlbums?: AlbumsUncheckedCreateNestedManyWithoutFollowersInput
-    likedPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutFollowersInput
+    userId: string
+    createdAt?: Date | string
   }
 
-  export type UserCreateOrConnectWithoutArtistsFollowedInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
+  export type UserFollowsArtistsCreateOrConnectWithoutArtistInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    create: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput>
+  }
+
+  export type UserFollowsArtistsCreateManyArtistInputEnvelope = {
+    data: UserFollowsArtistsCreateManyArtistInput | UserFollowsArtistsCreateManyArtistInput[]
   }
 
   export type AlbumsUpsertWithWhereUniqueWithoutArtistInput = {
@@ -10640,20 +19653,31 @@ export namespace Prisma {
     data: XOR<AlbumsUpdateManyMutationInput, AlbumsUncheckedUpdateManyWithoutArtistInput>
   }
 
-  export type TracksUpsertWithWhereUniqueWithoutArtistInput = {
-    where: TracksWhereUniqueInput
-    update: XOR<TracksUpdateWithoutArtistInput, TracksUncheckedUpdateWithoutArtistInput>
-    create: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
+  export type AlbumsScalarWhereInput = {
+    AND?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
+    OR?: AlbumsScalarWhereInput[]
+    NOT?: AlbumsScalarWhereInput | AlbumsScalarWhereInput[]
+    id?: StringFilter<"Albums"> | string
+    name?: StringFilter<"Albums"> | string
+    artistId?: StringFilter<"Albums"> | string
+    thumbnail?: StringFilter<"Albums"> | string
+    genreId?: StringFilter<"Albums"> | string
   }
 
-  export type TracksUpdateWithWhereUniqueWithoutArtistInput = {
-    where: TracksWhereUniqueInput
-    data: XOR<TracksUpdateWithoutArtistInput, TracksUncheckedUpdateWithoutArtistInput>
+  export type ArtistsOnTracksUpsertWithWhereUniqueWithoutArtistInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    update: XOR<ArtistsOnTracksUpdateWithoutArtistInput, ArtistsOnTracksUncheckedUpdateWithoutArtistInput>
+    create: XOR<ArtistsOnTracksCreateWithoutArtistInput, ArtistsOnTracksUncheckedCreateWithoutArtistInput>
   }
 
-  export type TracksUpdateManyWithWhereWithoutArtistInput = {
-    where: TracksScalarWhereInput
-    data: XOR<TracksUpdateManyMutationInput, TracksUncheckedUpdateManyWithoutArtistInput>
+  export type ArtistsOnTracksUpdateWithWhereUniqueWithoutArtistInput = {
+    where: ArtistsOnTracksWhereUniqueInput
+    data: XOR<ArtistsOnTracksUpdateWithoutArtistInput, ArtistsOnTracksUncheckedUpdateWithoutArtistInput>
+  }
+
+  export type ArtistsOnTracksUpdateManyWithWhereWithoutArtistInput = {
+    where: ArtistsOnTracksScalarWhereInput
+    data: XOR<ArtistsOnTracksUpdateManyMutationInput, ArtistsOnTracksUncheckedUpdateManyWithoutArtistInput>
   }
 
   export type GenreUpsertWithoutArtistsInput = {
@@ -10671,49 +19695,28 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     albums?: AlbumsUpdateManyWithoutGenreNestedInput
     tracks?: TracksUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUpdateManyWithoutGenreNestedInput
   }
 
   export type GenreUncheckedUpdateWithoutArtistsInput = {
     name?: StringFieldUpdateOperationsInput | string
     albums?: AlbumsUncheckedUpdateManyWithoutGenreNestedInput
     tracks?: TracksUncheckedUpdateManyWithoutGenreNestedInput
-    playlists?: PlaylistsUncheckedUpdateManyWithoutGenreNestedInput
   }
 
-  export type UserUpsertWithoutArtistsFollowedInput = {
-    update: XOR<UserUpdateWithoutArtistsFollowedInput, UserUncheckedUpdateWithoutArtistsFollowedInput>
-    create: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
-    where?: UserWhereInput
+  export type UserFollowsArtistsUpsertWithWhereUniqueWithoutArtistInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    update: XOR<UserFollowsArtistsUpdateWithoutArtistInput, UserFollowsArtistsUncheckedUpdateWithoutArtistInput>
+    create: XOR<UserFollowsArtistsCreateWithoutArtistInput, UserFollowsArtistsUncheckedCreateWithoutArtistInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutArtistsFollowedInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutArtistsFollowedInput, UserUncheckedUpdateWithoutArtistsFollowedInput>
+  export type UserFollowsArtistsUpdateWithWhereUniqueWithoutArtistInput = {
+    where: UserFollowsArtistsWhereUniqueInput
+    data: XOR<UserFollowsArtistsUpdateWithoutArtistInput, UserFollowsArtistsUncheckedUpdateWithoutArtistInput>
   }
 
-  export type UserUpdateWithoutArtistsFollowedInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUpdateManyWithoutFollowersNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutArtistsFollowedInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    gender?: StringFieldUpdateOperationsInput | string
-    birthDate?: StringFieldUpdateOperationsInput | string
-    country?: StringFieldUpdateOperationsInput | string
-    favs?: TracksUncheckedUpdateManyWithoutFollowersNestedInput
-    likedAlbums?: AlbumsUncheckedUpdateManyWithoutFollowersNestedInput
-    likedPlaylists?: PlaylistsUncheckedUpdateManyWithoutFollowersNestedInput
+  export type UserFollowsArtistsUpdateManyWithWhereWithoutArtistInput = {
+    where: UserFollowsArtistsScalarWhereInput
+    data: XOR<UserFollowsArtistsUpdateManyMutationInput, UserFollowsArtistsUncheckedUpdateManyWithoutArtistInput>
   }
 
   export type AlbumsCreateWithoutGenreInput = {
@@ -10721,8 +19724,8 @@ export namespace Prisma {
     name: string
     thumbnail: string
     artist: ArtistsCreateNestedOneWithoutAlbumsInput
-    tracks?: TracksCreateNestedManyWithoutAlbumInput
-    followers: UserCreateNestedOneWithoutLikedAlbumsInput
+    tracks?: TracksOnAlbumsCreateNestedManyWithoutAlbumInput
+    likedByUsers?: UserLikedAlbumsCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsUncheckedCreateWithoutGenreInput = {
@@ -10730,8 +19733,8 @@ export namespace Prisma {
     name: string
     artistId: string
     thumbnail: string
-    userId?: AlbumsCreateuserIdInput | string[]
-    tracks?: TracksUncheckedCreateNestedManyWithoutAlbumInput
+    tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
+    likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
   }
 
   export type AlbumsCreateOrConnectWithoutGenreInput = {
@@ -10748,21 +19751,21 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    artist: ArtistsCreateNestedOneWithoutTracksInput
-    album: AlbumsCreateNestedOneWithoutTracksInput
-    playlists?: PlaylistsCreateNestedManyWithoutTracksInput
-    followers: UserCreateNestedOneWithoutFavsInput
+    artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
+    album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksCreateNestedManyWithoutTrackInput
   }
 
   export type TracksUncheckedCreateWithoutGenreInput = {
     id?: string
     name: string
-    artistId: string
     url: string
     thumbnail: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedCreateNestedManyWithoutTracksInput
+    artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
+    album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
   }
 
   export type TracksCreateOrConnectWithoutGenreInput = {
@@ -10777,19 +19780,25 @@ export namespace Prisma {
   export type ArtistsCreateWithoutGenreInput = {
     id?: string
     name: string
-    thumbnail: string
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
     albums?: AlbumsCreateNestedManyWithoutArtistInput
-    tracks?: TracksCreateNestedManyWithoutArtistInput
-    followers: UserCreateNestedOneWithoutArtistsFollowedInput
+    tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
+    followers?: UserFollowsArtistsCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsUncheckedCreateWithoutGenreInput = {
     id?: string
     name: string
-    thumbnail: string
-    userId?: ArtistsCreateuserIdInput | string[]
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
     albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
-    tracks?: TracksUncheckedCreateNestedManyWithoutArtistInput
+    tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
+    followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
   }
 
   export type ArtistsCreateOrConnectWithoutGenreInput = {
@@ -10799,31 +19808,6 @@ export namespace Prisma {
 
   export type ArtistsCreateManyGenreInputEnvelope = {
     data: ArtistsCreateManyGenreInput | ArtistsCreateManyGenreInput[]
-  }
-
-  export type PlaylistsCreateWithoutGenreInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    tracks: TracksCreateNestedOneWithoutPlaylistsInput
-    followers: UserCreateNestedOneWithoutLikedPlaylistsInput
-  }
-
-  export type PlaylistsUncheckedCreateWithoutGenreInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    userId?: PlaylistsCreateuserIdInput | string[]
-  }
-
-  export type PlaylistsCreateOrConnectWithoutGenreInput = {
-    where: PlaylistsWhereUniqueInput
-    create: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput>
-  }
-
-  export type PlaylistsCreateManyGenreInputEnvelope = {
-    data: PlaylistsCreateManyGenreInput | PlaylistsCreateManyGenreInput[]
   }
 
   export type AlbumsUpsertWithWhereUniqueWithoutGenreInput = {
@@ -10858,6 +19842,17 @@ export namespace Prisma {
     data: XOR<TracksUpdateManyMutationInput, TracksUncheckedUpdateManyWithoutGenreInput>
   }
 
+  export type TracksScalarWhereInput = {
+    AND?: TracksScalarWhereInput | TracksScalarWhereInput[]
+    OR?: TracksScalarWhereInput[]
+    NOT?: TracksScalarWhereInput | TracksScalarWhereInput[]
+    id?: StringFilter<"Tracks"> | string
+    name?: StringFilter<"Tracks"> | string
+    url?: StringFilter<"Tracks"> | string
+    thumbnail?: StringFilter<"Tracks"> | string
+    genreId?: StringFilter<"Tracks"> | string
+  }
+
   export type ArtistsUpsertWithWhereUniqueWithoutGenreInput = {
     where: ArtistsWhereUniqueInput
     update: XOR<ArtistsUpdateWithoutGenreInput, ArtistsUncheckedUpdateWithoutGenreInput>
@@ -10874,257 +19869,117 @@ export namespace Prisma {
     data: XOR<ArtistsUpdateManyMutationInput, ArtistsUncheckedUpdateManyWithoutGenreInput>
   }
 
-  export type PlaylistsUpsertWithWhereUniqueWithoutGenreInput = {
-    where: PlaylistsWhereUniqueInput
-    update: XOR<PlaylistsUpdateWithoutGenreInput, PlaylistsUncheckedUpdateWithoutGenreInput>
-    create: XOR<PlaylistsCreateWithoutGenreInput, PlaylistsUncheckedCreateWithoutGenreInput>
+  export type ArtistsScalarWhereInput = {
+    AND?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
+    OR?: ArtistsScalarWhereInput[]
+    NOT?: ArtistsScalarWhereInput | ArtistsScalarWhereInput[]
+    id?: StringFilter<"Artists"> | string
+    name?: StringFilter<"Artists"> | string
+    email?: StringFilter<"Artists"> | string
+    password?: StringFilter<"Artists"> | string
+    thumbnail?: StringFilter<"Artists"> | string
+    genreId?: StringFilter<"Artists"> | string
+    description?: StringNullableFilter<"Artists"> | string | null
   }
 
-  export type PlaylistsUpdateWithWhereUniqueWithoutGenreInput = {
-    where: PlaylistsWhereUniqueInput
-    data: XOR<PlaylistsUpdateWithoutGenreInput, PlaylistsUncheckedUpdateWithoutGenreInput>
-  }
-
-  export type PlaylistsUpdateManyWithWhereWithoutGenreInput = {
-    where: PlaylistsScalarWhereInput
-    data: XOR<PlaylistsUpdateManyMutationInput, PlaylistsUncheckedUpdateManyWithoutGenreInput>
-  }
-
-  export type TracksCreateManyFollowersInput = {
+  export type ArtistsCreateWithoutTracksInput = {
     id?: string
     name: string
-    artistId: string
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
+    albums?: AlbumsCreateNestedManyWithoutArtistInput
+    genre: GenreCreateNestedOneWithoutArtistsInput
+    followers?: UserFollowsArtistsCreateNestedManyWithoutArtistInput
+  }
+
+  export type ArtistsUncheckedCreateWithoutTracksInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    thumbnail?: string
+    genreId: string
+    description?: string | null
+    albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
+    followers?: UserFollowsArtistsUncheckedCreateNestedManyWithoutArtistInput
+  }
+
+  export type ArtistsCreateOrConnectWithoutTracksInput = {
+    where: ArtistsWhereUniqueInput
+    create: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
+  }
+
+  export type TracksCreateWithoutArtistInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    genre: GenreCreateNestedOneWithoutTracksInput
+    album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksUncheckedCreateWithoutArtistInput = {
+    id?: string
+    name: string
     url: string
     thumbnail: string
     genreId: string
-    albumId: string
+    album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
   }
 
-  export type AlbumsCreateManyFollowersInput = {
-    id?: string
-    name: string
-    artistId: string
-    thumbnail: string
-    genreId: string
+  export type TracksCreateOrConnectWithoutArtistInput = {
+    where: TracksWhereUniqueInput
+    create: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
   }
 
-  export type PlaylistsCreateManyFollowersInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    genreId: string
+  export type ArtistsUpsertWithoutTracksInput = {
+    update: XOR<ArtistsUpdateWithoutTracksInput, ArtistsUncheckedUpdateWithoutTracksInput>
+    create: XOR<ArtistsCreateWithoutTracksInput, ArtistsUncheckedCreateWithoutTracksInput>
+    where?: ArtistsWhereInput
   }
 
-  export type ArtistsCreateManyFollowersInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    genreId: string
+  export type ArtistsUpdateToOneWithWhereWithoutTracksInput = {
+    where?: ArtistsWhereInput
+    data: XOR<ArtistsUpdateWithoutTracksInput, ArtistsUncheckedUpdateWithoutTracksInput>
   }
 
-  export type TracksUpdateWithoutFollowersInput = {
+  export type ArtistsUpdateWithoutTracksInput = {
     name?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
-    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
-    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
-    playlists?: PlaylistsUpdateManyWithoutTracksNestedInput
-  }
-
-  export type TracksUncheckedUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    playlists?: PlaylistsUncheckedUpdateManyWithoutTracksNestedInput
-  }
-
-  export type TracksUncheckedUpdateManyWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AlbumsUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
-    tracks?: TracksUpdateManyWithoutAlbumNestedInput
-    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
-  }
-
-  export type AlbumsUncheckedUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUncheckedUpdateManyWithoutAlbumNestedInput
-  }
-
-  export type AlbumsUncheckedUpdateManyWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type PlaylistsUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUpdateOneRequiredWithoutPlaylistsNestedInput
-    genre?: GenreUpdateOneRequiredWithoutPlaylistsNestedInput
-  }
-
-  export type PlaylistsUncheckedUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    genreId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type PlaylistsUncheckedUpdateManyWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    genreId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ArtistsUpdateWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUpdateManyWithoutArtistNestedInput
     genre?: GenreUpdateOneRequiredWithoutArtistsNestedInput
+    followers?: UserFollowsArtistsUpdateManyWithoutArtistNestedInput
   }
 
-  export type ArtistsUncheckedUpdateWithoutFollowersInput = {
+  export type ArtistsUncheckedUpdateWithoutTracksInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUncheckedUpdateManyWithoutArtistNestedInput
+    followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
   }
 
-  export type ArtistsUncheckedUpdateManyWithoutFollowersInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+  export type TracksUpsertWithoutArtistInput = {
+    update: XOR<TracksUpdateWithoutArtistInput, TracksUncheckedUpdateWithoutArtistInput>
+    create: XOR<TracksCreateWithoutArtistInput, TracksUncheckedCreateWithoutArtistInput>
+    where?: TracksWhereInput
   }
 
-  export type PlaylistsCreateManyTracksInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    genreId: string
-    userId?: PlaylistsCreateuserIdInput | string[]
-  }
-
-  export type PlaylistsUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genre?: GenreUpdateOneRequiredWithoutPlaylistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedPlaylistsNestedInput
-  }
-
-  export type PlaylistsUncheckedUpdateWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: PlaylistsUpdateuserIdInput | string[]
-  }
-
-  export type PlaylistsUncheckedUpdateManyWithoutTracksInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: PlaylistsUpdateuserIdInput | string[]
-  }
-
-  export type TracksCreateManyAlbumInput = {
-    id?: string
-    name: string
-    artistId: string
-    url: string
-    thumbnail: string
-    genreId: string
-    userId?: TracksCreateuserIdInput | string[]
-  }
-
-  export type TracksUpdateWithoutAlbumInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
-    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
-    playlists?: PlaylistsUpdateManyWithoutTracksNestedInput
-    followers?: UserUpdateOneRequiredWithoutFavsNestedInput
-  }
-
-  export type TracksUncheckedUpdateWithoutAlbumInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedUpdateManyWithoutTracksNestedInput
-  }
-
-  export type TracksUncheckedUpdateManyWithoutAlbumInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
-  }
-
-  export type AlbumsCreateManyArtistInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    genreId: string
-    userId?: AlbumsCreateuserIdInput | string[]
-  }
-
-  export type TracksCreateManyArtistInput = {
-    id?: string
-    name: string
-    url: string
-    thumbnail: string
-    genreId: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
-  }
-
-  export type AlbumsUpdateWithoutArtistInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUpdateManyWithoutAlbumNestedInput
-    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
-  }
-
-  export type AlbumsUncheckedUpdateWithoutArtistInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
-    tracks?: TracksUncheckedUpdateManyWithoutAlbumNestedInput
-  }
-
-  export type AlbumsUncheckedUpdateManyWithoutArtistInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
+  export type TracksUpdateToOneWithWhereWithoutArtistInput = {
+    where?: TracksWhereInput
+    data: XOR<TracksUpdateWithoutArtistInput, TracksUncheckedUpdateWithoutArtistInput>
   }
 
   export type TracksUpdateWithoutArtistInput = {
@@ -11132,9 +19987,9 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
-    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
-    playlists?: PlaylistsUpdateManyWithoutTracksNestedInput
-    followers?: UserUpdateOneRequiredWithoutFavsNestedInput
+    album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUpdateManyWithoutTrackNestedInput
   }
 
   export type TracksUncheckedUpdateWithoutArtistInput = {
@@ -11142,18 +19997,1077 @@ export namespace Prisma {
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedUpdateManyWithoutTracksNestedInput
+    album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
   }
 
-  export type TracksUncheckedUpdateManyWithoutArtistInput = {
+  export type AlbumsCreateWithoutTracksInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    artist: ArtistsCreateNestedOneWithoutAlbumsInput
+    genre: GenreCreateNestedOneWithoutAlbumsInput
+    likedByUsers?: UserLikedAlbumsCreateNestedManyWithoutAlbumInput
+  }
+
+  export type AlbumsUncheckedCreateWithoutTracksInput = {
+    id?: string
+    name: string
+    artistId: string
+    thumbnail: string
+    genreId: string
+    likedByUsers?: UserLikedAlbumsUncheckedCreateNestedManyWithoutAlbumInput
+  }
+
+  export type AlbumsCreateOrConnectWithoutTracksInput = {
+    where: AlbumsWhereUniqueInput
+    create: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
+  }
+
+  export type TracksCreateWithoutAlbumInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
+    genre: GenreCreateNestedOneWithoutTracksInput
+    playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksUncheckedCreateWithoutAlbumInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    genreId: string
+    artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksCreateOrConnectWithoutAlbumInput = {
+    where: TracksWhereUniqueInput
+    create: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+  }
+
+  export type AlbumsUpsertWithoutTracksInput = {
+    update: XOR<AlbumsUpdateWithoutTracksInput, AlbumsUncheckedUpdateWithoutTracksInput>
+    create: XOR<AlbumsCreateWithoutTracksInput, AlbumsUncheckedCreateWithoutTracksInput>
+    where?: AlbumsWhereInput
+  }
+
+  export type AlbumsUpdateToOneWithWhereWithoutTracksInput = {
+    where?: AlbumsWhereInput
+    data: XOR<AlbumsUpdateWithoutTracksInput, AlbumsUncheckedUpdateWithoutTracksInput>
+  }
+
+  export type AlbumsUpdateWithoutTracksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
+    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
+    likedByUsers?: UserLikedAlbumsUpdateManyWithoutAlbumNestedInput
+  }
+
+  export type AlbumsUncheckedUpdateWithoutTracksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    artistId?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+  }
+
+  export type TracksUpsertWithoutAlbumInput = {
+    update: XOR<TracksUpdateWithoutAlbumInput, TracksUncheckedUpdateWithoutAlbumInput>
+    create: XOR<TracksCreateWithoutAlbumInput, TracksUncheckedCreateWithoutAlbumInput>
+    where?: TracksWhereInput
+  }
+
+  export type TracksUpdateToOneWithWhereWithoutAlbumInput = {
+    where?: TracksWhereInput
+    data: XOR<TracksUpdateWithoutAlbumInput, TracksUncheckedUpdateWithoutAlbumInput>
+  }
+
+  export type TracksUpdateWithoutAlbumInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
+    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
+    playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TracksUncheckedUpdateWithoutAlbumInput = {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     genreId?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
+  }
+
+  export type UserCreateWithoutFavTracksInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFavTracksInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFavTracksInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFavTracksInput, UserUncheckedCreateWithoutFavTracksInput>
+  }
+
+  export type TracksCreateWithoutFavsOfUsersInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
+    genre: GenreCreateNestedOneWithoutTracksInput
+    album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksUncheckedCreateWithoutFavsOfUsersInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    genreId: string
+    artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
+    album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
+    playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksCreateOrConnectWithoutFavsOfUsersInput = {
+    where: TracksWhereUniqueInput
+    create: XOR<TracksCreateWithoutFavsOfUsersInput, TracksUncheckedCreateWithoutFavsOfUsersInput>
+  }
+
+  export type UserUpsertWithoutFavTracksInput = {
+    update: XOR<UserUpdateWithoutFavTracksInput, UserUncheckedUpdateWithoutFavTracksInput>
+    create: XOR<UserCreateWithoutFavTracksInput, UserUncheckedCreateWithoutFavTracksInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFavTracksInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFavTracksInput, UserUncheckedUpdateWithoutFavTracksInput>
+  }
+
+  export type UserUpdateWithoutFavTracksInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFavTracksInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TracksUpsertWithoutFavsOfUsersInput = {
+    update: XOR<TracksUpdateWithoutFavsOfUsersInput, TracksUncheckedUpdateWithoutFavsOfUsersInput>
+    create: XOR<TracksCreateWithoutFavsOfUsersInput, TracksUncheckedCreateWithoutFavsOfUsersInput>
+    where?: TracksWhereInput
+  }
+
+  export type TracksUpdateToOneWithWhereWithoutFavsOfUsersInput = {
+    where?: TracksWhereInput
+    data: XOR<TracksUpdateWithoutFavsOfUsersInput, TracksUncheckedUpdateWithoutFavsOfUsersInput>
+  }
+
+  export type TracksUpdateWithoutFavsOfUsersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
+    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
+    album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TracksUncheckedUpdateWithoutFavsOfUsersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
+    album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
+  }
+
+  export type PlaylistsCreateWithoutTracksConnectionsInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    publicAccess?: boolean
+    user: UserCreateNestedOneWithoutCreatedPlaylistsInput
+    followers?: UserFollowsPlaylistsCreateNestedManyWithoutPlaylistInput
+  }
+
+  export type PlaylistsUncheckedCreateWithoutTracksConnectionsInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    publicAccess?: boolean
+    userId: string
+    followers?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutPlaylistInput
+  }
+
+  export type PlaylistsCreateOrConnectWithoutTracksConnectionsInput = {
+    where: PlaylistsWhereUniqueInput
+    create: XOR<PlaylistsCreateWithoutTracksConnectionsInput, PlaylistsUncheckedCreateWithoutTracksConnectionsInput>
+  }
+
+  export type TracksCreateWithoutPlaylistConnectionsInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    artist?: ArtistsOnTracksCreateNestedManyWithoutTrackInput
+    genre: GenreCreateNestedOneWithoutTracksInput
+    album?: TracksOnAlbumsCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksUncheckedCreateWithoutPlaylistConnectionsInput = {
+    id?: string
+    name: string
+    url: string
+    thumbnail: string
+    genreId: string
+    artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
+    album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
+    favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
+  }
+
+  export type TracksCreateOrConnectWithoutPlaylistConnectionsInput = {
+    where: TracksWhereUniqueInput
+    create: XOR<TracksCreateWithoutPlaylistConnectionsInput, TracksUncheckedCreateWithoutPlaylistConnectionsInput>
+  }
+
+  export type PlaylistsUpsertWithoutTracksConnectionsInput = {
+    update: XOR<PlaylistsUpdateWithoutTracksConnectionsInput, PlaylistsUncheckedUpdateWithoutTracksConnectionsInput>
+    create: XOR<PlaylistsCreateWithoutTracksConnectionsInput, PlaylistsUncheckedCreateWithoutTracksConnectionsInput>
+    where?: PlaylistsWhereInput
+  }
+
+  export type PlaylistsUpdateToOneWithWhereWithoutTracksConnectionsInput = {
+    where?: PlaylistsWhereInput
+    data: XOR<PlaylistsUpdateWithoutTracksConnectionsInput, PlaylistsUncheckedUpdateWithoutTracksConnectionsInput>
+  }
+
+  export type PlaylistsUpdateWithoutTracksConnectionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    user?: UserUpdateOneRequiredWithoutCreatedPlaylistsNestedInput
+    followers?: UserFollowsPlaylistsUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type PlaylistsUncheckedUpdateWithoutTracksConnectionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    followers?: UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type TracksUpsertWithoutPlaylistConnectionsInput = {
+    update: XOR<TracksUpdateWithoutPlaylistConnectionsInput, TracksUncheckedUpdateWithoutPlaylistConnectionsInput>
+    create: XOR<TracksCreateWithoutPlaylistConnectionsInput, TracksUncheckedCreateWithoutPlaylistConnectionsInput>
+    where?: TracksWhereInput
+  }
+
+  export type TracksUpdateToOneWithWhereWithoutPlaylistConnectionsInput = {
+    where?: TracksWhereInput
+    data: XOR<TracksUpdateWithoutPlaylistConnectionsInput, TracksUncheckedUpdateWithoutPlaylistConnectionsInput>
+  }
+
+  export type TracksUpdateWithoutPlaylistConnectionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
+    genre?: GenreUpdateOneRequiredWithoutTracksNestedInput
+    album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TracksUncheckedUpdateWithoutPlaylistConnectionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
+    album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
+  }
+
+  export type UserCreateWithoutFollowedPlaylistsInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFollowedPlaylistsInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
+    artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFollowedPlaylistsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFollowedPlaylistsInput, UserUncheckedCreateWithoutFollowedPlaylistsInput>
+  }
+
+  export type PlaylistsCreateWithoutFollowersInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    publicAccess?: boolean
+    user: UserCreateNestedOneWithoutCreatedPlaylistsInput
+    tracksConnections?: PlaylistToTrackCreateNestedManyWithoutPlaylistInput
+  }
+
+  export type PlaylistsUncheckedCreateWithoutFollowersInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    publicAccess?: boolean
+    userId: string
+    tracksConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutPlaylistInput
+  }
+
+  export type PlaylistsCreateOrConnectWithoutFollowersInput = {
+    where: PlaylistsWhereUniqueInput
+    create: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+  }
+
+  export type UserUpsertWithoutFollowedPlaylistsInput = {
+    update: XOR<UserUpdateWithoutFollowedPlaylistsInput, UserUncheckedUpdateWithoutFollowedPlaylistsInput>
+    create: XOR<UserCreateWithoutFollowedPlaylistsInput, UserUncheckedCreateWithoutFollowedPlaylistsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFollowedPlaylistsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFollowedPlaylistsInput, UserUncheckedUpdateWithoutFollowedPlaylistsInput>
+  }
+
+  export type UserUpdateWithoutFollowedPlaylistsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFollowedPlaylistsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
+    artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type PlaylistsUpsertWithoutFollowersInput = {
+    update: XOR<PlaylistsUpdateWithoutFollowersInput, PlaylistsUncheckedUpdateWithoutFollowersInput>
+    create: XOR<PlaylistsCreateWithoutFollowersInput, PlaylistsUncheckedCreateWithoutFollowersInput>
+    where?: PlaylistsWhereInput
+  }
+
+  export type PlaylistsUpdateToOneWithWhereWithoutFollowersInput = {
+    where?: PlaylistsWhereInput
+    data: XOR<PlaylistsUpdateWithoutFollowersInput, PlaylistsUncheckedUpdateWithoutFollowersInput>
+  }
+
+  export type PlaylistsUpdateWithoutFollowersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    user?: UserUpdateOneRequiredWithoutCreatedPlaylistsNestedInput
+    tracksConnections?: PlaylistToTrackUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type PlaylistsUncheckedUpdateWithoutFollowersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    tracksConnections?: PlaylistToTrackUncheckedUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type UserCreateWithoutArtistsFollowedInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutArtistsFollowedInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutArtistsFollowedInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
+  }
+
+  export type ArtistsCreateWithoutFollowersInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
+    albums?: AlbumsCreateNestedManyWithoutArtistInput
+    tracks?: ArtistsOnTracksCreateNestedManyWithoutArtistInput
+    genre: GenreCreateNestedOneWithoutArtistsInput
+  }
+
+  export type ArtistsUncheckedCreateWithoutFollowersInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    thumbnail?: string
+    genreId: string
+    description?: string | null
+    albums?: AlbumsUncheckedCreateNestedManyWithoutArtistInput
+    tracks?: ArtistsOnTracksUncheckedCreateNestedManyWithoutArtistInput
+  }
+
+  export type ArtistsCreateOrConnectWithoutFollowersInput = {
+    where: ArtistsWhereUniqueInput
+    create: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+  }
+
+  export type UserUpsertWithoutArtistsFollowedInput = {
+    update: XOR<UserUpdateWithoutArtistsFollowedInput, UserUncheckedUpdateWithoutArtistsFollowedInput>
+    create: XOR<UserCreateWithoutArtistsFollowedInput, UserUncheckedCreateWithoutArtistsFollowedInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutArtistsFollowedInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutArtistsFollowedInput, UserUncheckedUpdateWithoutArtistsFollowedInput>
+  }
+
+  export type UserUpdateWithoutArtistsFollowedInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutArtistsFollowedInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ArtistsUpsertWithoutFollowersInput = {
+    update: XOR<ArtistsUpdateWithoutFollowersInput, ArtistsUncheckedUpdateWithoutFollowersInput>
+    create: XOR<ArtistsCreateWithoutFollowersInput, ArtistsUncheckedCreateWithoutFollowersInput>
+    where?: ArtistsWhereInput
+  }
+
+  export type ArtistsUpdateToOneWithWhereWithoutFollowersInput = {
+    where?: ArtistsWhereInput
+    data: XOR<ArtistsUpdateWithoutFollowersInput, ArtistsUncheckedUpdateWithoutFollowersInput>
+  }
+
+  export type ArtistsUpdateWithoutFollowersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    albums?: AlbumsUpdateManyWithoutArtistNestedInput
+    tracks?: ArtistsOnTracksUpdateManyWithoutArtistNestedInput
+    genre?: GenreUpdateOneRequiredWithoutArtistsNestedInput
+  }
+
+  export type ArtistsUncheckedUpdateWithoutFollowersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
+    tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
+  }
+
+  export type UserCreateWithoutLikedAlbumsInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutLikedAlbumsInput = {
+    id?: string
+    email: string
+    password: string
+    image?: string
+    role?: string
+    name?: string | null
+    gender?: string | null
+    birthDate?: string | null
+    country?: string | null
+    artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
+    createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
+    favTracks?: UserFavsTracksUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutLikedAlbumsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
+  }
+
+  export type AlbumsCreateWithoutLikedByUsersInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    artist: ArtistsCreateNestedOneWithoutAlbumsInput
+    tracks?: TracksOnAlbumsCreateNestedManyWithoutAlbumInput
+    genre: GenreCreateNestedOneWithoutAlbumsInput
+  }
+
+  export type AlbumsUncheckedCreateWithoutLikedByUsersInput = {
+    id?: string
+    name: string
+    artistId: string
+    thumbnail: string
+    genreId: string
+    tracks?: TracksOnAlbumsUncheckedCreateNestedManyWithoutAlbumInput
+  }
+
+  export type AlbumsCreateOrConnectWithoutLikedByUsersInput = {
+    where: AlbumsWhereUniqueInput
+    create: XOR<AlbumsCreateWithoutLikedByUsersInput, AlbumsUncheckedCreateWithoutLikedByUsersInput>
+  }
+
+  export type UserUpsertWithoutLikedAlbumsInput = {
+    update: XOR<UserUpdateWithoutLikedAlbumsInput, UserUncheckedUpdateWithoutLikedAlbumsInput>
+    create: XOR<UserCreateWithoutLikedAlbumsInput, UserUncheckedCreateWithoutLikedAlbumsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLikedAlbumsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLikedAlbumsInput, UserUncheckedUpdateWithoutLikedAlbumsInput>
+  }
+
+  export type UserUpdateWithoutLikedAlbumsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLikedAlbumsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    role?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    birthDate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
+    followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
+    favTracks?: UserFavsTracksUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type AlbumsUpsertWithoutLikedByUsersInput = {
+    update: XOR<AlbumsUpdateWithoutLikedByUsersInput, AlbumsUncheckedUpdateWithoutLikedByUsersInput>
+    create: XOR<AlbumsCreateWithoutLikedByUsersInput, AlbumsUncheckedCreateWithoutLikedByUsersInput>
+    where?: AlbumsWhereInput
+  }
+
+  export type AlbumsUpdateToOneWithWhereWithoutLikedByUsersInput = {
+    where?: AlbumsWhereInput
+    data: XOR<AlbumsUpdateWithoutLikedByUsersInput, AlbumsUncheckedUpdateWithoutLikedByUsersInput>
+  }
+
+  export type AlbumsUpdateWithoutLikedByUsersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
+    tracks?: TracksOnAlbumsUpdateManyWithoutAlbumNestedInput
+    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
+  }
+
+  export type AlbumsUncheckedUpdateWithoutLikedByUsersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    artistId?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+  }
+
+  export type UserLikedAlbumsCreateManyUserInput = {
+    id?: string
+    albumId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFollowsArtistsCreateManyUserInput = {
+    id?: string
+    artistId: string
+    createdAt?: Date | string
+  }
+
+  export type UserFollowsPlaylistsCreateManyUserInput = {
+    id?: string
+    playlistId: string
+  }
+
+  export type PlaylistsCreateManyUserInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    publicAccess?: boolean
+  }
+
+  export type UserFavsTracksCreateManyUserInput = {
+    id?: string
+    trackId: string
+    createdAt?: Date | string
+  }
+
+  export type UserLikedAlbumsUpdateWithoutUserInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    album?: AlbumsUpdateOneRequiredWithoutLikedByUsersNestedInput
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateWithoutUserInput = {
     albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateManyWithoutUserInput = {
+    albumId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsArtistsUpdateWithoutUserInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    artist?: ArtistsUpdateOneRequiredWithoutFollowersNestedInput
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateWithoutUserInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateManyWithoutUserInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsPlaylistsUpdateWithoutUserInput = {
+    playlist?: PlaylistsUpdateOneRequiredWithoutFollowersNestedInput
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateWithoutUserInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateManyWithoutUserInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistsUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    followers?: UserFollowsPlaylistsUpdateManyWithoutPlaylistNestedInput
+    tracksConnections?: PlaylistToTrackUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type PlaylistsUncheckedUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+    followers?: UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistNestedInput
+    tracksConnections?: PlaylistToTrackUncheckedUpdateManyWithoutPlaylistNestedInput
+  }
+
+  export type PlaylistsUncheckedUpdateManyWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    publicAccess?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type UserFavsTracksUpdateWithoutUserInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    track?: TracksUpdateOneRequiredWithoutFavsOfUsersNestedInput
+  }
+
+  export type UserFavsTracksUncheckedUpdateWithoutUserInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFavsTracksUncheckedUpdateManyWithoutUserInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ArtistsOnTracksCreateManyTrackInput = {
+    id?: string
+    artistId: string
+  }
+
+  export type TracksOnAlbumsCreateManyTrackInput = {
+    id?: string
+    albumId: string
+  }
+
+  export type PlaylistToTrackCreateManyTrackInput = {
+    id?: string
+    playlistId: string
+  }
+
+  export type UserFavsTracksCreateManyTrackInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+  }
+
+  export type ArtistsOnTracksUpdateWithoutTrackInput = {
+    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateWithoutTrackInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateManyWithoutTrackInput = {
+    artistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TracksOnAlbumsUpdateWithoutTrackInput = {
+    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateWithoutTrackInput = {
+    albumId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateManyWithoutTrackInput = {
+    albumId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistToTrackUpdateWithoutTrackInput = {
+    playlist?: PlaylistsUpdateOneRequiredWithoutTracksConnectionsNestedInput
+  }
+
+  export type PlaylistToTrackUncheckedUpdateWithoutTrackInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistToTrackUncheckedUpdateManyWithoutTrackInput = {
+    playlistId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFavsTracksUpdateWithoutTrackInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFavTracksNestedInput
+  }
+
+  export type UserFavsTracksUncheckedUpdateWithoutTrackInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFavsTracksUncheckedUpdateManyWithoutTrackInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TracksOnAlbumsCreateManyAlbumInput = {
+    id?: string
+    trackId: string
+  }
+
+  export type UserLikedAlbumsCreateManyAlbumInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+  }
+
+  export type TracksOnAlbumsUpdateWithoutAlbumInput = {
+    track?: TracksUpdateOneRequiredWithoutAlbumNestedInput
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateWithoutAlbumInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TracksOnAlbumsUncheckedUpdateManyWithoutAlbumInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserLikedAlbumsUpdateWithoutAlbumInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateWithoutAlbumInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserLikedAlbumsUncheckedUpdateManyWithoutAlbumInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsPlaylistsCreateManyPlaylistInput = {
+    id?: string
+    userId: string
+  }
+
+  export type PlaylistToTrackCreateManyPlaylistInput = {
+    id?: string
+    trackId: string
+  }
+
+  export type UserFollowsPlaylistsUpdateWithoutPlaylistInput = {
+    user?: UserUpdateOneRequiredWithoutFollowedPlaylistsNestedInput
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateWithoutPlaylistInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsPlaylistsUncheckedUpdateManyWithoutPlaylistInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistToTrackUpdateWithoutPlaylistInput = {
+    track?: TracksUpdateOneRequiredWithoutPlaylistConnectionsNestedInput
+  }
+
+  export type PlaylistToTrackUncheckedUpdateWithoutPlaylistInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlaylistToTrackUncheckedUpdateManyWithoutPlaylistInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AlbumsCreateManyArtistInput = {
+    id?: string
+    name: string
+    thumbnail: string
+    genreId: string
+  }
+
+  export type ArtistsOnTracksCreateManyArtistInput = {
+    id?: string
+    trackId: string
+  }
+
+  export type UserFollowsArtistsCreateManyArtistInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+  }
+
+  export type AlbumsUpdateWithoutArtistInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    tracks?: TracksOnAlbumsUpdateManyWithoutAlbumNestedInput
+    genre?: GenreUpdateOneRequiredWithoutAlbumsNestedInput
+    likedByUsers?: UserLikedAlbumsUpdateManyWithoutAlbumNestedInput
+  }
+
+  export type AlbumsUncheckedUpdateWithoutArtistInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+    tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+    likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+  }
+
+  export type AlbumsUncheckedUpdateManyWithoutArtistInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    thumbnail?: StringFieldUpdateOperationsInput | string
+    genreId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistsOnTracksUpdateWithoutArtistInput = {
+    track?: TracksUpdateOneRequiredWithoutArtistNestedInput
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateWithoutArtistInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistsOnTracksUncheckedUpdateManyWithoutArtistInput = {
+    trackId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserFollowsArtistsUpdateWithoutArtistInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateWithoutArtistInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserFollowsArtistsUncheckedUpdateManyWithoutArtistInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AlbumsCreateManyGenreInput = {
@@ -11161,127 +21075,100 @@ export namespace Prisma {
     name: string
     artistId: string
     thumbnail: string
-    userId?: AlbumsCreateuserIdInput | string[]
   }
 
   export type TracksCreateManyGenreInput = {
     id?: string
     name: string
-    artistId: string
     url: string
     thumbnail: string
-    albumId: string
-    userId?: TracksCreateuserIdInput | string[]
   }
 
   export type ArtistsCreateManyGenreInput = {
     id?: string
     name: string
-    thumbnail: string
-    userId?: ArtistsCreateuserIdInput | string[]
-  }
-
-  export type PlaylistsCreateManyGenreInput = {
-    id?: string
-    name: string
-    thumbnail: string
-    trackId?: PlaylistsCreatetrackIdInput | string[]
-    userId?: PlaylistsCreateuserIdInput | string[]
+    email: string
+    password: string
+    thumbnail?: string
+    description?: string | null
   }
 
   export type AlbumsUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsUpdateOneRequiredWithoutAlbumsNestedInput
-    tracks?: TracksUpdateManyWithoutAlbumNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedAlbumsNestedInput
+    tracks?: TracksOnAlbumsUpdateManyWithoutAlbumNestedInput
+    likedByUsers?: UserLikedAlbumsUpdateManyWithoutAlbumNestedInput
   }
 
   export type AlbumsUncheckedUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
     artistId?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
-    tracks?: TracksUncheckedUpdateManyWithoutAlbumNestedInput
+    tracks?: TracksOnAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
+    likedByUsers?: UserLikedAlbumsUncheckedUpdateManyWithoutAlbumNestedInput
   }
 
   export type AlbumsUncheckedUpdateManyWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
     artistId?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    userId?: AlbumsUpdateuserIdInput | string[]
   }
 
   export type TracksUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    artist?: ArtistsUpdateOneRequiredWithoutTracksNestedInput
-    album?: AlbumsUpdateOneRequiredWithoutTracksNestedInput
-    playlists?: PlaylistsUpdateManyWithoutTracksNestedInput
-    followers?: UserUpdateOneRequiredWithoutFavsNestedInput
+    artist?: ArtistsOnTracksUpdateManyWithoutTrackNestedInput
+    album?: TracksOnAlbumsUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUpdateManyWithoutTrackNestedInput
   }
 
   export type TracksUncheckedUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
-    playlists?: PlaylistsUncheckedUpdateManyWithoutTracksNestedInput
+    artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
+    album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
+    playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
+    favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
   }
 
   export type TracksUncheckedUpdateManyWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
-    artistId?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    albumId?: StringFieldUpdateOperationsInput | string
-    userId?: TracksUpdateuserIdInput | string[]
   }
 
   export type ArtistsUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUpdateManyWithoutArtistNestedInput
-    followers?: UserUpdateOneRequiredWithoutArtistsFollowedNestedInput
+    tracks?: ArtistsOnTracksUpdateManyWithoutArtistNestedInput
+    followers?: UserFollowsArtistsUpdateManyWithoutArtistNestedInput
   }
 
   export type ArtistsUncheckedUpdateWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     albums?: AlbumsUncheckedUpdateManyWithoutArtistNestedInput
-    tracks?: TracksUncheckedUpdateManyWithoutArtistNestedInput
+    tracks?: ArtistsOnTracksUncheckedUpdateManyWithoutArtistNestedInput
+    followers?: UserFollowsArtistsUncheckedUpdateManyWithoutArtistNestedInput
   }
 
   export type ArtistsUncheckedUpdateManyWithoutGenreInput = {
     name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    userId?: ArtistsUpdateuserIdInput | string[]
-  }
-
-  export type PlaylistsUpdateWithoutGenreInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    tracks?: TracksUpdateOneRequiredWithoutPlaylistsNestedInput
-    followers?: UserUpdateOneRequiredWithoutLikedPlaylistsNestedInput
-  }
-
-  export type PlaylistsUncheckedUpdateWithoutGenreInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    userId?: PlaylistsUpdateuserIdInput | string[]
-  }
-
-  export type PlaylistsUncheckedUpdateManyWithoutGenreInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    thumbnail?: StringFieldUpdateOperationsInput | string
-    trackId?: PlaylistsUpdatetrackIdInput | string[]
-    userId?: PlaylistsUpdateuserIdInput | string[]
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
@@ -11301,6 +21188,10 @@ export namespace Prisma {
      * @deprecated Use AlbumsCountOutputTypeDefaultArgs instead
      */
     export type AlbumsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AlbumsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PlaylistsCountOutputTypeDefaultArgs instead
+     */
+    export type PlaylistsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PlaylistsCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ArtistsCountOutputTypeDefaultArgs instead
      */
@@ -11333,6 +21224,34 @@ export namespace Prisma {
      * @deprecated Use GenreDefaultArgs instead
      */
     export type GenreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GenreDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ArtistsOnTracksDefaultArgs instead
+     */
+    export type ArtistsOnTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ArtistsOnTracksDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TracksOnAlbumsDefaultArgs instead
+     */
+    export type TracksOnAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TracksOnAlbumsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserFavsTracksDefaultArgs instead
+     */
+    export type UserFavsTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserFavsTracksDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PlaylistToTrackDefaultArgs instead
+     */
+    export type PlaylistToTrackArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PlaylistToTrackDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserFollowsPlaylistsDefaultArgs instead
+     */
+    export type UserFollowsPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserFollowsPlaylistsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserFollowsArtistsDefaultArgs instead
+     */
+    export type UserFollowsArtistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserFollowsArtistsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserLikedAlbumsDefaultArgs instead
+     */
+    export type UserLikedAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserLikedAlbumsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

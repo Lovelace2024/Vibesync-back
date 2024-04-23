@@ -27,5 +27,6 @@ export const authMiddleware = (req: Request, res: Response, next: any) => {
     if (!decodedToken) {
         return res.status(401).json({ error: 'decoded token missing' })
     }
+    console.log('Middleware works!')
     next()
 }
