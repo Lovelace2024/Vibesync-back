@@ -4,3 +4,7 @@ package-lock.json
 .env
 .env.development
 .env.production
+upload.bat
+coverage
+build
+*/**.d.ts
