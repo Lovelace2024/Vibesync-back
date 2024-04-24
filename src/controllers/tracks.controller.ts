@@ -81,13 +81,16 @@ export const createTracks = async (req: Request, res: Response) => {
 
 export const getAllTracks = async (req: Request, res: Response) => {
     try {
+        console.log('getAllTracks')
         const allTracks = await prisma.tracks.findMany()
-        if (!allTracks) {
+        // const allTracks = [1]
+        console.log('alltracks', allTracks)
+        if (!allTracks || allTracks?.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
         }
         res.status(200).send(allTracks)
     } catch (error) {
-        res.status(500).json(`Internal server error: ${error}`)
+        res.status(503).json(`Internal server error: ${error}`)
     }
 };
 
