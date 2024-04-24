@@ -2,10 +2,10 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const addAlbum = async (req: Request, res: Response) => {
-    const { name, thumbnail, genreId, artistId } = req.body
+    const { name, thumbnail, genreName, artistName } = req.body
     try {
         const newAlbum = await prisma.albums.create({
-            data: { name, thumbnail, genreId, artistId }
+            data: { name, thumbnail, genreName, artistName }
         })
         res.status(201).send(newAlbum)
     } catch (error) {
@@ -52,7 +52,7 @@ export const getAlbum = async (req: Request, res: Response) => {
 
 export const updateAlbum = async (req: Request, res: Response) => {
     const { albumId } = req.params
-    const { name, thumbnail, genreId, artistId } = req.body
+    const { name, thumbnail, genreName, artistName } = req.body
 
     try {
         const updatedAlbum = await prisma.albums.update({
@@ -61,8 +61,8 @@ export const updateAlbum = async (req: Request, res: Response) => {
             }, data: {
                 name,
                 thumbnail,
-                genreId,
-                artistId
+                genreName,
+                artistName
             }
         })
         res.status(201).send(updatedAlbum)

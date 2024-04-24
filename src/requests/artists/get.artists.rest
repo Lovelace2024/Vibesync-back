@@ -1,0 +1,12 @@
+GET http://localhost:3333/api/artists
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbnVlbCIsImlkIjoiNjYxZjhlZWRhOWE1NTc1ZDc1ZGY1ZGJjIiwiaWF0IjoxNzEzNTI1NzA1LCJleHAiOjE3MTM2MTIxMDV9.kZ_4yfN-f-3WWWnmk8bKhuuGkBtw8RFF3bWpGDhPbOY
+
+# {
+#     "email": "newtrial@example.com",
+#     "password": "123456K*",
+#     "name": "Trial",
+#     "gender":"male",
+#     "birthDate":"2000-01-01",
+#     "country":"Spain"
+# }

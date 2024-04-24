@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const createTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreId, albumId } = req.body;
+    const { name, artistId, url, thumbnail, genreName, albumId } = req.body;
 
     try {
         const newTrack = await prisma.tracks.create({
@@ -10,7 +10,7 @@ export const createTracks = async (req: Request, res: Response) => {
                 name,
                 url,
                 thumbnail,
-                genreId,
+                genreName,
             }
         });
         console.log('New Track:', newTrack);
@@ -53,7 +53,7 @@ export const createTracks = async (req: Request, res: Response) => {
 
         // Ensure that the genre exists
         const genre = await prisma.genre.findUnique({
-            where: { id: genreId }
+            where: { id: genreName }
         });
 
         if (!genre) {
@@ -62,7 +62,7 @@ export const createTracks = async (req: Request, res: Response) => {
 
         // Connect the new track to the genre's tracks
         await prisma.genre.update({
-            where: { id: genreId },
+            where: { id: genreName },
             data: {
                 tracks: {
                     connect: { id: newTrack.id }
@@ -93,11 +93,11 @@ export const getAllTracks = async (req: Request, res: Response) => {
 
 export const getAllTracksByArtist = async (req: Request, res: Response) => {
     const artistId = req.params.artistId;
-    
+
     try {
         // Verify that the artist exists
         const artist = await prisma.artists.findUnique({
-            where: { id: artistId}
+            where: { id: artistId }
         });
 
         if (!artist) {
@@ -116,9 +116,9 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
 
         if (tracks.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
-    }
+        }
 
-    res.status(200).json(tracks);
+        res.status(200).json(tracks);
     } catch (error) {
         console.error('Error fetching tracks:', error);
         res.status(500).json({ message: 'Internal server error' });
@@ -144,7 +144,7 @@ export const getTrack = async (req: Request, res: Response) => {
 };
 
 export const updateTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreId, albumId } = req.body
+    const { name, artistId, url, thumbnail, genreName, albumId } = req.body
     const { trackId } = req.params
 
     try {
@@ -154,7 +154,7 @@ export const updateTracks = async (req: Request, res: Response) => {
                 name,
                 url,
                 thumbnail,
-                genreId,
+                genreName,
             }
         });
 
@@ -179,7 +179,7 @@ export const updateTracks = async (req: Request, res: Response) => {
         });
 
         await prisma.genre.update({
-            where: { id: genreId },
+            where: { id: genreName },
             data: {
                 tracks: {
                     connect: { id: trackId }
@@ -222,7 +222,7 @@ export const deleteTracks = async (req: Request, res: Response) => {
         });
 
         await prisma.genre.update({
-            where: { id: deletedTrack.genreId },
+            where: { id: deletedTrack.genreName },
             data: {
                 tracks: {
                     disconnect: { id: trackId }

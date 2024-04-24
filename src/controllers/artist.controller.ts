@@ -1,19 +1,20 @@
 import prisma from "../db/client.ts"
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 
 const getArtists = async (req: Request, res: Response) => {
+    console.log('req')
     try {
-        const accounts = await prisma.artists.findMany({
+        const artists = await prisma.artists.findMany({
             include: {
                 genre: true
             }
         })
-        if (!accounts) {
-            return res.status(404).send({ message: "Accounts not found" })
+        console.log('artists', artists)
+        if (!artists) {
+            return res.status(404).send({ message: "artists not found" })
         }
-        res.status(200).send(accounts);
+        res.status(200).send(artists);
     } catch (error) {
         res.status(404).send(error)
     }
@@ -42,7 +43,7 @@ const getArtist = async (req: Request, res: Response) => {
 const createArtist = async (req: Request, res: Response) => {
     const { body } = req
     console.log('body', body)
-    const { email, name, image, password, description, genreId } = body
+    const { email, name, image, password, description, genreName } = body
     try {
 
         const saltRounds = 10
@@ -52,7 +53,7 @@ const createArtist = async (req: Request, res: Response) => {
                 email,
                 name,
                 description,
-                genre: { connect: { id: genreId } },
+                genre: { connect: { id: genreName } },
                 thumbnail: image,
                 password: passwordHash,
             }
