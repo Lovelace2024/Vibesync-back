@@ -4,3 +4,6 @@ package-lock.json
 .env
 .env.development
 .env.production
+tsconfig.tsbuildinfo
+.husky
+upload.bat

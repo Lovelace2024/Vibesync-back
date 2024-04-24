@@ -355,8 +355,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.12.1
-   * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
+   * Prisma Client JS version: 5.13.0
+   * Query Engine version: b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b
    */
   export type PrismaVersion = {
     client: string
@@ -483,6 +483,11 @@ export namespace Prisma {
     include: any
   }
 
+  type SelectAndOmit = {
+    select: any
+    omit: any
+  }
+
   /**
    * Get the type of the value, that the Promise holds.
    */
@@ -531,7 +536,9 @@ export namespace Prisma {
   } &
     (T extends SelectAndInclude
       ? 'Please either choose `select` or `include`.'
-      : {})
+      : T extends SelectAndOmit
+        ? 'Please either choose `select` or `omit`.'
+        : {})
 
   /**
    * Subset + Intersection
@@ -1925,7 +1932,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * UserCountOutputType without action
    */
@@ -1936,14 +1942,12 @@ export namespace Prisma {
     select?: UserCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountLikedAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserLikedAlbumsWhereInput
   }
-
 
   /**
    * UserCountOutputType without action
@@ -1952,14 +1956,12 @@ export namespace Prisma {
     where?: UserFollowsArtistsWhereInput
   }
 
-
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountFollowedPlaylistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserFollowsPlaylistsWhereInput
   }
-
 
   /**
    * UserCountOutputType without action
@@ -1968,14 +1970,12 @@ export namespace Prisma {
     where?: PlaylistsWhereInput
   }
 
-
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountFavTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserFavsTracksWhereInput
   }
-
 
 
   /**
@@ -1997,7 +1997,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * TracksCountOutputType without action
    */
@@ -2008,14 +2007,12 @@ export namespace Prisma {
     select?: TracksCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * TracksCountOutputType without action
    */
   export type TracksCountOutputTypeCountArtistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ArtistsOnTracksWhereInput
   }
-
 
   /**
    * TracksCountOutputType without action
@@ -2024,7 +2021,6 @@ export namespace Prisma {
     where?: TracksOnAlbumsWhereInput
   }
 
-
   /**
    * TracksCountOutputType without action
    */
@@ -2032,14 +2028,12 @@ export namespace Prisma {
     where?: PlaylistToTrackWhereInput
   }
 
-
   /**
    * TracksCountOutputType without action
    */
   export type TracksCountOutputTypeCountFavsOfUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserFavsTracksWhereInput
   }
-
 
 
   /**
@@ -2057,7 +2051,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * AlbumsCountOutputType without action
    */
@@ -2068,7 +2061,6 @@ export namespace Prisma {
     select?: AlbumsCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * AlbumsCountOutputType without action
    */
@@ -2076,14 +2068,12 @@ export namespace Prisma {
     where?: TracksOnAlbumsWhereInput
   }
 
-
   /**
    * AlbumsCountOutputType without action
    */
   export type AlbumsCountOutputTypeCountLikedByUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserLikedAlbumsWhereInput
   }
-
 
 
   /**
@@ -2101,7 +2091,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * PlaylistsCountOutputType without action
    */
@@ -2112,7 +2101,6 @@ export namespace Prisma {
     select?: PlaylistsCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * PlaylistsCountOutputType without action
    */
@@ -2120,14 +2108,12 @@ export namespace Prisma {
     where?: UserFollowsPlaylistsWhereInput
   }
 
-
   /**
    * PlaylistsCountOutputType without action
    */
   export type PlaylistsCountOutputTypeCountTracksConnectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlaylistToTrackWhereInput
   }
-
 
 
   /**
@@ -2147,7 +2133,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * ArtistsCountOutputType without action
    */
@@ -2158,14 +2143,12 @@ export namespace Prisma {
     select?: ArtistsCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * ArtistsCountOutputType without action
    */
   export type ArtistsCountOutputTypeCountAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AlbumsWhereInput
   }
-
 
   /**
    * ArtistsCountOutputType without action
@@ -2174,14 +2157,12 @@ export namespace Prisma {
     where?: ArtistsOnTracksWhereInput
   }
 
-
   /**
    * ArtistsCountOutputType without action
    */
   export type ArtistsCountOutputTypeCountFollowersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserFollowsArtistsWhereInput
   }
-
 
 
   /**
@@ -2201,7 +2182,6 @@ export namespace Prisma {
   }
 
   // Custom InputTypes
-
   /**
    * GenreCountOutputType without action
    */
@@ -2212,14 +2192,12 @@ export namespace Prisma {
     select?: GenreCountOutputTypeSelect<ExtArgs> | null
   }
 
-
   /**
    * GenreCountOutputType without action
    */
   export type GenreCountOutputTypeCountAlbumsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AlbumsWhereInput
   }
-
 
   /**
    * GenreCountOutputType without action
@@ -2228,14 +2206,12 @@ export namespace Prisma {
     where?: TracksWhereInput
   }
 
-
   /**
    * GenreCountOutputType without action
    */
   export type GenreCountOutputTypeCountArtistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ArtistsWhereInput
   }
-
 
 
   /**
@@ -2457,6 +2433,7 @@ export namespace Prisma {
     birthDate?: boolean
     country?: boolean
   }
+
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     likedAlbums?: boolean | User$likedAlbumsArgs<ExtArgs>
@@ -2930,7 +2907,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * User findUnique
    */
@@ -2940,7 +2916,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -2948,7 +2924,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User findUniqueOrThrow
@@ -2959,7 +2934,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -2967,7 +2942,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User findFirst
@@ -2978,7 +2952,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3016,7 +2990,6 @@ export namespace Prisma {
      */
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
-
 
   /**
    * User findFirstOrThrow
@@ -3027,7 +3000,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3066,7 +3039,6 @@ export namespace Prisma {
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
-
   /**
    * User findMany
    */
@@ -3076,7 +3048,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3110,7 +3082,6 @@ export namespace Prisma {
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
-
   /**
    * User create
    */
@@ -3120,7 +3091,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3128,7 +3099,6 @@ export namespace Prisma {
      */
     data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
-
 
   /**
    * User createMany
@@ -3140,7 +3110,6 @@ export namespace Prisma {
     data: UserCreateManyInput | UserCreateManyInput[]
   }
 
-
   /**
    * User update
    */
@@ -3150,7 +3119,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3162,7 +3131,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User updateMany
@@ -3178,7 +3146,6 @@ export namespace Prisma {
     where?: UserWhereInput
   }
 
-
   /**
    * User upsert
    */
@@ -3188,7 +3155,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3205,7 +3172,6 @@ export namespace Prisma {
     update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
   }
 
-
   /**
    * User delete
    */
@@ -3215,7 +3181,7 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
     /**
@@ -3223,7 +3189,6 @@ export namespace Prisma {
      */
     where: UserWhereUniqueInput
   }
-
 
   /**
    * User deleteMany
@@ -3234,7 +3199,6 @@ export namespace Prisma {
      */
     where?: UserWhereInput
   }
-
 
   /**
    * User findRaw
@@ -3250,7 +3214,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * User aggregateRaw
    */
@@ -3265,7 +3228,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * User.likedAlbums
    */
@@ -3275,7 +3237,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     where?: UserLikedAlbumsWhereInput
@@ -3286,7 +3248,6 @@ export namespace Prisma {
     distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * User.artistsFollowed
    */
@@ -3296,7 +3257,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     where?: UserFollowsArtistsWhereInput
@@ -3307,7 +3268,6 @@ export namespace Prisma {
     distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
 
-
   /**
    * User.followedPlaylists
    */
@@ -3317,7 +3277,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     where?: UserFollowsPlaylistsWhereInput
@@ -3328,7 +3288,6 @@ export namespace Prisma {
     distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * User.createdPlaylists
    */
@@ -3338,7 +3297,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     where?: PlaylistsWhereInput
@@ -3349,7 +3308,6 @@ export namespace Prisma {
     distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * User.favTracks
    */
@@ -3359,7 +3317,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     where?: UserFavsTracksWhereInput
@@ -3370,7 +3328,6 @@ export namespace Prisma {
     distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
-
   /**
    * User without action
    */
@@ -3380,11 +3337,10 @@ export namespace Prisma {
      */
     select?: UserSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -3402,7 +3358,7 @@ export namespace Prisma {
     name: string | null
     url: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
   }
 
   export type TracksMaxAggregateOutputType = {
@@ -3410,7 +3366,7 @@ export namespace Prisma {
     name: string | null
     url: string | null
     thumbnail: string | null
-    genreId: string | null
+    genreName: string | null
   }
 
   export type TracksCountAggregateOutputType = {
@@ -3418,7 +3374,7 @@ export namespace Prisma {
     name: number
     url: number
     thumbnail: number
-    genreId: number
+    genreName: number
     _all: number
   }
 
@@ -3428,7 +3384,7 @@ export namespace Prisma {
     name?: true
     url?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
   }
 
   export type TracksMaxAggregateInputType = {
@@ -3436,7 +3392,7 @@ export namespace Prisma {
     name?: true
     url?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
   }
 
   export type TracksCountAggregateInputType = {
@@ -3444,7 +3400,7 @@ export namespace Prisma {
     name?: true
     url?: true
     thumbnail?: true
-    genreId?: true
+    genreName?: true
     _all?: true
   }
 
@@ -3525,7 +3481,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     _count: TracksCountAggregateOutputType | null
     _min: TracksMinAggregateOutputType | null
     _max: TracksMaxAggregateOutputType | null
@@ -3550,7 +3506,7 @@ export namespace Prisma {
     name?: boolean
     url?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
     artist?: boolean | Tracks$artistArgs<ExtArgs>
     genre?: boolean | GenreDefaultArgs<ExtArgs>
     album?: boolean | Tracks$albumArgs<ExtArgs>
@@ -3564,8 +3520,9 @@ export namespace Prisma {
     name?: boolean
     url?: boolean
     thumbnail?: boolean
-    genreId?: boolean
+    genreName?: boolean
   }
+
 
   export type TracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     artist?: boolean | Tracks$artistArgs<ExtArgs>
@@ -3591,7 +3548,7 @@ export namespace Prisma {
       name: string
       url: string
       thumbnail: string
-      genreId: string
+      genreName: string
     }, ExtArgs["result"]["tracks"]>
     composites: {}
   }
@@ -4026,12 +3983,11 @@ export namespace Prisma {
     readonly name: FieldRef<"Tracks", 'String'>
     readonly url: FieldRef<"Tracks", 'String'>
     readonly thumbnail: FieldRef<"Tracks", 'String'>
-    readonly genreId: FieldRef<"Tracks", 'String'>
+    readonly genreName: FieldRef<"Tracks", 'String'>
   }
     
 
   // Custom InputTypes
-
   /**
    * Tracks findUnique
    */
@@ -4041,7 +3997,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4049,7 +4005,6 @@ export namespace Prisma {
      */
     where: TracksWhereUniqueInput
   }
-
 
   /**
    * Tracks findUniqueOrThrow
@@ -4060,7 +4015,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4068,7 +4023,6 @@ export namespace Prisma {
      */
     where: TracksWhereUniqueInput
   }
-
 
   /**
    * Tracks findFirst
@@ -4079,7 +4033,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4117,7 +4071,6 @@ export namespace Prisma {
      */
     distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
   }
-
 
   /**
    * Tracks findFirstOrThrow
@@ -4128,7 +4081,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4167,7 +4120,6 @@ export namespace Prisma {
     distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
   }
 
-
   /**
    * Tracks findMany
    */
@@ -4177,7 +4129,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4211,7 +4163,6 @@ export namespace Prisma {
     distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
   }
 
-
   /**
    * Tracks create
    */
@@ -4221,7 +4172,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4229,7 +4180,6 @@ export namespace Prisma {
      */
     data: XOR<TracksCreateInput, TracksUncheckedCreateInput>
   }
-
 
   /**
    * Tracks createMany
@@ -4241,7 +4191,6 @@ export namespace Prisma {
     data: TracksCreateManyInput | TracksCreateManyInput[]
   }
 
-
   /**
    * Tracks update
    */
@@ -4251,7 +4200,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4263,7 +4212,6 @@ export namespace Prisma {
      */
     where: TracksWhereUniqueInput
   }
-
 
   /**
    * Tracks updateMany
@@ -4279,7 +4227,6 @@ export namespace Prisma {
     where?: TracksWhereInput
   }
 
-
   /**
    * Tracks upsert
    */
@@ -4289,7 +4236,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4306,7 +4253,6 @@ export namespace Prisma {
     update: XOR<TracksUpdateInput, TracksUncheckedUpdateInput>
   }
 
-
   /**
    * Tracks delete
    */
@@ -4316,7 +4262,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     /**
@@ -4324,7 +4270,6 @@ export namespace Prisma {
      */
     where: TracksWhereUniqueInput
   }
-
 
   /**
    * Tracks deleteMany
@@ -4335,7 +4280,6 @@ export namespace Prisma {
      */
     where?: TracksWhereInput
   }
-
 
   /**
    * Tracks findRaw
@@ -4351,7 +4295,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Tracks aggregateRaw
    */
@@ -4366,7 +4309,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Tracks.artist
    */
@@ -4376,7 +4318,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     where?: ArtistsOnTracksWhereInput
@@ -4387,7 +4329,6 @@ export namespace Prisma {
     distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
   }
 
-
   /**
    * Tracks.album
    */
@@ -4397,7 +4338,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     where?: TracksOnAlbumsWhereInput
@@ -4408,7 +4349,6 @@ export namespace Prisma {
     distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Tracks.playlistConnections
    */
@@ -4418,7 +4358,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     where?: PlaylistToTrackWhereInput
@@ -4429,7 +4369,6 @@ export namespace Prisma {
     distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
   }
 
-
   /**
    * Tracks.favsOfUsers
    */
@@ -4439,7 +4378,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     where?: UserFavsTracksWhereInput
@@ -4450,7 +4389,6 @@ export namespace Prisma {
     distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
-
   /**
    * Tracks without action
    */
@@ -4460,11 +4398,10 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -4645,6 +4582,7 @@ export namespace Prisma {
     thumbnail?: boolean
     genreName?: boolean
   }
+
 
   export type AlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     artist?: boolean | ArtistsDefaultArgs<ExtArgs>
@@ -5106,7 +5044,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * Albums findUnique
    */
@@ -5116,7 +5053,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5124,7 +5061,6 @@ export namespace Prisma {
      */
     where: AlbumsWhereUniqueInput
   }
-
 
   /**
    * Albums findUniqueOrThrow
@@ -5135,7 +5071,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5143,7 +5079,6 @@ export namespace Prisma {
      */
     where: AlbumsWhereUniqueInput
   }
-
 
   /**
    * Albums findFirst
@@ -5154,7 +5089,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5192,7 +5127,6 @@ export namespace Prisma {
      */
     distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
   }
-
 
   /**
    * Albums findFirstOrThrow
@@ -5203,7 +5137,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5242,7 +5176,6 @@ export namespace Prisma {
     distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Albums findMany
    */
@@ -5252,7 +5185,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5286,7 +5219,6 @@ export namespace Prisma {
     distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Albums create
    */
@@ -5296,7 +5228,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5304,7 +5236,6 @@ export namespace Prisma {
      */
     data: XOR<AlbumsCreateInput, AlbumsUncheckedCreateInput>
   }
-
 
   /**
    * Albums createMany
@@ -5316,7 +5247,6 @@ export namespace Prisma {
     data: AlbumsCreateManyInput | AlbumsCreateManyInput[]
   }
 
-
   /**
    * Albums update
    */
@@ -5326,7 +5256,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5338,7 +5268,6 @@ export namespace Prisma {
      */
     where: AlbumsWhereUniqueInput
   }
-
 
   /**
    * Albums updateMany
@@ -5354,7 +5283,6 @@ export namespace Prisma {
     where?: AlbumsWhereInput
   }
 
-
   /**
    * Albums upsert
    */
@@ -5364,7 +5292,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5381,7 +5309,6 @@ export namespace Prisma {
     update: XOR<AlbumsUpdateInput, AlbumsUncheckedUpdateInput>
   }
 
-
   /**
    * Albums delete
    */
@@ -5391,7 +5318,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     /**
@@ -5399,7 +5326,6 @@ export namespace Prisma {
      */
     where: AlbumsWhereUniqueInput
   }
-
 
   /**
    * Albums deleteMany
@@ -5410,7 +5336,6 @@ export namespace Prisma {
      */
     where?: AlbumsWhereInput
   }
-
 
   /**
    * Albums findRaw
@@ -5426,7 +5351,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Albums aggregateRaw
    */
@@ -5441,7 +5365,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Albums.tracks
    */
@@ -5451,7 +5374,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     where?: TracksOnAlbumsWhereInput
@@ -5462,7 +5385,6 @@ export namespace Prisma {
     distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Albums.likedByUsers
    */
@@ -5472,7 +5394,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     where?: UserLikedAlbumsWhereInput
@@ -5483,7 +5405,6 @@ export namespace Prisma {
     distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Albums without action
    */
@@ -5493,11 +5414,10 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -5677,6 +5597,7 @@ export namespace Prisma {
     publicAccess?: boolean
     userId?: boolean
   }
+
 
   export type PlaylistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6134,7 +6055,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * Playlists findUnique
    */
@@ -6144,7 +6064,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6152,7 +6072,6 @@ export namespace Prisma {
      */
     where: PlaylistsWhereUniqueInput
   }
-
 
   /**
    * Playlists findUniqueOrThrow
@@ -6163,7 +6082,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6171,7 +6090,6 @@ export namespace Prisma {
      */
     where: PlaylistsWhereUniqueInput
   }
-
 
   /**
    * Playlists findFirst
@@ -6182,7 +6100,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6220,7 +6138,6 @@ export namespace Prisma {
      */
     distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
   }
-
 
   /**
    * Playlists findFirstOrThrow
@@ -6231,7 +6148,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6270,7 +6187,6 @@ export namespace Prisma {
     distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * Playlists findMany
    */
@@ -6280,7 +6196,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6314,7 +6230,6 @@ export namespace Prisma {
     distinct?: PlaylistsScalarFieldEnum | PlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * Playlists create
    */
@@ -6324,7 +6239,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6332,7 +6247,6 @@ export namespace Prisma {
      */
     data: XOR<PlaylistsCreateInput, PlaylistsUncheckedCreateInput>
   }
-
 
   /**
    * Playlists createMany
@@ -6344,7 +6258,6 @@ export namespace Prisma {
     data: PlaylistsCreateManyInput | PlaylistsCreateManyInput[]
   }
 
-
   /**
    * Playlists update
    */
@@ -6354,7 +6267,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6366,7 +6279,6 @@ export namespace Prisma {
      */
     where: PlaylistsWhereUniqueInput
   }
-
 
   /**
    * Playlists updateMany
@@ -6382,7 +6294,6 @@ export namespace Prisma {
     where?: PlaylistsWhereInput
   }
 
-
   /**
    * Playlists upsert
    */
@@ -6392,7 +6303,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6409,7 +6320,6 @@ export namespace Prisma {
     update: XOR<PlaylistsUpdateInput, PlaylistsUncheckedUpdateInput>
   }
 
-
   /**
    * Playlists delete
    */
@@ -6419,7 +6329,7 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
     /**
@@ -6427,7 +6337,6 @@ export namespace Prisma {
      */
     where: PlaylistsWhereUniqueInput
   }
-
 
   /**
    * Playlists deleteMany
@@ -6438,7 +6347,6 @@ export namespace Prisma {
      */
     where?: PlaylistsWhereInput
   }
-
 
   /**
    * Playlists findRaw
@@ -6454,7 +6362,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Playlists aggregateRaw
    */
@@ -6469,7 +6376,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Playlists.followers
    */
@@ -6479,7 +6385,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     where?: UserFollowsPlaylistsWhereInput
@@ -6490,7 +6396,6 @@ export namespace Prisma {
     distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * Playlists.tracksConnections
    */
@@ -6500,7 +6405,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     where?: PlaylistToTrackWhereInput
@@ -6511,7 +6416,6 @@ export namespace Prisma {
     distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
   }
 
-
   /**
    * Playlists without action
    */
@@ -6521,11 +6425,10 @@ export namespace Prisma {
      */
     select?: PlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -6724,6 +6627,7 @@ export namespace Prisma {
     genreName?: boolean
     description?: boolean
   }
+
 
   export type ArtistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albums?: boolean | Artists$albumsArgs<ExtArgs>
@@ -7189,7 +7093,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * Artists findUnique
    */
@@ -7199,7 +7102,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7207,7 +7110,6 @@ export namespace Prisma {
      */
     where: ArtistsWhereUniqueInput
   }
-
 
   /**
    * Artists findUniqueOrThrow
@@ -7218,7 +7120,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7226,7 +7128,6 @@ export namespace Prisma {
      */
     where: ArtistsWhereUniqueInput
   }
-
 
   /**
    * Artists findFirst
@@ -7237,7 +7138,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7275,7 +7176,6 @@ export namespace Prisma {
      */
     distinct?: ArtistsScalarFieldEnum | ArtistsScalarFieldEnum[]
   }
-
 
   /**
    * Artists findFirstOrThrow
@@ -7286,7 +7186,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7325,7 +7225,6 @@ export namespace Prisma {
     distinct?: ArtistsScalarFieldEnum | ArtistsScalarFieldEnum[]
   }
 
-
   /**
    * Artists findMany
    */
@@ -7335,7 +7234,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7369,7 +7268,6 @@ export namespace Prisma {
     distinct?: ArtistsScalarFieldEnum | ArtistsScalarFieldEnum[]
   }
 
-
   /**
    * Artists create
    */
@@ -7379,7 +7277,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7387,7 +7285,6 @@ export namespace Prisma {
      */
     data: XOR<ArtistsCreateInput, ArtistsUncheckedCreateInput>
   }
-
 
   /**
    * Artists createMany
@@ -7399,7 +7296,6 @@ export namespace Prisma {
     data: ArtistsCreateManyInput | ArtistsCreateManyInput[]
   }
 
-
   /**
    * Artists update
    */
@@ -7409,7 +7305,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7421,7 +7317,6 @@ export namespace Prisma {
      */
     where: ArtistsWhereUniqueInput
   }
-
 
   /**
    * Artists updateMany
@@ -7437,7 +7332,6 @@ export namespace Prisma {
     where?: ArtistsWhereInput
   }
 
-
   /**
    * Artists upsert
    */
@@ -7447,7 +7341,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7464,7 +7358,6 @@ export namespace Prisma {
     update: XOR<ArtistsUpdateInput, ArtistsUncheckedUpdateInput>
   }
 
-
   /**
    * Artists delete
    */
@@ -7474,7 +7367,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     /**
@@ -7482,7 +7375,6 @@ export namespace Prisma {
      */
     where: ArtistsWhereUniqueInput
   }
-
 
   /**
    * Artists deleteMany
@@ -7493,7 +7385,6 @@ export namespace Prisma {
      */
     where?: ArtistsWhereInput
   }
-
 
   /**
    * Artists findRaw
@@ -7509,7 +7400,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Artists aggregateRaw
    */
@@ -7524,7 +7414,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Artists.albums
    */
@@ -7534,7 +7423,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     where?: AlbumsWhereInput
@@ -7545,7 +7434,6 @@ export namespace Prisma {
     distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Artists.tracks
    */
@@ -7555,7 +7443,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     where?: ArtistsOnTracksWhereInput
@@ -7566,7 +7454,6 @@ export namespace Prisma {
     distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
   }
 
-
   /**
    * Artists.followers
    */
@@ -7576,7 +7463,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     where?: UserFollowsArtistsWhereInput
@@ -7587,7 +7474,6 @@ export namespace Prisma {
     distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
 
-
   /**
    * Artists without action
    */
@@ -7597,11 +7483,10 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -7754,6 +7639,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
   }
+
 
   export type GenreInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     albums?: boolean | Genre$albumsArgs<ExtArgs>
@@ -8205,7 +8091,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * Genre findUnique
    */
@@ -8215,7 +8100,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8223,7 +8108,6 @@ export namespace Prisma {
      */
     where: GenreWhereUniqueInput
   }
-
 
   /**
    * Genre findUniqueOrThrow
@@ -8234,7 +8118,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8242,7 +8126,6 @@ export namespace Prisma {
      */
     where: GenreWhereUniqueInput
   }
-
 
   /**
    * Genre findFirst
@@ -8253,7 +8136,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8291,7 +8174,6 @@ export namespace Prisma {
      */
     distinct?: GenreScalarFieldEnum | GenreScalarFieldEnum[]
   }
-
 
   /**
    * Genre findFirstOrThrow
@@ -8302,7 +8184,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8341,7 +8223,6 @@ export namespace Prisma {
     distinct?: GenreScalarFieldEnum | GenreScalarFieldEnum[]
   }
 
-
   /**
    * Genre findMany
    */
@@ -8351,7 +8232,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8385,7 +8266,6 @@ export namespace Prisma {
     distinct?: GenreScalarFieldEnum | GenreScalarFieldEnum[]
   }
 
-
   /**
    * Genre create
    */
@@ -8395,7 +8275,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8403,7 +8283,6 @@ export namespace Prisma {
      */
     data: XOR<GenreCreateInput, GenreUncheckedCreateInput>
   }
-
 
   /**
    * Genre createMany
@@ -8415,7 +8294,6 @@ export namespace Prisma {
     data: GenreCreateManyInput | GenreCreateManyInput[]
   }
 
-
   /**
    * Genre update
    */
@@ -8425,7 +8303,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8437,7 +8315,6 @@ export namespace Prisma {
      */
     where: GenreWhereUniqueInput
   }
-
 
   /**
    * Genre updateMany
@@ -8453,7 +8330,6 @@ export namespace Prisma {
     where?: GenreWhereInput
   }
 
-
   /**
    * Genre upsert
    */
@@ -8463,7 +8339,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8480,7 +8356,6 @@ export namespace Prisma {
     update: XOR<GenreUpdateInput, GenreUncheckedUpdateInput>
   }
 
-
   /**
    * Genre delete
    */
@@ -8490,7 +8365,7 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
     /**
@@ -8498,7 +8373,6 @@ export namespace Prisma {
      */
     where: GenreWhereUniqueInput
   }
-
 
   /**
    * Genre deleteMany
@@ -8509,7 +8383,6 @@ export namespace Prisma {
      */
     where?: GenreWhereInput
   }
-
 
   /**
    * Genre findRaw
@@ -8525,7 +8398,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Genre aggregateRaw
    */
@@ -8540,7 +8412,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * Genre.albums
    */
@@ -8550,7 +8421,7 @@ export namespace Prisma {
      */
     select?: AlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: AlbumsInclude<ExtArgs> | null
     where?: AlbumsWhereInput
@@ -8561,7 +8432,6 @@ export namespace Prisma {
     distinct?: AlbumsScalarFieldEnum | AlbumsScalarFieldEnum[]
   }
 
-
   /**
    * Genre.tracks
    */
@@ -8571,7 +8441,7 @@ export namespace Prisma {
      */
     select?: TracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksInclude<ExtArgs> | null
     where?: TracksWhereInput
@@ -8582,7 +8452,6 @@ export namespace Prisma {
     distinct?: TracksScalarFieldEnum | TracksScalarFieldEnum[]
   }
 
-
   /**
    * Genre.artists
    */
@@ -8592,7 +8461,7 @@ export namespace Prisma {
      */
     select?: ArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsInclude<ExtArgs> | null
     where?: ArtistsWhereInput
@@ -8603,7 +8472,6 @@ export namespace Prisma {
     distinct?: ArtistsScalarFieldEnum | ArtistsScalarFieldEnum[]
   }
 
-
   /**
    * Genre without action
    */
@@ -8613,11 +8481,10 @@ export namespace Prisma {
      */
     select?: GenreSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: GenreInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -8777,6 +8644,7 @@ export namespace Prisma {
     artistId?: boolean
     trackId?: boolean
   }
+
 
   export type ArtistsOnTracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     artist?: boolean | ArtistsDefaultArgs<ExtArgs>
@@ -9225,7 +9093,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * ArtistsOnTracks findUnique
    */
@@ -9235,7 +9102,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9243,7 +9110,6 @@ export namespace Prisma {
      */
     where: ArtistsOnTracksWhereUniqueInput
   }
-
 
   /**
    * ArtistsOnTracks findUniqueOrThrow
@@ -9254,7 +9120,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9262,7 +9128,6 @@ export namespace Prisma {
      */
     where: ArtistsOnTracksWhereUniqueInput
   }
-
 
   /**
    * ArtistsOnTracks findFirst
@@ -9273,7 +9138,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9311,7 +9176,6 @@ export namespace Prisma {
      */
     distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
   }
-
 
   /**
    * ArtistsOnTracks findFirstOrThrow
@@ -9322,7 +9186,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9361,7 +9225,6 @@ export namespace Prisma {
     distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
   }
 
-
   /**
    * ArtistsOnTracks findMany
    */
@@ -9371,7 +9234,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9405,7 +9268,6 @@ export namespace Prisma {
     distinct?: ArtistsOnTracksScalarFieldEnum | ArtistsOnTracksScalarFieldEnum[]
   }
 
-
   /**
    * ArtistsOnTracks create
    */
@@ -9415,7 +9277,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9423,7 +9285,6 @@ export namespace Prisma {
      */
     data: XOR<ArtistsOnTracksCreateInput, ArtistsOnTracksUncheckedCreateInput>
   }
-
 
   /**
    * ArtistsOnTracks createMany
@@ -9435,7 +9296,6 @@ export namespace Prisma {
     data: ArtistsOnTracksCreateManyInput | ArtistsOnTracksCreateManyInput[]
   }
 
-
   /**
    * ArtistsOnTracks update
    */
@@ -9445,7 +9305,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9457,7 +9317,6 @@ export namespace Prisma {
      */
     where: ArtistsOnTracksWhereUniqueInput
   }
-
 
   /**
    * ArtistsOnTracks updateMany
@@ -9473,7 +9332,6 @@ export namespace Prisma {
     where?: ArtistsOnTracksWhereInput
   }
 
-
   /**
    * ArtistsOnTracks upsert
    */
@@ -9483,7 +9341,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9500,7 +9358,6 @@ export namespace Prisma {
     update: XOR<ArtistsOnTracksUpdateInput, ArtistsOnTracksUncheckedUpdateInput>
   }
 
-
   /**
    * ArtistsOnTracks delete
    */
@@ -9510,7 +9367,7 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
     /**
@@ -9518,7 +9375,6 @@ export namespace Prisma {
      */
     where: ArtistsOnTracksWhereUniqueInput
   }
-
 
   /**
    * ArtistsOnTracks deleteMany
@@ -9529,7 +9385,6 @@ export namespace Prisma {
      */
     where?: ArtistsOnTracksWhereInput
   }
-
 
   /**
    * ArtistsOnTracks findRaw
@@ -9545,7 +9400,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * ArtistsOnTracks aggregateRaw
    */
@@ -9560,7 +9414,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * ArtistsOnTracks without action
    */
@@ -9570,11 +9423,10 @@ export namespace Prisma {
      */
     select?: ArtistsOnTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: ArtistsOnTracksInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -9734,6 +9586,7 @@ export namespace Prisma {
     albumId?: boolean
     trackId?: boolean
   }
+
 
   export type TracksOnAlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     album?: boolean | AlbumsDefaultArgs<ExtArgs>
@@ -10182,7 +10035,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * TracksOnAlbums findUnique
    */
@@ -10192,7 +10044,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10200,7 +10052,6 @@ export namespace Prisma {
      */
     where: TracksOnAlbumsWhereUniqueInput
   }
-
 
   /**
    * TracksOnAlbums findUniqueOrThrow
@@ -10211,7 +10062,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10219,7 +10070,6 @@ export namespace Prisma {
      */
     where: TracksOnAlbumsWhereUniqueInput
   }
-
 
   /**
    * TracksOnAlbums findFirst
@@ -10230,7 +10080,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10268,7 +10118,6 @@ export namespace Prisma {
      */
     distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
   }
-
 
   /**
    * TracksOnAlbums findFirstOrThrow
@@ -10279,7 +10128,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10318,7 +10167,6 @@ export namespace Prisma {
     distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * TracksOnAlbums findMany
    */
@@ -10328,7 +10176,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10362,7 +10210,6 @@ export namespace Prisma {
     distinct?: TracksOnAlbumsScalarFieldEnum | TracksOnAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * TracksOnAlbums create
    */
@@ -10372,7 +10219,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10380,7 +10227,6 @@ export namespace Prisma {
      */
     data: XOR<TracksOnAlbumsCreateInput, TracksOnAlbumsUncheckedCreateInput>
   }
-
 
   /**
    * TracksOnAlbums createMany
@@ -10392,7 +10238,6 @@ export namespace Prisma {
     data: TracksOnAlbumsCreateManyInput | TracksOnAlbumsCreateManyInput[]
   }
 
-
   /**
    * TracksOnAlbums update
    */
@@ -10402,7 +10247,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10414,7 +10259,6 @@ export namespace Prisma {
      */
     where: TracksOnAlbumsWhereUniqueInput
   }
-
 
   /**
    * TracksOnAlbums updateMany
@@ -10430,7 +10274,6 @@ export namespace Prisma {
     where?: TracksOnAlbumsWhereInput
   }
 
-
   /**
    * TracksOnAlbums upsert
    */
@@ -10440,7 +10283,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10457,7 +10300,6 @@ export namespace Prisma {
     update: XOR<TracksOnAlbumsUpdateInput, TracksOnAlbumsUncheckedUpdateInput>
   }
 
-
   /**
    * TracksOnAlbums delete
    */
@@ -10467,7 +10309,7 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
     /**
@@ -10475,7 +10317,6 @@ export namespace Prisma {
      */
     where: TracksOnAlbumsWhereUniqueInput
   }
-
 
   /**
    * TracksOnAlbums deleteMany
@@ -10486,7 +10327,6 @@ export namespace Prisma {
      */
     where?: TracksOnAlbumsWhereInput
   }
-
 
   /**
    * TracksOnAlbums findRaw
@@ -10502,7 +10342,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * TracksOnAlbums aggregateRaw
    */
@@ -10517,7 +10356,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * TracksOnAlbums without action
    */
@@ -10527,11 +10365,10 @@ export namespace Prisma {
      */
     select?: TracksOnAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: TracksOnAlbumsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -10700,6 +10537,7 @@ export namespace Prisma {
     trackId?: boolean
     createdAt?: boolean
   }
+
 
   export type UserFavsTracksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -11150,7 +10988,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * UserFavsTracks findUnique
    */
@@ -11160,7 +10997,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11168,7 +11005,6 @@ export namespace Prisma {
      */
     where: UserFavsTracksWhereUniqueInput
   }
-
 
   /**
    * UserFavsTracks findUniqueOrThrow
@@ -11179,7 +11015,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11187,7 +11023,6 @@ export namespace Prisma {
      */
     where: UserFavsTracksWhereUniqueInput
   }
-
 
   /**
    * UserFavsTracks findFirst
@@ -11198,7 +11033,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11236,7 +11071,6 @@ export namespace Prisma {
      */
     distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
-
 
   /**
    * UserFavsTracks findFirstOrThrow
@@ -11247,7 +11081,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11286,7 +11120,6 @@ export namespace Prisma {
     distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
-
   /**
    * UserFavsTracks findMany
    */
@@ -11296,7 +11129,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11330,7 +11163,6 @@ export namespace Prisma {
     distinct?: UserFavsTracksScalarFieldEnum | UserFavsTracksScalarFieldEnum[]
   }
 
-
   /**
    * UserFavsTracks create
    */
@@ -11340,7 +11172,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11348,7 +11180,6 @@ export namespace Prisma {
      */
     data: XOR<UserFavsTracksCreateInput, UserFavsTracksUncheckedCreateInput>
   }
-
 
   /**
    * UserFavsTracks createMany
@@ -11360,7 +11191,6 @@ export namespace Prisma {
     data: UserFavsTracksCreateManyInput | UserFavsTracksCreateManyInput[]
   }
 
-
   /**
    * UserFavsTracks update
    */
@@ -11370,7 +11200,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11382,7 +11212,6 @@ export namespace Prisma {
      */
     where: UserFavsTracksWhereUniqueInput
   }
-
 
   /**
    * UserFavsTracks updateMany
@@ -11398,7 +11227,6 @@ export namespace Prisma {
     where?: UserFavsTracksWhereInput
   }
 
-
   /**
    * UserFavsTracks upsert
    */
@@ -11408,7 +11236,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11425,7 +11253,6 @@ export namespace Prisma {
     update: XOR<UserFavsTracksUpdateInput, UserFavsTracksUncheckedUpdateInput>
   }
 
-
   /**
    * UserFavsTracks delete
    */
@@ -11435,7 +11262,7 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
     /**
@@ -11443,7 +11270,6 @@ export namespace Prisma {
      */
     where: UserFavsTracksWhereUniqueInput
   }
-
 
   /**
    * UserFavsTracks deleteMany
@@ -11454,7 +11280,6 @@ export namespace Prisma {
      */
     where?: UserFavsTracksWhereInput
   }
-
 
   /**
    * UserFavsTracks findRaw
@@ -11470,7 +11295,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFavsTracks aggregateRaw
    */
@@ -11485,7 +11309,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFavsTracks without action
    */
@@ -11495,11 +11318,10 @@ export namespace Prisma {
      */
     select?: UserFavsTracksSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFavsTracksInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -11659,6 +11481,7 @@ export namespace Prisma {
     playlistId?: boolean
     trackId?: boolean
   }
+
 
   export type PlaylistToTrackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     playlist?: boolean | PlaylistsDefaultArgs<ExtArgs>
@@ -12107,7 +11930,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * PlaylistToTrack findUnique
    */
@@ -12117,7 +11939,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12125,7 +11947,6 @@ export namespace Prisma {
      */
     where: PlaylistToTrackWhereUniqueInput
   }
-
 
   /**
    * PlaylistToTrack findUniqueOrThrow
@@ -12136,7 +11957,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12144,7 +11965,6 @@ export namespace Prisma {
      */
     where: PlaylistToTrackWhereUniqueInput
   }
-
 
   /**
    * PlaylistToTrack findFirst
@@ -12155,7 +11975,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12193,7 +12013,6 @@ export namespace Prisma {
      */
     distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
   }
-
 
   /**
    * PlaylistToTrack findFirstOrThrow
@@ -12204,7 +12023,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12243,7 +12062,6 @@ export namespace Prisma {
     distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
   }
 
-
   /**
    * PlaylistToTrack findMany
    */
@@ -12253,7 +12071,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12287,7 +12105,6 @@ export namespace Prisma {
     distinct?: PlaylistToTrackScalarFieldEnum | PlaylistToTrackScalarFieldEnum[]
   }
 
-
   /**
    * PlaylistToTrack create
    */
@@ -12297,7 +12114,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12305,7 +12122,6 @@ export namespace Prisma {
      */
     data: XOR<PlaylistToTrackCreateInput, PlaylistToTrackUncheckedCreateInput>
   }
-
 
   /**
    * PlaylistToTrack createMany
@@ -12317,7 +12133,6 @@ export namespace Prisma {
     data: PlaylistToTrackCreateManyInput | PlaylistToTrackCreateManyInput[]
   }
 
-
   /**
    * PlaylistToTrack update
    */
@@ -12327,7 +12142,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12339,7 +12154,6 @@ export namespace Prisma {
      */
     where: PlaylistToTrackWhereUniqueInput
   }
-
 
   /**
    * PlaylistToTrack updateMany
@@ -12355,7 +12169,6 @@ export namespace Prisma {
     where?: PlaylistToTrackWhereInput
   }
 
-
   /**
    * PlaylistToTrack upsert
    */
@@ -12365,7 +12178,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12382,7 +12195,6 @@ export namespace Prisma {
     update: XOR<PlaylistToTrackUpdateInput, PlaylistToTrackUncheckedUpdateInput>
   }
 
-
   /**
    * PlaylistToTrack delete
    */
@@ -12392,7 +12204,7 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
     /**
@@ -12400,7 +12212,6 @@ export namespace Prisma {
      */
     where: PlaylistToTrackWhereUniqueInput
   }
-
 
   /**
    * PlaylistToTrack deleteMany
@@ -12411,7 +12222,6 @@ export namespace Prisma {
      */
     where?: PlaylistToTrackWhereInput
   }
-
 
   /**
    * PlaylistToTrack findRaw
@@ -12427,7 +12237,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * PlaylistToTrack aggregateRaw
    */
@@ -12442,7 +12251,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * PlaylistToTrack without action
    */
@@ -12452,11 +12260,10 @@ export namespace Prisma {
      */
     select?: PlaylistToTrackSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: PlaylistToTrackInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -12616,6 +12423,7 @@ export namespace Prisma {
     userId?: boolean
     playlistId?: boolean
   }
+
 
   export type UserFollowsPlaylistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -13064,7 +12872,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * UserFollowsPlaylists findUnique
    */
@@ -13074,7 +12881,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13082,7 +12889,6 @@ export namespace Prisma {
      */
     where: UserFollowsPlaylistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsPlaylists findUniqueOrThrow
@@ -13093,7 +12899,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13101,7 +12907,6 @@ export namespace Prisma {
      */
     where: UserFollowsPlaylistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsPlaylists findFirst
@@ -13112,7 +12917,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13150,7 +12955,6 @@ export namespace Prisma {
      */
     distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
   }
-
 
   /**
    * UserFollowsPlaylists findFirstOrThrow
@@ -13161,7 +12965,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13200,7 +13004,6 @@ export namespace Prisma {
     distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * UserFollowsPlaylists findMany
    */
@@ -13210,7 +13013,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13244,7 +13047,6 @@ export namespace Prisma {
     distinct?: UserFollowsPlaylistsScalarFieldEnum | UserFollowsPlaylistsScalarFieldEnum[]
   }
 
-
   /**
    * UserFollowsPlaylists create
    */
@@ -13254,7 +13056,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13262,7 +13064,6 @@ export namespace Prisma {
      */
     data: XOR<UserFollowsPlaylistsCreateInput, UserFollowsPlaylistsUncheckedCreateInput>
   }
-
 
   /**
    * UserFollowsPlaylists createMany
@@ -13274,7 +13075,6 @@ export namespace Prisma {
     data: UserFollowsPlaylistsCreateManyInput | UserFollowsPlaylistsCreateManyInput[]
   }
 
-
   /**
    * UserFollowsPlaylists update
    */
@@ -13284,7 +13084,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13296,7 +13096,6 @@ export namespace Prisma {
      */
     where: UserFollowsPlaylistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsPlaylists updateMany
@@ -13312,7 +13111,6 @@ export namespace Prisma {
     where?: UserFollowsPlaylistsWhereInput
   }
 
-
   /**
    * UserFollowsPlaylists upsert
    */
@@ -13322,7 +13120,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13339,7 +13137,6 @@ export namespace Prisma {
     update: XOR<UserFollowsPlaylistsUpdateInput, UserFollowsPlaylistsUncheckedUpdateInput>
   }
 
-
   /**
    * UserFollowsPlaylists delete
    */
@@ -13349,7 +13146,7 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
     /**
@@ -13357,7 +13154,6 @@ export namespace Prisma {
      */
     where: UserFollowsPlaylistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsPlaylists deleteMany
@@ -13368,7 +13164,6 @@ export namespace Prisma {
      */
     where?: UserFollowsPlaylistsWhereInput
   }
-
 
   /**
    * UserFollowsPlaylists findRaw
@@ -13384,7 +13179,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFollowsPlaylists aggregateRaw
    */
@@ -13399,7 +13193,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFollowsPlaylists without action
    */
@@ -13409,11 +13202,10 @@ export namespace Prisma {
      */
     select?: UserFollowsPlaylistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsPlaylistsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -13582,6 +13374,7 @@ export namespace Prisma {
     artistId?: boolean
     createdAt?: boolean
   }
+
 
   export type UserFollowsArtistsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -14032,7 +13825,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * UserFollowsArtists findUnique
    */
@@ -14042,7 +13834,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14050,7 +13842,6 @@ export namespace Prisma {
      */
     where: UserFollowsArtistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsArtists findUniqueOrThrow
@@ -14061,7 +13852,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14069,7 +13860,6 @@ export namespace Prisma {
      */
     where: UserFollowsArtistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsArtists findFirst
@@ -14080,7 +13870,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14118,7 +13908,6 @@ export namespace Prisma {
      */
     distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
-
 
   /**
    * UserFollowsArtists findFirstOrThrow
@@ -14129,7 +13918,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14168,7 +13957,6 @@ export namespace Prisma {
     distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
 
-
   /**
    * UserFollowsArtists findMany
    */
@@ -14178,7 +13966,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14212,7 +14000,6 @@ export namespace Prisma {
     distinct?: UserFollowsArtistsScalarFieldEnum | UserFollowsArtistsScalarFieldEnum[]
   }
 
-
   /**
    * UserFollowsArtists create
    */
@@ -14222,7 +14009,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14230,7 +14017,6 @@ export namespace Prisma {
      */
     data: XOR<UserFollowsArtistsCreateInput, UserFollowsArtistsUncheckedCreateInput>
   }
-
 
   /**
    * UserFollowsArtists createMany
@@ -14242,7 +14028,6 @@ export namespace Prisma {
     data: UserFollowsArtistsCreateManyInput | UserFollowsArtistsCreateManyInput[]
   }
 
-
   /**
    * UserFollowsArtists update
    */
@@ -14252,7 +14037,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14264,7 +14049,6 @@ export namespace Prisma {
      */
     where: UserFollowsArtistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsArtists updateMany
@@ -14280,7 +14064,6 @@ export namespace Prisma {
     where?: UserFollowsArtistsWhereInput
   }
 
-
   /**
    * UserFollowsArtists upsert
    */
@@ -14290,7 +14073,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14307,7 +14090,6 @@ export namespace Prisma {
     update: XOR<UserFollowsArtistsUpdateInput, UserFollowsArtistsUncheckedUpdateInput>
   }
 
-
   /**
    * UserFollowsArtists delete
    */
@@ -14317,7 +14099,7 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
     /**
@@ -14325,7 +14107,6 @@ export namespace Prisma {
      */
     where: UserFollowsArtistsWhereUniqueInput
   }
-
 
   /**
    * UserFollowsArtists deleteMany
@@ -14336,7 +14117,6 @@ export namespace Prisma {
      */
     where?: UserFollowsArtistsWhereInput
   }
-
 
   /**
    * UserFollowsArtists findRaw
@@ -14352,7 +14132,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFollowsArtists aggregateRaw
    */
@@ -14367,7 +14146,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserFollowsArtists without action
    */
@@ -14377,11 +14155,10 @@ export namespace Prisma {
      */
     select?: UserFollowsArtistsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserFollowsArtistsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -14550,6 +14327,7 @@ export namespace Prisma {
     albumId?: boolean
     createdAt?: boolean
   }
+
 
   export type UserLikedAlbumsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -15000,7 +14778,6 @@ export namespace Prisma {
     
 
   // Custom InputTypes
-
   /**
    * UserLikedAlbums findUnique
    */
@@ -15010,7 +14787,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15018,7 +14795,6 @@ export namespace Prisma {
      */
     where: UserLikedAlbumsWhereUniqueInput
   }
-
 
   /**
    * UserLikedAlbums findUniqueOrThrow
@@ -15029,7 +14805,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15037,7 +14813,6 @@ export namespace Prisma {
      */
     where: UserLikedAlbumsWhereUniqueInput
   }
-
 
   /**
    * UserLikedAlbums findFirst
@@ -15048,7 +14823,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15086,7 +14861,6 @@ export namespace Prisma {
      */
     distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
-
 
   /**
    * UserLikedAlbums findFirstOrThrow
@@ -15097,7 +14871,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15136,7 +14910,6 @@ export namespace Prisma {
     distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * UserLikedAlbums findMany
    */
@@ -15146,7 +14919,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15180,7 +14953,6 @@ export namespace Prisma {
     distinct?: UserLikedAlbumsScalarFieldEnum | UserLikedAlbumsScalarFieldEnum[]
   }
 
-
   /**
    * UserLikedAlbums create
    */
@@ -15190,7 +14962,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15198,7 +14970,6 @@ export namespace Prisma {
      */
     data: XOR<UserLikedAlbumsCreateInput, UserLikedAlbumsUncheckedCreateInput>
   }
-
 
   /**
    * UserLikedAlbums createMany
@@ -15210,7 +14981,6 @@ export namespace Prisma {
     data: UserLikedAlbumsCreateManyInput | UserLikedAlbumsCreateManyInput[]
   }
 
-
   /**
    * UserLikedAlbums update
    */
@@ -15220,7 +14990,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15232,7 +15002,6 @@ export namespace Prisma {
      */
     where: UserLikedAlbumsWhereUniqueInput
   }
-
 
   /**
    * UserLikedAlbums updateMany
@@ -15248,7 +15017,6 @@ export namespace Prisma {
     where?: UserLikedAlbumsWhereInput
   }
 
-
   /**
    * UserLikedAlbums upsert
    */
@@ -15258,7 +15026,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15275,7 +15043,6 @@ export namespace Prisma {
     update: XOR<UserLikedAlbumsUpdateInput, UserLikedAlbumsUncheckedUpdateInput>
   }
 
-
   /**
    * UserLikedAlbums delete
    */
@@ -15285,7 +15052,7 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
     /**
@@ -15293,7 +15060,6 @@ export namespace Prisma {
      */
     where: UserLikedAlbumsWhereUniqueInput
   }
-
 
   /**
    * UserLikedAlbums deleteMany
@@ -15304,7 +15070,6 @@ export namespace Prisma {
      */
     where?: UserLikedAlbumsWhereInput
   }
-
 
   /**
    * UserLikedAlbums findRaw
@@ -15320,7 +15085,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserLikedAlbums aggregateRaw
    */
@@ -15335,7 +15099,6 @@ export namespace Prisma {
     options?: InputJsonValue
   }
 
-
   /**
    * UserLikedAlbums without action
    */
@@ -15345,11 +15108,10 @@ export namespace Prisma {
      */
     select?: UserLikedAlbumsSelect<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well.
+     * Choose, which related nodes to fetch as well
      */
     include?: UserLikedAlbumsInclude<ExtArgs> | null
   }
-
 
 
   /**
@@ -15376,7 +15138,7 @@ export namespace Prisma {
     name: 'name',
     url: 'url',
     thumbnail: 'thumbnail',
-    genreId: 'genreId'
+    genreName: 'genreName'
   };
 
   export type TracksScalarFieldEnum = (typeof TracksScalarFieldEnum)[keyof typeof TracksScalarFieldEnum]
@@ -15659,7 +15421,7 @@ export namespace Prisma {
     name?: StringFilter<"Tracks"> | string
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
-    genreId?: StringFilter<"Tracks"> | string
+    genreName?: StringFilter<"Tracks"> | string
     artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
     album?: TracksOnAlbumsListRelationFilter
@@ -15672,7 +15434,7 @@ export namespace Prisma {
     name?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     artist?: ArtistsOnTracksOrderByRelationAggregateInput
     genre?: GenreOrderByWithRelationInput
     album?: TracksOnAlbumsOrderByRelationAggregateInput
@@ -15688,7 +15450,7 @@ export namespace Prisma {
     NOT?: TracksWhereInput | TracksWhereInput[]
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
-    genreId?: StringFilter<"Tracks"> | string
+    genreName?: StringFilter<"Tracks"> | string
     artist?: ArtistsOnTracksListRelationFilter
     genre?: XOR<GenreRelationFilter, GenreWhereInput>
     album?: TracksOnAlbumsListRelationFilter
@@ -15701,7 +15463,7 @@ export namespace Prisma {
     name?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
     _count?: TracksCountOrderByAggregateInput
     _max?: TracksMaxOrderByAggregateInput
     _min?: TracksMinOrderByAggregateInput
@@ -15715,7 +15477,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Tracks"> | string
     url?: StringWithAggregatesFilter<"Tracks"> | string
     thumbnail?: StringWithAggregatesFilter<"Tracks"> | string
-    genreId?: StringWithAggregatesFilter<"Tracks"> | string
+    genreName?: StringWithAggregatesFilter<"Tracks"> | string
   }
 
   export type AlbumsWhereInput = {
@@ -16438,7 +16200,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
@@ -16460,7 +16222,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
@@ -16472,7 +16234,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
   }
 
   export type TracksUpdateManyMutationInput = {
@@ -16485,7 +16247,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
   }
 
   export type AlbumsCreateInput = {
@@ -17196,7 +16958,7 @@ export namespace Prisma {
     name?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type TracksMaxOrderByAggregateInput = {
@@ -17204,7 +16966,7 @@ export namespace Prisma {
     name?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type TracksMinOrderByAggregateInput = {
@@ -17212,7 +16974,7 @@ export namespace Prisma {
     name?: SortOrder
     url?: SortOrder
     thumbnail?: SortOrder
-    genreId?: SortOrder
+    genreName?: SortOrder
   }
 
   export type ArtistsRelationFilter = {
@@ -19850,7 +19612,7 @@ export namespace Prisma {
     name?: StringFilter<"Tracks"> | string
     url?: StringFilter<"Tracks"> | string
     thumbnail?: StringFilter<"Tracks"> | string
-    genreId?: StringFilter<"Tracks"> | string
+    genreName?: StringFilter<"Tracks"> | string
   }
 
   export type ArtistsUpsertWithWhereUniqueWithoutGenreInput = {
@@ -19927,7 +19689,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -19996,7 +19758,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
@@ -20041,7 +19803,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -20104,7 +19866,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
@@ -20163,7 +19925,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     playlistConnections?: PlaylistToTrackUncheckedCreateNestedManyWithoutTrackInput
@@ -20240,7 +20002,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     playlistConnections?: PlaylistToTrackUncheckedUpdateManyWithoutTrackNestedInput
@@ -20285,7 +20047,7 @@ export namespace Prisma {
     name: string
     url: string
     thumbnail: string
-    genreId: string
+    genreName: string
     artist?: ArtistsOnTracksUncheckedCreateNestedManyWithoutTrackInput
     album?: TracksOnAlbumsUncheckedCreateNestedManyWithoutTrackInput
     favsOfUsers?: UserFavsTracksUncheckedCreateNestedManyWithoutTrackInput
@@ -20348,7 +20110,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     thumbnail?: StringFieldUpdateOperationsInput | string
-    genreId?: StringFieldUpdateOperationsInput | string
+    genreName?: StringFieldUpdateOperationsInput | string
     artist?: ArtistsOnTracksUncheckedUpdateManyWithoutTrackNestedInput
     album?: TracksOnAlbumsUncheckedUpdateManyWithoutTrackNestedInput
     favsOfUsers?: UserFavsTracksUncheckedUpdateManyWithoutTrackNestedInput
