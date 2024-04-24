@@ -20,15 +20,18 @@ const getArtists = async (req: Request, res: Response) => {
     }
 }
 
+
+//artistId viene undefined
 const getArtist = async (req: Request, res: Response) => {
     const { artistId } = req.params
-
+    console.log({ artistId })
     try {
         const selectedArtist = await prisma.artists.findUnique({
             where: {
                 id: artistId
             },
         });
+        console.log({ selectedArtist })
         if (!selectedArtist) {
             res.status(404).json({ message: "Artist not found" });
         }
@@ -36,14 +39,14 @@ const getArtist = async (req: Request, res: Response) => {
         res.status(200).send(selectedArtist);
 
     } catch (error) {
-        res.status(500).json({ message: "Internal server error" })
+        res.status(400).json(error)
     }
 }
 
 const createArtist = async (req: Request, res: Response) => {
     const { body } = req
     console.log('body', body)
-    const { email, name, image, password, description, genreName } = body
+    const { email, name, image, password, description, genre } = body
     try {
 
         const saltRounds = 10
@@ -53,12 +56,15 @@ const createArtist = async (req: Request, res: Response) => {
                 email,
                 name,
                 description,
-                genre: { connect: { id: genreName } },
+                genre: { connect: { name: genre } },
                 thumbnail: image,
                 password: passwordHash,
             }
         })
-        return res.send(newUser)
+        return res.send({
+            msg: "New artist created",
+            data: newUser
+        })
     } catch (error) {
         res.status(404).send(error)
     }

@@ -1,5 +1,6 @@
 import prisma from "../db/client.ts"
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 
 export const getUsers = async (req: Request, res: Response) => {
@@ -26,48 +27,33 @@ export const createUser = async (req: Request, res: Response) => {
             data: {
                 email,
                 name,
-                image,
+                image: image || "https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp",
                 password: passwordHash,
                 gender,
                 birthDate,
                 country
             }
         })
-        return res.send(newUser)
+        const userForToken = {
+            username: newUser.name,
+            id: newUser.id,
+        }
+
+        const token = jwt.sign(
+            userForToken,
+            process.env.SECRET!,
+            { expiresIn: 60 * 60 * 24 }
+        )
+        return res.status(201).send({ user: newUser, token: token })
     } catch (error) {
         res.status(404).send(error)
     }
 }
 
-export const updateUser = async (req: Request, res: Response) => {
-    const { body } = req
-    console.log('body', body)
-    const { email, name, image, password, gender, birthDate, country } = body
-    const user = await prisma.user.findUnique({
-        where: {
-            email
-        }
-    })
-    try {
+export const updateUser = () => {
 
-        const saltRounds = 10
-        const passwordHash = await bcrypt.hash(password, saltRounds)
-        const newUser = await prisma.user.update({
-            where: {
-                email
-            },
-            data: {
-                email: email || user?.email,
-                name: name || user?.name,
-                image: image || user?.image,
-                password: passwordHash || user?.password,
-                gender: gender || user?.gender,
-                birthDate: birthDate || user?.birthDate,
-                country: country || user?.country
-            }
-        })
-        return res.send(newUser)
-    } catch (error) {
-        res.status(404).send(error)
-    }
+}
+
+export const deleteUser = () => {
+
 }

@@ -2,9 +2,18 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const createTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreName, albumId } = req.body;
+    const { name, artistId, url, thumbnail, genreName, albumId } = req.body
 
     try {
+
+        const genre = await prisma.genre.findUnique({
+            where: { name: genreName }
+        })
+
+        if (!genre) {
+            return res.status(404).json({ message: 'Genre not found' })
+        }
+
         const newTrack = await prisma.tracks.create({
             data: {
                 name,
@@ -12,8 +21,10 @@ export const createTracks = async (req: Request, res: Response) => {
                 thumbnail,
                 genreName,
             }
-        });
-        console.log('New Track:', newTrack);
+        })
+
+        console.log('New Track:', newTrack)
+
         const artist = await prisma.artists.findUnique({
             where: { id: artistId }
         });
@@ -22,17 +33,13 @@ export const createTracks = async (req: Request, res: Response) => {
             return res.status(404).json({ message: 'Artist not found' });
         }
 
-        // Connect the new track to the artist's tracks
-        const updatedArtist = await prisma.artists.update({
-            where: { id: artistId },
+        await prisma.artistsOnTracks.create({
             data: {
-                tracks: {
-                    connect: { id: newTrack.id }
-                }
+                artistId,
+                trackId: newTrack.id
             }
         });
-        console.log('Updated Artist:', updatedArtist);
-        // Ensure that the album exists
+
         const album = await prisma.albums.findUnique({
             where: { id: albumId }
         });
@@ -41,43 +48,20 @@ export const createTracks = async (req: Request, res: Response) => {
             return res.status(404).json({ message: 'Album not found' });
         }
 
-        // Connect the new track to the album's tracks
-        await prisma.albums.update({
-            where: { id: albumId },
+        await prisma.tracksOnAlbums.create({
             data: {
-                tracks: {
-                    connect: { id: newTrack.id }
-                }
+                albumId,
+                trackId: newTrack.id
             }
         });
 
-        // Ensure that the genre exists
-        const genre = await prisma.genre.findUnique({
-            where: { id: genreName }
-        });
-
-        if (!genre) {
-            return res.status(404).json({ message: 'Genre not found' });
-        }
-
-        // Connect the new track to the genre's tracks
-        await prisma.genre.update({
-            where: { id: genreName },
-            data: {
-                tracks: {
-                    connect: { id: newTrack.id }
-                }
-            }
-        });
-
-        // Send the response with the created track
-        res.status(201).send(newTrack);
+        res.status(201).json(newTrack);
 
     } catch (error) {
         console.error('Error creating track:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-};
+}
 
 export const getAllTracks = async (req: Request, res: Response) => {
     try {
@@ -98,7 +82,7 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
     const artistId = req.params.artistId;
 
     try {
-        // Verify that the artist exists
+
         const artist = await prisma.artists.findUnique({
             where: { id: artistId }
         });
@@ -111,7 +95,7 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
             where: {
                 artist: {
                     some: {
-                        id: artistId
+                        artistId: artistId
                     }
                 }
             }
@@ -147,53 +131,29 @@ export const getTrack = async (req: Request, res: Response) => {
 };
 
 export const updateTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreName, albumId } = req.body
-    const { trackId } = req.params
+    const { name, artistId, url, thumbnail, genreName, albumId } = req.body;
+    const { trackId } = req.params;
 
     try {
         const updatedTrack = await prisma.tracks.update({
-            where: { id: trackId },
+            where: {
+                id: trackId
+            },
             data: {
                 name,
                 url,
                 thumbnail,
                 genreName,
-            }
-        });
+                album: albumId,
+                artist: artistId
+            },
+        })
 
-
-        await prisma.artists.update({
-            where: { id: artistId },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-
-        await prisma.albums.update({
-            where: { id: albumId },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-        await prisma.genre.update({
-            where: { id: genreName },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-        res.status(201).send(updatedTrack);
+        res.status(200).json(updatedTrack)
 
     } catch (error) {
-        res.status(500).json({ message: "Internal server error" })
+        console.error('Error updating track:', error)
+        res.status(500).json({ message: 'Internal server error' })
     }
 };
 
@@ -201,40 +161,31 @@ export const deleteTracks = async (req: Request, res: Response) => {
     const { trackId } = req.params
 
     try {
-        const deletedTrack = await prisma.tracks.delete({
-            where: {
-                id: trackId
-            }
-        })
-        await prisma.artists.update({
-            where: { id: deletedTrack.id },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+
+        const track = await prisma.tracks.findUnique({
+            where: { id: trackId },
         });
 
-        await prisma.albums.update({
-            where: { id: deletedTrack.id },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+        if (!track) {
+            return res.status(404).json({ message: `Track with ID ${trackId} not found` });
+        }
+
+        await prisma.artistsOnTracks.deleteMany({
+            where: { trackId },
         });
 
-        await prisma.genre.update({
-            where: { id: deletedTrack.genreName },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+        await prisma.tracksOnAlbums.deleteMany({
+            where: { trackId },
         });
+
+
+        await prisma.tracks.delete({
+            where: { id: trackId },
+        });
+
         res.status(201).json({ message: "Track deleted successfully" })
 
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-};
+}
