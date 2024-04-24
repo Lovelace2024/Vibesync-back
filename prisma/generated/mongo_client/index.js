@@ -1,3 +1,4 @@
+
 Object.defineProperty(exports, "__esModule", { value: true });
 
 const {
@@ -20,13 +21,14 @@ const {
   warnOnce,
   defineDmmfProperty,
   Public,
-  getRuntime,
-} = require("./runtime/library.js");
+  getRuntime
+} = require('./runtime/library.js')
 
-const Prisma = {};
 
-exports.Prisma = Prisma;
-exports.$Enums = {};
+const Prisma = {}
+
+exports.Prisma = Prisma
+exports.$Enums = {}
 
 /**
  * Prisma Client JS version: 5.12.1
@@ -34,270 +36,262 @@ exports.$Enums = {};
  */
 Prisma.prismaVersion = {
   client: "5.12.1",
-  engine: "473ed3124229e22d881cb7addf559799debae1ab",
-};
+  engine: "473ed3124229e22d881cb7addf559799debae1ab"
+}
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
-Prisma.PrismaClientUnknownRequestError = PrismaClientUnknownRequestError;
-Prisma.PrismaClientRustPanicError = PrismaClientRustPanicError;
-Prisma.PrismaClientInitializationError = PrismaClientInitializationError;
-Prisma.PrismaClientValidationError = PrismaClientValidationError;
-Prisma.NotFoundError = NotFoundError;
-Prisma.Decimal = Decimal;
+Prisma.PrismaClientUnknownRequestError = PrismaClientUnknownRequestError
+Prisma.PrismaClientRustPanicError = PrismaClientRustPanicError
+Prisma.PrismaClientInitializationError = PrismaClientInitializationError
+Prisma.PrismaClientValidationError = PrismaClientValidationError
+Prisma.NotFoundError = NotFoundError
+Prisma.Decimal = Decimal
 
 /**
  * Re-export of sql-template-tag
  */
-Prisma.sql = sqltag;
-Prisma.empty = empty;
-Prisma.join = join;
-Prisma.raw = raw;
-Prisma.validator = Public.validator;
+Prisma.sql = sqltag
+Prisma.empty = empty
+Prisma.join = join
+Prisma.raw = raw
+Prisma.validator = Public.validator
 
 /**
- * Extensions
- */
-Prisma.getExtensionContext = Extensions.getExtensionContext;
-Prisma.defineExtension = Extensions.defineExtension;
+* Extensions
+*/
+Prisma.getExtensionContext = Extensions.getExtensionContext
+Prisma.defineExtension = Extensions.defineExtension
 
 /**
  * Shorthand utilities for JSON filtering
  */
-Prisma.DbNull = objectEnumValues.instances.DbNull;
-Prisma.JsonNull = objectEnumValues.instances.JsonNull;
-Prisma.AnyNull = objectEnumValues.instances.AnyNull;
+Prisma.DbNull = objectEnumValues.instances.DbNull
+Prisma.JsonNull = objectEnumValues.instances.JsonNull
+Prisma.AnyNull = objectEnumValues.instances.AnyNull
 
 Prisma.NullTypes = {
   DbNull: objectEnumValues.classes.DbNull,
   JsonNull: objectEnumValues.classes.JsonNull,
-  AnyNull: objectEnumValues.classes.AnyNull,
-};
+  AnyNull: objectEnumValues.classes.AnyNull
+}
 
-const path = require("path");
+
+  const path = require('path')
 
 /**
  * Enums
  */
 exports.Prisma.UserScalarFieldEnum = {
-  id: "id",
-  email: "email",
-  password: "password",
-  image: "image",
-  role: "role",
-  name: "name",
-  gender: "gender",
-  birthDate: "birthDate",
-  country: "country",
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  image: 'image',
+  role: 'role',
+  name: 'name',
+  gender: 'gender',
+  birthDate: 'birthDate',
+  country: 'country'
 };
 
 exports.Prisma.TracksScalarFieldEnum = {
-  id: "id",
-  name: "name",
-  url: "url",
-  thumbnail: "thumbnail",
-  genreId: "genreId",
-  createdAt: "createdAt",
+  id: 'id',
+  name: 'name',
+  url: 'url',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.AlbumsScalarFieldEnum = {
-  id: "id",
-  name: "name",
-  artistId: "artistId",
-  thumbnail: "thumbnail",
-  genreId: "genreId",
+  id: 'id',
+  name: 'name',
+  artistId: 'artistId',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId'
 };
 
 exports.Prisma.PlaylistsScalarFieldEnum = {
-  id: "id",
-  name: "name",
-  thumbnail: "thumbnail",
-  publicAccess: "publicAccess",
-  userId: "userId",
+  id: 'id',
+  name: 'name',
+  thumbnail: 'thumbnail',
+  publicAccess: 'publicAccess',
+  userId: 'userId'
 };
 
 exports.Prisma.ArtistsScalarFieldEnum = {
-  id: "id",
-  name: "name",
-  email: "email",
-  password: "password",
-  thumbnail: "thumbnail",
-  genreId: "genreId",
-  description: "description",
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  thumbnail: 'thumbnail',
+  genreId: 'genreId',
+  description: 'description'
 };
 
 exports.Prisma.GenreScalarFieldEnum = {
-  id: "id",
-  name: "name",
+  id: 'id',
+  name: 'name'
 };
 
 exports.Prisma.ArtistsOnTracksScalarFieldEnum = {
-  id: "id",
-  artistId: "artistId",
-  trackId: "trackId",
+  id: 'id',
+  artistId: 'artistId',
+  trackId: 'trackId'
 };
 
 exports.Prisma.TracksOnAlbumsScalarFieldEnum = {
-  id: "id",
-  albumId: "albumId",
-  trackId: "trackId",
+  id: 'id',
+  albumId: 'albumId',
+  trackId: 'trackId'
 };
 
 exports.Prisma.UserFavsTracksScalarFieldEnum = {
-  id: "id",
-  userId: "userId",
-  trackId: "trackId",
-  createdAt: "createdAt",
+  id: 'id',
+  userId: 'userId',
+  trackId: 'trackId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.PlaylistToTrackScalarFieldEnum = {
-  id: "id",
-  playlistId: "playlistId",
-  trackId: "trackId",
+  id: 'id',
+  playlistId: 'playlistId',
+  trackId: 'trackId'
 };
 
 exports.Prisma.UserFollowsPlaylistsScalarFieldEnum = {
-  id: "id",
-  userId: "userId",
-  playlistId: "playlistId",
+  id: 'id',
+  userId: 'userId',
+  playlistId: 'playlistId'
 };
 
 exports.Prisma.UserFollowsArtistsScalarFieldEnum = {
-  id: "id",
-  userId: "userId",
-  artistId: "artistId",
-  createdAt: "createdAt",
+  id: 'id',
+  userId: 'userId',
+  artistId: 'artistId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.UserLikedAlbumsScalarFieldEnum = {
-  id: "id",
-  userId: "userId",
-  albumId: "albumId",
-  createdAt: "createdAt",
+  id: 'id',
+  userId: 'userId',
+  albumId: 'albumId',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
-  asc: "asc",
-  desc: "desc",
+  asc: 'asc',
+  desc: 'desc'
 };
 
 exports.Prisma.QueryMode = {
-  default: "default",
-  insensitive: "insensitive",
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
+
 exports.Prisma.ModelName = {
-  User: "User",
-  Tracks: "Tracks",
-  Albums: "Albums",
-  Playlists: "Playlists",
-  Artists: "Artists",
-  Genre: "Genre",
-  ArtistsOnTracks: "ArtistsOnTracks",
-  TracksOnAlbums: "TracksOnAlbums",
-  UserFavsTracks: "UserFavsTracks",
-  PlaylistToTrack: "PlaylistToTrack",
-  UserFollowsPlaylists: "UserFollowsPlaylists",
-  UserFollowsArtists: "UserFollowsArtists",
-  UserLikedAlbums: "UserLikedAlbums",
+  User: 'User',
+  Tracks: 'Tracks',
+  Albums: 'Albums',
+  Playlists: 'Playlists',
+  Artists: 'Artists',
+  Genre: 'Genre',
+  ArtistsOnTracks: 'ArtistsOnTracks',
+  TracksOnAlbums: 'TracksOnAlbums',
+  UserFavsTracks: 'UserFavsTracks',
+  PlaylistToTrack: 'PlaylistToTrack',
+  UserFollowsPlaylists: 'UserFollowsPlaylists',
+  UserFollowsArtists: 'UserFollowsArtists',
+  UserLikedAlbums: 'UserLikedAlbums'
 };
 /**
  * Create the Client
  */
 const config = {
-  generator: {
-    name: "client",
-    provider: {
-      fromEnvVar: null,
-      value: "prisma-client-js",
+  "generator": {
+    "name": "client",
+    "provider": {
+      "fromEnvVar": null,
+      "value": "prisma-client-js"
     },
-    output: {
-      value:
-        "C:\\Users\\EQUIPO\\Documents\\GitHub\\MovieHub-FullStack\\prisma\\generated\\mongo_client",
-      fromEnvVar: null,
+    "output": {
+      "value": "C:\\Users\\grube\\OneDrive\\Documentos\\apollofyBE\\MovieHub-FullStack\\prisma\\generated\\mongo_client",
+      "fromEnvVar": null
     },
-    config: {
-      engineType: "library",
+    "config": {
+      "engineType": "library"
     },
-    binaryTargets: [
+    "binaryTargets": [
       {
-        fromEnvVar: null,
-        value: "windows",
-        native: true,
-      },
+        "fromEnvVar": null,
+        "value": "windows",
+        "native": true
+      }
     ],
-    previewFeatures: [],
-    isCustomOutput: true,
+    "previewFeatures": [],
+    "isCustomOutput": true
   },
-  relativeEnvPaths: {
-    rootEnvPath: null,
-    schemaEnvPath: "../../../.env",
+  "relativeEnvPaths": {
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../../.env"
   },
-  relativePath: "../..",
-  clientVersion: "5.12.1",
-  engineVersion: "473ed3124229e22d881cb7addf559799debae1ab",
-  datasourceNames: ["db"],
-  activeProvider: "mongodb",
-  postinstall: false,
-  inlineDatasources: {
-    db: {
-      url: {
-        fromEnvVar: "DATABASE_URL",
-        value: null,
-      },
-    },
+  "relativePath": "../..",
+  "clientVersion": "5.12.1",
+  "engineVersion": "473ed3124229e22d881cb7addf559799debae1ab",
+  "datasourceNames": [
+    "db"
+  ],
+  "activeProvider": "mongodb",
+  "postinstall": false,
+  "inlineDatasources": {
+    "db": {
+      "url": {
+        "fromEnvVar": "DATABASE_URL",
+        "value": null
+      }
+    }
   },
-  inlineSchema:
-    '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider        = "prisma-client-js"\n  previewFeatures = []\n  output          = "./generated/mongo_client"\n}\n\ndatasource db {\n  provider = "mongodb"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id                String                 @id @default(auto()) @map("_id") @db.ObjectId\n  email             String                 @unique\n  password          String\n  image             String                 @default("https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp")\n  role              String                 @default("user")\n  name              String?\n  gender            String?\n  birthDate         String?\n  country           String?\n  likedAlbums       UserLikedAlbums[]\n  artistsFollowed   UserFollowsArtists[]\n  followedPlaylists UserFollowsPlaylists[]\n  createdPlaylists  Playlists[]\n  favTracks         UserFavsTracks[]\n}\n\nmodel Tracks {\n  id                  String            @id @default(auto()) @map("_id") @db.ObjectId\n  name                String            @unique\n  artist              ArtistsOnTracks[]\n  url                 String\n  thumbnail           String\n  genre               Genre             @relation(fields: [genreId], references: [id])\n  genreId             String            @db.ObjectId\n  album               TracksOnAlbums[]\n  playlistConnections PlaylistToTrack[]\n  favsOfUsers         UserFavsTracks[]\n  createdAt           DateTime          @default(now())\n}\n\nmodel Albums {\n  id           String            @id @default(auto()) @map("_id") @db.ObjectId\n  name         String\n  artist       Artists           @relation(fields: [artistId], references: [id])\n  artistId     String            @db.ObjectId\n  thumbnail    String\n  tracks       TracksOnAlbums[]\n  genre        Genre             @relation(fields: [genreId], references: [id])\n  genreId      String            @db.ObjectId\n  likedByUsers UserLikedAlbums[]\n}\n\nmodel Playlists {\n  id                String                 @id @default(auto()) @map("_id") @db.ObjectId\n  name              String                 @unique\n  thumbnail         String\n  publicAccess      Boolean                @default(true)\n  user              User                   @relation(fields: [userId], references: [id], onDelete: Cascade) //Who creates the Playlist\n  userId            String                 @db.ObjectId\n  followers         UserFollowsPlaylists[]\n  tracksConnections PlaylistToTrack[]\n}\n\nmodel Artists {\n  id          String               @id @default(auto()) @map("_id") @db.ObjectId\n  name        String               @unique\n  email       String               @unique\n  password    String\n  thumbnail   String               @default("https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp")\n  albums      Albums[]\n  tracks      ArtistsOnTracks[]\n  genre       Genre                @relation(fields: [genreId], references: [id])\n  genreId     String               @db.ObjectId\n  followers   UserFollowsArtists[]\n  description String?\n}\n\nmodel Genre {\n  id      String    @id @default(auto()) @map("_id") @db.ObjectId\n  name    String    @unique\n  albums  Albums[]\n  tracks  Tracks[]\n  artists Artists[]\n}\n\n// Intermediate tables\n\nmodel ArtistsOnTracks {\n  id       String  @id @default(auto()) @map("_id") @db.ObjectId\n  artist   Artists @relation(fields: [artistId], references: [id])\n  artistId String  @db.ObjectId\n  track    Tracks  @relation(fields: [trackId], references: [id])\n  trackId  String  @db.ObjectId\n\n  @@unique([artistId, trackId])\n}\n\nmodel TracksOnAlbums {\n  id      String @id @default(auto()) @map("_id") @db.ObjectId\n  album   Albums @relation(fields: [albumId], references: [id])\n  albumId String @db.ObjectId\n  track   Tracks @relation(fields: [trackId], references: [id])\n  trackId String @db.ObjectId\n\n  @@unique([albumId, trackId])\n}\n\nmodel UserFavsTracks {\n  id        String   @id @default(auto()) @map("_id") @db.ObjectId\n  userId    String   @db.ObjectId\n  user      User     @relation(fields: [userId], references: [id])\n  trackId   String   @db.ObjectId\n  track     Tracks   @relation(fields: [trackId], references: [id])\n  createdAt DateTime @default(now())\n\n  @@unique([userId, trackId])\n}\n\nmodel PlaylistToTrack {\n  id         String    @id @default(auto()) @map("_id") @db.ObjectId\n  playlistId String    @db.ObjectId\n  playlist   Playlists @relation(fields: [playlistId], references: [id])\n  trackId    String    @db.ObjectId\n  track      Tracks    @relation(fields: [trackId], references: [id])\n\n  @@unique([playlistId, trackId])\n}\n\nmodel UserFollowsPlaylists {\n  id         String    @id @default(auto()) @map("_id") @db.ObjectId\n  userId     String    @db.ObjectId\n  user       User      @relation(fields: [userId], references: [id])\n  playlistId String    @db.ObjectId\n  playlist   Playlists @relation(fields: [playlistId], references: [id])\n\n  @@unique([userId, playlistId])\n}\n\nmodel UserFollowsArtists {\n  id        String   @id @default(auto()) @map("_id") @db.ObjectId\n  userId    String   @db.ObjectId\n  user      User     @relation(fields: [userId], references: [id])\n  artistId  String   @db.ObjectId\n  artist    Artists  @relation(fields: [artistId], references: [id])\n  createdAt DateTime @default(now())\n\n  @@unique([userId, artistId])\n}\n\nmodel UserLikedAlbums {\n  id        String   @id @default(auto()) @map("_id") @db.ObjectId\n  userId    String   @db.ObjectId\n  user      User     @relation(fields: [userId], references: [id])\n  albumId   String   @db.ObjectId\n  album     Albums   @relation(fields: [albumId], references: [id])\n  createdAt DateTime @default(now())\n\n  @@unique([userId, albumId])\n}\n',
-  inlineSchemaHash:
-    "dbcc5773658b6414a09520618f456b0a92e76a3c88faf6aa23d1bf1149be3bfe",
-  copyEngine: true,
-};
+  "inlineSchema": "// This is your Prisma schema file,\r\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\r\n\r\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\r\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\r\n\r\ngenerator client {\r\n  provider        = \"prisma-client-js\"\r\n  previewFeatures = []\r\n  output          = \"./generated/mongo_client\"\r\n}\r\n\r\ndatasource db {\r\n  provider = \"mongodb\"\r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n  id                String                 @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  email             String                 @unique\r\n  password          String\r\n  image             String                 @default(\"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp\")\r\n  role              String                 @default(\"user\")\r\n  name              String?\r\n  gender            String?\r\n  birthDate         String?\r\n  country           String?\r\n  likedAlbums       UserLikedAlbums[]\r\n  artistsFollowed   UserFollowsArtists[]\r\n  followedPlaylists UserFollowsPlaylists[]\r\n  createdPlaylists  Playlists[]\r\n  favTracks         UserFavsTracks[]\r\n}\r\n\r\nmodel Tracks {\r\n  id                  String            @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  name                String            @unique\r\n  artist              ArtistsOnTracks[]\r\n  url                 String\r\n  thumbnail           String\r\n  genre               Genre             @relation(fields: [genreId], references: [id])\r\n  genreId             String            @db.ObjectId\r\n  album               TracksOnAlbums[]\r\n  playlistConnections PlaylistToTrack[]\r\n  favsOfUsers         UserFavsTracks[]\r\n  createdAt           DateTime          @default(now())\r\n}\r\n\r\nmodel Albums {\r\n  id           String            @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  name         String\r\n  artist       Artists           @relation(fields: [artistId], references: [id])\r\n  artistId     String            @db.ObjectId\r\n  thumbnail    String\r\n  tracks       TracksOnAlbums[]\r\n  genre        Genre             @relation(fields: [genreId], references: [id])\r\n  genreId      String            @db.ObjectId\r\n  likedByUsers UserLikedAlbums[]\r\n}\r\n\r\nmodel Playlists {\r\n  id                String                 @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  name              String                 @unique\r\n  thumbnail         String\r\n  publicAccess      Boolean                @default(true)\r\n  user              User                   @relation(fields: [userId], references: [id], onDelete: Cascade) //Who creates the Playlist\r\n  userId            String                 @db.ObjectId\r\n  followers         UserFollowsPlaylists[]\r\n  tracksConnections PlaylistToTrack[]\r\n}\r\n\r\nmodel Artists {\r\n  id          String               @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  name        String               @unique\r\n  email       String               @unique\r\n  password    String\r\n  thumbnail   String               @default(\"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp\")\r\n  albums      Albums[]\r\n  tracks      ArtistsOnTracks[]\r\n  genre       Genre                @relation(fields: [genreId], references: [id])\r\n  genreId     String               @db.ObjectId\r\n  followers   UserFollowsArtists[]\r\n  description String?\r\n}\r\n\r\nmodel Genre {\r\n  id      String    @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  name    String    @unique\r\n  albums  Albums[]\r\n  tracks  Tracks[]\r\n  artists Artists[]\r\n}\r\n\r\n// Intermediate tables\r\n\r\nmodel ArtistsOnTracks {\r\n  id       String  @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  artist   Artists @relation(fields: [artistId], references: [id])\r\n  artistId String  @db.ObjectId\r\n  track    Tracks  @relation(fields: [trackId], references: [id])\r\n  trackId  String  @db.ObjectId\r\n\r\n  @@unique([artistId, trackId])\r\n}\r\n\r\nmodel TracksOnAlbums {\r\n  id      String @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  album   Albums @relation(fields: [albumId], references: [id])\r\n  albumId String @db.ObjectId\r\n  track   Tracks @relation(fields: [trackId], references: [id])\r\n  trackId String @db.ObjectId\r\n\r\n  @@unique([albumId, trackId])\r\n}\r\n\r\nmodel UserFavsTracks {\r\n  id        String   @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  userId    String   @db.ObjectId\r\n  user      User     @relation(fields: [userId], references: [id])\r\n  trackId   String   @db.ObjectId\r\n  track     Tracks   @relation(fields: [trackId], references: [id])\r\n  createdAt DateTime @default(now())\r\n\r\n  @@unique([userId, trackId])\r\n}\r\n\r\nmodel PlaylistToTrack {\r\n  id         String    @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  playlistId String    @db.ObjectId\r\n  playlist   Playlists @relation(fields: [playlistId], references: [id])\r\n  trackId    String    @db.ObjectId\r\n  track      Tracks    @relation(fields: [trackId], references: [id])\r\n\r\n  @@unique([playlistId, trackId])\r\n}\r\n\r\nmodel UserFollowsPlaylists {\r\n  id         String    @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  userId     String    @db.ObjectId\r\n  user       User      @relation(fields: [userId], references: [id])\r\n  playlistId String    @db.ObjectId\r\n  playlist   Playlists @relation(fields: [playlistId], references: [id])\r\n\r\n  @@unique([userId, playlistId])\r\n}\r\n\r\nmodel UserFollowsArtists {\r\n  id        String   @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  userId    String   @db.ObjectId\r\n  user      User     @relation(fields: [userId], references: [id])\r\n  artistId  String   @db.ObjectId\r\n  artist    Artists  @relation(fields: [artistId], references: [id])\r\n  createdAt DateTime @default(now())\r\n\r\n  @@unique([userId, artistId])\r\n}\r\n\r\nmodel UserLikedAlbums {\r\n  id        String   @id @default(auto()) @map(\"_id\") @db.ObjectId\r\n  userId    String   @db.ObjectId\r\n  user      User     @relation(fields: [userId], references: [id])\r\n  albumId   String   @db.ObjectId\r\n  album     Albums   @relation(fields: [albumId], references: [id])\r\n  createdAt DateTime @default(now())\r\n\r\n  @@unique([userId, albumId])\r\n}\r\n",
+  "inlineSchemaHash": "14f2885785bb31e00dafe2792911e53ab61af864532cf230faa32a864e0c186b",
+  "copyEngine": true
+}
 
-const fs = require("fs");
+const fs = require('fs')
 
-config.dirname = __dirname;
-if (!fs.existsSync(path.join(__dirname, "schema.prisma"))) {
+config.dirname = __dirname
+if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
     "prisma/generated/mongo_client",
     "generated/mongo_client",
-  ];
+  ]
+  
+  const alternativePath = alternativePaths.find((altPath) => {
+    return fs.existsSync(path.join(process.cwd(), altPath, 'schema.prisma'))
+  }) ?? alternativePaths[0]
 
-  const alternativePath =
-    alternativePaths.find((altPath) => {
-      return fs.existsSync(path.join(process.cwd(), altPath, "schema.prisma"));
-    }) ?? alternativePaths[0];
-
-  config.dirname = path.join(process.cwd(), alternativePath);
-  config.isBundled = true;
+  config.dirname = path.join(process.cwd(), alternativePath)
+  config.isBundled = true
 }
 
-config.runtimeDataModel = JSON.parse(
-  '{"models":{"User":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"image","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp","isGenerated":false,"isUpdatedAt":false},{"name":"role","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":"user","isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"gender","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"birthDate","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"country","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"likedAlbums","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserLikedAlbums","relationName":"UserToUserLikedAlbums","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"artistsFollowed","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFollowsArtists","relationName":"UserToUserFollowsArtists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"followedPlaylists","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFollowsPlaylists","relationName":"UserToUserFollowsPlaylists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"createdPlaylists","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Playlists","relationName":"PlaylistsToUser","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"favTracks","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFavsTracks","relationName":"UserToUserFavsTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Tracks":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"artist","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"ArtistsOnTracks","relationName":"ArtistsOnTracksToTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"url","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"thumbnail","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"genre","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Genre","relationName":"GenreToTracks","relationFromFields":["genreId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"genreId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"album","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"TracksOnAlbums","relationName":"TracksToTracksOnAlbums","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"playlistConnections","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"PlaylistToTrack","relationName":"PlaylistToTrackToTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"favsOfUsers","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFavsTracks","relationName":"TracksToUserFavsTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Albums":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"artist","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Artists","relationName":"AlbumsToArtists","relationFromFields":["artistId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"artistId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"thumbnail","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"tracks","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"TracksOnAlbums","relationName":"AlbumsToTracksOnAlbums","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"genre","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Genre","relationName":"AlbumsToGenre","relationFromFields":["genreId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"genreId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"likedByUsers","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserLikedAlbums","relationName":"AlbumsToUserLikedAlbums","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Playlists":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"thumbnail","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"publicAccess","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"Boolean","default":true,"isGenerated":false,"isUpdatedAt":false},{"name":"user","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"PlaylistsToUser","relationFromFields":["userId"],"relationToFields":["id"],"relationOnDelete":"Cascade","isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"followers","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFollowsPlaylists","relationName":"PlaylistsToUserFollowsPlaylists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"tracksConnections","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"PlaylistToTrack","relationName":"PlaylistToTrackToPlaylists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Artists":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"thumbnail","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp","isGenerated":false,"isUpdatedAt":false},{"name":"albums","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Albums","relationName":"AlbumsToArtists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"tracks","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"ArtistsOnTracks","relationName":"ArtistsToArtistsOnTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"genre","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Genre","relationName":"ArtistsToGenre","relationFromFields":["genreId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"genreId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"followers","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"UserFollowsArtists","relationName":"ArtistsToUserFollowsArtists","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"description","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Genre":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"name","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"albums","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Albums","relationName":"AlbumsToGenre","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"tracks","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Tracks","relationName":"GenreToTracks","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false},{"name":"artists","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Artists","relationName":"ArtistsToGenre","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"ArtistsOnTracks":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"artist","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Artists","relationName":"ArtistsToArtistsOnTracks","relationFromFields":["artistId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"artistId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"track","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Tracks","relationName":"ArtistsOnTracksToTracks","relationFromFields":["trackId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"trackId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["artistId","trackId"]],"uniqueIndexes":[{"name":null,"fields":["artistId","trackId"]}],"isGenerated":false},"TracksOnAlbums":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"album","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Albums","relationName":"AlbumsToTracksOnAlbums","relationFromFields":["albumId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"albumId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"track","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Tracks","relationName":"TracksToTracksOnAlbums","relationFromFields":["trackId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"trackId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["albumId","trackId"]],"uniqueIndexes":[{"name":null,"fields":["albumId","trackId"]}],"isGenerated":false},"UserFavsTracks":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"user","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"UserToUserFavsTracks","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"trackId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"track","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Tracks","relationName":"TracksToUserFavsTracks","relationFromFields":["trackId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["userId","trackId"]],"uniqueIndexes":[{"name":null,"fields":["userId","trackId"]}],"isGenerated":false},"PlaylistToTrack":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"playlistId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"playlist","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Playlists","relationName":"PlaylistToTrackToPlaylists","relationFromFields":["playlistId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"trackId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"track","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Tracks","relationName":"PlaylistToTrackToTracks","relationFromFields":["trackId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["playlistId","trackId"]],"uniqueIndexes":[{"name":null,"fields":["playlistId","trackId"]}],"isGenerated":false},"UserFollowsPlaylists":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"user","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"UserToUserFollowsPlaylists","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"playlistId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"playlist","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Playlists","relationName":"PlaylistsToUserFollowsPlaylists","relationFromFields":["playlistId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["userId","playlistId"]],"uniqueIndexes":[{"name":null,"fields":["userId","playlistId"]}],"isGenerated":false},"UserFollowsArtists":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"user","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"UserToUserFollowsArtists","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"artistId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"artist","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Artists","relationName":"ArtistsToUserFollowsArtists","relationFromFields":["artistId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["userId","artistId"]],"uniqueIndexes":[{"name":null,"fields":["userId","artistId"]}],"isGenerated":false},"UserLikedAlbums":{"dbName":null,"fields":[{"name":"id","dbName":"_id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"auto","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"user","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"UserToUserLikedAlbums","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"albumId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"album","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Albums","relationName":"AlbumsToUserLikedAlbums","relationFromFields":["albumId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false},{"name":"createdAt","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"DateTime","default":{"name":"now","args":[]},"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[["userId","albumId"]],"uniqueIndexes":[{"name":null,"fields":["userId","albumId"]}],"isGenerated":false}},"enums":{},"types":{}}',
-);
-defineDmmfProperty(exports.Prisma, config.runtimeDataModel);
-config.engineWasm = undefined;
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"email\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"password\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"image\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":\"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"role\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":\"user\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"gender\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"birthDate\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"country\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"likedAlbums\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserLikedAlbums\",\"relationName\":\"UserToUserLikedAlbums\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artistsFollowed\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFollowsArtists\",\"relationName\":\"UserToUserFollowsArtists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"followedPlaylists\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFollowsPlaylists\",\"relationName\":\"UserToUserFollowsPlaylists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdPlaylists\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Playlists\",\"relationName\":\"PlaylistsToUser\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"favTracks\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFavsTracks\",\"relationName\":\"UserToUserFavsTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Tracks\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artist\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"ArtistsOnTracks\",\"relationName\":\"ArtistsOnTracksToTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"url\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"thumbnail\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genre\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Genre\",\"relationName\":\"GenreToTracks\",\"relationFromFields\":[\"genreId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genreId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"album\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"TracksOnAlbums\",\"relationName\":\"TracksToTracksOnAlbums\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"playlistConnections\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"PlaylistToTrack\",\"relationName\":\"PlaylistToTrackToTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"favsOfUsers\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFavsTracks\",\"relationName\":\"TracksToUserFavsTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Albums\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artist\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Artists\",\"relationName\":\"AlbumsToArtists\",\"relationFromFields\":[\"artistId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artistId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"thumbnail\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"tracks\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"TracksOnAlbums\",\"relationName\":\"AlbumsToTracksOnAlbums\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genre\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Genre\",\"relationName\":\"AlbumsToGenre\",\"relationFromFields\":[\"genreId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genreId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"likedByUsers\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserLikedAlbums\",\"relationName\":\"AlbumsToUserLikedAlbums\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Playlists\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"thumbnail\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"publicAccess\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"Boolean\",\"default\":true,\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"user\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"User\",\"relationName\":\"PlaylistsToUser\",\"relationFromFields\":[\"userId\"],\"relationToFields\":[\"id\"],\"relationOnDelete\":\"Cascade\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"userId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"followers\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFollowsPlaylists\",\"relationName\":\"PlaylistsToUserFollowsPlaylists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"tracksConnections\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"PlaylistToTrack\",\"relationName\":\"PlaylistToTrackToPlaylists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Artists\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"email\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"password\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"thumbnail\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":\"https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"albums\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Albums\",\"relationName\":\"AlbumsToArtists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"tracks\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"ArtistsOnTracks\",\"relationName\":\"ArtistsToArtistsOnTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genre\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Genre\",\"relationName\":\"ArtistsToGenre\",\"relationFromFields\":[\"genreId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"genreId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"followers\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"UserFollowsArtists\",\"relationName\":\"ArtistsToUserFollowsArtists\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"description\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":false,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"Genre\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"name\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":true,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"albums\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Albums\",\"relationName\":\"AlbumsToGenre\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"tracks\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Tracks\",\"relationName\":\"GenreToTracks\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artists\",\"kind\":\"object\",\"isList\":true,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Artists\",\"relationName\":\"ArtistsToGenre\",\"relationFromFields\":[],\"relationToFields\":[],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[],\"uniqueIndexes\":[],\"isGenerated\":false},\"ArtistsOnTracks\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artist\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Artists\",\"relationName\":\"ArtistsToArtistsOnTracks\",\"relationFromFields\":[\"artistId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artistId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"track\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Tracks\",\"relationName\":\"ArtistsOnTracksToTracks\",\"relationFromFields\":[\"trackId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"trackId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"artistId\",\"trackId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"artistId\",\"trackId\"]}],\"isGenerated\":false},\"TracksOnAlbums\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"album\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Albums\",\"relationName\":\"AlbumsToTracksOnAlbums\",\"relationFromFields\":[\"albumId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"albumId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"track\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Tracks\",\"relationName\":\"TracksToTracksOnAlbums\",\"relationFromFields\":[\"trackId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"trackId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"albumId\",\"trackId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"albumId\",\"trackId\"]}],\"isGenerated\":false},\"UserFavsTracks\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"userId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"user\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"User\",\"relationName\":\"UserToUserFavsTracks\",\"relationFromFields\":[\"userId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"trackId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"track\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Tracks\",\"relationName\":\"TracksToUserFavsTracks\",\"relationFromFields\":[\"trackId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"userId\",\"trackId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"userId\",\"trackId\"]}],\"isGenerated\":false},\"PlaylistToTrack\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"playlistId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"playlist\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Playlists\",\"relationName\":\"PlaylistToTrackToPlaylists\",\"relationFromFields\":[\"playlistId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"trackId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"track\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Tracks\",\"relationName\":\"PlaylistToTrackToTracks\",\"relationFromFields\":[\"trackId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"playlistId\",\"trackId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"playlistId\",\"trackId\"]}],\"isGenerated\":false},\"UserFollowsPlaylists\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"userId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"user\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"User\",\"relationName\":\"UserToUserFollowsPlaylists\",\"relationFromFields\":[\"userId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"playlistId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"playlist\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Playlists\",\"relationName\":\"PlaylistsToUserFollowsPlaylists\",\"relationFromFields\":[\"playlistId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"userId\",\"playlistId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"userId\",\"playlistId\"]}],\"isGenerated\":false},\"UserFollowsArtists\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"userId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"user\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"User\",\"relationName\":\"UserToUserFollowsArtists\",\"relationFromFields\":[\"userId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artistId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"artist\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Artists\",\"relationName\":\"ArtistsToUserFollowsArtists\",\"relationFromFields\":[\"artistId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"userId\",\"artistId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"userId\",\"artistId\"]}],\"isGenerated\":false},\"UserLikedAlbums\":{\"dbName\":null,\"fields\":[{\"name\":\"id\",\"dbName\":\"_id\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":true,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"String\",\"default\":{\"name\":\"auto\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"userId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"user\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"User\",\"relationName\":\"UserToUserLikedAlbums\",\"relationFromFields\":[\"userId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"albumId\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":true,\"hasDefaultValue\":false,\"type\":\"String\",\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"album\",\"kind\":\"object\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":false,\"type\":\"Albums\",\"relationName\":\"AlbumsToUserLikedAlbums\",\"relationFromFields\":[\"albumId\"],\"relationToFields\":[\"id\"],\"isGenerated\":false,\"isUpdatedAt\":false},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"isList\":false,\"isRequired\":true,\"isUnique\":false,\"isId\":false,\"isReadOnly\":false,\"hasDefaultValue\":true,\"type\":\"DateTime\",\"default\":{\"name\":\"now\",\"args\":[]},\"isGenerated\":false,\"isUpdatedAt\":false}],\"primaryKey\":null,\"uniqueFields\":[[\"userId\",\"albumId\"]],\"uniqueIndexes\":[{\"name\":null,\"fields\":[\"userId\",\"albumId\"]}],\"isGenerated\":false}},\"enums\":{},\"types\":{}}")
+defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
+config.engineWasm = undefined
 
-const { warnEnvConflicts } = require("./runtime/library.js");
+
+const { warnEnvConflicts } = require('./runtime/library.js')
 
 warnEnvConflicts({
-  rootEnvPath:
-    config.relativeEnvPaths.rootEnvPath &&
-    path.resolve(config.dirname, config.relativeEnvPaths.rootEnvPath),
-  schemaEnvPath:
-    config.relativeEnvPaths.schemaEnvPath &&
-    path.resolve(config.dirname, config.relativeEnvPaths.schemaEnvPath),
-});
+    rootEnvPath: config.relativeEnvPaths.rootEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.rootEnvPath),
+    schemaEnvPath: config.relativeEnvPaths.schemaEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.schemaEnvPath)
+})
 
-const PrismaClient = getPrismaClient(config);
-exports.PrismaClient = PrismaClient;
-Object.assign(exports, Prisma);
+const PrismaClient = getPrismaClient(config)
+exports.PrismaClient = PrismaClient
+Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(
-  process.cwd(),
-  "prisma/generated/mongo_client/query_engine-windows.dll.node",
-);
+path.join(process.cwd(), "prisma/generated/mongo_client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "prisma/generated/mongo_client/schema.prisma");
+path.join(process.cwd(), "prisma/generated/mongo_client/schema.prisma")
