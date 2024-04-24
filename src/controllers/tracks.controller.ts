@@ -79,7 +79,7 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
     const artistId = req.params.artistId;
     
     try {
-        // Verify that the artist exists
+    
         const artist = await prisma.artists.findUnique({
             where: { id: artistId}
         });
@@ -92,7 +92,7 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
             where: {
                 artist: {
                     some: {
-                        id: artistId
+                        artistId: artistId
                     }
                 }
             }
@@ -128,53 +128,29 @@ export const getTrack = async (req: Request, res: Response) => {
 };
 
 export const updateTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreName, albumId } = req.body
-    const { trackId } = req.params
+    const { name, artistId, url, thumbnail, genreName, albumId } = req.body;
+    const { trackId } = req.params;
 
     try {
         const updatedTrack = await prisma.tracks.update({
-            where: { id: trackId },
+            where: { 
+                id: trackId 
+            },
             data: {
                 name,
                 url,
                 thumbnail,
                 genreName,
-            }
-        });
+                album: albumId,
+                artist: artistId
+            },
+        })
 
-
-        await prisma.artists.update({
-            where: { id: artistId },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-
-        await prisma.albums.update({
-            where: { id: albumId },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-        await prisma.genre.update({
-            where: { id: genreId },
-            data: {
-                tracks: {
-                    connect: { id: trackId }
-                }
-            }
-        });
-
-        res.status(201).send(updatedTrack);
+        res.status(200).json(updatedTrack)
 
     } catch (error) {
-        res.status(500).json({ message: "Internal server error" })
+        console.error('Error updating track:', error)
+        res.status(500).json({ message: 'Internal server error' })
     }
 };
 
@@ -182,40 +158,34 @@ export const deleteTracks = async (req: Request, res: Response) => {
     const { trackId } = req.params
 
     try {
-        const deletedTrack = await prisma.tracks.delete({
-            where: {
-                id: trackId
-            }
-        })
-        await prisma.artists.update({
-            where: { id: deletedTrack.id },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+        // Check if the track exists
+        const track = await prisma.tracks.findUnique({
+            where: { id: trackId },
         });
 
-        await prisma.albums.update({
-            where: { id: deletedTrack.id },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+        if (!track) {
+            return res.status(404).json({ message: `Track with ID ${trackId} not found` });
+        }
+
+        // Delete related associations manually (if required)
+        // Delete relations from ArtistsOnTracks
+        await prisma.artistsOnTracks.deleteMany({
+            where: { trackId },
         });
 
-        await prisma.genre.update({
-            where: { id: deletedTrack.genreId },
-            data: {
-                tracks: {
-                    disconnect: { id: trackId }
-                }
-            }
+        // Delete relations from TracksOnAlbums
+        await prisma.tracksOnAlbums.deleteMany({
+            where: { trackId },
         });
+
+        // Finally, delete the track itself
+        await prisma.tracks.delete({
+            where: { id: trackId },
+        });
+
         res.status(201).json({ message: "Track deleted successfully" })
 
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-};
+}
