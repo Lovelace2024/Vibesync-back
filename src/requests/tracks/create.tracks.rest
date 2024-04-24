@@ -2,10 +2,10 @@ POST http://localhost:4001/api/tracks
 Content-Type: application/json
 
 {
-  "name": "Napoleón acompañado",
-  "artistId": "66269d466169ed0632cbffb7",
-  "url": "https://ejemplo.com/cancion_prueba.mp3",
-  "thumbnail": "https://ejemplo.com/thumbnail_prueba.jpg",
-  "genreId": "662686f5799bc34729abb02f",
-  "albumId": "6626a7314e8ed9b12e6d6e7d"
+  "name": "Tan solo",
+  "artistId": "66269d916169ed0632cbffb8",
+  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955112/Estopa/Tan_Solo_-_Estopa_qypwzt.mp3",
+  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713956761/track-img/sssdzzls1wzbcqcd37or.webp",
+  "genreName": "Flamenco",
+  "albumId": "6628f4246a25a097ebd07127"
 }
