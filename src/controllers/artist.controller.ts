@@ -1,5 +1,6 @@
 import prisma from "../db/client.ts"
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 
 const getArtists = async (req: Request, res: Response) => {
@@ -61,9 +62,19 @@ const createArtist = async (req: Request, res: Response) => {
                 password: passwordHash,
             }
         })
+        const userForToken = {
+            username: newUser.name,
+            id: newUser.id,
+        }
+
+        const token = jwt.sign(
+            userForToken,
+            process.env.SECRET!,
+            { expiresIn: 60 * 60 * 24 }
+        )
         return res.send({
-            msg: "New artist created",
-            data: newUser
+            token: token,
+            user: newUser
         })
     } catch (error) {
         res.status(404).send(error)
