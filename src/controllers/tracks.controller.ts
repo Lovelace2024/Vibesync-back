@@ -158,7 +158,7 @@ export const deleteTracks = async (req: Request, res: Response) => {
     const { trackId } = req.params
 
     try {
-        // Check if the track exists
+
         const track = await prisma.tracks.findUnique({
             where: { id: trackId },
         });
@@ -167,18 +167,15 @@ export const deleteTracks = async (req: Request, res: Response) => {
             return res.status(404).json({ message: `Track with ID ${trackId} not found` });
         }
 
-        // Delete related associations manually (if required)
-        // Delete relations from ArtistsOnTracks
         await prisma.artistsOnTracks.deleteMany({
             where: { trackId },
         });
 
-        // Delete relations from TracksOnAlbums
         await prisma.tracksOnAlbums.deleteMany({
             where: { trackId },
         });
 
-        // Finally, delete the track itself
+
         await prisma.tracks.delete({
             where: { id: trackId },
         });
