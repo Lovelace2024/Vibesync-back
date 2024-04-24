@@ -5,7 +5,7 @@ import { Router } from "express";
 const userRoutes: Router = Router()
 
 userRoutes.get("/users", getUsers)
-userRoutes.post("/users", authMiddleware, createUser)
+userRoutes.post("/users", createUser)
 userRoutes.patch("/users/:userId", updateUser)
 userRoutes.delete("/users/:userId", deleteUser)
 
