@@ -55,6 +55,9 @@ export const getAlbum = async (req: Request, res: Response) => {
             where: {
                 id: albumId
             },
+            include: {
+                tracks: true
+            }
         });
         if (!selectedAlbum) {
             res.status(404).json({ message: "Album not found" });
