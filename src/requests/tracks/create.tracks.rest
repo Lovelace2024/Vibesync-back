@@ -1,11 +1,11 @@
-POST http://localhost:4001/api/tracks
+POST http://localhost:3333/api/tracks
 Content-Type: application/json
 
 {
-  "name": "Napoleón acompañado",
+  "name": "Yikes",
   "artistId": "66269d466169ed0632cbffb7",
-  "url": "https://ejemplo.com/cancion_prueba.mp3",
+  "url": "https://res.cloudinary.com/dgtamgaup/video/upload/v1713954104/luntwgrfi3ywoirhovwb.mp3",
   "thumbnail": "https://ejemplo.com/thumbnail_prueba.jpg",
-  "genreId": "662686f5799bc34729abb02f",
+  "genreName": "Trap",
   "albumId": "6626a7314e8ed9b12e6d6e7d"
 }
