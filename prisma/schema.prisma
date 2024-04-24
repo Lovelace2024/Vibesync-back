@@ -39,7 +39,7 @@ model Tracks {
   url                 String
   thumbnail           String
   genre               Genre             @relation(fields: [genreName], references: [name])
-  genreName             String
+  genreName           String
   album               TracksOnAlbums[]
   playlistConnections PlaylistToTrack[]
   favsOfUsers         UserFavsTracks[]
