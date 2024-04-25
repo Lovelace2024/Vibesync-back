@@ -1,5 +1,5 @@
 import { authMiddleware } from "../middlewares/auth-middleware.ts";
-import { createUser, deleteUser, getUsers, updateUser, changePassword } from "../controllers/user.controller.ts"
+import { createUser, deleteUser, getUsers, updateUser } from "../controllers/user.controller.ts"
 import { Router } from "express";
 
 const userRoutes: Router = Router()
