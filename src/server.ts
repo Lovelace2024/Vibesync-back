@@ -10,7 +10,7 @@ import genreRoutes from './routes/genre.routes.ts'
 import tracksRoutes from './routes/tracks.routes.ts'
 import artistsRoutes from './routes/artists.routes.ts'
 import albumsRoutes from './routes/albums.routes.ts'
-
+import { redisClient } from './redisClient.ts'
 const app: Express = express()
 
 
@@ -25,6 +25,7 @@ app.use(express.json())
 app.use(cors({
     origin: "http://localhost:5173"
 }))
+
 
 app.use("/api", userRoutes)
 app.use("/api", loginRoutes)

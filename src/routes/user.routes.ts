@@ -5,8 +5,9 @@ import { Router } from "express";
 const userRoutes: Router = Router()
 
 userRoutes.get("/users", getUsers)
-userRoutes.post("/users", createUser)
+userRoutes.post("/users", authMiddleware, createUser)
 userRoutes.patch("/users/:userId", updateUser)
 userRoutes.delete("/users/:userId", deleteUser)
+userRoutes.patch("users/changepassword",)
 
 export default userRoutes
