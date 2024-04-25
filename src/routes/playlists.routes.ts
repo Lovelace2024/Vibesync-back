@@ -10,7 +10,7 @@ import {
     updatePlaylist
 } from "../controllers/playlists.controller.ts"
 
-const playlistsRoutes = Router()
+const playlistsRoutes:Router = Router()
 
 playlistsRoutes.post("/user/:userId/playlists", createPlaylist)
 playlistsRoutes.get("/user/:userId/playlists", getAllPlaylistsForUser)

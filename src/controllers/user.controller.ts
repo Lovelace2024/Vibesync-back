@@ -89,7 +89,7 @@ export const deleteUser = async(req: Request, res: Response) => {
         }
 
         for(const playlist of userWithPlaylists.createdPlaylists){
-          await prisma.playlists.deleteMany({
+          await prisma.userFollowsPlaylists.deleteMany({
             where: {
               id: playlist.id,
             },

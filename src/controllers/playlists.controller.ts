@@ -2,8 +2,7 @@ import { Request, Response } from "express"
 import prisma  from "../db/client.ts"
 
 export const createPlaylist = async (req: Request, res: Response) => {
-    const { name, thumbnail } = req.body;
-    const { userId } = req.params;
+    const { name, thumbnail, userId } = req.body;
       
     if (!name)  {
         return res.status(400).send({ error: 'Name is required' });
@@ -14,7 +13,7 @@ export const createPlaylist = async (req: Request, res: Response) => {
             data: {
               name,
               thumbnail: thumbnail || '',
-              userId, 
+              userId,
             },
         });
       
@@ -38,9 +37,9 @@ export const getAllPlaylists = async (req:Request, res:Response) => {
 }
 
 export const getAllPlaylistsForUser = async (req:Request, res:Response) => {
-    const { userId } = req.params
+    const { userId } = req.body
 
-    try { 
+    try {
         const allPlaylistsForUser = await prisma.playlists.findMany({
             where:{
                 userId:userId
@@ -56,7 +55,7 @@ export const getAllPlaylistsForUser = async (req:Request, res:Response) => {
 }
 
 export const getPlaylist = async (req:Request, res:Response) => {
-    const { playlistId } = req.params
+    const { playlistId } = req.body
 
     try {
         const selectedPlaylist = await prisma.playlists.findUnique({
@@ -76,8 +75,7 @@ export const getPlaylist = async (req:Request, res:Response) => {
 }
 
 export const updatePlaylist = async (req:Request, res:Response) => {
-    const { playlistId } = req.params
-    const { name, thumbnail } = req.body;
+    const { name, thumbnail, playlistId } = req.body;
 
     try {
         const updatedPlaylist = await prisma.playlists.update({
@@ -96,7 +94,7 @@ export const updatePlaylist = async (req:Request, res:Response) => {
 }
 
 export const deletePlaylist = async (req:Request, res:Response) => {
-    const { playlistId } = req.params
+    const { playlistId } = req.body
 
     try {
         const deletedPlaylist = await prisma.playlists.delete({
@@ -116,8 +114,7 @@ export const deletePlaylist = async (req:Request, res:Response) => {
 }
 
 export const addTrackToPlaylist = async (req:Request, res:Response) => {
-    const { trackId } = req.body
-    const { playlistId } = req.params
+    const { trackId, playlistId } = req.body
   
     try {
         const playlist = await prisma.playlists.findUnique({
@@ -166,8 +163,7 @@ export const addTrackToPlaylist = async (req:Request, res:Response) => {
 }
 
 export const removeTrackfromPlaylist = async (req:Request, res:Response) => {
-    const { trackId } = req.body
-    const { playlistId } = req.params
+    const { trackId, playlistId } = req.body
 
     try {
         const playlistToTrack = await prisma.playlistToTrack.findFirst({
