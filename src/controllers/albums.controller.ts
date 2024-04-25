@@ -5,7 +5,7 @@ import prisma from "../db/client.ts"
 export const addAlbum = async (req: Request, res: Response) => {
     const { name, thumbnail, genre, artist, tracks } = req.body
     try {
-        
+
         const newAlbum = await prisma.albums.create({
             data: {
                 name,
@@ -66,7 +66,7 @@ export const getAlbum = async (req: Request, res: Response) => {
         res.status(200).send({
             msg: "Selected Album",
             data: selectedAlbum
-          });
+        });
 
     } catch (error) {
         res.status(400).send(error)
@@ -78,7 +78,7 @@ export const updateAlbum = async (req: Request, res: Response) => {
     const { albumId } = req.params
     const { name, thumbnail, genre, artist, tracks } = req.body
 
-    if(!albumId) {
+    if (!albumId) {
         return res.status(400).send({
             msg: "The fiel albumId is required"
         })
@@ -135,7 +135,7 @@ export const updateAlbum = async (req: Request, res: Response) => {
 export const deleteAlbum = async (req: Request, res: Response) => {
     const { albumId } = req.params
 
-    if(!albumId){
+    if (!albumId) {
         return res.status(400).send({
             msg: "The field albumId is required"
         })
@@ -151,13 +151,13 @@ export const deleteAlbum = async (req: Request, res: Response) => {
             }
         })
 
-        if(!album){
+        if (!album) {
             return res.status(400).send({
                 msg: "Album not found"
             })
         }
 
-        const deletedAlbum = await prisma.$transaction(async(prisma)=> {
+        const deletedAlbum = await prisma.$transaction(async (prisma) => {
             await prisma.tracksOnAlbums.deleteMany({
                 where: {
                     albumId: albumId

@@ -4,16 +4,18 @@ import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 
 const getArtists = async (req: Request, res: Response) => {
+    console.log('req')
     try {
-        const accounts = await prisma.artists.findMany({
+        const artists = await prisma.artists.findMany({
             include: {
                 genre: true
             }
         })
-        if (!accounts) {
-            return res.status(404).send({ message: "Accounts not found" })
+        console.log('artists', artists)
+        if (!artists) {
+            return res.status(404).send({ message: "artists not found" })
         }
-        res.status(200).send(accounts);
+        res.status(200).send(artists);
     } catch (error) {
         res.status(404).send(error)
     }
@@ -23,14 +25,14 @@ const getArtists = async (req: Request, res: Response) => {
 //artistId viene undefined
 const getArtist = async (req: Request, res: Response) => {
     const { artistId } = req.params
-    console.log({artistId})
+    console.log({ artistId })
     try {
         const selectedArtist = await prisma.artists.findUnique({
             where: {
                 id: artistId
             },
         });
-        console.log({selectedArtist})
+        console.log({ selectedArtist })
         if (!selectedArtist) {
             res.status(404).json({ message: "Artist not found" });
         }
@@ -60,9 +62,19 @@ const createArtist = async (req: Request, res: Response) => {
                 password: passwordHash,
             }
         })
+        const userForToken = {
+            username: newUser.name,
+            id: newUser.id,
+        }
+
+        const token = jwt.sign(
+            userForToken,
+            process.env.SECRET!,
+            { expiresIn: 60 * 60 * 24 }
+        )
         return res.send({
-            msg: "New artist created",
-            data: newUser
+            token: token,
+            user: newUser
         })
     } catch (error) {
         res.status(404).send(error)
