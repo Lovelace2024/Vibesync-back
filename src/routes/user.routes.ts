@@ -6,7 +6,7 @@ const userRoutes: Router = Router()
 
 userRoutes.get("/users", getUsers)
 userRoutes.post("/users", createUser)
-userRoutes.patch("/users/:userId", updateUser)
-userRoutes.delete("/users/:userId", deleteUser)
+userRoutes.patch("/users", updateUser)
+userRoutes.delete("/users", deleteUser)
 
 export default userRoutes
