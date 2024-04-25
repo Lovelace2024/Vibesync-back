@@ -1,0 +1,2 @@
+GET http://localhost:4001/api/albums
+Content-Type: application/json
