@@ -5,5 +5,6 @@ package-lock.json
 .env.development
 .env.production
 tsconfig.tsbuildinfo
-.husky
 upload.bat
+build
+coverage
