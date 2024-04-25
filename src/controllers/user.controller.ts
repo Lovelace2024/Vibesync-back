@@ -5,11 +5,11 @@ import { Request, Response } from 'express'
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
-        const accounts = await prisma.user.findMany()
-        if (!accounts) {
+        const user = await prisma.user.findMany()
+        if (!user) {
             return res.status(404).send({ message: "Accounts not found" })
         }
-        res.status(200).send(accounts);
+        res.status(200).send(user);
     } catch (error) {
         res.status(404).send(error)
     }
@@ -27,20 +27,30 @@ export const createUser = async (req: Request, res: Response) => {
             data: {
                 email,
                 name,
-                image,
+                image: image || "https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp",
                 password: passwordHash,
                 gender,
                 birthDate,
                 country
             }
         })
-        return res.send(newUser)
+        const userForToken = {
+            username: newUser.name,
+            id: newUser.id,
+        }
+
+        const token = jwt.sign(
+            userForToken,
+            process.env.SECRET!,
+            { expiresIn: 60 * 60 * 24 }
+        )
+        return res.status(201).send({ user: newUser, token: token })
     } catch (error) {
         res.status(404).send(error)
     }
 }
 
-export const updateUser = () =>{
+export const updateUser = () => {
 
 }
 

@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 
 export const authMiddleware = (req: Request, res: Response, next: any) => {
     const authorization = req.get('authorization')
-    let token = null
+    let token: string | null = null
 
     if (authorization && authorization.toLowerCase().startsWith('bearer')) {
         token = authorization.substring(7)

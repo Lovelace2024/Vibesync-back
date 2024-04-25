@@ -5,7 +5,7 @@ export const createTracks = async (req: Request, res: Response) => {
     const { name, artistId, url, thumbnail, genreName, albumId } = req.body
 
     try {
-    
+
         const genre = await prisma.genre.findUnique({
             where: { name: genreName }
         })
@@ -65,23 +65,26 @@ export const createTracks = async (req: Request, res: Response) => {
 
 export const getAllTracks = async (req: Request, res: Response) => {
     try {
+        console.log('getAllTracks')
         const allTracks = await prisma.tracks.findMany()
-        if (!allTracks) {
+        // const allTracks = [1]
+        console.log('alltracks', allTracks)
+        if (!allTracks || allTracks?.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
         }
         res.status(200).send(allTracks)
     } catch (error) {
-        res.status(500).json(`Internal server error: ${error}`)
+        res.status(503).json(`Internal server error: ${error}`)
     }
 };
 
 export const getAllTracksByArtist = async (req: Request, res: Response) => {
     const artistId = req.params.artistId;
-    
+
     try {
-    
+
         const artist = await prisma.artists.findUnique({
-            where: { id: artistId}
+            where: { id: artistId }
         });
 
         if (!artist) {
@@ -100,9 +103,9 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
 
         if (tracks.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
-    }
+        }
 
-    res.status(200).json(tracks);
+        res.status(200).json(tracks);
     } catch (error) {
         console.error('Error fetching tracks:', error);
         res.status(500).json({ message: 'Internal server error' });
@@ -133,8 +136,8 @@ export const updateTracks = async (req: Request, res: Response) => {
 
     try {
         const updatedTrack = await prisma.tracks.update({
-            where: { 
-                id: trackId 
+            where: {
+                id: trackId
             },
             data: {
                 name,
