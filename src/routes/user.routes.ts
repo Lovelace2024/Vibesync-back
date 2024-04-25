@@ -8,6 +8,6 @@ userRoutes.get("/users", getUsers)
 userRoutes.post("/users", authMiddleware, createUser)
 userRoutes.patch("/users/:userId", updateUser)
 userRoutes.delete("/users/:userId", deleteUser)
-userRoutes.patch("users/changepassword", changePassword)
+userRoutes.patch("/changepassword", changePassword)
 
 export default userRoutes
