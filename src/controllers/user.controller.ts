@@ -82,5 +82,5 @@ export const changePassword = async (req: Request, res: Response) => {
             password: newPasswordHash
         }
     })
-    res.status(200).send({ message: "Password changed" })
+    res.status(200).send({ newPasswordHash: newPasswordHash })
 }
