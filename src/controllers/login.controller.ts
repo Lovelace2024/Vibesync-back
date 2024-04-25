@@ -55,9 +55,9 @@ async function loginUser(req: Request, res: Response) {
     try {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            maxAge: 2 * 60 * 60 / 1000,
+            maxAge: 70000,
             sameSite: 'lax',
-            // secure: true
+            secure: true
         })
     } catch (error) {
         console.log(error)
