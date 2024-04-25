@@ -10,6 +10,7 @@ import genreRoutes from './routes/genre.routes.ts'
 import tracksRoutes from './routes/tracks.routes.ts'
 import artistsRoutes from './routes/artists.routes.ts'
 import albumsRoutes from './routes/albums.routes.ts'
+import playlistsRoutes from './routes/playlists.routes.ts'
 
 const app: Express = express()
 
@@ -32,5 +33,7 @@ app.use("/api", artistsRoutes)
 app.use("/api", genreRoutes)
 app.use("/api", tracksRoutes)
 app.use("/api", albumsRoutes)
+app.use("/api", albumsRoutes)
+app.use("/api", playlistsRoutes)
 
 export default app
