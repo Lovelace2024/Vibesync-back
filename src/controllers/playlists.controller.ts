@@ -38,6 +38,23 @@ export const getAllPlaylists = async (req:Request, res:Response) => {
         res.status(500).json({message:"Internal server error"})
     }
 }
+export const getAllPlaylistsForUser = async (req:Request, res:Response) => {
+    const { userId } = req.params
+
+    try { 
+        const allPlaylistsForUser = await prisma.playlists.findMany({
+            where:{
+                userId:userId
+            }
+        })
+        if (!allPlaylistsForUser) {
+            res.status(404).json({message: "Playlist not found"})
+        }
+        res.status(200).send(allPlaylistsForUser)
+    } catch (error) {
+        res.status(500).json({message:"Internal server error"})
+    }
+}
 
 export const getPlaylist = async (req:Request, res:Response) => {
     const { playlistId } = req.params
