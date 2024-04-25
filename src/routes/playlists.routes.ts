@@ -1,5 +1,14 @@
 import { Router } from "express"
-import {  addTrackToPlaylist, createPlaylist, deletePlaylist, getAllPlaylists, getAllPlaylistsForUser, getPlaylist, removeTrackfromPlaylist, updatePlaylist } from "../controllers/playlists.controller.ts"
+import {
+    addTrackToPlaylist,
+    createPlaylist,
+    deletePlaylist,
+    getAllPlaylists,
+    getAllPlaylistsForUser,
+    getPlaylist,
+    removeTrackfromPlaylist,
+    updatePlaylist
+} from "../controllers/playlists.controller.ts"
 
 const playlistsRoutes = Router()
 
@@ -11,7 +20,5 @@ playlistsRoutes.patch("/user/:userId/playlists/:playlistId", updatePlaylist)
 playlistsRoutes.delete("/user/:userId/playlists/:playlistId", deletePlaylist)
 playlistsRoutes.post("/user/:userId/playlists/:playlistId/addTrack", addTrackToPlaylist)
 playlistsRoutes.delete("/user/:userId/playlists/:playlistId/removeTrack", removeTrackfromPlaylist)
-
-
 
 export default playlistsRoutes

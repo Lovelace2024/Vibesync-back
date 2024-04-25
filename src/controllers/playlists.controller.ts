@@ -1,16 +1,13 @@
 import { Request, Response } from "express"
 import prisma  from "../db/client.ts"
 
-
-
-
 export const createPlaylist = async (req: Request, res: Response) => {
     const { name, thumbnail } = req.body;
     const { userId } = req.params;
       
     if (!name)  {
-          return res.status(400).send({ error: 'Name is required' });
-        }
+        return res.status(400).send({ error: 'Name is required' });
+    }
       
     try {
         const newPlaylist = await prisma.playlists.create({
@@ -19,17 +16,18 @@ export const createPlaylist = async (req: Request, res: Response) => {
               thumbnail: thumbnail || '',
               userId, 
             },
-          });
+        });
       
-          res.status(201).send(newPlaylist);
-        } catch (error) {
-          console.error('Error creating playlist:', error);
-          res.status(500).send({ error: 'Failed to create playlist' });
-        }
-      };
+        res.status(201).send(newPlaylist);
+    } catch (error) {
+        console.error('Error creating playlist:', error);
+        res.status(500).send({ error: 'Failed to create playlist' });
+    }
+};
 
 export const getAllPlaylists = async (req:Request, res:Response) => {
-    try { const allPlaylists = await prisma.playlists.findMany()
+    try {
+        const allPlaylists = await prisma.playlists.findMany()
         if (!allPlaylists) {
             res.status(404).json({message: "Playlist not found"})
         }
@@ -38,6 +36,7 @@ export const getAllPlaylists = async (req:Request, res:Response) => {
         res.status(500).json({message:"Internal server error"})
     }
 }
+
 export const getAllPlaylistsForUser = async (req:Request, res:Response) => {
     const { userId } = req.params
 
@@ -121,7 +120,6 @@ export const addTrackToPlaylist = async (req:Request, res:Response) => {
     const { playlistId } = req.params
   
     try {
-        
         const playlist = await prisma.playlists.findUnique({
             where: { id: playlistId },
         })
@@ -149,7 +147,6 @@ export const addTrackToPlaylist = async (req:Request, res:Response) => {
             return res.status(400).json({ message: 'Track is already in the playlist' });
         }
 
-    
         const newPlaylistToTrack = await prisma.playlistToTrack.create({
             data: {
                 playlistId,
@@ -166,14 +163,13 @@ export const addTrackToPlaylist = async (req:Request, res:Response) => {
         console.error('Error adding track to playlist:', error)
         res.status(500).json({ message: 'Internal server error' })
     }
-  }
+}
 
 export const removeTrackfromPlaylist = async (req:Request, res:Response) => {
     const { trackId } = req.body
     const { playlistId } = req.params
 
     try {
-       
         const playlistToTrack = await prisma.playlistToTrack.findFirst({
             where: {
                 playlistId,
