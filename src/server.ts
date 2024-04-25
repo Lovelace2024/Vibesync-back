@@ -24,7 +24,8 @@ app.use(express.json())
 
 //conexion con el front
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: "http://localhost:5173",
+    credentials: true
 }))
 
 

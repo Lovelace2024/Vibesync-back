@@ -25,6 +25,7 @@ model User {
   gender            String?
   birthDate         String?
   country           String?
+  refreshToken      String?
   likedAlbums       UserLikedAlbums[]
   artistsFollowed   UserFollowsArtists[]
   followedPlaylists UserFollowsPlaylists[]
@@ -39,7 +40,7 @@ model Tracks {
   url                 String
   thumbnail           String
   genre               Genre             @relation(fields: [genreName], references: [name])
-  genreName             String
+  genreName           String
   album               TracksOnAlbums[]
   playlistConnections PlaylistToTrack[]
   favsOfUsers         UserFavsTracks[]
@@ -105,7 +106,7 @@ model ArtistsOnTracks {
 model TracksOnAlbums {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   album   Albums @relation(fields: [albumId], references: [id])
-  albumId String  @db.ObjectId
+  albumId String @db.ObjectId
   track   Tracks @relation(fields: [trackId], references: [id])
   trackId String @db.ObjectId
 
