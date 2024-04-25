@@ -117,3 +117,30 @@ export const deleteUser = async(req: Request, res: Response) => {
         res.status(400).send(error)
     }
 }
+
+export const changePassword = async (req: Request, res: Response) => {
+    const { body } = req
+    const { password, newPassword, userId } = body
+    const userFromDb = await prisma.user.findUnique({
+        where: {
+            id: userId
+        }
+    })
+    const passwordCorrect = bcrypt.compare(password, userFromDb!.password)
+
+    if (!passwordCorrect) {
+        return res.status(400).send({ error: 'Invalid old password' })
+    }
+
+    const newPasswordHash = await bcrypt.hash(newPassword, 10)
+
+    prisma.user.update({
+        where: {
+            id: userId
+        },
+        data: {
+            password: newPasswordHash
+        }
+    })
+    res.status(200).send({ message: "Password changed" })
+}
