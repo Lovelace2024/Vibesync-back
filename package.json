@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest login.test.ts --verbose --coverage --detectOpenHandles",
-    "generate-mongo": "pnpx prisma generate --schema=./prisma/schema.prisma"
+    "generate-mongo": "pnpx prisma generate --schema=./prisma/schema.prisma",
+    "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
@@ -50,7 +51,6 @@
   "dependencies": {
     "@prisma/adapter-pg": "5.13.0",
     "@prisma/client": "5.13.0",
-    "body-parser": "^1.20.2",
     "cloudinary": "^2.0.3",
     "esm-loader": "^0.1.0",
     "express": "^4.18.3",
@@ -63,6 +63,7 @@
     "pg": "^8.11.3",
     "pino": "^8.19.0",
     "pnpm": "^9.0.4",
+    "prettier": "^3.2.5",
     "redis": "^4.6.13",
     "response-time": "^2.3.2"
   }

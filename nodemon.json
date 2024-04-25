@@ -1,9 +1,7 @@
 {
-    "execMap": {
-        "ts": "node --loader ts-node/esm --experimental-specifier-resolution=node -r ts-node/register/transpile-only"
-    },
-    "watch": [
-        "src"
-    ],
-    "ext": "ts"
+  "execMap": {
+    "ts": "node --loader ts-node/esm --experimental-specifier-resolution=node -r ts-node/register/transpile-only"
+  },
+  "watch": ["src"],
+  "ext": "ts"
 }

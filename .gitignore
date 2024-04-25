@@ -7,3 +7,5 @@ package-lock.json
 tsconfig.tsbuildinfo
 .husky
 upload.bat
+build
+coverage
