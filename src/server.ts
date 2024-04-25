@@ -14,7 +14,6 @@ import playlistsRoutes from './routes/playlists.routes.ts'
 
 const app: Express = express()
 
-
 app.use(helmet())
 app.use(morgan('dev'))
 app.use(errorHandler)
@@ -27,13 +26,11 @@ app.use(cors({
     origin: "http://localhost:5173"
 }))
 
-
 app.use("/api", userRoutes)
 app.use("/api", loginRoutes)
 app.use("/api", artistsRoutes)
 app.use("/api", genreRoutes)
 app.use("/api", tracksRoutes)
-app.use("/api", albumsRoutes)
 app.use("/api", albumsRoutes)
 app.use("/api", playlistsRoutes)
 
