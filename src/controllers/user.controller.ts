@@ -72,12 +72,14 @@ export const changePassword = async (req: Request, res: Response) => {
         return res.status(400).send({ error: 'Invalid old password' })
     }
 
+    const newPasswordHash = await bcrypt.hash(newPassword, 10)
+
     prisma.user.update({
         where: {
             id: userId
         },
         data: {
-            password: newPassword
+            password: newPasswordHash
         }
     })
     res.status(200).send({ message: "Password changed" })
