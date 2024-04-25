@@ -9,7 +9,7 @@ playlistsRoutes.get("/user/:userId/playlists/:playlistId", getPlaylist)
 playlistsRoutes.patch("/user/:userId/playlists/:playlistId", updatePlaylist)
 playlistsRoutes.delete("/user/:userId/playlists/:playlistId", deletePlaylist)
 playlistsRoutes.post("/user/:userId/playlists/:playlistId/addTrack", addTrackToPlaylist)
-playlistsRoutes.delete("/user/:userId/playlist/:playlistId/removeTrack", removeTrackfromPlaylist)
+playlistsRoutes.delete("/user/:userId/playlists/:playlistId/removeTrack", removeTrackfromPlaylist)
 
 
 
