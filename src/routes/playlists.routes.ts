@@ -1,16 +1,7 @@
 import { Router } from "express"
-import {
-    addTrackToPlaylist,
-    createPlaylist,
-    deletePlaylist,
-    getAllPlaylists,
-    getAllPlaylistsForUser,
-    getPlaylist,
-    removeTrackfromPlaylist,
-    updatePlaylist
-} from "../controllers/playlists.controller.ts"
+import { addTrackToPlaylist, createPlaylist, deletePlaylist, getAllPlaylists, getAllPlaylistsForUser, getPlaylist, removeTrackfromPlaylist, updatePlaylist } from "../controllers/playlists.controller.ts"
 
-const playlistsRoutes:Router = Router()
+const playlistsRoutes: Router = Router()
 
 playlistsRoutes.post("/user/:userId/playlists", createPlaylist)
 playlistsRoutes.get("/user/:userId/playlists", getAllPlaylistsForUser)
