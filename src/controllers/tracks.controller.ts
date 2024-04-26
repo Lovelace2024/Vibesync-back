@@ -2,63 +2,79 @@ import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
 export const createTracks = async (req: Request, res: Response) => {
-    const { name, artistId, url, thumbnail, genreName, albumId } = req.body
-
     try {
+        const tracksData = req.body;
 
-        const genre = await prisma.genre.findUnique({
-            where: { name: genreName }
-        })
-
-        if (!genre) {
-            return res.status(404).json({ message: 'Genre not found' })
+        // MANEJO DE MÚLTIPLES PISTAS: VERIFICA QUE SE HAYAN PROPORCIONADO DATOS DE LAS PISTAS
+        if (!Array.isArray(tracksData) || tracksData.length === 0) {
+            return res.status(400).json({ message: 'No tracks data provided' });
         }
 
-        const newTrack = await prisma.tracks.create({
-            data: {
-                name,
-                url,
-                thumbnail,
-                genreName,
+        const createdTracks = [];
+
+        // ITERACIÓN SOBRE CADA OBJETO DE CANCIÓN EN EL ARRAY DE DATOS
+        for (const trackData of tracksData) {
+            const { name, artistId, url, thumbnail, genreName, albumId } = trackData;
+
+            // BUSCA EL GÉNERO
+            const genre = await prisma.genre.findUnique({
+                where: { name: genreName }
+            });
+
+            if (!genre) {
+                return res.status(404).json({ message: 'Genre not found' });
             }
-        })
 
-        console.log('New Track:', newTrack)
+            // CREA LA PISTA
+            const newTrack = await prisma.tracks.create({
+                data: {
+                    name,
+                    url,
+                    thumbnail,
+                    genreName,
+                }
+            });
 
-        const artist = await prisma.artists.findUnique({
-            where: { id: artistId }
-        });
+            // ASOCIA LA PISTA CON EL ARTISTA
+            const artist = await prisma.artists.findUnique({
+                where: { id: artistId }
+            });
 
-        if (!artist) {
-            return res.status(404).json({ message: 'Artist not found' });
+            if (!artist) {
+                return res.status(404).json({ message: 'Artist not found' });
+            }
+
+            await prisma.artistsOnTracks.create({
+                data: {
+                    artistId,
+                    trackId: newTrack.id
+                }
+            });
+
+            // ASOCIA LA PISTA CON EL ÁLBUM
+            const album = await prisma.albums.findUnique({
+                where: { id: albumId }
+            });
+
+            if (!album) {
+                return res.status(404).json({ message: 'Album not found' });
+            }
+
+            await prisma.tracksOnAlbums.create({
+                data: {
+                    albumId,
+                    trackId: newTrack.id
+                }
+            });
+
+            createdTracks.push(newTrack);
         }
 
-        await prisma.artistsOnTracks.create({
-            data: {
-                artistId,
-                trackId: newTrack.id
-            }
-        });
-
-        const album = await prisma.albums.findUnique({
-            where: { id: albumId }
-        });
-
-        if (!album) {
-            return res.status(404).json({ message: 'Album not found' });
-        }
-
-        await prisma.tracksOnAlbums.create({
-            data: {
-                albumId,
-                trackId: newTrack.id
-            }
-        });
-
-        res.status(201).json(newTrack);
+        // RESPUESTA CON TODAS LAS PISTAS CREADAS
+        res.status(201).json(createdTracks);
 
     } catch (error) {
-        console.error('Error creating track:', error);
+        console.error('Error creating tracks:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 }
