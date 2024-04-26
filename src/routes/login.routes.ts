@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { loginUser, handleRefreshToken } from "../controllers/login.controller.ts";
+import { loginUser, handleRefreshToken, validLogin } from "../controllers/login.controller.ts";
 
 const router: Router = Router();
 
 router.post("/login", loginUser);
-router.post("/refresh", handleRefreshToken);
+router.post("/login/valid", validLogin);
+router.get("/refresh", handleRefreshToken);
 
 export default router

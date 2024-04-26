@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import errorHandler from './middlewares/error.middleware.ts'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import userRoutes from './routes/user.routes.ts'
 import loginRoutes from './routes/login.routes.ts'
 import genreRoutes from './routes/genre.routes.ts'
@@ -20,6 +21,7 @@ app.use(errorHandler)
 app.use(responseTime())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
 
 //conexion con el front
 app.use(cors({
