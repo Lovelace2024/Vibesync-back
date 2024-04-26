@@ -113,14 +113,15 @@ async function handleRefreshToken(req: Request, res: Response) {
 async function validLogin(req: Request, res: Response) {
     const { body } = req
     const { token } = body
-    const decodedToken = token.substring(7)
+    const decodedToken = token?.substring(7)
     try {
         if (!process.env.SECRET) {
             throw new Error('Missing SECRET environment variable');
         }
-        const verify = jwt.verify(decodedToken, process.env.SECRET)
+        const verify = jwt.verify(decodedToken, process.env.SECRET!)
         res.send(200)
     } catch (error) {
+        console.log(error)
         res.send(401)
     }
 }
