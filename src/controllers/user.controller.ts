@@ -50,10 +50,96 @@ export const createUser = async (req: Request, res: Response) => {
     }
 }
 
-export const updateUser = () => {
+export const updateUser = async(req: Request, res: Response) => {
+    const { body } = req
+    const { email, gender, birthDate, country, userId } = body
+
+    try{
+        const userUpdated = await prisma.user.update({
+            where:{id:userId},
+            data:{email, gender, birthDate, country}
+          })
+          res.status(201).send({
+            msg: "User updated successfully",
+            data: userUpdated,
+            type: typeof userUpdated
+          })
+    }catch(error){
+        res.status(400).send(error)
+    }
 
 }
 
-export const deleteUser = () => {
+export const deleteUser = async(req: Request, res: Response) => {
+    const {userId} = req.body
+    try{
+        const userWithPlaylists = await prisma.user.findUnique({
+          where: {
+            id: userId,
+          },
+          include: {
+            createdPlaylists: true
+          }
+        })
 
+        if(!userWithPlaylists){
+          return res.status(404).send({
+            message: "User not found"
+          })
+        }
+
+        for(const playlist of userWithPlaylists.createdPlaylists){
+          await prisma.userFollowsPlaylists.deleteMany({
+            where: {
+              id: playlist.id,
+            },
+          });
+        }
+
+        const deletedPlaylists = await prisma.playlists.deleteMany({
+          where: {
+            id: userId
+          }
+        })
+
+        const deletedUser = await prisma.user.delete({
+          where: {
+            id: userId,
+          }
+        })
+        res.status(200).send({
+          message: "User deleted successfully",
+          data: {
+            deletedUser
+          }
+        })
+    }catch(error){
+        res.status(400).send(error)
+    }
+}
+
+export const changePassword = async (req: Request, res: Response) => {
+    const { password, newPassword, userId } = req.body
+    const userFromDb = await prisma.user.findUnique({
+        where: {
+            id: userId
+        }
+    })
+    const passwordCorrect = await bcrypt.compare(password, userFromDb!.password)
+    console.log(passwordCorrect)
+    if (!passwordCorrect) {
+        return res.status(400).send({ error: 'Invalid old password' })
+    }
+
+    const newPasswordHash = await bcrypt.hash(newPassword, 10)
+
+    await prisma.user.update({
+        where: {
+            id: userId
+        },
+        data: {
+            password: newPasswordHash
+        }
+    })
+    res.status(200).send({ newPasswordHash: newPasswordHash })
 }

@@ -121,7 +121,8 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   gender: 'gender',
   birthDate: 'birthDate',
-  country: 'country'
+  country: 'country',
+  refreshToken: 'refreshToken'
 };
 
 exports.Prisma.TracksScalarFieldEnum = {

@@ -2262,6 +2262,7 @@ export namespace Prisma {
     gender: string | null
     birthDate: string | null
     country: string | null
+    refreshToken: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2274,6 +2275,7 @@ export namespace Prisma {
     gender: string | null
     birthDate: string | null
     country: string | null
+    refreshToken: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2286,6 +2288,7 @@ export namespace Prisma {
     gender: number
     birthDate: number
     country: number
+    refreshToken: number
     _all: number
   }
 
@@ -2300,6 +2303,7 @@ export namespace Prisma {
     gender?: true
     birthDate?: true
     country?: true
+    refreshToken?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2312,6 +2316,7 @@ export namespace Prisma {
     gender?: true
     birthDate?: true
     country?: true
+    refreshToken?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2324,6 +2329,7 @@ export namespace Prisma {
     gender?: true
     birthDate?: true
     country?: true
+    refreshToken?: true
     _all?: true
   }
 
@@ -2409,6 +2415,7 @@ export namespace Prisma {
     gender: string | null
     birthDate: string | null
     country: string | null
+    refreshToken: string | null
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -2438,6 +2445,7 @@ export namespace Prisma {
     gender?: boolean
     birthDate?: boolean
     country?: boolean
+    refreshToken?: boolean
     likedAlbums?: boolean | User$likedAlbumsArgs<ExtArgs>
     artistsFollowed?: boolean | User$artistsFollowedArgs<ExtArgs>
     followedPlaylists?: boolean | User$followedPlaylistsArgs<ExtArgs>
@@ -2456,6 +2464,7 @@ export namespace Prisma {
     gender?: boolean
     birthDate?: boolean
     country?: boolean
+    refreshToken?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2487,6 +2496,7 @@ export namespace Prisma {
       gender: string | null
       birthDate: string | null
       country: string | null
+      refreshToken: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2926,6 +2936,7 @@ export namespace Prisma {
     readonly gender: FieldRef<"User", 'String'>
     readonly birthDate: FieldRef<"User", 'String'>
     readonly country: FieldRef<"User", 'String'>
+    readonly refreshToken: FieldRef<"User", 'String'>
   }
     
 
@@ -15365,7 +15376,8 @@ export namespace Prisma {
     name: 'name',
     gender: 'gender',
     birthDate: 'birthDate',
-    country: 'country'
+    country: 'country',
+    refreshToken: 'refreshToken'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -15577,6 +15589,7 @@ export namespace Prisma {
     gender?: StringNullableFilter<"User"> | string | null
     birthDate?: StringNullableFilter<"User"> | string | null
     country?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
     likedAlbums?: UserLikedAlbumsListRelationFilter
     artistsFollowed?: UserFollowsArtistsListRelationFilter
     followedPlaylists?: UserFollowsPlaylistsListRelationFilter
@@ -15594,6 +15607,7 @@ export namespace Prisma {
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
+    refreshToken?: SortOrder
     likedAlbums?: UserLikedAlbumsOrderByRelationAggregateInput
     artistsFollowed?: UserFollowsArtistsOrderByRelationAggregateInput
     followedPlaylists?: UserFollowsPlaylistsOrderByRelationAggregateInput
@@ -15614,6 +15628,7 @@ export namespace Prisma {
     gender?: StringNullableFilter<"User"> | string | null
     birthDate?: StringNullableFilter<"User"> | string | null
     country?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
     likedAlbums?: UserLikedAlbumsListRelationFilter
     artistsFollowed?: UserFollowsArtistsListRelationFilter
     followedPlaylists?: UserFollowsPlaylistsListRelationFilter
@@ -15631,6 +15646,7 @@ export namespace Prisma {
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
+    refreshToken?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -15649,6 +15665,7 @@ export namespace Prisma {
     gender?: StringNullableWithAggregatesFilter<"User"> | string | null
     birthDate?: StringNullableWithAggregatesFilter<"User"> | string | null
     country?: StringNullableWithAggregatesFilter<"User"> | string | null
+    refreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type TracksWhereInput = {
@@ -16331,6 +16348,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
@@ -16348,6 +16366,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -16364,6 +16383,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
@@ -16380,6 +16400,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
@@ -16397,6 +16418,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -16408,6 +16430,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -16419,6 +16442,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TracksCreateInput = {
@@ -17093,6 +17117,7 @@ export namespace Prisma {
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
+    refreshToken?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -17105,6 +17130,7 @@ export namespace Prisma {
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
+    refreshToken?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -17117,6 +17143,7 @@ export namespace Prisma {
     gender?: SortOrder
     birthDate?: SortOrder
     country?: SortOrder
+    refreshToken?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -19413,6 +19440,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
@@ -19429,6 +19457,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -19498,6 +19527,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
@@ -19513,6 +19543,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
@@ -20120,6 +20151,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
@@ -20136,6 +20168,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -20194,6 +20227,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
@@ -20209,6 +20243,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
@@ -20364,6 +20399,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
@@ -20380,6 +20416,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
     artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -20434,6 +20471,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
@@ -20449,6 +20487,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
     artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
@@ -20492,6 +20531,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
@@ -20508,6 +20548,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     likedAlbums?: UserLikedAlbumsUncheckedCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -20568,6 +20609,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
@@ -20583,6 +20625,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     likedAlbums?: UserLikedAlbumsUncheckedUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
@@ -20632,6 +20675,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     artistsFollowed?: UserFollowsArtistsCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsCreateNestedManyWithoutUserInput
@@ -20648,6 +20692,7 @@ export namespace Prisma {
     gender?: string | null
     birthDate?: string | null
     country?: string | null
+    refreshToken?: string | null
     artistsFollowed?: UserFollowsArtistsUncheckedCreateNestedManyWithoutUserInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedCreateNestedManyWithoutUserInput
     createdPlaylists?: PlaylistsUncheckedCreateNestedManyWithoutUserInput
@@ -20702,6 +20747,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     artistsFollowed?: UserFollowsArtistsUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUpdateManyWithoutUserNestedInput
@@ -20717,6 +20763,7 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     birthDate?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
     artistsFollowed?: UserFollowsArtistsUncheckedUpdateManyWithoutUserNestedInput
     followedPlaylists?: UserFollowsPlaylistsUncheckedUpdateManyWithoutUserNestedInput
     createdPlaylists?: PlaylistsUncheckedUpdateManyWithoutUserNestedInput
