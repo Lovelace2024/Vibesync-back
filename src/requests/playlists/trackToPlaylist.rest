@@ -1,0 +1,6 @@
+POST http://localhost:3333/api/user/:662b7633d4431dc3638e710e/playlists/662a89fd493d72fb9174c049/addtrack
+Content-Type: application/json
+
+{
+    "trackId":"662a4e6543684379e9208f7a"
+}
