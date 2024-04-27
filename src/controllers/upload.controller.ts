@@ -10,30 +10,7 @@ interface CustomRequest extends Request {
 }
 
 async function postFile(req: CustomRequest | Request, res: Response) {
-    const authorization = req.get('authorization')
-    let token = null
 
-    if (authorization && authorization.toLowerCase().startsWith('bearer')) {
-        token = authorization.substring(7)
-    }
-
-    let decodedToken = {}
-    if (!token) {
-        return res.status(401).json({ error: 'No hay token' });
-    }
-    try {
-        if (!process.env.SECRET) {
-            throw new Error('Missing SECRET environment variable');
-        }
-        decodedToken = jwt.verify(token, process.env.SECRET)
-    } catch (err) {
-        console.log(err)
-        return res.status(401).json({ error: 'token missing invalid' })
-    }
-
-    if (!decodedToken) {
-        return res.status(401).json({ error: 'decoded token missing' })
-    }
     try {
         const file = req.files?.file;
         if (!file) {

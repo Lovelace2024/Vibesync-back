@@ -5,7 +5,7 @@ import { getAllTracksByArtist } from "../controllers/tracks.controller.ts"
 
 const artistsRoutes: Router = Router()
 
-artistsRoutes.post("/artists", authMiddleware, createArtist)
+artistsRoutes.post("/artists", createArtist)
 artistsRoutes.get("/artists", authMiddleware, getArtists)
 artistsRoutes.get("/artists/:artistId/tracks", authMiddleware, getAllTracksByArtist)
 // artistsRoutes.get("/artists/:id", getArtist)
