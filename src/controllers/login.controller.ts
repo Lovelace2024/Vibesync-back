@@ -69,7 +69,7 @@ async function loginUser(req: Request, res: Response) {
     }
 
 
-    res.status(200).send({ accessToken, user: localUser })
+    res.status(200).send({ token: accessToken, user: localUser })
 }
 
 async function handleRefreshToken(req: Request, res: Response) {
