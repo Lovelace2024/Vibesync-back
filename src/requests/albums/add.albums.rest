@@ -1,0 +1,9 @@
+POST http://localhost:4001/api/albums
+Content-Type: application/json
+
+{
+  "name": "YE",
+  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
+  "genre": "Rap",
+  "artist": "Kanye West"
+}
