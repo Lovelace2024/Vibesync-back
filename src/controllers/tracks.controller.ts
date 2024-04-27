@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import prisma from "../db/client.ts"
+import { redisClient } from "../redisClient.ts";
 
 export const createTracks = async (req: Request, res: Response) => {
     try {
@@ -81,13 +82,24 @@ export const createTracks = async (req: Request, res: Response) => {
 
 export const getAllTracks = async (req: Request, res: Response) => {
     try {
+        const tracksInRedis = await redisClient.get('allTracks');
+        if (tracksInRedis) {
+            return res.status(200).send(JSON.parse(tracksInRedis));
+        }
         console.log('getAllTracks')
         const allTracks = await prisma.tracks.findMany()
-        // const allTracks = [1]
         console.log('alltracks', allTracks)
         if (!allTracks || allTracks?.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
         }
+
+        try {
+            await redisClient.set('allTracks', JSON.stringify(allTracks));
+            await redisClient.expire('allTracks', 60 * 60 * 8);
+        } catch (error) {
+
+        }
+
         res.status(200).send(allTracks)
     } catch (error) {
         res.status(503).json(`Internal server error: ${error}`)
