@@ -41,12 +41,12 @@ export const search = async (req: Request, res: Response) => {
             }
         })
 
-        const response = [
-            ...artistsResults,
-            ...traksResults,
-            ...genreResults,
-            ...albumsResults
-        ]
+        const response = {
+            artists: artistsResults,
+            tracks: traksResults,
+            genre: genreResults,
+            albums: albumsResults
+        }
        
         res.status(200).send(response)
 
