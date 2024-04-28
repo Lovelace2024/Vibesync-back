@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import prisma from "../db/client.ts"
+// import { redisClient } from "../redisClient.ts"
 
 //Para hacer el post hay que poner en el json genre y artist (no genreName y artistName)
 export const addAlbum = async (req: Request, res: Response) => {
@@ -32,6 +33,10 @@ export const addAlbum = async (req: Request, res: Response) => {
 
 export const getAllAlbums = async (req: Request, res: Response) => {
     try {
+        // const albumsInRedis = await redisClient.get("albums")
+        // if (albumsInRedis) {
+        //     return res.status(200).send(JSON.parse(albumsInRedis))
+        // }
         const allAlbums = await prisma.albums.findMany({
             include: {
                 tracks: true
@@ -40,8 +45,13 @@ export const getAllAlbums = async (req: Request, res: Response) => {
         if (!allAlbums) {
             res.status(404).json({ message: "No albums have been found" })
         }
+        // try {
+        //     await redisClient.set("albums", JSON.stringify(allAlbums))
+        //     await redisClient.expire("albums", 60 * 60 * 8)
+        // } catch (error) {
+        //     console.log(error)
+        // }
         res.status(200).send(allAlbums)
-
     } catch (error) {
         res.status(400).send(error)
     }
