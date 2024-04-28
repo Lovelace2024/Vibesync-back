@@ -4,6 +4,6 @@ import { search } from "../controllers/serach.controller.ts"
 
 const router: Router = Router()
 
-router.get("/search/:term", search)
+router.get("/search/:term", authMiddleware, search)
 
 export default router
