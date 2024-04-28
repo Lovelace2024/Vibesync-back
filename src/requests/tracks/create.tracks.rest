@@ -1,61 +1,18 @@
 POST http://localhost:4001/api/tracks
 Content-Type: application/json
 
-[
-  {
-  "name": "Ghost Town",
-  "artistId": "66269c946169ed0632cbffb3",
+{
+  "name": "Oliveira dos cen anos",
+  "artistId": "66269bac6169ed0632cbffb1",
   "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955111/YE/Ghost_Town_-_Kanye_West_rsk0in.mp3",
   "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
   "genreName": "Rap",
   "albumId": "662a4760ab15446287810c00"
-  },
-  {
-  "name": "I Thought About Killing You",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955111/YE/I_Thought_About_Killing_You_-_Kanye_West_is6wx0.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
-  },
-  {
-  "name": "No Mistakes",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955111/YE/No_Mistakes_-_Kanye_West_jwy9hk.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
-  },
-  {
-  "name": "All Mine",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955111/YE/All_Mine_-_Kanye_West_vaemel.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
-  },
-  {
-  "name": "Yikes",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955110/YE/Yikes_-_Kanye_West_hfvgwx.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
-  },
-  {
-  "name": "Violent Crimes",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955109/YE/Violent_Crimes_-_Kanye_West_lbycap.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
- },
- {
-  "name": "Wouldn't Leave",
-  "artistId": "66269c946169ed0632cbffb3",
-  "url": "https://res.cloudinary.com/dmyqjn66d/video/upload/v1713955111/YE/Wouldn_t_Leave_-_Kanye_West_e2zden.mp3",
-  "thumbnail": "https://res.cloudinary.com/dmyqjn66d/image/upload/v1713635011/track-img/faaj1abhsr8iwxkgax6v.jpg",
-  "genreName": "Rap",
-  "albumId": "662a4760ab15446287810c00"
- }
-]
+}
+
+
+// C. Tangana 66269bac6169ed0632cbffb1
+// Oliveira dos cen anos
+
+// Nebulossa
+// Zorra

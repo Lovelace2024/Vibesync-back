@@ -35,13 +35,13 @@ async function loginUser(req: Request, res: Response) {
     const accessToken = jwt.sign(
         userForToken,
         process.env.SECRET!,
-        { expiresIn: '1m' }
+        { expiresIn: '30s' }
     )
 
     const refreshToken = jwt.sign(
         userForToken,
         process.env.REFRESH_SECRET!,
-        { expiresIn: '2m' }
+        { expiresIn: '1h' }
     )
 
     await prisma.user.update({
@@ -55,7 +55,7 @@ async function loginUser(req: Request, res: Response) {
     try {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            maxAge: 70000,
+            maxAge: 1000000,
             sameSite: 'lax',
             secure: true
         })
@@ -63,12 +63,18 @@ async function loginUser(req: Request, res: Response) {
         console.log(error)
     }
 
-    res.status(200).send({ accessToken, user })
+    const localUser = {
+        ...user,
+        token: accessToken
+    }
+
+
+    res.status(200).send({ token: accessToken, user: localUser })
 }
 
 async function handleRefreshToken(req: Request, res: Response) {
     const token = req.cookies?.refreshToken
-
+    console.log('token', token)
     if (!token) {
         return res.status(401).json({ error: 'No token provided' })
     }
@@ -77,6 +83,8 @@ async function handleRefreshToken(req: Request, res: Response) {
     if (!verifiedToken) {
         return res.status(403).json({ error: 'Invalid token' })
     }
+
+    console.log('verified token', verifiedToken)
 
     const user = await prisma.user.findUnique({
         where: {
@@ -87,7 +95,6 @@ async function handleRefreshToken(req: Request, res: Response) {
     if (user?.refreshToken !== token) {
         return res.status(403).json({ error: 'Invalid token' })
     }
-
     const userForToken = {
         username: user?.name,
         id: user?.id,
@@ -98,9 +105,25 @@ async function handleRefreshToken(req: Request, res: Response) {
         process.env.SECRET!,
         { expiresIn: '1m' }
     )
-
+    console.log(accessToken)
     res.status(200).send({ accessToken })
 
 }
 
-export { loginUser, handleRefreshToken }
+async function validLogin(req: Request, res: Response) {
+    const { body } = req
+    const { token } = body
+    const decodedToken = token?.substring(7)
+    try {
+        if (!process.env.SECRET) {
+            throw new Error('Missing SECRET environment variable');
+        }
+        const verify = jwt.verify(decodedToken, process.env.SECRET!)
+        res.send(200)
+    } catch (error) {
+        console.log(error)
+        res.send(401)
+    }
+}
+
+export { loginUser, handleRefreshToken, validLogin }

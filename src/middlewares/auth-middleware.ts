@@ -8,8 +8,8 @@ export const authMiddleware = (req: Request, res: Response, next: any) => {
 
     if (authorization && authorization.toLowerCase().startsWith('bearer')) {
         token = authorization.substring(7)
+        token = authorization.split(' ')[2]
     }
-
     let decodedToken = {}
     if (!token) {
         return res.status(401).json({ error: 'No hay token' });
@@ -21,7 +21,7 @@ export const authMiddleware = (req: Request, res: Response, next: any) => {
         decodedToken = jwt.verify(token, process.env.SECRET)
     } catch (err) {
         console.log(err)
-        return res.status(401).json({ error: 'token missing blabla invalid' })
+        return res.status(401).json({ error: 'token missing or invalid' })
     }
 
     if (!decodedToken) {
