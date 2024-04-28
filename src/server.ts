@@ -14,6 +14,7 @@ import artistsRoutes from './routes/artists.routes.ts'
 import albumsRoutes from './routes/albums.routes.ts'
 import playlistsRoutes from './routes/playlists.routes.ts'
 import uploadRoutes from './routes/upload.routes.ts'
+import search from './routes/search.routes.ts'
 
 import { v2 as cloudinary } from 'cloudinary';
 cloudinary.config({
@@ -53,5 +54,6 @@ app.use("/api", tracksRoutes)
 app.use("/api", albumsRoutes)
 app.use("/api", playlistsRoutes)
 app.use('/api', uploadRoutes)
+app.use('/api', search)
 
 export default app
