@@ -1,6 +1,17 @@
-POST http://localhost:3333/api/user/:662b7633d4431dc3638e710e/playlists/662a89fd493d72fb9174c049/addtrack
+POST http://localhost:4001/api/user/662a8827493d72fb9174c045/playlists/662a89fd493d72fb9174c049/addtrack
 Content-Type: application/json
 
 {
-    "trackId":"662a4e6543684379e9208f7a"
+    "trackId":"662a4e6843684379e9208f86"
 }
+
+// User 662a8827493d72fb9174c045
+
+// Time to Workout 662a89fd493d72fb9174c049
+
+// Cacho a cacho 662a3e815d69a412b7ee3ba4
+// Como Camarón 662a41771ea07b79f8619eb5
+
+// No mistakes 662a4e6643684379e9208f7d
+// Yikes 662a4e6743684379e9208f83
+// Violent Crimes 662a4e6843684379e9208f86

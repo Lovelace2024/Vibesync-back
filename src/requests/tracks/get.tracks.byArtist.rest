@@ -1,1 +1,4 @@
-GET http://localhost:4001/artists/6620a1f68d608e08c155b547/tracks
+GET http://localhost:4001/tracks/66269c946169ed0632cbffb3
+
+
+// Kanye West 66269c946169ed0632cbffb3
