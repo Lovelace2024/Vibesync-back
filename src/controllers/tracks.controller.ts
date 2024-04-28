@@ -5,6 +5,7 @@ import prisma from "../db/client.ts"
 export const createTracks = async (req: Request, res: Response) => {
     try {
         const tracksData = req.body;
+        console.log(tracksData)
 
         // MANEJO DE MÚLTIPLES PISTAS: VERIFICA QUE SE HAYAN PROPORCIONADO DATOS DE LAS PISTAS
         if (!Array.isArray(tracksData) || tracksData.length === 0) {

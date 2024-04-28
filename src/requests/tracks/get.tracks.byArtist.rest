@@ -1,1 +1,0 @@
-GET http://localhost:4001/artists/6620a1f68d608e08c155b547/tracks
