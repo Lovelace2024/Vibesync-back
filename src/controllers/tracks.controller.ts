@@ -110,7 +110,6 @@ export const getAllTracksByArtist = async (req: Request, res: Response) => {
     const artistId = req.params.artistId;
 
     try {
-
         const artist = await prisma.artists.findUnique({
             where: { id: artistId }
         });
@@ -189,7 +188,6 @@ export const deleteTracks = async (req: Request, res: Response) => {
     const { trackId } = req.params
 
     try {
-
         const track = await prisma.tracks.findUnique({
             where: { id: trackId },
         });
@@ -205,7 +203,6 @@ export const deleteTracks = async (req: Request, res: Response) => {
         await prisma.tracksOnAlbums.deleteMany({
             where: { trackId },
         });
-
 
         await prisma.tracks.delete({
             where: { id: trackId },
