@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { authMiddleware } from "../middlewares/auth-middleware.ts"
-import { search } from "../controllers/serach.controller.ts"
+import { search } from "../controllers/search.controller.ts"
 
 const router: Router = Router()
 
