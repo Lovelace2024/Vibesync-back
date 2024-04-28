@@ -2,15 +2,15 @@ import prisma from "../db/client.ts"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
-import { redisClient } from "../redisClient.ts"
+// import { redisClient } from "../redisClient.ts"
 
 const getArtists = async (req: Request, res: Response) => {
     console.log('req')
     try {
-        const artistsInRedis = await redisClient.get('artists')
-        if (artistsInRedis) {
-            return res.status(200).send(JSON.parse(artistsInRedis));
-        }
+        // const artistsInRedis = await redisClient.get('artists')
+        // if (artistsInRedis) {
+        //     return res.status(200).send(JSON.parse(artistsInRedis));
+        // }
         const artists = await prisma.artists.findMany({
             include: {
                 genre: true
@@ -20,12 +20,12 @@ const getArtists = async (req: Request, res: Response) => {
         if (!artists) {
             return res.status(404).send({ message: "artists not found" })
         }
-        try {
-            await redisClient.set('artists', JSON.stringify(artists));
-            await redisClient.expire('artists', 60 * 60 * 8);
-        } catch (error) {
-
-        }
+        // try {
+        //     await redisClient.set('artists', JSON.stringify(artists));
+        //     await redisClient.expire('artists', 60 * 60 * 8);
+        // } catch (error) {
+        // console.log(error)
+        // }
         res.status(200).send(artists);
     } catch (error) {
         res.status(404).send(error)

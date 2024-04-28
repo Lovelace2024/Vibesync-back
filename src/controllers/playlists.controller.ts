@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import prisma from "../db/client.ts"
-import { redisClient } from "../redisClient.ts";
+// import { redisClient } from "../redisClient.ts";
 
 
 
@@ -31,10 +31,10 @@ export const createPlaylist = async (req: Request, res: Response) => {
 
 export const getAllPlaylists = async (req: Request, res: Response) => {
     try {
-        const playlistsInRedis = await redisClient.get("playlists")
-        if (playlistsInRedis) {
-            return res.status(200).send(JSON.parse(playlistsInRedis))
-        }
+        // const playlistsInRedis = await redisClient.get("playlists")
+        // if (playlistsInRedis) {
+        //     return res.status(200).send(JSON.parse(playlistsInRedis))
+        // }
         const allPlaylists = await prisma.playlists.findMany(
             {
                 include: {
@@ -45,12 +45,12 @@ export const getAllPlaylists = async (req: Request, res: Response) => {
         if (!allPlaylists) {
             res.status(404).json({ message: "Playlist not found" })
         }
-        try {
-            await redisClient.set("playlists", JSON.stringify(allPlaylists))
-            await redisClient.expire("playlists", 60 * 60 * 8)
-        } catch (error) {
-            console.log(error)
-        }
+        // try {
+        //     await redisClient.set("playlists", JSON.stringify(allPlaylists))
+        //     await redisClient.expire("playlists", 60 * 60 * 8)
+        // } catch (error) {
+        //     console.log(error)
+        // }
         res.status(200).send(allPlaylists)
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
