@@ -17,7 +17,6 @@ export const getUsers = async (req: Request, res: Response) => {
 
 export const createUser = async (req: Request, res: Response) => {
   const { body } = req
-  console.log('body', body)
   const { email, name, image, password, gender, birthDate, country } = body
   try {
 
@@ -155,7 +154,6 @@ export const changePassword = async (req: Request, res: Response) => {
     }
   })
   const passwordCorrect = await bcrypt.compare(password, userFromDb!.password)
-  console.log(passwordCorrect)
   if (!passwordCorrect) {
     return res.status(400).send({ error: 'Invalid old password' })
   }

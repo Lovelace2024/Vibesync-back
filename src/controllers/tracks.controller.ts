@@ -86,9 +86,7 @@ export const getAllTracks = async (req: Request, res: Response) => {
         // if (tracksInRedis) {
         //     return res.status(200).send(JSON.parse(tracksInRedis));
         // }
-        // console.log('getAllTracks')
         const allTracks = await prisma.tracks.findMany()
-        console.log('alltracks', allTracks)
         if (!allTracks || allTracks?.length === 0) {
             res.status(404).json({ message: "No tracks have been found" })
         }

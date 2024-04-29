@@ -74,7 +74,6 @@ async function loginUser(req: Request, res: Response) {
 
 async function handleRefreshToken(req: Request, res: Response) {
     const token = req.cookies?.refreshToken
-    console.log('token', token)
     if (!token) {
         return res.status(401).json({ error: 'No token provided' })
     }
@@ -84,7 +83,6 @@ async function handleRefreshToken(req: Request, res: Response) {
         return res.status(403).json({ error: 'Invalid token' })
     }
 
-    console.log('verified token', verifiedToken)
 
     const user = await prisma.user.findUnique({
         where: {
@@ -105,7 +103,6 @@ async function handleRefreshToken(req: Request, res: Response) {
         process.env.SECRET!,
         { expiresIn: '1m' }
     )
-    console.log(accessToken)
     res.status(200).send({ accessToken })
 
 }

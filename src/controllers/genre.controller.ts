@@ -1,38 +1,38 @@
 import { Request, Response } from "express"
 import prisma from "../db/client.ts"
 
-export const addGenre = async (req:Request, res:Response) => {
+export const addGenre = async (req: Request, res: Response) => {
     const { name } = req.body
-    console.log({name})
 
-    if(!name){
+    if (!name) {
         return res.status(400).send({
             msg: "Name is required"
         })
     }
 
-    try { 
+    try {
         const newGenre = await prisma.genre.create({
-        data:{ name}})
-        console.log(newGenre)
+            data: { name }
+        })
         res.status(201).send({
             msg: "New genre created",
             data: newGenre
         })
-        
+
     } catch (error) {
         res.status(404).send(error)
     }
 }
 
-export const getAllGenres = async (req:Request, res:Response) => {
-    try { const allGenres = await prisma.genre.findMany({
-        include:{
-            tracks:true,
-            albums: true,
-            // artists: true por ahora da error al pedir que incluya la info del artist
-        }
-    })
+export const getAllGenres = async (req: Request, res: Response) => {
+    try {
+        const allGenres = await prisma.genre.findMany({
+            include: {
+                tracks: true,
+                albums: true,
+                // artists: true por ahora da error al pedir que incluya la info del artist
+            }
+        })
         if (!allGenres) {
             res.status(404).send({ message: "Genres not found" });
         }
@@ -43,7 +43,7 @@ export const getAllGenres = async (req:Request, res:Response) => {
     }
 }
 
-export const updateGenre = async (req:Request, res:Response) => {
+export const updateGenre = async (req: Request, res: Response) => {
     const { name, tracks, artists, albums } = req.body;
     const { genreId } = req.params;
 
@@ -79,13 +79,13 @@ export const updateGenre = async (req:Request, res:Response) => {
     }
 }
 
-export const deleteGenre = async (req:Request, res:Response) => {
+export const deleteGenre = async (req: Request, res: Response) => {
     const { genreId } = req.params
 
     try {
         const deletedGenre = await prisma.genre.delete({
             where: {
-                id:genreId
+                id: genreId
             }
         });
 

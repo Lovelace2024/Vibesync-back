@@ -36,14 +36,12 @@ const getArtists = async (req: Request, res: Response) => {
 //artistId viene undefined
 const getArtist = async (req: Request, res: Response) => {
     const { artistId } = req.params
-    console.log({ artistId })
     try {
         const selectedArtist = await prisma.artists.findUnique({
             where: {
                 id: artistId
             },
         });
-        console.log({ selectedArtist })
         if (!selectedArtist) {
             res.status(404).json({ message: "Artist not found" });
         }
@@ -57,7 +55,6 @@ const getArtist = async (req: Request, res: Response) => {
 
 const createArtist = async (req: Request, res: Response) => {
     const { body } = req
-    console.log('body', body)
     const { email, name, image, password, description, genre } = body
     try {
 
