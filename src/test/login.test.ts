@@ -3,7 +3,7 @@ import request from "supertest";
 
 test('login', async () => {
     const mockRequest = {
-        body: { username: "user@example.com", password: "123456K*" }
+        body: { username: "user2@example.com", password: "123456K*" }
     }
     const login = await request(app).post('/api/login').send(mockRequest.body)
     console.log(login)
