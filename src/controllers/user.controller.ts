@@ -81,12 +81,12 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const updateUser = async (req: Request, res: Response) => {
   const { body } = req
-  const { email, gender, birthDate, country, userId } = body
+  const { email, name, gender, image, birthDate, country, userId } = body
 
   try {
     const userUpdated = await prisma.user.update({
       where: { id: userId },
-      data: { email, gender, birthDate, country }
+      data: { name, email, image: image || "https://res.cloudinary.com/dgtamgaup/image/upload/v1713780258/n2qkvc3jpgtfftcsxst8.webp", gender, birthDate, country }
     })
     res.status(201).send({
       msg: "User updated successfully",
