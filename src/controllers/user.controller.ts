@@ -42,7 +42,7 @@ export const createUser = async (req: Request, res: Response) => {
     const accessToken = jwt.sign(
       userForToken,
       process.env.SECRET!,
-      { expiresIn: '30s' }
+      { expiresIn: '2m' }
     )
 
     const refreshToken = jwt.sign(
@@ -62,9 +62,8 @@ export const createUser = async (req: Request, res: Response) => {
     try {
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
-        maxAge: 1000000,
-        sameSite: 'lax',
-        secure: true
+        maxAge: 100000,
+        sameSite: 'lax'
       })
     } catch (error) {
       console.log(error)
