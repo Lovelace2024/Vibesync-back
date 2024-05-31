@@ -1,5 +1,5 @@
 {
-  "name": "prisma-client-0a8f580390d539dbf44c4cefafe638b5cecd5271e3ee4a69739997c173f67f5e",
+  "name": "prisma-client-18d3cf74c596974f30c670a2997656de0fafa40fbdd0da711e036b4d8f13c8d8",
   "main": "index.js",
   "types": "index.d.ts",
   "browser": "index-browser.js",
@@ -29,6 +29,12 @@
       "require": "./edge.js",
       "import": "./edge.js",
       "default": "./edge.js"
+    },
+    "./react-native": {
+      "types": "./react-native.d.ts",
+      "require": "./react-native.js",
+      "import": "./react-native.js",
+      "default": "./react-native.js"
     },
     "./extension": {
       "types": "./extension.d.ts",
@@ -73,6 +79,6 @@
     },
     "./*": "./*"
   },
-  "version": "5.12.1",
+  "version": "5.13.0",
   "sideEffects": false
 }
