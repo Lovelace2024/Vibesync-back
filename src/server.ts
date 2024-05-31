@@ -33,8 +33,8 @@ app.use(cookieParser())
 
 //conexion con el front
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    // origin: "http://localhost:5173",
+    // credentials: true
 }))
 
 app.use(fileUpload({
